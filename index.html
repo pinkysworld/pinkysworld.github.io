@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Michél Nguyen — Researcher &amp; Engineer</title>
+<meta name="description" content="Academic portfolio of Michél Nguyen — Independent researcher in computer science, database systems, theoretical physics, and software engineering.">
+<link rel="canonical" href="https://minh.systems/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0a0a0f;--bg2:#12121a;--bg3:#1a1a26;--bg4:#22222e;
+  --fg:#e8e8f0;--fg2:#a0a0b8;--fg3:#707088;
+  --accent:#6c8cff;--accent2:#8fadff;--accent-glow:rgba(108,140,255,.12);
+  --green:#4ade80;--amber:#fbbf24;--rose:#f472b6;--cyan:#22d3ee;
+  --radius:12px;--radius-sm:8px;
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{background:var(--bg);color:var(--fg);font-family:'Inter',system-ui,sans-serif;line-height:1.7;overflow-x:hidden}
+a{color:var(--accent2);text-decoration:none;transition:color .2s}
+a:hover{color:#fff}
+code{font-family:'JetBrains Mono',monospace;font-size:.85em;background:var(--bg3);padding:2px 6px;border-radius:4px}
+
+/* ─── HERO ─── */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 40%,rgba(108,140,255,.08),transparent 70%)}
+.hero-grid{position:absolute;inset:0;background-image:
+  linear-gradient(rgba(108,140,255,.04) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(108,140,255,.04) 1px,transparent 1px);
+  background-size:60px 60px;mask-image:radial-gradient(ellipse 70% 50% at 50% 50%,#000 20%,transparent 80%)}
+.hero-content{position:relative;text-align:center;max-width:800px;padding:2rem}
+.hero h1{font-size:clamp(2.4rem,5vw,4rem);font-weight:700;letter-spacing:-.03em;line-height:1.15;margin-bottom:.5rem}
+.hero h1 span{background:linear-gradient(135deg,var(--accent),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero .subtitle{font-size:1.15rem;color:var(--fg2);margin-bottom:1.5rem;font-weight:300}
+.hero .ids{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:2rem}
+.hero .ids a{display:inline-flex;align-items:center;gap:.4rem;font-size:.85rem;padding:.4rem .9rem;background:var(--bg3);border:1px solid var(--bg4);border-radius:99px;color:var(--fg2);transition:all .2s}
+.hero .ids a:hover{background:var(--accent-glow);border-color:var(--accent);color:var(--fg)}
+.hero .ids svg{width:16px;height:16px}
+
+/* ─── NAV ─── */
+nav{position:sticky;top:0;z-index:100;background:rgba(10,10,15,.85);backdrop-filter:blur(16px);border-bottom:1px solid var(--bg3)}
+nav .inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:.75rem 2rem}
+nav .logo{font-weight:700;font-size:1rem;letter-spacing:-.02em}
+nav .logo span{color:var(--accent)}
+nav .links{display:flex;gap:1.5rem}
+nav .links a{font-size:.85rem;color:var(--fg2);font-weight:500;transition:color .2s}
+nav .links a:hover{color:var(--fg)}
+
+/* ─── SECTIONS ─── */
+section{max-width:1200px;margin:0 auto;padding:5rem 2rem}
+.section-label{font-size:.75rem;text-transform:uppercase;letter-spacing:.15em;color:var(--accent);font-weight:600;margin-bottom:.5rem}
+.section-title{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;letter-spacing:-.02em;margin-bottom:1rem}
+.section-desc{color:var(--fg2);max-width:640px;margin-bottom:3rem}
+
+/* ─── PROJECT CARDS ─── */
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:1.5rem}
+.pcard{background:var(--bg2);border:1px solid var(--bg3);border-radius:var(--radius);padding:1.75rem;transition:all .3s;position:relative;overflow:hidden}
+.pcard:hover{border-color:var(--accent);transform:translateY(-4px);box-shadow:0 12px 40px rgba(108,140,255,.08)}
+.pcard .badge{position:absolute;top:1rem;right:1rem;font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;padding:.25rem .6rem;border-radius:99px;font-weight:600}
+.pcard .badge.research{background:rgba(108,140,255,.15);color:var(--accent2)}
+.pcard .badge.app{background:rgba(74,222,128,.12);color:var(--green)}
+.pcard .badge.game{background:rgba(244,114,182,.12);color:var(--rose)}
+.pcard .badge.tool{background:rgba(251,191,36,.12);color:var(--amber)}
+.pcard h3{font-size:1.2rem;font-weight:600;margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem}
+.pcard .tech{font-size:.7rem;color:var(--fg3);margin-bottom:.75rem;text-transform:uppercase;letter-spacing:.08em}
+.pcard p{color:var(--fg2);font-size:.9rem;line-height:1.6;margin-bottom:1rem}
+.pcard .link{font-size:.8rem;font-weight:600;display:inline-flex;align-items:center;gap:.3rem}
+.pcard .link::after{content:'→';transition:transform .2s}
+.pcard:hover .link::after{transform:translateX(3px)}
+
+/* ─── PUBLICATIONS ─── */
+.pub-list{display:flex;flex-direction:column;gap:1rem}
+.pub{background:var(--bg2);border:1px solid var(--bg3);border-radius:var(--radius-sm);padding:1.25rem 1.5rem;transition:border-color .2s}
+.pub:hover{border-color:var(--bg4)}
+.pub .pub-type{font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;font-weight:600;margin-bottom:.4rem}
+.pub .pub-type.journal{color:var(--accent)}
+.pub .pub-type.preprint{color:var(--amber)}
+.pub .pub-type.book{color:var(--rose)}
+.pub .pub-type.software{color:var(--green)}
+.pub h4{font-size:.95rem;font-weight:600;margin-bottom:.3rem;line-height:1.4}
+.pub .pub-meta{font-size:.8rem;color:var(--fg3)}
+.pub .pub-meta a{color:var(--fg2)}
+
+/* ─── SKILLS ─── */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.25rem}
+.skill-card{background:var(--bg2);border:1px solid var(--bg3);border-radius:var(--radius-sm);padding:1.25rem 1.5rem}
+.skill-card h4{font-size:.9rem;font-weight:600;margin-bottom:.6rem;color:var(--accent2)}
+.skill-card ul{list-style:none;display:flex;flex-wrap:wrap;gap:.4rem}
+.skill-card li{font-size:.78rem;background:var(--bg3);color:var(--fg2);padding:.25rem .6rem;border-radius:99px}
+
+/* ─── EDUCATION ─── */
+.edu-list{display:flex;flex-direction:column;gap:1rem}
+.edu{background:var(--bg2);border:1px solid var(--bg3);border-radius:var(--radius-sm);padding:1.25rem 1.5rem;display:flex;gap:1.25rem;align-items:flex-start}
+.edu .year{font-size:.8rem;color:var(--accent);font-weight:600;white-space:nowrap;min-width:90px;padding-top:.15rem}
+.edu h4{font-size:.95rem;font-weight:600;margin-bottom:.2rem}
+.edu .inst{font-size:.85rem;color:var(--fg2)}
+.edu .note{font-size:.8rem;color:var(--fg3);margin-top:.2rem}
+
+/* ─── FOOTER ─── */
+footer{border-top:1px solid var(--bg3);text-align:center;padding:3rem 2rem;color:var(--fg3);font-size:.8rem}
+footer a{color:var(--fg2)}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:640px){
+  .projects-grid{grid-template-columns:1fr}
+  .skills-grid{grid-template-columns:1fr}
+  nav .links{gap:.8rem}
+  nav .links a{font-size:.75rem}
+  .edu{flex-direction:column;gap:.5rem}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════ HERO ═══════ -->
+<section class="hero" id="top">
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <h1><span>Michél Nguyen</span></h1>
+    <p class="subtitle">Independent Researcher &amp; Software Engineer — Computer Science, Database Systems, Theoretical Physics</p>
+    <div class="ids">
+      <a href="https://orcid.org/0000-0001-6834-4422" target="_blank">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378a.87.87 0 11-.001 1.74.87.87 0 01.001-1.74zm-.783 3.166h1.565v11.08H6.586V7.544zm3.946 0h4.229c4.389 0 5.962 2.832 5.962 5.539 0 2.962-2.138 5.541-6.035 5.541H10.532V7.544zm1.565 1.415v8.25h2.502c3.465 0 4.57-2.266 4.57-4.125 0-2.16-1.382-4.125-4.452-4.125h-2.62z"/></svg>
+        0000-0001-6834-4422
+      </a>
+      <a href="https://scholar.google.com/citations?user=6HheUI4AAAAJ&hl" target="_blank">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 100 14 7 7 0 000-14z"/></svg>
+        Google Scholar
+      </a>
+      <a href="https://github.com/pinkysworld" target="_blank">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+        GitHub
+      </a>
+      <a href="https://x.com/michelresearch" target="_blank">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        @michelresearch
+      </a>
+      <a href="https://www.webofscience.com/wos/author/record/PDW-1781-2025" target="_blank">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        Web of Science
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ NAV ═══════ -->
+<nav>
+  <div class="inner">
+    <div class="logo"><span>minh</span>.systems</div>
+    <div class="links">
+      <a href="#projects">Projects</a>
+      <a href="#publications">Publications</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════ PROJECTS ═══════ -->
+<section id="projects">
+  <div class="section-label">Portfolio</div>
+  <h2 class="section-title">Projects</h2>
+  <p class="section-desc">A collection of research systems, productivity tools, games, and apps spanning database engineering, iOS/macOS development, and systems research.</p>
+
+  <div class="projects-grid">
+
+    <!-- SkeinDB -->
+    <div class="pcard">
+      <span class="badge research">Research</span>
+      <h3>SkeinDB</h3>
+      <div class="tech">Rust · Axum · QUIC · MySQL Protocol · SkeinQL</div>
+      <p>A single-binary database with cell-interned MVCC, 74 RPC methods, 20 research tracks (learned indexes, differential privacy, Wasm operators, vector search, forensic audit), 19-panel web admin, and MySQL compatibility. Published in IJRCOM.</p>
+      <a class="link" href="https://github.com/pinkysworld/SkeinDB" target="_blank">View on GitHub</a>
+    </div>
+
+    <!-- Shelter Fall -->
+    <div class="pcard">
+      <span class="badge game">Game</span>
+      <h3>Shelter Fall</h3>
+      <div class="tech">Swift · SpriteKit · iOS</div>
+      <p>Post-apocalyptic survival strategy with roguelike mechanics. Build shelters, defend against 20 nights of hostile creatures, research 25 technologies, manage survivors, and respond to 30+ random events across 4 difficulty levels.</p>
+      <a class="link" href="https://shelterfall.minh.systems/" target="_blank">shelterfall.minh.systems</a>
+    </div>
+
+    <!-- ShotSift -->
+    <div class="pcard">
+      <span class="badge app">App</span>
+      <h3>ShotSift</h3>
+      <div class="tech">Swift · Vision Framework · iOS</div>
+      <p>Privacy-first photo library declutter. Uses on-device AI to detect duplicates, similar shots, screenshots, blurry photos, bursts, and large videos — all processing happens locally with zero cloud dependencies.</p>
+      <a class="link" href="https://minh.systems/ShotSift/" target="_blank">minh.systems/ShotSift</a>
+    </div>
+
+    <!-- Rootling -->
+    <div class="pcard">
+      <span class="badge app">App</span>
+      <h3>Rootling</h3>
+      <div class="tech">Swift · CloudKit · iOS</div>
+      <p>Plant propagation tracker with photo journals, growth analytics across 15 propagation methods, a 200+ plant library, weather integration, smart reminders, iCloud sync, and PDF/CSV export with time-lapse video generation.</p>
+      <a class="link" href="https://minh.systems/Rootling/" target="_blank">minh.systems/Rootling</a>
+    </div>
+
+    <!-- RidgeFocus -->
+    <div class="pcard">
+      <span class="badge app">App</span>
+      <h3>RidgeFocus</h3>
+      <div class="tech">Swift · WidgetKit · iOS</div>
+      <p>Focused Pomodoro timer with iCloud sync, gamification (XP, streaks, achievements), Lock Screen widgets, calendar integration, custom reminders, and detailed focus analytics — all data stays on-device.</p>
+      <a class="link" href="https://minh.systems/RidgeFocus/" target="_blank">minh.systems/RidgeFocus</a>
+    </div>
+
+    <!-- AppSweep -->
+    <div class="pcard">
+      <span class="badge tool">Tool</span>
+      <h3>AppSweep</h3>
+      <div class="tech">Swift · macOS · Sparkle · GitHub API</div>
+      <p>Universal macOS app updater. Detects updates from Sparkle feeds, GitHub Releases, Electron apps, App Store, and a crowdsourced database. One-click update links, security status, release notes, and inventory export.</p>
+      <a class="link" href="https://minh.systems/AppSweep/" target="_blank">minh.systems/AppSweep</a>
+    </div>
+
+    <!-- FocusledgerPro -->
+    <div class="pcard">
+      <span class="badge tool">Tool</span>
+      <h3>Focusledger</h3>
+      <div class="tech">Swift · Apple Intelligence · macOS</div>
+      <p>AI-powered productivity tracker for Mac. Automatic activity monitoring, visual timeline with screenshots, on-device AI insights via Apple Intelligence, Pomodoro sessions, daily journals, and goals — 100% private, zero cloud.</p>
+      <a class="link" href="https://minh.systems/Focusledger-Pro/" target="_blank">minh.systems/Focusledger-Pro</a>
+    </div>
+
+    <!-- pimiTool -->
+    <div class="pcard">
+      <span class="badge tool">Tool</span>
+      <h3>pimiTool</h3>
+      <div class="tech">Registered Copyright</div>
+      <p>Proprietary tooling registered as a formal copyright work. Details available on ORCID profile.</p>
+      <a class="link" href="https://orcid.org/0000-0001-6834-4422" target="_blank">View on ORCID</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════ PUBLICATIONS ═══════ -->
+<section id="publications">
+  <div class="section-label">Research</div>
+  <h2 class="section-title">Publications &amp; Preprints</h2>
+  <p class="section-desc">Peer-reviewed journal articles, preprints on TechRxiv and Research Square, and creative works. 11 works indexed on ORCID.</p>
+
+  <div class="pub-list">
+
+    <div class="pub">
+      <div class="pub-type journal">Journal Article · IJRC · 2026</div>
+      <h4>Computational Knightian Uncertainty: Undecidability and the Limits of Cyber Risk Quantification in Software-Intensive Firms</h4>
+      <div class="pub-meta">International Journal of Research in Computing (IJRC), Jan 2026</div>
+    </div>
+
+    <div class="pub">
+      <div class="pub-type preprint">Preprint · TechRxiv · 2026</div>
+      <h4>ShieldLink: Retry-Aware Authenticated Encryption for Secure and Reliable Chiplet Interconnects</h4>
+      <div class="pub-meta"><a href="https://doi.org/10.36227/techrxiv.176800047.72137558/v1">DOI: 10.36227/techrxiv.176800047.72137558/v1</a></div>
+    </div>
+
+    <div class="pub">
+      <div class="pub-type preprint">Preprint · TechRxiv · 2025</div>
+      <h4>Dual-Polarity Preons II: Parameter-Space Constraints and Viable Regimes for an Emergent Acoustic Metric</h4>
+      <div class="pub-meta"><a href="https://doi.org/10.36227/techrxiv.176590637.76612181/v1">DOI: 10.36227/techrxiv.176590637.76612181/v1</a></div>
+    </div>
+
+    <div class="pub">
+      <div class="pub-type preprint">Preprint · TechRxiv · 2025</div>
+      <h4>Simulated Minds, Artificial Consciousness, and the Theory-Relative Simulation Hypothesis</h4>
+      <div class="pub-meta"><a href="https://doi.org/10.36227/techrxiv.176583724.41540320/v1">DOI: 10.36227/techrxiv.176583724.41540320/v1</a></div>
+    </div>
+
+    <div class="pub">
+      <div class="pub-type journal">Journal Article · Cognizance · 2025</div>
+      <h4>Dual-Polarity Preons: A Toy Model for Composite Neutral Pairs and Emergent Gravity</h4>
+      <div class="pub-meta"><a href="https://doi.org/10.47760/cognizance.2025.v05i11.009">DOI: 10.47760/cognizance.2025.v05i11.009</a></div>
+    </div>
+
+    <div class="pub">
+      <div class="pub-type preprint">Preprint · TechRxiv · 2025</div>
+      <h4>Federated Learning-Based Intrusion Detection System for IoT Networks in Resource-Constrained Environments</h4>
+      <div class="pub-meta"><a href="https://doi.org/10.36227/techrxiv.176403418.87468767/v1">DOI: 10.36227/techrxiv.176403418.87468767/v1</a></div>
+    </div>
+
+    <div class="pub">
+      <div class="pub-type preprint">Preprint · Research Square · 2025</div>
+      <h4>Computational Complexity of Organizational Decision Hierarchies</h4>
+      <div class="pub-meta"><a href="https://doi.org/10.21203/rs.3.rs-7948428/v1">DOI: 10.21203/rs.3.rs-7948428/v1</a></div>
+    </div>
+
+    <div class="pub">
+      <div class="pub-type preprint">Preprint · TechRxiv · 2025</div>
+      <h4>A Quantum Walk-Inspired Algorithm for Dynamic Resource Allocation in Cloud Computing: Implications for Sustainable Business Practices</h4>
+      <div class="pub-meta"><a href="https://doi.org/10.36227/techrxiv.176316003.37717757/v1">DOI: 10.36227/techrxiv.176316003.37717757/v1</a></div>
+    </div>
+
+    <div class="pub">
+      <div class="pub-type journal">Journal Article · Cognizance · 2025</div>
+      <h4>Quadralzahlen: A Rotation-Invariant Numeral System That Reduces Upside-Down Misreads in Real-World Displays</h4>
+      <div class="pub-meta"><a href="https://doi.org/10.47760/cognizance.2025.v05i10.019">DOI: 10.47760/cognizance.2025.v05i10.019</a></div>
+    </div>
+
+    <div class="pub">
+      <div class="pub-type book">Book</div>
+      <h4>Nadia's Adventures in the New World</h4>
+      <div class="pub-meta">Creative fiction</div>
+    </div>
+
+    <div class="pub">
+      <div class="pub-type software">Registered Copyright</div>
+      <h4>pimiTool</h4>
+      <div class="pub-meta">Software copyright</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════ SKILLS ═══════ -->
+<section id="skills">
+  <div class="section-label">Expertise</div>
+  <h2 class="section-title">Professional Skills</h2>
+  <p class="section-desc">Technical competencies acquired through academic study, independent research, and professional practice.</p>
+
+  <div class="skills-grid">
+    <div class="skill-card">
+      <h4>Systems Programming</h4>
+      <ul>
+        <li>Rust</li><li>C</li><li>C++</li><li>Systems Design</li><li>MVCC</li><li>Storage Engines</li><li>Compilers</li>
+      </ul>
+    </div>
+    <div class="skill-card">
+      <h4>Apple Platform Development</h4>
+      <ul>
+        <li>Swift</li><li>SwiftUI</li><li>SpriteKit</li><li>WidgetKit</li><li>CloudKit</li><li>Vision</li><li>Apple Intelligence</li><li>App Store</li>
+      </ul>
+    </div>
+    <div class="skill-card">
+      <h4>Database Engineering</h4>
+      <ul>
+        <li>MySQL</li><li>SQL</li><li>Query Optimization</li><li>MVCC</li><li>Replication</li><li>Sharding</li><li>Wire Protocols</li>
+      </ul>
+    </div>
+    <div class="skill-card">
+      <h4>Networking &amp; Protocols</h4>
+      <ul>
+        <li>HTTP/3</li><li>QUIC</li><li>TCP/IP</li><li>RPC Design</li><li>WebSocket</li><li>mTLS</li>
+      </ul>
+    </div>
+    <div class="skill-card">
+      <h4>Web &amp; Backend</h4>
+      <ul>
+        <li>JavaScript</li><li>HTML/CSS</li><li>Axum</li><li>REST</li><li>JSON-RPC</li><li>Node.js</li>
+      </ul>
+    </div>
+    <div class="skill-card">
+      <h4>Research Methods</h4>
+      <ul>
+        <li>Academic Writing</li><li>Peer Review</li><li>Differential Privacy</li><li>Cryptography</li><li>ML/AI</li><li>Formal Methods</li>
+      </ul>
+    </div>
+    <div class="skill-card">
+      <h4>DevOps &amp; Tooling</h4>
+      <ul>
+        <li>Git</li><li>CI/CD</li><li>Docker</li><li>Cargo</li><li>Xcode</li><li>macOS Admin</li><li>Linux</li>
+      </ul>
+    </div>
+    <div class="skill-card">
+      <h4>Research Domains</h4>
+      <ul>
+        <li>Database Systems</li><li>Theoretical Physics</li><li>Cybersecurity</li><li>Federated Learning</li><li>Quantum Computing</li><li>Philosophy of Mind</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ EDUCATION ═══════ -->
+<section id="education">
+  <div class="section-label">Academic</div>
+  <h2 class="section-title">Education &amp; Professional Activities</h2>
+
+  <div class="edu-list">
+    <div class="edu">
+      <div class="year">2025 – now</div>
+      <div>
+        <h4>Bachelor of Science — Computer Science</h4>
+        <div class="inst">University of the People, Pasadena, California, US</div>
+        <div class="note">Currently enrolled</div>
+      </div>
+    </div>
+    <div class="edu">
+      <div class="year">2024 – 2025</div>
+      <div>
+        <h4>Associate of Science — Computer Science</h4>
+        <div class="inst">University of the People, Pasadena, California, US</div>
+        <div class="note">Completed</div>
+      </div>
+    </div>
+    <div class="edu">
+      <div class="year">2025</div>
+      <div>
+        <h4>Reviewer — 6th Student Symposium (Faculty of Computing)</h4>
+        <div class="inst">General Sir John Kotelawala Defence University, Colombo, Sri Lanka</div>
+        <div class="note">Peer review service</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer>
+  <p>&copy; 2026 Michél Nguyen · <a href="https://minh.systems">minh.systems</a> · <a href="https://orcid.org/0000-0001-6834-4422">ORCID</a> · <a href="https://github.com/pinkysworld">GitHub</a></p>
+</footer>
+
+</body>
+</html>
