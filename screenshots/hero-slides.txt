@@ -1,0 +1,13 @@
+file '/Users/michelpicker/Library/Mobile Documents/com~apple~CloudDocs/Projekte/minh-systems/assets/screenshots/shotsift-hero.png'
+duration 2.8
+file '/Users/michelpicker/Library/Mobile Documents/com~apple~CloudDocs/Projekte/minh-systems/assets/screenshots/rootling-hero.png'
+duration 2.8
+file '/Users/michelpicker/Library/Mobile Documents/com~apple~CloudDocs/Projekte/minh-systems/assets/screenshots/ridgefocus-hero.png'
+duration 2.8
+file '/Users/michelpicker/Library/Mobile Documents/com~apple~CloudDocs/Projekte/minh-systems/assets/screenshots/appsweep-hero.png'
+duration 2.8
+file '/Users/michelpicker/Library/Mobile Documents/com~apple~CloudDocs/Projekte/minh-systems/assets/screenshots/shelterfall-hero.png'
+duration 2.8
+file '/Users/michelpicker/Library/Mobile Documents/com~apple~CloudDocs/Projekte/minh-systems/assets/screenshots/skeindb-hero.png'
+duration 2.8
+file '/Users/michelpicker/Library/Mobile Documents/com~apple~CloudDocs/Projekte/minh-systems/assets/screenshots/skeindb-hero.png'

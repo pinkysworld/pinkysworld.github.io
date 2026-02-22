@@ -3,189 +3,261 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Michél Nguyen — Researcher &amp; Engineer</title>
-<meta name="description" content="Academic portfolio of Michél Nguyen — Independent researcher in computer science, database systems, theoretical physics, and software engineering.">
+<title>Michél Nguyen — Researcher & Engineer</title>
+<meta name="description" content="Portfolio of Michél Nguyen: independent researcher and software engineer building production apps, games, and systems research.">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="canonical" href="https://minh.systems/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --bg:#0a0a0f;--bg2:#12121a;--bg3:#1a1a26;--bg4:#22222e;
-  --fg:#e8e8f0;--fg2:#a0a0b8;--fg3:#707088;
-  --accent:#6c8cff;--accent2:#8fadff;--accent-glow:rgba(108,140,255,.12);
-  --green:#4ade80;--amber:#fbbf24;--rose:#f472b6;--cyan:#22d3ee;
-  --radius:12px;--radius-sm:8px;
-}
+*,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth;font-size:16px}
-body{background:var(--bg);color:var(--fg);font-family:'Inter',system-ui,sans-serif;line-height:1.7;overflow-x:hidden}
-a{color:var(--accent2);text-decoration:none;transition:color .2s}
-a:hover{color:#fff}
-code{font-family:'JetBrains Mono',monospace;font-size:.85em;background:var(--bg3);padding:2px 6px;border-radius:4px}
+body{margin:0;font-family:'Sora',system-ui,sans-serif;background:#071019;color:#ebf2f8;line-height:1.65;overflow-x:hidden}
+:root{
+  --bg:#071019;
+  --bg-soft:#0d1a27;
+  --bg-card:#112334;
+  --bg-glass:rgba(10,26,40,.72);
+  --text:#ebf2f8;
+  --muted:#a1b7ca;
+  --muted-2:#7390a7;
+  --edge:#1d364b;
+  --accent:#20b8a6;
+  --accent-2:#f7a34b;
+  --ok:#7ee2a3;
+  --danger:#ff8b8b;
+  --radius-xl:20px;
+  --radius-lg:16px;
+  --radius-sm:10px;
+  --max:1180px;
+}
+a{color:#9fe9dd;text-decoration:none}
+a:hover{color:#cbfff7}
+button,input,textarea{font:inherit}
+code{font-family:'IBM Plex Mono',monospace;background:#0c1f30;color:#9fe9dd;padding:2px 6px;border-radius:6px}
 
-/* ─── HERO ─── */
-.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 40%,rgba(108,140,255,.08),transparent 70%)}
+/* Atmosphere */
+body::before,
+body::after{content:'';position:fixed;inset:auto;z-index:-2;pointer-events:none}
+body::before{width:52rem;height:52rem;top:-16rem;right:-12rem;background:radial-gradient(circle at 30% 30%,rgba(32,184,166,.18),transparent 63%)}
+body::after{width:58rem;height:58rem;bottom:-24rem;left:-18rem;background:radial-gradient(circle at 60% 30%,rgba(247,163,75,.14),transparent 60%)}
+.grain{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.22;background-image:radial-gradient(circle at 1px 1px,rgba(224,244,255,.12) 1px,transparent 0);background-size:3px 3px}
+
+/* Navigation */
+.site-nav{position:fixed;top:0;left:0;right:0;z-index:120;background:rgba(6,14,22,.68);backdrop-filter:blur(14px);border-bottom:1px solid rgba(144,184,208,.15)}
+.nav-inner{max-width:var(--max);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:.8rem 1.4rem}
+.brand{font-weight:700;letter-spacing:.02em;color:#eef8ff}
+.brand span{color:var(--accent)}
+.nav-links{display:flex;gap:1.1rem;flex-wrap:wrap}
+.nav-links a{font-size:.79rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.nav-links a:hover{color:#fff}
+
+/* Hero */
+.hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;overflow:hidden;padding:8rem 1.4rem 4.4rem}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(1.1) contrast(1.02) brightness(.62)}
+.hero-overlay{position:absolute;inset:0;background:
+  radial-gradient(circle at 20% 20%,rgba(17,40,60,.22),transparent 45%),
+  linear-gradient(180deg,rgba(3,10,17,.18) 0%,rgba(4,13,21,.72) 58%,rgba(4,12,20,.92) 100%)}
 .hero-grid{position:absolute;inset:0;background-image:
-  linear-gradient(rgba(108,140,255,.04) 1px,transparent 1px),
-  linear-gradient(90deg,rgba(108,140,255,.04) 1px,transparent 1px);
-  background-size:60px 60px;mask-image:radial-gradient(ellipse 70% 50% at 50% 50%,#000 20%,transparent 80%)}
-.hero-content{position:relative;text-align:center;max-width:800px;padding:2rem}
-.hero h1{font-size:clamp(2.4rem,5vw,4rem);font-weight:700;letter-spacing:-.03em;line-height:1.15;margin-bottom:.5rem}
-.hero h1 span{background:linear-gradient(135deg,var(--accent),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.hero .subtitle{font-size:1.15rem;color:var(--fg2);margin-bottom:1.5rem;font-weight:300}
-.hero .ids{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:2rem}
-.hero .ids a{display:inline-flex;align-items:center;gap:.4rem;font-size:.85rem;padding:.4rem .9rem;background:var(--bg3);border:1px solid var(--bg4);border-radius:99px;color:var(--fg2);transition:all .2s}
-.hero .ids a:hover{background:var(--accent-glow);border-color:var(--accent);color:var(--fg)}
-.hero .ids svg{width:16px;height:16px}
+  linear-gradient(rgba(153,202,231,.13) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(153,202,231,.13) 1px,transparent 1px);
+  background-size:72px 72px;
+  mask-image:linear-gradient(180deg,rgba(0,0,0,.08),rgba(0,0,0,.6) 45%,rgba(0,0,0,0));
+  opacity:.16}
+.hero-content{position:relative;max-width:var(--max);width:100%;margin:0 auto;display:grid;grid-template-columns:1.2fr .8fr;gap:2rem;align-items:end}
+.hero-copy{max-width:760px}
+.eyebrow{margin:0 0 .9rem;font-size:.79rem;text-transform:uppercase;letter-spacing:.14em;color:#9de8dd;font-weight:600}
+.hero h1{margin:0 0 .85rem;font-size:clamp(2.2rem,5.2vw,4.4rem);line-height:1.06;letter-spacing:-.03em}
+.hero h1 .accent{display:block;color:#9de8dd}
+.hero-lede{margin:0 0 1.3rem;color:#d5e6f4;font-size:1.06rem;max-width:66ch}
+.hero-actions{display:flex;gap:.8rem;flex-wrap:wrap;margin-bottom:1.3rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.45rem;padding:.76rem 1.2rem;border-radius:999px;font-size:.84rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;border:1px solid transparent;transition:all .22s ease}
+.btn svg{width:15px;height:15px}
+.btn-primary{background:linear-gradient(135deg,#17b89f,#2eb4f0);color:#03131f;box-shadow:0 10px 28px rgba(22,175,194,.25)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 14px 30px rgba(22,175,194,.33);color:#021016}
+.btn-ghost{border-color:rgba(162,203,231,.28);background:rgba(8,20,31,.4);color:#d7e7f4}
+.btn-ghost:hover{border-color:rgba(201,231,255,.66);background:rgba(10,26,39,.82);color:#fff}
+.identity-row{display:flex;flex-wrap:wrap;gap:.55rem}
+.identity-row a{font-size:.74rem;padding:.38rem .64rem;border-radius:999px;border:1px solid rgba(143,186,214,.24);background:rgba(11,25,38,.56);color:#bfdae8}
+.identity-row a:hover{border-color:rgba(193,228,245,.48);color:#eef9ff}
 
-/* ─── NAV ─── */
-nav{position:sticky;top:0;z-index:100;background:rgba(10,10,15,.85);backdrop-filter:blur(16px);border-bottom:1px solid var(--bg3)}
-nav .inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:.75rem 2rem}
-nav .logo{font-weight:700;font-size:1rem;letter-spacing:-.02em}
-nav .logo span{color:var(--accent)}
-nav .links{display:flex;gap:1.5rem}
-nav .links a{font-size:.85rem;color:var(--fg2);font-weight:500;transition:color .2s}
-nav .links a:hover{color:var(--fg)}
+.hero-side{display:grid;gap:.7rem}
+.side-stat{padding:.9rem 1rem;background:rgba(7,19,31,.56);border:1px solid rgba(151,190,214,.18);border-radius:var(--radius-sm)}
+.side-stat .label{font-size:.71rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted-2)}
+.side-stat .value{font-family:'IBM Plex Mono',monospace;font-size:.95rem;color:#d6f8f2;margin-top:.25rem}
+.scroll-hint{position:absolute;left:50%;bottom:1.2rem;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.35rem;font-size:.66rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:#d5ecfb;z-index:4;opacity:.86;transition:opacity .24s}
+.scroll-hint::after{content:'';width:12px;height:12px;border-right:2px solid rgba(213,236,251,.88);border-bottom:2px solid rgba(213,236,251,.88);transform:rotate(45deg);animation:scroll-cue 1.8s ease-in-out infinite}
+.scroll-hint:hover{opacity:1;color:#ebf8ff}
+@keyframes scroll-cue{
+  0%,100%{transform:rotate(45deg) translate(0,0)}
+  50%{transform:rotate(45deg) translate(4px,4px)}
+}
 
-/* ─── SECTIONS ─── */
-section{max-width:1200px;margin:0 auto;padding:5rem 2rem}
-.section-label{font-size:.75rem;text-transform:uppercase;letter-spacing:.15em;color:var(--accent);font-weight:600;margin-bottom:.5rem}
-.section-title{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;letter-spacing:-.02em;margin-bottom:1rem}
-.section-desc{color:var(--fg2);max-width:640px;margin-bottom:3rem}
+/* Layout sections */
+main{position:relative}
+.section{max-width:var(--max);margin:0 auto;padding:4.6rem 1.4rem}
+.section-head{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;align-items:flex-end;margin-bottom:1.65rem}
+.section-kicker{margin:0;font-size:.76rem;text-transform:uppercase;letter-spacing:.14em;color:#9de8dd;font-weight:600}
+.section-title{margin:.3rem 0 0;font-size:clamp(1.5rem,2.7vw,2.3rem);letter-spacing:-.02em;line-height:1.15}
+.section-note{margin:0;max-width:52ch;color:var(--muted);font-size:.95rem}
 
-/* ─── PROJECT CARDS ─── */
-.projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:1.5rem}
-.pcard{background:var(--bg2);border:1px solid var(--bg3);border-radius:var(--radius);padding:1.75rem;transition:all .3s;position:relative;overflow:hidden}
-.pcard:hover{border-color:var(--accent);transform:translateY(-4px);box-shadow:0 12px 40px rgba(108,140,255,.08)}
-.pcard .badge{position:absolute;top:1rem;right:1rem;font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;padding:.25rem .6rem;border-radius:99px;font-weight:600}
-.pcard .badge.research{background:rgba(108,140,255,.15);color:var(--accent2)}
-.pcard .badge.app{background:rgba(74,222,128,.12);color:var(--green)}
-.pcard .badge.game{background:rgba(244,114,182,.12);color:var(--rose)}
-.pcard .badge.tool{background:rgba(251,191,36,.12);color:var(--amber)}
-.pcard h3{font-size:1.2rem;font-weight:600;margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem}
-.pcard .tech{font-size:.7rem;color:var(--fg3);margin-bottom:.75rem;text-transform:uppercase;letter-spacing:.08em}
-.pcard p{color:var(--fg2);font-size:.9rem;line-height:1.6;margin-bottom:1rem}
-.pcard .link{font-size:.8rem;font-weight:600;display:inline-flex;align-items:center;gap:.3rem}
-.pcard .link::after{content:'→';transition:transform .2s}
-.pcard:hover .link::after{transform:translateX(3px)}
+/* Projects */
+.projects-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.15rem}
+.project-card{display:flex;flex-direction:column;background:linear-gradient(160deg,rgba(17,36,51,.9),rgba(11,25,38,.84));border:1px solid var(--edge);border-radius:var(--radius-lg);overflow:hidden;min-height:100%;box-shadow:0 14px 40px rgba(0,0,0,.25)}
+.project-media{position:relative;aspect-ratio:16/10;overflow:hidden}
+.project-media img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.project-card:hover .project-media img{transform:scale(1.04)}
+.project-badge{position:absolute;left:.8rem;top:.8rem;font-size:.66rem;text-transform:uppercase;letter-spacing:.1em;padding:.3rem .58rem;border-radius:999px;font-weight:600;background:rgba(3,11,20,.65);border:1px solid rgba(173,208,230,.35);color:#dbf7ff}
+.project-body{padding:1rem .98rem 1.08rem;display:flex;flex-direction:column;gap:.66rem;flex:1}
+.project-body h3{margin:0;font-size:1.08rem;letter-spacing:-.01em}
+.project-tech{font-size:.7rem;color:#9fc3da;text-transform:uppercase;letter-spacing:.08em;font-family:'IBM Plex Mono',monospace}
+.project-body p{margin:0;color:#bdd1df;font-size:.9rem}
+.project-actions{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:.65rem;flex-wrap:wrap}
+.show-more-btn{background:rgba(13,33,47,.9);border:1px solid rgba(160,204,229,.32);color:#dbf3ff;padding:.56rem .82rem;border-radius:999px;font-size:.74rem;font-weight:600;text-transform:uppercase;letter-spacing:.07em;cursor:pointer;transition:.2s}
+.show-more-btn:hover{background:rgba(22,61,83,.95);border-color:rgba(191,231,255,.65);transform:translateY(-1px)}
+.project-link{font-size:.78rem;color:#9be8dd;font-weight:600;text-transform:uppercase;letter-spacing:.08em}
+.project-link:hover{color:#d6fff8}
 
-/* ─── PUBLICATIONS ─── */
-.pub-list{display:flex;flex-direction:column;gap:1rem}
-.pub{background:var(--bg2);border:1px solid var(--bg3);border-radius:var(--radius-sm);padding:1.25rem 1.5rem;transition:border-color .2s}
-.pub:hover{border-color:var(--bg4)}
-.pub .pub-type{font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;font-weight:600;margin-bottom:.4rem}
-.pub .pub-type.journal{color:var(--accent)}
-.pub .pub-type.preprint{color:var(--amber)}
-.pub .pub-type.book{color:var(--rose)}
-.pub .pub-type.software{color:var(--green)}
-.pub h4{font-size:.95rem;font-weight:600;margin-bottom:.3rem;line-height:1.4}
-.pub .pub-meta{font-size:.8rem;color:var(--fg3)}
-.pub .pub-meta a{color:var(--fg2)}
+.secondary-projects{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin-top:1.4rem}
+.secondary-card{padding:1rem;background:rgba(10,23,35,.78);border:1px solid rgba(136,174,198,.22);border-radius:var(--radius-sm)}
+.secondary-card h4{margin:0 0 .35rem;font-size:1rem}
+.secondary-card p{margin:0 0 .55rem;color:var(--muted);font-size:.88rem}
+.secondary-card a{font-size:.78rem;text-transform:uppercase;letter-spacing:.08em}
 
-/* ─── SKILLS ─── */
-.skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.25rem}
-.skill-card{background:var(--bg2);border:1px solid var(--bg3);border-radius:var(--radius-sm);padding:1.25rem 1.5rem}
-.skill-card h4{font-size:.9rem;font-weight:600;margin-bottom:.6rem;color:var(--accent2)}
-.skill-card ul{list-style:none;display:flex;flex-wrap:wrap;gap:.4rem}
-.skill-card li{font-size:.78rem;background:var(--bg3);color:var(--fg2);padding:.25rem .6rem;border-radius:99px}
+/* Publications */
+.pub-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.85rem}
+.pub-item{padding:1rem;background:rgba(10,22,34,.76);border:1px solid rgba(141,182,207,.2);border-radius:var(--radius-sm)}
+.pub-type{font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;color:#95d9d1;font-weight:600}
+.pub-item h4{margin:.4rem 0 .25rem;font-size:.92rem;line-height:1.4}
+.pub-item p{margin:0;font-size:.79rem;color:var(--muted)}
 
-/* ─── EDUCATION ─── */
-.edu-list{display:flex;flex-direction:column;gap:1rem}
-.edu{background:var(--bg2);border:1px solid var(--bg3);border-radius:var(--radius-sm);padding:1.25rem 1.5rem;display:flex;gap:1.25rem;align-items:flex-start}
-.edu .year{font-size:.8rem;color:var(--accent);font-weight:600;white-space:nowrap;min-width:90px;padding-top:.15rem}
-.edu h4{font-size:.95rem;font-weight:600;margin-bottom:.2rem}
-.edu .inst{font-size:.85rem;color:var(--fg2)}
-.edu .note{font-size:.8rem;color:var(--fg3);margin-top:.2rem}
+/* Skills */
+.skill-columns{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.9rem}
+.skill-block{padding:1rem;background:rgba(13,27,41,.85);border:1px solid rgba(142,183,207,.2);border-radius:var(--radius-sm)}
+.skill-block h4{margin:0 0 .55rem;font-size:.88rem;color:#a9ebdf}
+.skill-chip-wrap{display:flex;flex-wrap:wrap;gap:.4rem}
+.skill-chip{font-size:.72rem;padding:.24rem .55rem;border-radius:999px;background:#12283b;color:#b9cfde;border:1px solid rgba(125,160,182,.28)}
 
-/* ─── CONTACT ─── */
-.contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:2rem;align-items:start}
-.contact-info{display:flex;flex-direction:column;gap:1.5rem}
-.contact-card{background:var(--bg2);border:1px solid var(--bg3);border-radius:var(--radius-sm);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;transition:border-color .2s}
-.contact-card:hover{border-color:var(--accent)}
-.contact-card .ci-icon{width:40px;height:40px;border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
-.contact-card .ci-label{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--fg3);font-weight:600}
-.contact-card .ci-value{font-size:.9rem;color:var(--fg);margin-top:.15rem}
-.contact-card .ci-value a{color:var(--accent2)}
-.contact-form{background:var(--bg2);border:1px solid var(--bg3);border-radius:var(--radius);padding:2rem}
-.contact-form h3{font-size:1.05rem;font-weight:600;margin-bottom:1.25rem}
-.cf-row{margin-bottom:1rem}
-.cf-row label{display:block;font-size:.78rem;font-weight:600;color:var(--fg2);margin-bottom:.35rem}
-.cf-row input,.cf-row textarea{width:100%;background:var(--bg3);border:1px solid var(--bg4);border-radius:var(--radius-sm);padding:.65rem .9rem;color:var(--fg);font-family:inherit;font-size:.88rem;transition:border-color .2s;outline:none}
-.cf-row input:focus,.cf-row textarea:focus{border-color:var(--accent)}
-.cf-row textarea{resize:vertical;min-height:120px}
-.cf-captcha{background:var(--bg);border:1px solid var(--bg4);border-radius:var(--radius-sm);padding:.75rem 1rem;margin-bottom:1rem;display:flex;align-items:center;gap:.75rem}
-.cf-captcha .captcha-q{font-size:.85rem;color:var(--fg2);flex-shrink:0}
-.cf-captcha .captcha-q strong{color:var(--accent2);font-family:'JetBrains Mono',monospace}
-.cf-captcha input{width:70px;background:var(--bg3);border:1px solid var(--bg4);border-radius:6px;padding:.4rem .6rem;color:var(--fg);font-family:'JetBrains Mono',monospace;font-size:.9rem;text-align:center;outline:none}
-.cf-captcha input:focus{border-color:var(--accent)}
-.cf-hp{position:absolute;left:-9999px;opacity:0;height:0;width:0}
-.cf-submit{display:inline-flex;align-items:center;gap:.5rem;background:linear-gradient(135deg,var(--accent),#4f6cff);color:#fff;border:none;padding:.7rem 1.6rem;border-radius:var(--radius-sm);font-size:.88rem;font-weight:600;cursor:pointer;transition:transform .15s,box-shadow .2s;font-family:inherit}
-.cf-submit:hover{transform:translateY(-1px);box-shadow:0 6px 24px rgba(108,140,255,.25)}
-.cf-submit:disabled{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none}
-.cf-status{font-size:.82rem;margin-top:.75rem;min-height:1.4em}
-.cf-status.ok{color:var(--green)}
-.cf-status.err{color:var(--rose)}
+/* Education */
+.timeline{display:grid;gap:.75rem}
+.timeline-item{display:grid;grid-template-columns:110px 1fr;gap:.9rem;padding:1rem;background:rgba(9,20,32,.82);border:1px solid rgba(142,182,206,.19);border-radius:var(--radius-sm)}
+.timeline-year{font-family:'IBM Plex Mono',monospace;font-size:.8rem;color:#9de8dd}
+.timeline-item h4{margin:0 0 .25rem;font-size:.95rem}
+.timeline-item p{margin:0;color:var(--muted);font-size:.84rem}
 
-/* ─── FOOTER ─── */
-footer{border-top:1px solid var(--bg3);text-align:center;padding:3rem 2rem;color:var(--fg3);font-size:.8rem}
-footer a{color:var(--fg2)}
+/* Contact */
+.contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:1rem}
+.contact-panel,.form-panel{background:rgba(9,21,33,.84);border:1px solid rgba(143,181,204,.22);border-radius:var(--radius-lg);padding:1.1rem}
+.contact-rows{display:grid;gap:.65rem}
+.contact-row{padding:.75rem .8rem;border-radius:var(--radius-sm);background:#102438;border:1px solid rgba(133,171,194,.24)}
+.contact-row .label{font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;color:#89a7be}
+.contact-row .value{font-size:.9rem;color:#dcebf6;margin-top:.18rem}
+.contact-row a{color:#a8f1e5}
+.form-panel h3{margin:.1rem 0 .95rem;font-size:1rem}
+.field{margin-bottom:.72rem}
+.field label{display:block;font-size:.76rem;color:#a0bacf;margin-bottom:.33rem;font-weight:600}
+.field input,.field textarea{width:100%;border:1px solid rgba(145,181,204,.3);background:#10253a;color:#ecf7ff;padding:.6rem .72rem;border-radius:10px;outline:none}
+.field input:focus,.field textarea:focus{border-color:#9de8dd;box-shadow:0 0 0 2px rgba(32,184,166,.14)}
+.field textarea{resize:vertical;min-height:120px}
+.cf-hp{position:absolute;left:-9999px;opacity:0;width:0;height:0}
+.captcha{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;margin-bottom:.72rem;padding:.62rem .7rem;border:1px solid rgba(143,181,204,.26);border-radius:10px;background:#0d2234}
+.captcha span{font-size:.84rem;color:#b8cdde}
+.captcha strong{color:#9de8dd;font-family:'IBM Plex Mono',monospace}
+.captcha input{width:74px;text-align:center}
+.send-btn{border:none;background:linear-gradient(130deg,#1ab39f,#57c7ff);color:#062034;padding:.68rem 1.08rem;border-radius:999px;font-weight:700;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:.2s}
+.send-btn:hover{transform:translateY(-1px);box-shadow:0 10px 24px rgba(46,180,240,.28)}
+.form-status{min-height:1.4em;font-size:.8rem;margin-top:.6rem}
+.form-status.ok{color:var(--ok)}
+.form-status.err{color:var(--danger)}
 
-/* ─── RESPONSIVE ─── */
-@media(max-width:640px){
-  .projects-grid{grid-template-columns:1fr}
-  .skills-grid{grid-template-columns:1fr}
-  nav .links{gap:.8rem}
-  nav .links a{font-size:.75rem}
-  .edu{flex-direction:column;gap:.5rem}
+/* Footer */
+footer{padding:2.2rem 1.4rem;border-top:1px solid rgba(145,181,205,.18);text-align:center;color:#8faabe;font-size:.77rem}
+footer a{color:#bae4ff}
+
+/* Modal / detail panel */
+.project-detail{position:fixed;inset:0;display:none;z-index:220}
+.project-detail.open{display:block}
+.detail-backdrop{position:absolute;inset:0;background:rgba(2,8,14,.72);backdrop-filter:blur(8px)}
+.detail-panel{position:relative;width:min(1020px,calc(100% - 2rem));max-height:calc(100vh - 2.5rem);overflow:auto;margin:1.25rem auto;background:linear-gradient(160deg,#102538,#0a1b2b);border:1px solid rgba(163,206,232,.35);border-radius:var(--radius-xl);box-shadow:0 26px 70px rgba(0,0,0,.4)}
+.detail-inner{padding:1rem}
+.detail-top{display:flex;justify-content:space-between;gap:.8rem;align-items:flex-start;margin-bottom:.75rem}
+.detail-title-wrap h3{margin:0;font-size:1.44rem;letter-spacing:-.02em}
+.detail-title-wrap p{margin:.3rem 0 0;color:#9fc0d7;font-size:.9rem}
+.detail-close{border:1px solid rgba(161,201,227,.34);background:#0f2538;color:#d7ecfb;width:40px;height:40px;border-radius:50%;font-size:1.24rem;line-height:1;cursor:pointer}
+.detail-close:hover{background:#17344b}
+.detail-gallery{display:grid;grid-template-columns:1.3fr 1fr;gap:.65rem;margin:.88rem 0 1rem}
+.detail-gallery img{width:100%;height:100%;object-fit:cover;border-radius:14px;border:1px solid rgba(147,184,207,.28);min-height:220px}
+.detail-content{display:grid;grid-template-columns:1.25fr .75fr;gap:1rem}
+.panel-card{padding:.9rem;background:rgba(11,28,41,.7);border:1px solid rgba(146,183,206,.2);border-radius:12px}
+.panel-card h4{margin:0 0 .5rem;font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;color:#93d7cf}
+.panel-card p{margin:0;color:#c4d7e4;font-size:.9rem}
+.panel-list{margin:0;padding-left:1rem;color:#c5d8e6;font-size:.86rem;display:grid;gap:.38rem}
+.stack-list{display:flex;flex-wrap:wrap;gap:.36rem}
+.stack-list span{font-size:.72rem;padding:.26rem .5rem;border-radius:999px;background:#11273a;color:#a9ccdf;border:1px solid rgba(136,170,191,.28)}
+.detail-actions{margin-top:1rem;display:flex;gap:.65rem;flex-wrap:wrap}
+.detail-actions a{display:inline-flex;align-items:center;gap:.35rem;padding:.58rem .92rem;border-radius:999px;border:1px solid rgba(150,188,211,.3);font-size:.76rem;text-transform:uppercase;letter-spacing:.08em;font-weight:600;color:#d8edfb;background:#122d42}
+.detail-actions a.primary{background:linear-gradient(130deg,#18b39f,#3ec0f5);border-color:transparent;color:#062334}
+.detail-actions a:hover{transform:translateY(-1px)}
+
+/* Reveal */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease;transition-delay:var(--delay,0ms)}
+.reveal.show{opacity:1;transform:translateY(0)}
+
+@media (max-width:1080px){
+  .hero-content{grid-template-columns:1fr}
+  .hero-side{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .projects-grid,.pub-grid{grid-template-columns:1fr}
+  .skill-columns{grid-template-columns:repeat(2,minmax(0,1fr))}
   .contact-grid{grid-template-columns:1fr}
+  .detail-gallery,.detail-content{grid-template-columns:1fr}
+}
+
+@media (max-width:760px){
+  .site-nav{background:rgba(5,12,20,.88)}
+  .nav-inner{padding:.62rem .85rem .75rem;flex-direction:column;align-items:flex-start;gap:.48rem}
+  .brand{font-size:.93rem}
+  .nav-links{width:100%;flex-wrap:nowrap;gap:.5rem;overflow-x:auto;padding-bottom:.2rem;scrollbar-width:none}
+  .nav-links::-webkit-scrollbar{display:none}
+  .nav-links a{white-space:nowrap;font-size:.67rem;padding:.36rem .54rem;border:1px solid rgba(142,184,208,.3);border-radius:999px;background:rgba(12,29,43,.7)}
+  .hero{min-height:100svh;padding-top:9.2rem;padding-bottom:5.2rem}
+  .hero h1{font-size:clamp(1.95rem,9vw,2.7rem)}
+  .hero-lede{font-size:.95rem;margin-bottom:1rem}
+  .hero-actions{margin-bottom:.95rem;gap:.55rem}
+  .hero-actions .btn{flex:1;justify-content:center;min-width:140px}
+  .identity-row a{font-size:.67rem;padding:.34rem .52rem}
+  .side-stat{padding:.72rem .78rem}
+  .side-stat .value{font-size:.84rem}
+  .section{padding:3.15rem .85rem}
+  .secondary-projects{grid-template-columns:1fr}
+  .skill-columns{grid-template-columns:1fr}
+  .hero-side{grid-template-columns:1fr}
+  .timeline-item{grid-template-columns:1fr}
+  .project-body{padding:.86rem .8rem .92rem}
+  .project-actions{flex-direction:column;align-items:stretch}
+  .show-more-btn,.project-link{width:100%;text-align:center;justify-content:center}
+  .project-link{display:inline-flex;padding:.52rem .78rem;border:1px solid rgba(157,213,244,.28);border-radius:999px;background:rgba(12,34,50,.6)}
+  .project-detail{align-items:flex-end}
+  .detail-panel{width:100%;max-height:100vh;margin:0;border-radius:18px 18px 0 0;position:fixed;left:0;right:0;bottom:0;top:auto}
+  .detail-inner{padding:.9rem .82rem 1.2rem}
+  .detail-top{position:sticky;top:0;background:linear-gradient(180deg,rgba(10,28,42,.96),rgba(10,28,42,.7));padding-bottom:.48rem;z-index:2}
+  .detail-gallery img{min-height:170px}
+  .detail-actions a{flex:1;justify-content:center}
+  .scroll-hint{bottom:.75rem;font-size:.61rem}
+}
+
+@media (prefers-reduced-motion: reduce){
+  .scroll-hint::after{animation:none}
 }
 </style>
 </head>
 <body>
+<div class="grain" aria-hidden="true"></div>
 
-<!-- ═══════ HERO ═══════ -->
-<section class="hero" id="top">
-  <div class="hero-grid"></div>
-  <div class="hero-content">
-    <h1><span>Michél Nguyen</span></h1>
-    <p class="subtitle">Independent Researcher &amp; Software Engineer — Computer Science, Database Systems, Theoretical Physics</p>
-    <div class="ids">
-      <a href="https://orcid.org/0000-0001-6834-4422" target="_blank">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378a.87.87 0 11-.001 1.74.87.87 0 01.001-1.74zm-.783 3.166h1.565v11.08H6.586V7.544zm3.946 0h4.229c4.389 0 5.962 2.832 5.962 5.539 0 2.962-2.138 5.541-6.035 5.541H10.532V7.544zm1.565 1.415v8.25h2.502c3.465 0 4.57-2.266 4.57-4.125 0-2.16-1.382-4.125-4.452-4.125h-2.62z"/></svg>
-        0000-0001-6834-4422
-      </a>
-      <a href="https://scholar.google.com/citations?user=6HheUI4AAAAJ&hl" target="_blank">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 100 14 7 7 0 000-14z"/></svg>
-        Google Scholar
-      </a>
-      <a href="https://github.com/pinkysworld" target="_blank">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-        GitHub
-      </a>
-      <a href="https://x.com/michelresearch" target="_blank">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-        @michelresearch
-      </a>
-      <a href="https://www.webofscience.com/wos/author/record/PDW-1781-2025" target="_blank">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-        Web of Science
-      </a>
-      <a href="https://www.linkedin.com/in/michelnguyengermany/" target="_blank">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-        LinkedIn
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════ NAV ═══════ -->
-<nav>
-  <div class="inner">
-    <div class="logo"><span>minh</span>.systems</div>
-    <div class="links">
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top"><span>minh</span>.systems</a>
+    <div class="nav-links">
       <a href="#projects">Projects</a>
       <a href="#publications">Publications</a>
       <a href="#skills">Skills</a>
@@ -195,389 +267,669 @@ footer a{color:var(--fg2)}
   </div>
 </nav>
 
-<!-- ═══════ PROJECTS ═══════ -->
-<section id="projects">
-  <div class="section-label">Portfolio</div>
-  <h2 class="section-title">Projects</h2>
-  <p class="section-desc">A collection of research systems, productivity tools, games, and apps spanning database engineering, iOS/macOS development, and systems research.</p>
+<header class="hero" id="top">
+  <video class="hero-video" autoplay muted loop playsinline poster="assets/screenshots/rootling-hero.png" aria-hidden="true">
+    <source src="assets/hero-reel.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="hero-grid" aria-hidden="true"></div>
 
-  <div class="projects-grid">
-
-    <!-- SkeinDB -->
-    <div class="pcard">
-      <span class="badge research">Research</span>
-      <h3>SkeinDB</h3>
-      <div class="tech">Rust · Axum · QUIC · MySQL Protocol · SkeinQL</div>
-      <p>A single-binary database with cell-interned MVCC, 74 RPC methods, 20 research tracks (learned indexes, differential privacy, Wasm operators, vector search, forensic audit), 19-panel web admin, and MySQL compatibility. Published in IJRCOM.</p>
-      <a class="link" href="http://minh.systems/SkeinDB/site/" target="_blank">minh.systems/SkeinDB</a>
+  <div class="hero-content reveal">
+    <div class="hero-copy">
+      <p class="eyebrow">Independent Research + Product Engineering</p>
+      <h1>Michél Nguyen <span class="accent">Building systems, apps, and research that ship.</span></h1>
+      <p class="hero-lede">I design and deliver research-heavy software across database engines, iOS/macOS applications, and interactive systems. Scroll down to explore each project with visuals, technical context, and implementation highlights.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#projects">Explore Projects
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <a class="btn btn-ghost" href="#contact">Start a Conversation</a>
+      </div>
+      <div class="identity-row">
+        <a href="https://orcid.org/0000-0001-6834-4422" target="_blank" rel="noopener">ORCID 0000-0001-6834-4422</a>
+        <a href="https://github.com/pinkysworld" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://scholar.google.com/citations?user=6HheUI4AAAAJ&hl" target="_blank" rel="noopener">Google Scholar</a>
+        <a href="https://www.linkedin.com/in/michelnguyengermany/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
     </div>
 
-    <!-- Shelter Fall -->
-    <div class="pcard">
-      <span class="badge game">Game</span>
-      <h3>Shelter Fall</h3>
-      <div class="tech">Swift · SpriteKit · iOS</div>
-      <p>Post-apocalyptic survival strategy with roguelike mechanics. Build shelters, defend against 20 nights of hostile creatures, research 25 technologies, manage survivors, and respond to 30+ random events across 4 difficulty levels.</p>
-      <a class="link" href="https://shelterfall.minh.systems/" target="_blank">shelterfall.minh.systems</a>
-    </div>
-
-    <!-- ShotSift -->
-    <div class="pcard">
-      <span class="badge app">App</span>
-      <h3>ShotSift</h3>
-      <div class="tech">Swift · Vision Framework · iOS</div>
-      <p>Privacy-first photo library declutter. Uses on-device AI to detect duplicates, similar shots, screenshots, blurry photos, bursts, and large videos — all processing happens locally with zero cloud dependencies.</p>
-      <a class="link" href="https://minh.systems/ShotSift/" target="_blank">minh.systems/ShotSift</a>
-    </div>
-
-    <!-- Rootling -->
-    <div class="pcard">
-      <span class="badge app">App</span>
-      <h3>Rootling</h3>
-      <div class="tech">Swift · CloudKit · iOS</div>
-      <p>Plant propagation tracker with photo journals, growth analytics across 15 propagation methods, a 200+ plant library, weather integration, smart reminders, iCloud sync, and PDF/CSV export with time-lapse video generation.</p>
-      <a class="link" href="https://minh.systems/Rootling/" target="_blank">minh.systems/Rootling</a>
-    </div>
-
-    <!-- RidgeFocus -->
-    <div class="pcard">
-      <span class="badge app">App</span>
-      <h3>RidgeFocus</h3>
-      <div class="tech">Swift · WidgetKit · iOS</div>
-      <p>Focused Pomodoro timer with iCloud sync, gamification (XP, streaks, achievements), Lock Screen widgets, calendar integration, custom reminders, and detailed focus analytics — all data stays on-device.</p>
-      <a class="link" href="https://minh.systems/RidgeFocus/" target="_blank">minh.systems/RidgeFocus</a>
-    </div>
-
-    <!-- AppSweep -->
-    <div class="pcard">
-      <span class="badge tool">Tool</span>
-      <h3>AppSweep</h3>
-      <div class="tech">Swift · macOS · Sparkle · GitHub API</div>
-      <p>Universal macOS app updater. Detects updates from Sparkle feeds, GitHub Releases, Electron apps, App Store, and a crowdsourced database. One-click update links, security status, release notes, and inventory export.</p>
-      <a class="link" href="https://minh.systems/AppSweep/" target="_blank">minh.systems/AppSweep</a>
-    </div>
-
-    <!-- FocusledgerPro -->
-    <div class="pcard">
-      <span class="badge tool">Tool</span>
-      <h3>Focusledger</h3>
-      <div class="tech">Swift · Apple Intelligence · macOS</div>
-      <p>AI-powered productivity tracker for Mac. Automatic activity monitoring, visual timeline with screenshots, on-device AI insights via Apple Intelligence, Pomodoro sessions, daily journals, and goals — 100% private, zero cloud.</p>
-      <a class="link" href="https://minh.systems/Focusledger-Pro/" target="_blank">minh.systems/Focusledger-Pro</a>
-    </div>
-
-    <!-- pimiTool -->
-    <div class="pcard">
-      <span class="badge tool">Tool</span>
-      <h3>pimiTool</h3>
-      <div class="tech">Registered Copyright</div>
-      <p>Proprietary tooling registered as a formal copyright work. Details available on ORCID profile.</p>
-      <a class="link" href="https://orcid.org/0000-0001-6834-4422" target="_blank">View on ORCID</a>
-    </div>
-
+    <aside class="hero-side">
+      <div class="side-stat">
+        <div class="label">Focus Areas</div>
+        <div class="value">Database systems • iOS/macOS • Applied research</div>
+      </div>
+      <div class="side-stat">
+        <div class="label">Current Track</div>
+        <div class="value">B.Sc. Computer Science (University of the People)</div>
+      </div>
+      <div class="side-stat">
+        <div class="label">Output</div>
+        <div class="value">Published research + production-ready software</div>
+      </div>
+    </aside>
   </div>
-</section>
+  <a class="scroll-hint" href="#projects" aria-label="Scroll down to see more of the page">Scroll Down to See More</a>
+</header>
 
-<!-- ═══════ PUBLICATIONS ═══════ -->
-<section id="publications">
-  <div class="section-label">Research</div>
-  <h2 class="section-title">Publications &amp; Preprints</h2>
-  <p class="section-desc">Peer-reviewed journal articles, preprints on TechRxiv and Research Square, and creative works. 11 works indexed on ORCID.</p>
-
-  <div class="pub-list">
-
-    <div class="pub">
-      <div class="pub-type journal">Journal Article · IJRC · 2026</div>
-      <h4>Computational Knightian Uncertainty: Undecidability and the Limits of Cyber Risk Quantification in Software-Intensive Firms</h4>
-      <div class="pub-meta"><a href="https://www.ijrcom.org/index.php/ijrc/article/view/192">International Journal of Research in Computing (IJRC), Jan 2026</a></div>
-    </div>
-
-    <div class="pub">
-      <div class="pub-type preprint">Preprint · TechRxiv · 2026</div>
-      <h4>ShieldLink: Retry-Aware Authenticated Encryption for Secure and Reliable Chiplet Interconnects</h4>
-      <div class="pub-meta"><a href="https://doi.org/10.36227/techrxiv.176800047.72137558/v1">DOI: 10.36227/techrxiv.176800047.72137558/v1</a></div>
-    </div>
-
-    <div class="pub">
-      <div class="pub-type preprint">Preprint · TechRxiv · 2025</div>
-      <h4>Dual-Polarity Preons II: Parameter-Space Constraints and Viable Regimes for an Emergent Acoustic Metric</h4>
-      <div class="pub-meta"><a href="https://doi.org/10.36227/techrxiv.176590637.76612181/v1">DOI: 10.36227/techrxiv.176590637.76612181/v1</a></div>
-    </div>
-
-    <div class="pub">
-      <div class="pub-type preprint">Preprint · TechRxiv · 2025</div>
-      <h4>Simulated Minds, Artificial Consciousness, and the Theory-Relative Simulation Hypothesis</h4>
-      <div class="pub-meta"><a href="https://doi.org/10.36227/techrxiv.176583724.41540320/v1">DOI: 10.36227/techrxiv.176583724.41540320/v1</a></div>
-    </div>
-
-    <div class="pub">
-      <div class="pub-type journal">Journal Article · Cognizance · 2025</div>
-      <h4>Dual-Polarity Preons: A Toy Model for Composite Neutral Pairs and Emergent Gravity</h4>
-      <div class="pub-meta"><a href="https://doi.org/10.47760/cognizance.2025.v05i11.009">DOI: 10.47760/cognizance.2025.v05i11.009</a></div>
-    </div>
-
-    <div class="pub">
-      <div class="pub-type preprint">Preprint · TechRxiv · 2025</div>
-      <h4>Federated Learning-Based Intrusion Detection System for IoT Networks in Resource-Constrained Environments</h4>
-      <div class="pub-meta"><a href="https://doi.org/10.36227/techrxiv.176403418.87468767/v1">DOI: 10.36227/techrxiv.176403418.87468767/v1</a></div>
-    </div>
-
-    <div class="pub">
-      <div class="pub-type preprint">Preprint · Research Square · 2025</div>
-      <h4>Computational Complexity of Organizational Decision Hierarchies</h4>
-      <div class="pub-meta"><a href="https://doi.org/10.21203/rs.3.rs-7948428/v1">DOI: 10.21203/rs.3.rs-7948428/v1</a></div>
-    </div>
-
-    <div class="pub">
-      <div class="pub-type preprint">Preprint · TechRxiv · 2025</div>
-      <h4>A Quantum Walk-Inspired Algorithm for Dynamic Resource Allocation in Cloud Computing: Implications for Sustainable Business Practices</h4>
-      <div class="pub-meta"><a href="https://doi.org/10.36227/techrxiv.176316003.37717757/v1">DOI: 10.36227/techrxiv.176316003.37717757/v1</a></div>
-    </div>
-
-    <div class="pub">
-      <div class="pub-type journal">Journal Article · Cognizance · 2025</div>
-      <h4>Quadralzahlen: A Rotation-Invariant Numeral System That Reduces Upside-Down Misreads in Real-World Displays</h4>
-      <div class="pub-meta"><a href="https://doi.org/10.47760/cognizance.2025.v05i10.019">DOI: 10.47760/cognizance.2025.v05i10.019</a></div>
-    </div>
-
-    <div class="pub">
-      <div class="pub-type book">Book</div>
-      <h4>Nadia's Adventures in the New World</h4>
-      <div class="pub-meta">Creative fiction</div>
-    </div>
-
-    <div class="pub">
-      <div class="pub-type software">Registered Copyright</div>
-      <h4>pimiTool</h4>
-      <div class="pub-meta">Software copyright</div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ═══════ SKILLS ═══════ -->
-<section id="skills">
-  <div class="section-label">Expertise</div>
-  <h2 class="section-title">Professional Skills</h2>
-  <p class="section-desc">Technical competencies acquired through academic study, independent research, and professional practice.</p>
-
-  <div class="skills-grid">
-    <div class="skill-card">
-      <h4>Systems Programming</h4>
-      <ul>
-        <li>Rust</li><li>C</li><li>C++</li><li>Systems Design</li><li>MVCC</li><li>Storage Engines</li><li>Compilers</li>
-      </ul>
-    </div>
-    <div class="skill-card">
-      <h4>Apple Platform Development</h4>
-      <ul>
-        <li>Swift</li><li>SwiftUI</li><li>SpriteKit</li><li>WidgetKit</li><li>CloudKit</li><li>Vision</li><li>Apple Intelligence</li><li>App Store</li>
-      </ul>
-    </div>
-    <div class="skill-card">
-      <h4>Database Engineering</h4>
-      <ul>
-        <li>MySQL</li><li>SQL</li><li>Query Optimization</li><li>MVCC</li><li>Replication</li><li>Sharding</li><li>Wire Protocols</li>
-      </ul>
-    </div>
-    <div class="skill-card">
-      <h4>Networking &amp; Protocols</h4>
-      <ul>
-        <li>HTTP/3</li><li>QUIC</li><li>TCP/IP</li><li>RPC Design</li><li>WebSocket</li><li>mTLS</li>
-      </ul>
-    </div>
-    <div class="skill-card">
-      <h4>Web &amp; Backend</h4>
-      <ul>
-        <li>JavaScript</li><li>HTML/CSS</li><li>Axum</li><li>REST</li><li>JSON-RPC</li><li>Node.js</li>
-      </ul>
-    </div>
-    <div class="skill-card">
-      <h4>Research Methods</h4>
-      <ul>
-        <li>Academic Writing</li><li>Peer Review</li><li>Differential Privacy</li><li>Cryptography</li><li>ML/AI</li><li>Formal Methods</li>
-      </ul>
-    </div>
-    <div class="skill-card">
-      <h4>DevOps &amp; Tooling</h4>
-      <ul>
-        <li>Git</li><li>CI/CD</li><li>Docker</li><li>Cargo</li><li>Xcode</li><li>macOS Admin</li><li>Linux</li>
-      </ul>
-    </div>
-    <div class="skill-card">
-      <h4>Research Domains</h4>
-      <ul>
-        <li>Database Systems</li><li>Theoretical Physics</li><li>Cybersecurity</li><li>Federated Learning</li><li>Quantum Computing</li><li>Philosophy of Mind</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════ EDUCATION ═══════ -->
-<section id="education">
-  <div class="section-label">Academic</div>
-  <h2 class="section-title">Education &amp; Professional Activities</h2>
-
-  <div class="edu-list">
-    <div class="edu">
-      <div class="year">2025 – now</div>
+<main>
+  <section class="section" id="projects">
+    <div class="section-head reveal" style="--delay:40ms">
       <div>
-        <h4>Bachelor of Science — Computer Science</h4>
-        <div class="inst">University of the People, Pasadena, California, US</div>
-        <div class="note">Currently enrolled</div>
+        <p class="section-kicker">Featured Work</p>
+        <h2 class="section-title">Interactive Project Gallery With Deep Dives</h2>
+      </div>
+      <p class="section-note">Each project now includes a Show More panel with architecture context, capability highlights, and screenshots from live app pages.</p>
+    </div>
+
+    <div class="projects-grid">
+      <article class="project-card reveal" style="--delay:70ms">
+        <div class="project-media">
+          <img src="assets/screenshots/skeindb-hero.png" alt="SkeinDB screenshot">
+          <span class="project-badge">Research</span>
+        </div>
+        <div class="project-body">
+          <h3>SkeinDB</h3>
+          <div class="project-tech">Rust · Axum · QUIC · MySQL Protocol</div>
+          <p>Single-binary database architecture with cell-interned MVCC and a research-first execution model.</p>
+          <div class="project-actions">
+            <button class="show-more-btn" data-project="skeindb">Show More</button>
+            <a class="project-link" href="https://minh.systems/SkeinDB/site/" target="_blank" rel="noopener">Live Site</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card reveal" style="--delay:110ms">
+        <div class="project-media">
+          <img src="assets/screenshots/shotsift-hero.png" alt="ShotSift screenshot">
+          <span class="project-badge">iOS App</span>
+        </div>
+        <div class="project-body">
+          <h3>ShotSift</h3>
+          <div class="project-tech">Swift · Vision Framework · On-device AI</div>
+          <p>Private photo decluttering experience for duplicates, screenshots, bursts, and large-media cleanup workflows.</p>
+          <div class="project-actions">
+            <button class="show-more-btn" data-project="shotsift">Show More</button>
+            <a class="project-link" href="https://minh.systems/ShotSift/" target="_blank" rel="noopener">Live Site</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card reveal" style="--delay:150ms">
+        <div class="project-media">
+          <img src="assets/screenshots/rootling-hero.png" alt="Rootling screenshot">
+          <span class="project-badge">iOS App</span>
+        </div>
+        <div class="project-body">
+          <h3>Rootling</h3>
+          <div class="project-tech">Swift · CloudKit · Growth Analytics</div>
+          <p>Plant propagation tracker with visual journals, reminders, weather context, and exportable records.</p>
+          <div class="project-actions">
+            <button class="show-more-btn" data-project="rootling">Show More</button>
+            <a class="project-link" href="https://minh.systems/Rootling/" target="_blank" rel="noopener">Live Site</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card reveal" style="--delay:190ms">
+        <div class="project-media">
+          <img src="assets/screenshots/ridgefocus-hero.png" alt="RidgeFocus screenshot">
+          <span class="project-badge">iOS App</span>
+        </div>
+        <div class="project-body">
+          <h3>RidgeFocus</h3>
+          <div class="project-tech">Swift · WidgetKit · Focus Analytics</div>
+          <p>Pomodoro and deep-work platform with streak systems, widgets, and lightweight personal productivity insights.</p>
+          <div class="project-actions">
+            <button class="show-more-btn" data-project="ridgefocus">Show More</button>
+            <a class="project-link" href="https://minh.systems/RidgeFocus/" target="_blank" rel="noopener">Live Site</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card reveal" style="--delay:230ms">
+        <div class="project-media">
+          <img src="assets/screenshots/appsweep-hero.png" alt="AppSweep screenshot">
+          <span class="project-badge">macOS Tool</span>
+        </div>
+        <div class="project-body">
+          <h3>AppSweep</h3>
+          <div class="project-tech">Swift · Sparkle · GitHub API</div>
+          <p>Universal macOS updater that merges multiple update sources into a single inventory and action flow.</p>
+          <div class="project-actions">
+            <button class="show-more-btn" data-project="appsweep">Show More</button>
+            <a class="project-link" href="https://minh.systems/AppSweep/" target="_blank" rel="noopener">Live Site</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card reveal" style="--delay:270ms">
+        <div class="project-media">
+          <img src="assets/screenshots/shelterfall-hero.png" alt="Shelter Fall screenshot">
+          <span class="project-badge">Game</span>
+        </div>
+        <div class="project-body">
+          <h3>Shelter Fall</h3>
+          <div class="project-tech">Swift · SpriteKit · Survival Strategy</div>
+          <p>Post-apocalyptic strategy game with progression systems, dynamic events, and escalating survival pressure.</p>
+          <div class="project-actions">
+            <button class="show-more-btn" data-project="shelterfall">Show More</button>
+            <a class="project-link" href="http://shelterfall.minh.systems/" target="_blank" rel="noopener">Live Site</a>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="secondary-projects">
+      <article class="secondary-card reveal" style="--delay:80ms">
+        <h4>Focusledger Pro</h4>
+        <p>AI-assisted macOS productivity tracker with local timeline screenshots, focus sessions, and private analytics.</p>
+        <a href="https://minh.systems/Focusledger-Pro/" target="_blank" rel="noopener">Project Link</a>
+      </article>
+      <article class="secondary-card reveal" style="--delay:120ms">
+        <h4>pimiTool</h4>
+        <p>Proprietary software work formally registered as a copyright-protected system.</p>
+        <a href="https://orcid.org/0000-0001-6834-4422" target="_blank" rel="noopener">View on ORCID</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="publications">
+    <div class="section-head reveal" style="--delay:30ms">
+      <div>
+        <p class="section-kicker">Research</p>
+        <h2 class="section-title">Publications & Preprints</h2>
+      </div>
+      <p class="section-note">Peer-reviewed work, technical preprints, and creative publications across computing and theoretical domains.</p>
+    </div>
+    <div class="pub-grid">
+      <article class="pub-item reveal" style="--delay:50ms">
+        <div class="pub-type">Journal · IJRC · 2026</div>
+        <h4>Computational Knightian Uncertainty: Undecidability and the Limits of Cyber Risk Quantification in Software-Intensive Firms</h4>
+        <p><a href="https://www.ijrcom.org/index.php/ijrc/article/view/192" target="_blank" rel="noopener">International Journal of Research in Computing (Jan 2026)</a></p>
+      </article>
+      <article class="pub-item reveal" style="--delay:70ms">
+        <div class="pub-type">Preprint · TechRxiv · 2026</div>
+        <h4>ShieldLink: Retry-Aware Authenticated Encryption for Secure and Reliable Chiplet Interconnects</h4>
+        <p><a href="https://doi.org/10.36227/techrxiv.176800047.72137558/v1" target="_blank" rel="noopener">DOI: 10.36227/techrxiv.176800047.72137558/v1</a></p>
+      </article>
+      <article class="pub-item reveal" style="--delay:90ms">
+        <div class="pub-type">Preprint · TechRxiv · 2025</div>
+        <h4>Dual-Polarity Preons II: Parameter-Space Constraints and Viable Regimes for an Emergent Acoustic Metric</h4>
+        <p><a href="https://doi.org/10.36227/techrxiv.176590637.76612181/v1" target="_blank" rel="noopener">DOI: 10.36227/techrxiv.176590637.76612181/v1</a></p>
+      </article>
+      <article class="pub-item reveal" style="--delay:110ms">
+        <div class="pub-type">Preprint · TechRxiv · 2025</div>
+        <h4>Simulated Minds, Artificial Consciousness, and the Theory-Relative Simulation Hypothesis</h4>
+        <p><a href="https://doi.org/10.36227/techrxiv.176583724.41540320/v1" target="_blank" rel="noopener">DOI: 10.36227/techrxiv.176583724.41540320/v1</a></p>
+      </article>
+      <article class="pub-item reveal" style="--delay:130ms">
+        <div class="pub-type">Journal · Cognizance · 2025</div>
+        <h4>Dual-Polarity Preons: A Toy Model for Composite Neutral Pairs and Emergent Gravity</h4>
+        <p><a href="https://doi.org/10.47760/cognizance.2025.v05i11.009" target="_blank" rel="noopener">DOI: 10.47760/cognizance.2025.v05i11.009</a></p>
+      </article>
+      <article class="pub-item reveal" style="--delay:150ms">
+        <div class="pub-type">Preprint · TechRxiv · 2025</div>
+        <h4>Federated Learning-Based Intrusion Detection System for IoT Networks in Resource-Constrained Environments</h4>
+        <p><a href="https://doi.org/10.36227/techrxiv.176403418.87468767/v1" target="_blank" rel="noopener">DOI: 10.36227/techrxiv.176403418.87468767/v1</a></p>
+      </article>
+      <article class="pub-item reveal" style="--delay:170ms">
+        <div class="pub-type">Preprint · Research Square · 2025</div>
+        <h4>Computational Complexity of Organizational Decision Hierarchies</h4>
+        <p><a href="https://doi.org/10.21203/rs.3.rs-7948428/v1" target="_blank" rel="noopener">DOI: 10.21203/rs.3.rs-7948428/v1</a></p>
+      </article>
+      <article class="pub-item reveal" style="--delay:190ms">
+        <div class="pub-type">Preprint · TechRxiv · 2025</div>
+        <h4>A Quantum Walk-Inspired Algorithm for Dynamic Resource Allocation in Cloud Computing: Implications for Sustainable Business Practices</h4>
+        <p><a href="https://doi.org/10.36227/techrxiv.176316003.37717757/v1" target="_blank" rel="noopener">DOI: 10.36227/techrxiv.176316003.37717757/v1</a></p>
+      </article>
+      <article class="pub-item reveal" style="--delay:210ms">
+        <div class="pub-type">Journal · Cognizance · 2025</div>
+        <h4>Quadralzahlen: A Rotation-Invariant Numeral System That Reduces Upside-Down Misreads in Real-World Displays</h4>
+        <p><a href="https://doi.org/10.47760/cognizance.2025.v05i10.019" target="_blank" rel="noopener">DOI: 10.47760/cognizance.2025.v05i10.019</a></p>
+      </article>
+      <article class="pub-item reveal" style="--delay:230ms">
+        <div class="pub-type">Book</div>
+        <h4>Nadia's Adventures in the New World</h4>
+        <p>Creative fiction publication.</p>
+      </article>
+      <article class="pub-item reveal" style="--delay:250ms">
+        <div class="pub-type">Software Copyright</div>
+        <h4>pimiTool</h4>
+        <p>Registered software copyright entry.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="skills">
+    <div class="section-head reveal" style="--delay:30ms">
+      <div>
+        <p class="section-kicker">Expertise</p>
+        <h2 class="section-title">Professional Skills</h2>
+      </div>
+      <p class="section-note">Cross-functional capability from systems architecture to production app delivery and academic writing.</p>
+    </div>
+
+    <div class="skill-columns">
+      <article class="skill-block reveal" style="--delay:50ms">
+        <h4>Systems & Databases</h4>
+        <div class="skill-chip-wrap">
+          <span class="skill-chip">Rust</span><span class="skill-chip">C/C++</span><span class="skill-chip">MVCC</span><span class="skill-chip">Storage Engines</span><span class="skill-chip">MySQL</span><span class="skill-chip">Query Optimization</span>
+        </div>
+      </article>
+      <article class="skill-block reveal" style="--delay:70ms">
+        <h4>Apple Development</h4>
+        <div class="skill-chip-wrap">
+          <span class="skill-chip">Swift</span><span class="skill-chip">SwiftUI</span><span class="skill-chip">SpriteKit</span><span class="skill-chip">WidgetKit</span><span class="skill-chip">CloudKit</span><span class="skill-chip">Vision</span>
+        </div>
+      </article>
+      <article class="skill-block reveal" style="--delay:90ms">
+        <h4>Protocols & Backend</h4>
+        <div class="skill-chip-wrap">
+          <span class="skill-chip">HTTP/3</span><span class="skill-chip">QUIC</span><span class="skill-chip">JSON-RPC</span><span class="skill-chip">Axum</span><span class="skill-chip">REST</span><span class="skill-chip">Node.js</span>
+        </div>
+      </article>
+      <article class="skill-block reveal" style="--delay:110ms">
+        <h4>Research Domains</h4>
+        <div class="skill-chip-wrap">
+          <span class="skill-chip">Cybersecurity</span><span class="skill-chip">Differential Privacy</span><span class="skill-chip">Federated Learning</span><span class="skill-chip">Theoretical Physics</span><span class="skill-chip">Academic Writing</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="education">
+    <div class="section-head reveal" style="--delay:30ms">
+      <div>
+        <p class="section-kicker">Academic Profile</p>
+        <h2 class="section-title">Education & Professional Activities</h2>
+      </div>
+      <p class="section-note">Ongoing formal education and peer-review involvement aligned with active research work.</p>
+    </div>
+
+    <div class="timeline">
+      <article class="timeline-item reveal" style="--delay:50ms">
+        <div class="timeline-year">2025 - now</div>
+        <div>
+          <h4>Bachelor of Science — Computer Science</h4>
+          <p>University of the People, Pasadena, California, US • Currently enrolled</p>
+        </div>
+      </article>
+      <article class="timeline-item reveal" style="--delay:80ms">
+        <div class="timeline-year">2024 - 2025</div>
+        <div>
+          <h4>Associate of Science — Computer Science</h4>
+          <p>University of the People, Pasadena, California, US • Completed</p>
+        </div>
+      </article>
+      <article class="timeline-item reveal" style="--delay:110ms">
+        <div class="timeline-year">2025</div>
+        <div>
+          <h4>Reviewer — 6th Student Symposium (Faculty of Computing)</h4>
+          <p>General Sir John Kotelawala Defence University, Colombo, Sri Lanka • Peer review service</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="section-head reveal" style="--delay:30ms">
+      <div>
+        <p class="section-kicker">Get in Touch</p>
+        <h2 class="section-title">Contact</h2>
+      </div>
+      <p class="section-note">For collaboration, research opportunities, app partnerships, or speaking requests.</p>
+    </div>
+
+    <div class="contact-grid">
+      <aside class="contact-panel reveal" style="--delay:50ms">
+        <div class="contact-rows">
+          <div class="contact-row">
+            <div class="label">Email</div>
+            <div class="value"><a href="#" id="eml-link" onclick="return false;">Enable JavaScript to view</a></div>
+          </div>
+          <div class="contact-row">
+            <div class="label">GitHub</div>
+            <div class="value"><a href="https://github.com/pinkysworld" target="_blank" rel="noopener">github.com/pinkysworld</a></div>
+          </div>
+          <div class="contact-row">
+            <div class="label">ORCID</div>
+            <div class="value"><a href="https://orcid.org/0000-0001-6834-4422" target="_blank" rel="noopener">0000-0001-6834-4422</a></div>
+          </div>
+          <div class="contact-row">
+            <div class="label">LinkedIn</div>
+            <div class="value"><a href="https://www.linkedin.com/in/michelnguyengermany/" target="_blank" rel="noopener">Michél Nguyen</a></div>
+          </div>
+        </div>
+      </aside>
+
+      <div class="form-panel reveal" style="--delay:80ms">
+        <h3>Send a Message</h3>
+        <div class="field">
+          <label for="cf-name">Your Name</label>
+          <input type="text" id="cf-name" placeholder="Jane Doe" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="cf-email">Your Email</label>
+          <input type="email" id="cf-email" placeholder="you@example.com" autocomplete="email" required>
+        </div>
+        <div class="field">
+          <label for="cf-subject">Subject</label>
+          <input type="text" id="cf-subject" placeholder="Research collaboration, app question, etc.">
+        </div>
+        <div class="field">
+          <label for="cf-msg">Message</label>
+          <textarea id="cf-msg" placeholder="Your message" required></textarea>
+        </div>
+
+        <input type="text" class="cf-hp" name="website" tabindex="-1" autocomplete="off">
+
+        <div class="captcha">
+          <span>Verify: <strong id="cap-q"></strong> = ?</span>
+          <input type="text" id="cap-a" placeholder="?" autocomplete="off">
+        </div>
+
+        <button class="send-btn" id="cf-send" type="button">Send Message</button>
+        <div class="form-status" id="cf-status"></div>
       </div>
     </div>
-    <div class="edu">
-      <div class="year">2024 – 2025</div>
-      <div>
-        <h4>Associate of Science — Computer Science</h4>
-        <div class="inst">University of the People, Pasadena, California, US</div>
-        <div class="note">Completed</div>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; <span id="year"></span> Michél Nguyen · <a href="https://minh.systems">minh.systems</a> · <a href="https://orcid.org/0000-0001-6834-4422">ORCID</a> · <a href="https://github.com/pinkysworld">GitHub</a></p>
+</footer>
+
+<div class="project-detail" id="project-detail" aria-hidden="true">
+  <div class="detail-backdrop" data-close-detail></div>
+  <div class="detail-panel" role="dialog" aria-modal="true" aria-labelledby="detail-title">
+    <div class="detail-inner">
+      <div class="detail-top">
+        <div class="detail-title-wrap">
+          <h3 id="detail-title">Project</h3>
+          <p id="detail-subtitle"></p>
+        </div>
+        <button class="detail-close" type="button" aria-label="Close details" data-close-detail>&times;</button>
       </div>
-    </div>
-    <div class="edu">
-      <div class="year">2025</div>
-      <div>
-        <h4>Reviewer — 6th Student Symposium (Faculty of Computing)</h4>
-        <div class="inst">General Sir John Kotelawala Defence University, Colombo, Sri Lanka</div>
-        <div class="note">Peer review service</div>
+
+      <div class="detail-gallery">
+        <img id="detail-image-primary" src="" alt="Project screenshot 1">
+        <img id="detail-image-secondary" src="" alt="Project screenshot 2">
+      </div>
+
+      <div class="detail-content">
+        <div class="panel-card">
+          <h4>Overview</h4>
+          <p id="detail-overview"></p>
+        </div>
+
+        <div class="panel-card">
+          <h4>Tech Stack</h4>
+          <div class="stack-list" id="detail-stack"></div>
+        </div>
+
+        <div class="panel-card">
+          <h4>Highlights</h4>
+          <ul class="panel-list" id="detail-highlights"></ul>
+        </div>
+
+        <div class="panel-card">
+          <h4>Build Profile</h4>
+          <ul class="panel-list" id="detail-profile"></ul>
+        </div>
+      </div>
+
+      <div class="detail-actions">
+        <a class="primary" id="detail-live" href="#" target="_blank" rel="noopener">Visit Project</a>
+        <a id="detail-secondary-link" href="#" target="_blank" rel="noopener">Reference Link</a>
       </div>
     </div>
   </div>
-</section>
-
-<!-- ═══════ CONTACT ═══════ -->
-<section id="contact">
-  <div class="section-label">Get in Touch</div>
-  <h2 class="section-title">Contact</h2>
-  <p class="section-desc">Interested in collaboration, research inquiries, or just want to say hello? Reach out below.</p>
-
-  <div class="contact-grid">
-    <div class="contact-info">
-      <div class="contact-card">
-        <div class="ci-icon" style="background:rgba(108,140,255,.12);color:var(--accent2)">&#9993;</div>
-        <div>
-          <div class="ci-label">Email</div>
-          <div class="ci-value"><a href="#" id="eml-link" onclick="return false;">Enable JavaScript to view</a></div>
-        </div>
-      </div>
-      <div class="contact-card">
-        <div class="ci-icon" style="background:rgba(74,222,128,.12);color:var(--green)">&#128187;</div>
-        <div>
-          <div class="ci-label">GitHub</div>
-          <div class="ci-value"><a href="https://github.com/pinkysworld" target="_blank">github.com/pinkysworld</a></div>
-        </div>
-      </div>
-      <div class="contact-card">
-        <div class="ci-icon" style="background:rgba(34,211,238,.12);color:var(--cyan)">&#127891;</div>
-        <div>
-          <div class="ci-label">ORCID</div>
-          <div class="ci-value"><a href="https://orcid.org/0000-0001-6834-4422" target="_blank">0000-0001-6834-4422</a></div>
-        </div>
-      </div>
-      <div class="contact-card">
-        <div class="ci-icon" style="background:rgba(108,140,255,.12);color:var(--accent2)">&#128101;</div>
-        <div>
-          <div class="ci-label">LinkedIn</div>
-          <div class="ci-value"><a href="https://www.linkedin.com/in/michelnguyengermany/" target="_blank">Michél Nguyen</a></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="contact-form" id="cf">
-      <h3>Send a Message</h3>
-      <div class="cf-row">
-        <label for="cf-name">Your Name</label>
-        <input type="text" id="cf-name" placeholder="Jane Doe" autocomplete="name" required>
-      </div>
-      <div class="cf-row">
-        <label for="cf-email">Your Email</label>
-        <input type="email" id="cf-email" placeholder="you@example.com" autocomplete="email" required>
-      </div>
-      <div class="cf-row">
-        <label for="cf-subject">Subject</label>
-        <input type="text" id="cf-subject" placeholder="Research collaboration, question, etc.">
-      </div>
-      <div class="cf-row">
-        <label for="cf-msg">Message</label>
-        <textarea id="cf-msg" placeholder="Your message…" required></textarea>
-      </div>
-      <!-- Honeypot -->
-      <input type="text" name="website" class="cf-hp" tabindex="-1" autocomplete="off">
-      <!-- Captcha -->
-      <div class="cf-captcha">
-        <span class="captcha-q">Verify: <strong id="cap-q"></strong> = ?</span>
-        <input type="text" id="cap-a" placeholder="?" autocomplete="off">
-      </div>
-      <button class="cf-submit" id="cf-send" type="button">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg>
-        Send Message
-      </button>
-      <div class="cf-status" id="cf-status"></div>
-    </div>
-  </div>
-</section>
+</div>
 
 <script>
 (function(){
-  // ─── Email obfuscation ───
+  var projectData={
+    skeindb:{
+      title:'SkeinDB',
+      subtitle:'Single-binary research database · Rust · Axum · QUIC',
+      overview:'SkeinDB is an experimental database engine focused on practical performance with research headroom. It combines cell-interned MVCC, RPC-heavy architecture, and protocol compatibility to serve both systems experiments and real workloads.',
+      stack:['Rust','Axum','QUIC','MySQL Protocol','SkeinQL','Web Admin'],
+      highlights:['Cell-interned MVCC model for efficient version handling','74 RPC methods and broad systems instrumentation','Research tracks including vector search, differential privacy, and Wasm operators','19-panel web admin interface for operational visibility'],
+      profile:['Primary orientation: Database systems research','Paper published in IJRCOM','Single-binary deployment for simpler operations','Cross-domain experimentation environment'],
+      images:['assets/screenshots/skeindb-hero.png','assets/screenshots/skeindb-detail.png'],
+      live:'https://minh.systems/SkeinDB/site/',
+      secondary:'https://minh.systems/SkeinDB/'
+    },
+    shotsift:{
+      title:'ShotSift',
+      subtitle:'Privacy-first photo cleanup on iOS',
+      overview:'ShotSift helps users reclaim storage and reduce visual clutter using on-device analysis. The workflow prioritizes trust, speed, and clear action grouping for duplicate and low-value media removal.',
+      stack:['Swift','Vision Framework','Photos API','On-device AI'],
+      highlights:['Detects duplicates, similar shots, blurry images, and screenshots','No cloud dependency for analysis workflows','Large media identification for storage savings','Curated cleanup actions with user control'],
+      profile:['Primary orientation: Consumer iOS utility','Data handling: On-device only','UX goal: fast declutter decisions','Deployment: native iOS app experience'],
+      images:['assets/screenshots/shotsift-hero.png','assets/screenshots/shotsift-detail.png'],
+      live:'https://minh.systems/ShotSift/',
+      secondary:'https://github.com/pinkysworld'
+    },
+    rootling:{
+      title:'Rootling',
+      subtitle:'Plant propagation tracker with visual growth logs',
+      overview:'Rootling brings plant propagation management into a structured, data-backed app flow. It combines daily tracking, growth timelines, and reminders with a clean interface optimized for long-running horticulture journeys.',
+      stack:['Swift','CloudKit','Weather integration','PDF/CSV Export'],
+      highlights:['Supports 15 propagation methods and rich photo journals','200+ plant library with care context','Reminder and weather-aware planning support','Export options for archival and reporting'],
+      profile:['Primary orientation: Lifestyle + tracking app','Sync strategy: iCloud-enabled','Output modes: Time-lapse and data export','User profile: hobbyists to advanced growers'],
+      images:['assets/screenshots/rootling-hero.png','assets/screenshots/rootling-detail.png'],
+      live:'https://minh.systems/Rootling/',
+      secondary:'https://github.com/pinkysworld'
+    },
+    ridgefocus:{
+      title:'RidgeFocus',
+      subtitle:'Focused work timer and productivity analytics',
+      overview:'RidgeFocus is a focus operating system for individuals who work in deep sessions. It combines Pomodoro mechanics, streak design, widget support, and longitudinal usage analytics in a minimal interface.',
+      stack:['Swift','WidgetKit','iCloud','Calendar integration'],
+      highlights:['Pomodoro workflows with custom durations','Gamified streak and achievement system','Lock Screen and Home Screen widgets','Session analytics and habit trends'],
+      profile:['Primary orientation: productivity app','Data model: personal session history','Platform features: widgets and reminders','Design goal: low-friction daily use'],
+      images:['assets/screenshots/ridgefocus-hero.png','assets/screenshots/ridgefocus-detail.png'],
+      live:'https://minh.systems/RidgeFocus/',
+      secondary:'https://github.com/pinkysworld'
+    },
+    appsweep:{
+      title:'AppSweep',
+      subtitle:'Universal update center for macOS apps',
+      overview:'AppSweep centralizes update discovery across heterogeneous macOS app ecosystems. It reduces manual update checks by combining Sparkle, GitHub Releases, Electron metadata, and additional feeds into one operational view.',
+      stack:['Swift','macOS','Sparkle','GitHub API'],
+      highlights:['Finds updates across multiple distribution mechanisms','Provides one-click jump links to updates','Includes release notes and security status context','Inventory export for systems hygiene'],
+      profile:['Primary orientation: macOS utility tool','Integration scope: broad app distribution channels','Operational value: time savings + consistency','Audience: power users and admins'],
+      images:['assets/screenshots/appsweep-hero.png','assets/screenshots/appsweep-detail.png'],
+      live:'https://minh.systems/AppSweep/',
+      secondary:'https://github.com/pinkysworld'
+    },
+    shelterfall:{
+      title:'Shelter Fall',
+      subtitle:'Post-apocalyptic survival strategy game',
+      overview:'Shelter Fall is a systems-oriented strategy game built around compounding pressure. Players balance shelter construction, survivor management, research choices, and random world events through escalating survival nights.',
+      stack:['Swift','SpriteKit','iOS Game Architecture'],
+      highlights:['20-night survival arc with escalating difficulty','Technology research tree and progression loops','Event-driven replayability with dynamic constraints','Resource and defense balancing mechanics'],
+      profile:['Primary orientation: strategy game design','Core loop: gather, build, defend, adapt','Session style: tactical and replayable','Content depth: multi-difficulty progression'],
+      images:['assets/screenshots/shelterfall-hero.png','assets/screenshots/shelterfall-detail.png'],
+      live:'http://shelterfall.minh.systems/',
+      secondary:'https://shelterfall.minh.systems/'
+    }
+  };
+
+  var detail=document.getElementById('project-detail');
+  var titleEl=document.getElementById('detail-title');
+  var subtitleEl=document.getElementById('detail-subtitle');
+  var primaryImg=document.getElementById('detail-image-primary');
+  var secondaryImg=document.getElementById('detail-image-secondary');
+  var overviewEl=document.getElementById('detail-overview');
+  var stackEl=document.getElementById('detail-stack');
+  var highlightsEl=document.getElementById('detail-highlights');
+  var profileEl=document.getElementById('detail-profile');
+  var liveEl=document.getElementById('detail-live');
+  var secondaryEl=document.getElementById('detail-secondary-link');
+  var closeBtn=detail.querySelector('[data-close-detail]');
+  var lastTrigger=null;
+
+  function fillList(container,items,tag){
+    container.innerHTML='';
+    items.forEach(function(item){
+      var el=document.createElement(tag||'li');
+      el.textContent=item;
+      container.appendChild(el);
+    });
+  }
+
+  function openDetail(key){
+    var data=projectData[key];
+    if(!data) return;
+
+    titleEl.textContent=data.title;
+    subtitleEl.textContent=data.subtitle;
+    overviewEl.textContent=data.overview;
+
+    primaryImg.src=data.images[0];
+    primaryImg.alt=data.title+' screenshot one';
+    secondaryImg.src=data.images[1]||data.images[0];
+    secondaryImg.alt=data.title+' screenshot two';
+
+    fillList(stackEl,data.stack,'span');
+    fillList(highlightsEl,data.highlights,'li');
+    fillList(profileEl,data.profile,'li');
+
+    liveEl.href=data.live;
+    secondaryEl.href=data.secondary;
+
+    detail.classList.add('open');
+    detail.setAttribute('aria-hidden','false');
+    document.body.style.overflow='hidden';
+    if(closeBtn) closeBtn.focus();
+  }
+
+  function closeDetail(){
+    if(document.activeElement && detail.contains(document.activeElement)){
+      document.activeElement.blur();
+    }
+    detail.classList.remove('open');
+    detail.setAttribute('aria-hidden','true');
+    document.body.style.overflow='';
+    if(lastTrigger) lastTrigger.focus();
+  }
+
+  document.querySelectorAll('.show-more-btn').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      lastTrigger=btn;
+      openDetail(btn.dataset.project);
+    });
+  });
+
+  document.querySelectorAll('[data-close-detail]').forEach(function(el){
+    el.addEventListener('click',closeDetail);
+  });
+
+  document.addEventListener('keydown',function(ev){
+    if(ev.key==='Escape'&&detail.classList.contains('open')) closeDetail();
+  });
+
+  // Reveal animation
+  var observer=new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('show');
+        observer.unobserve(entry.target);
+      }
+    });
+  },{threshold:.15});
+
+  document.querySelectorAll('.reveal').forEach(function(el){ observer.observe(el); });
+
+  // Respect reduced motion for background video
+  var prefersReduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var heroVideo=document.querySelector('.hero-video');
+  var scrollHint=document.querySelector('.scroll-hint');
+  if(prefersReduced&&heroVideo){
+    heroVideo.pause();
+  }
+  if(scrollHint){
+    var updateHint=function(){
+      scrollHint.style.opacity=window.scrollY>90?'0':'0.86';
+    };
+    updateHint();
+    window.addEventListener('scroll',updateHint,{passive:true});
+  }
+
+  // Email obfuscation
   var p=['michel','_ng','@','icloud','.com'];
-  var e=p[0]+p[1]+p[2]+p[3]+p[4];
-  var el=document.getElementById('eml-link');
-  if(el){el.textContent=e;el.href='ma'+'il'+'to:'+e;el.onclick=null;}
+  var email=p[0]+p[1]+p[2]+p[3]+p[4];
+  var emailLink=document.getElementById('eml-link');
+  if(emailLink){
+    emailLink.textContent=email;
+    emailLink.href='ma'+'il'+'to:'+email;
+    emailLink.onclick=null;
+  }
 
-  // ─── Captcha ───
-  var a=Math.floor(Math.random()*10)+2;
-  var b=Math.floor(Math.random()*10)+2;
+  // Captcha + contact form
+  var a=0,b=0,oi=0,ans=0;
   var ops=['+','-','×'];
-  var oi=Math.floor(Math.random()*3);
-  if(oi===1&&a<b){var t=a;a=b;b=t;}
-  var ans=oi===0?a+b:oi===1?a-b:a*b;
-  var qEl=document.getElementById('cap-q');
-  if(qEl) qEl.textContent=a+' '+ops[oi]+' '+b;
+  var capQ=document.getElementById('cap-q');
+  var capA=document.getElementById('cap-a');
+  var statusEl=document.getElementById('cf-status');
 
-  // ─── Form submit ───
-  var btn=document.getElementById('cf-send');
-  var status=document.getElementById('cf-status');
-  if(!btn)return;
-  btn.addEventListener('click',function(){
-    var name=document.getElementById('cf-name').value.trim();
-    var email=document.getElementById('cf-email').value.trim();
-    var subj=document.getElementById('cf-subject').value.trim();
-    var msg=document.getElementById('cf-msg').value.trim();
-    var hp=document.querySelector('.cf-hp').value;
-    var ua=document.getElementById('cap-a').value.trim();
-
-    status.className='cf-status';
-    status.textContent='';
-
-    if(hp){status.className='cf-status err';status.textContent='Spam detected.';return;}
-    if(!name||!email||!msg){status.className='cf-status err';status.textContent='Please fill in all required fields.';return;}
-    if(parseInt(ua,10)!==ans){status.className='cf-status err';status.textContent='Incorrect captcha answer. Please try again.';return;}
-
-    var subject=encodeURIComponent(subj||'Contact from '+name);
-    var body=encodeURIComponent('From: '+name+' <'+email+'>\n\n'+msg);
-    window.location.href='ma'+'il'+'to:'+e+'?subject='+subject+'&body='+body;
-
-    status.className='cf-status ok';
-    status.textContent='Opening your email client… If nothing happens, email me directly.';
-
-    // Regenerate captcha
+  function regenCaptcha(){
     a=Math.floor(Math.random()*10)+2;
     b=Math.floor(Math.random()*10)+2;
     oi=Math.floor(Math.random()*3);
-    if(oi===1&&a<b){var t2=a;a=b;b=t2;}
+    if(oi===1&&a<b){var t=a;a=b;b=t;}
     ans=oi===0?a+b:oi===1?a-b:a*b;
-    qEl.textContent=a+' '+ops[oi]+' '+b;
-    document.getElementById('cap-a').value='';
-  });
+    if(capQ) capQ.textContent=a+' '+ops[oi]+' '+b;
+    if(capA) capA.value='';
+  }
+
+  regenCaptcha();
+
+  var sendBtn=document.getElementById('cf-send');
+  if(sendBtn){
+    sendBtn.addEventListener('click',function(){
+      var name=document.getElementById('cf-name').value.trim();
+      var userEmail=document.getElementById('cf-email').value.trim();
+      var subj=document.getElementById('cf-subject').value.trim();
+      var msg=document.getElementById('cf-msg').value.trim();
+      var honeypot=document.querySelector('.cf-hp').value;
+      var userAnswer=(capA&&capA.value||'').trim();
+
+      statusEl.className='form-status';
+      statusEl.textContent='';
+
+      if(honeypot){
+        statusEl.className='form-status err';
+        statusEl.textContent='Spam detected.';
+        return;
+      }
+      if(!name||!userEmail||!msg){
+        statusEl.className='form-status err';
+        statusEl.textContent='Please fill in all required fields.';
+        return;
+      }
+      if(parseInt(userAnswer,10)!==ans){
+        statusEl.className='form-status err';
+        statusEl.textContent='Incorrect captcha answer. Please try again.';
+        regenCaptcha();
+        return;
+      }
+
+      var subject=encodeURIComponent(subj||('Contact from '+name));
+      var body=encodeURIComponent('From: '+name+' <'+userEmail+'>\n\n'+msg);
+      window.location.href='ma'+'il'+'to:'+email+'?subject='+subject+'&body='+body;
+
+      statusEl.className='form-status ok';
+      statusEl.textContent='Opening your email client...';
+      regenCaptcha();
+    });
+  }
+
+  var yearEl=document.getElementById('year');
+  if(yearEl) yearEl.textContent=String(new Date().getFullYear());
 })();
 </script>
-
-<!-- ═══════ FOOTER ═══════ -->
-<footer>
-  <p>&copy; 2026 Michél Nguyen · <a href="https://minh.systems">minh.systems</a> · <a href="https://orcid.org/0000-0001-6834-4422">ORCID</a> · <a href="https://github.com/pinkysworld">GitHub</a></p>
-</footer>
-
 </body>
 </html>
