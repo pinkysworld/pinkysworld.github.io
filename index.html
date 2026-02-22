@@ -49,9 +49,16 @@ body::after{width:58rem;height:58rem;bottom:-24rem;left:-18rem;background:radial
 .nav-inner{max-width:var(--max);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:.8rem 1.4rem}
 .brand{font-weight:700;letter-spacing:.02em;color:#eef8ff}
 .brand span{color:var(--accent)}
+.nav-right{display:flex;align-items:center;gap:.75rem}
 .nav-links{display:flex;gap:1.1rem;flex-wrap:wrap}
 .nav-links a{font-size:.79rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
 .nav-links a:hover{color:#fff}
+.lang-switcher{display:inline-flex;align-items:center;gap:.34rem;padding:.2rem;border-radius:999px;background:rgba(10,24,36,.74);border:1px solid rgba(132,174,200,.24)}
+.lang-btn{display:inline-flex;align-items:center;gap:.34rem;border:1px solid transparent;background:transparent;color:#a8c1d3;border-radius:999px;padding:.34rem .52rem;cursor:pointer;font-size:.68rem;font-weight:700;letter-spacing:.04em;transition:.2s}
+.lang-btn:hover{color:#dff6ff}
+.lang-btn.active{background:rgba(19,50,70,.88);color:#ecf9ff;border-color:rgba(170,214,238,.36)}
+.lang-flag{font-size:.84rem;line-height:1}
+.lang-code{font-family:'IBM Plex Mono',monospace}
 
 /* Hero */
 .hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;overflow:hidden;padding:8rem 1.4rem 4.4rem;background:#08121d}
@@ -218,10 +225,13 @@ footer a{color:#bae4ff}
 @media (max-width:760px){
   .site-nav{background:rgba(5,12,20,.88)}
   .nav-inner{padding:.62rem .85rem .75rem;flex-direction:column;align-items:flex-start;gap:.48rem}
+  .nav-right{width:100%;display:grid;gap:.4rem}
   .brand{font-size:.93rem}
   .nav-links{width:100%;flex-wrap:nowrap;gap:.5rem;overflow-x:auto;padding-bottom:.2rem;scrollbar-width:none}
   .nav-links::-webkit-scrollbar{display:none}
   .nav-links a{white-space:nowrap;font-size:.67rem;padding:.44rem .64rem;border:1px solid rgba(142,184,208,.3);border-radius:999px;background:rgba(12,29,43,.7)}
+  .lang-switcher{justify-self:end}
+  .lang-btn{padding:.32rem .52rem}
   .grain,.hero-grid{display:none}
   .hero-video{display:none}
   .hero-overlay{background:linear-gradient(180deg,rgba(4,12,20,.42) 0%,rgba(4,12,20,.75) 62%,rgba(4,12,20,.92) 100%)}
@@ -269,6 +279,7 @@ footer a{color:#bae4ff}
   .identity-row{gap:.38rem}
   .identity-row a{font-size:.63rem;padding:.3rem .46rem}
   .nav-links a{font-size:.64rem;padding:.4rem .56rem}
+  .lang-btn{font-size:.64rem;padding:.3rem .48rem}
   .section{padding:2.7rem .72rem}
   .scroll-hint{bottom:.55rem}
 }
@@ -284,19 +295,31 @@ footer a{color:#bae4ff}
 <nav class="site-nav">
   <div class="nav-inner">
     <a class="brand" href="#top"><span>minh</span>.systems</a>
-    <div class="nav-links">
-      <a href="#projects">Projects</a>
-      <a href="#publications">Publications</a>
-      <a href="#skills">Skills</a>
-      <a href="#education">Education</a>
-      <a href="#contact">Contact</a>
+    <div class="nav-right">
+      <div class="nav-links">
+        <a href="#projects">Projects</a>
+        <a href="#publications">Publications</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="lang-switcher" role="group" aria-label="Language selector">
+        <button class="lang-btn active" type="button" data-lang="en" aria-label="Switch to English">
+          <span class="lang-flag" aria-hidden="true">🇬🇧</span>
+          <span class="lang-code">EN</span>
+        </button>
+        <button class="lang-btn" type="button" data-lang="de" aria-label="Zu Deutsch wechseln">
+          <span class="lang-flag" aria-hidden="true">🇩🇪</span>
+          <span class="lang-code">DE</span>
+        </button>
+      </div>
     </div>
   </div>
 </nav>
 
 <header class="hero" id="top">
   <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="assets/screenshots/rootling-hero.png" aria-hidden="true">
-    <source src="assets/hero-reel.mp4" type="video/mp4" media="(min-width: 761px)">
+    <source id="hero-video-source" data-src="assets/hero-reel.mp4" type="video/mp4">
   </video>
   <div class="hero-overlay" aria-hidden="true"></div>
   <div class="hero-grid" aria-hidden="true"></div>
@@ -307,7 +330,7 @@ footer a{color:#bae4ff}
       <h1>Michél Nguyen <span class="accent">Building systems, apps, and research that ship.</span></h1>
       <p class="hero-lede">I design and deliver research-heavy software across database engines, iOS/macOS applications, and interactive systems. Scroll down to explore each project with visuals, technical context, and implementation highlights.</p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="#projects">Explore Projects
+        <a class="btn btn-primary" href="#projects"><span class="btn-text">Explore Projects</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         </a>
         <a class="btn btn-ghost" href="#contact">Start a Conversation</a>
@@ -663,7 +686,7 @@ footer a{color:#bae4ff}
         <input type="text" class="cf-hp" name="website" tabindex="-1" autocomplete="off">
 
         <div class="captcha">
-          <span>Verify: <strong id="cap-q"></strong> = ?</span>
+          <span><span id="cap-label">Verify:</span> <strong id="cap-q"></strong> = ?</span>
           <input type="text" id="cap-a" placeholder="?" autocomplete="off">
         </div>
 
@@ -727,72 +750,249 @@ footer a{color:#bae4ff}
 
 <script>
 (function(){
-  var projectData={
+  var state={lang:'en',activeProjectKey:null};
+  var cardOrder=['skeindb','shotsift','rootling','ridgefocus','appsweep','shelterfall'];
+  var i18n={
+    en:{
+      meta:{
+        title:'Michél Nguyen — Researcher & Engineer',
+        description:'Portfolio of Michél Nguyen: independent researcher and software engineer building production apps, games, and systems research.'
+      },
+      nav:{projects:'Projects',publications:'Publications',skills:'Skills',education:'Education',contact:'Contact'},
+      langSwitcher:{selectorAria:'Language selector',switchEn:'Switch to English',switchDe:'Switch to German'},
+      hero:{
+        eyebrow:'Independent Research + Product Engineering',
+        accent:'Building systems, apps, and research that ship.',
+        lede:'I design and deliver research-heavy software across database engines, iOS/macOS applications, and interactive systems. Scroll down to explore each project with visuals, technical context, and implementation highlights.',
+        ctaPrimary:'Explore Projects',
+        ctaSecondary:'Start a Conversation',
+        focusLabel:'Focus Areas',
+        focusValue:'Database systems • iOS/macOS • Applied research',
+        trackLabel:'Current Track',
+        trackValue:'B.Sc. Computer Science (University of the People)',
+        outputLabel:'Output',
+        outputValue:'Published research + production-ready software',
+        scrollHint:'Scroll Down to See More'
+      },
+      sections:{
+        projectsKicker:'Featured Work',
+        projectsTitle:'Featured Projects',
+        projectsNote:'Tap Show More to see project details and screenshots.',
+        publicationsKicker:'Research',
+        publicationsTitle:'Publications & Preprints',
+        publicationsNote:'Peer-reviewed work, technical preprints, and creative publications across computing and theoretical domains.',
+        skillsKicker:'Expertise',
+        skillsTitle:'Professional Skills',
+        skillsNote:'Cross-functional capability from systems architecture to production app delivery and academic writing.',
+        educationKicker:'Academic Profile',
+        educationTitle:'Education & Professional Activities',
+        educationNote:'Ongoing formal education, pre-doctoral cybersecurity research preparation, and peer-review activity aligned with active publication work.',
+        contactKicker:'Get in Touch',
+        contactTitle:'Contact',
+        contactNote:'For collaboration, research opportunities, app partnerships, or speaking requests.'
+      },
+      cards:{
+        showMore:'Show More',
+        liveSite:'Live Site',
+        skeindb:{badge:'Research',desc:'Single-binary database architecture with cell-interned MVCC and a research-first execution model.'},
+        shotsift:{badge:'iOS App',desc:'Private photo decluttering experience for duplicates, screenshots, bursts, and large-media cleanup workflows.'},
+        rootling:{badge:'iOS App',desc:'Plant propagation tracker with visual journals, reminders, weather context, and exportable records.'},
+        ridgefocus:{badge:'iOS App',desc:'Pomodoro and deep-work platform with streak systems, widgets, and lightweight personal productivity insights.'},
+        appsweep:{badge:'macOS Tool',desc:'Universal macOS updater that merges multiple update sources into a single inventory and action flow.'},
+        shelterfall:{badge:'Game',desc:'Post-apocalyptic strategy game with progression systems, dynamic events, and escalating survival pressure.'}
+      },
+      secondary:{
+        focusledgerDesc:'AI-assisted macOS productivity tracker with local timeline screenshots, focus sessions, and private analytics.',
+        focusledgerLink:'Project Link',
+        pimiDesc:'Proprietary software work formally registered as a copyright-protected system.',
+        pimiLink:'View on ORCID'
+      },
+      publications:{
+        types:[
+          'Journal · IJRC · 2026',
+          'Preprint · TechRxiv · 2026',
+          'Preprint · TechRxiv · 2025',
+          'Preprint · TechRxiv · 2025',
+          'Journal · Cognizance · 2025',
+          'Preprint · TechRxiv · 2025',
+          'Preprint · Research Square · 2025',
+          'Preprint · TechRxiv · 2025',
+          'Journal · Cognizance · 2025',
+          'Book',
+          'Software Copyright'
+        ]
+      },
+      skillBlocks:['Systems & Databases','Apple Development','Protocols & Backend','Research Domains'],
+      education:{
+        preDoc:{year:'Q3 2025 - now',title:'Pre-doctoral Research Preparation — Cybersecurity (MPhil/PhD Track)',org:'General Sir John Kotelawala Defence University, Sri Lanka • Research preparation phase for graduate study.',bullets:['Research synopsis and topic development focused on malware classification with machine learning.','Literature review, static/dynamic feature engineering, model training, and evaluation for robustness and drift.','Outputs in progress: preprint manuscript, public GitHub artifacts, and curated dataset preparation.']},
+        bsc:{year:'2025 - now',title:'Bachelor of Science — Computer Science',org:'University of the People, Pasadena, California, US • Currently enrolled'},
+        asc:{year:'2024 - 2025',title:'Associate of Science — Computer Science',org:'University of the People, Pasadena, California, US • Completed'},
+        review:{year:'2025',title:'Reviewer — 6th Student Symposium (Faculty of Computing)',org:'General Sir John Kotelawala Defence University, Colombo, Sri Lanka • Peer review service'}
+      },
+      contact:{
+        formTitle:'Send a Message',
+        labels:{name:'Your Name',email:'Your Email',subject:'Subject',message:'Message'},
+        placeholders:{name:'Jane Doe',email:'you@example.com',subject:'Research collaboration, app question, etc.',message:'Your message',captcha:'?'},
+        send:'Send Message',
+        captcha:'Verify:'
+      },
+      detail:{overview:'Overview',tech:'Tech Stack',highlights:'Highlights',profile:'Build Profile',visit:'Visit Project',reference:'Reference Link',closeAria:'Close details'},
+      form:{spam:'Spam detected.',required:'Please fill in all required fields.',captcha:'Incorrect captcha answer. Please try again.',opening:'Opening your email client...',subjectPrefix:'Contact from '}
+    },
+    de:{
+      meta:{
+        title:'Michél Nguyen — Forscher & Entwickler',
+        description:'Portfolio von Michél Nguyen: unabhängige Forschung und Softwareentwicklung für produktive Apps, Games und Systemforschung.'
+      },
+      nav:{projects:'Projekte',publications:'Publikationen',skills:'Kompetenzen',education:'Ausbildung',contact:'Kontakt'},
+      langSwitcher:{selectorAria:'Sprachauswahl',switchEn:'Zu Englisch wechseln',switchDe:'Zu Deutsch wechseln'},
+      hero:{
+        eyebrow:'Unabhaengige Forschung + Produktentwicklung',
+        accent:'Systeme, Apps und Forschung mit realen Ergebnissen.',
+        lede:'Ich entwickle forschungsnahe Software in Datenbanksystemen, iOS/macOS-Anwendungen und interaktiven Systemen. Scrolle nach unten, um Projekte mit Bildern, Technikdetails und Ergebnissen zu sehen.',
+        ctaPrimary:'Projekte ansehen',
+        ctaSecondary:'Kontakt aufnehmen',
+        focusLabel:'Schwerpunkte',
+        focusValue:'Datenbanksysteme • iOS/macOS • Angewandte Forschung',
+        trackLabel:'Aktueller Studienweg',
+        trackValue:'B.Sc. Informatik (University of the People)',
+        outputLabel:'Ergebnisse',
+        outputValue:'Publizierte Forschung + produktionsreife Software',
+        scrollHint:'Nach unten scrollen'
+      },
+      sections:{
+        projectsKicker:'Ausgewaehlte Arbeiten',
+        projectsTitle:'Ausgewaehlte Projekte',
+        projectsNote:'Tippe auf Mehr anzeigen, um Details und Screenshots zu sehen.',
+        publicationsKicker:'Forschung',
+        publicationsTitle:'Publikationen & Preprints',
+        publicationsNote:'Peer-Review-Arbeiten, technische Preprints und weitere Veroeffentlichungen aus Informatik und Theorie.',
+        skillsKicker:'Kompetenzen',
+        skillsTitle:'Fachliche Kompetenzen',
+        skillsNote:'Breites Profil von Systemarchitektur bis App-Entwicklung und wissenschaftlichem Schreiben.',
+        educationKicker:'Akademisches Profil',
+        educationTitle:'Ausbildung & akademische Aktivitaeten',
+        educationNote:'Laufendes Studium, praedoktorale Forschungsvorbereitung im Bereich Cybersecurity und Peer-Review-Aktivitaet.',
+        contactKicker:'Kontakt',
+        contactTitle:'Kontakt',
+        contactNote:'Fuer Zusammenarbeit, Forschungsprojekte, App-Partnerschaften oder Vortraege.'
+      },
+      cards:{
+        showMore:'Mehr anzeigen',
+        liveSite:'Website',
+        skeindb:{badge:'Forschung',desc:'Single-Binary Datenbankarchitektur mit cell-interned MVCC und forschungsorientiertem Ausfuehrungsmodell.'},
+        shotsift:{badge:'iOS-App',desc:'Datenschutzorientierte Foto-Bereinigung fuer Duplikate, Screenshots, Serienbilder und grosse Medien.'},
+        rootling:{badge:'iOS-App',desc:'Plant-Propagation-Tracker mit visuellen Journalen, Erinnerungen, Wetterbezug und Exportfunktionen.'},
+        ridgefocus:{badge:'iOS-App',desc:'Pomodoro- und Deep-Work-App mit Streak-System, Widgets und schlanker Produktivitaetsanalyse.'},
+        appsweep:{badge:'macOS-Tool',desc:'Universeller macOS-Updater, der mehrere Quellen in einer Uebersicht zusammenfuehrt.'},
+        shelterfall:{badge:'Spiel',desc:'Postapokalyptisches Strategiespiel mit Progression, dynamischen Events und steigendem Schwierigkeitsdruck.'}
+      },
+      secondary:{
+        focusledgerDesc:'KI-gestuetzter macOS-Produktivitaetstracker mit lokalen Timeline-Screenshots, Fokus-Sessions und privaten Analysen.',
+        focusledgerLink:'Projektlink',
+        pimiDesc:'Proprietaere Softwarearbeit mit registriertem urheberrechtlichem Schutz.',
+        pimiLink:'Bei ORCID ansehen'
+      },
+      publications:{
+        types:[
+          'Fachartikel · IJRC · 2026',
+          'Preprint · TechRxiv · 2026',
+          'Preprint · TechRxiv · 2025',
+          'Preprint · TechRxiv · 2025',
+          'Fachartikel · Cognizance · 2025',
+          'Preprint · TechRxiv · 2025',
+          'Preprint · Research Square · 2025',
+          'Preprint · TechRxiv · 2025',
+          'Fachartikel · Cognizance · 2025',
+          'Buch',
+          'Software-Urheberrecht'
+        ]
+      },
+      skillBlocks:['Systeme & Datenbanken','Apple-Entwicklung','Protokolle & Backend','Forschungsfelder'],
+      education:{
+        preDoc:{year:'Q3 2025 - heute',title:'Praedoktorale Forschungsvorbereitung — Cybersecurity (MPhil/PhD)',org:'General Sir John Kotelawala Defence University, Sri Lanka • Vorbereitung auf weiterfuehrende Forschungsprogramme.',bullets:['Forschungssynopse und Themenentwicklung mit Fokus auf Malware-Klassifikation (ML).','Literaturarbeit, statische/dynamische Feature-Entwicklung, Modelltraining und Evaluation auf Robustheit und Drift.','Geplante Outputs: Preprint-Manuskript, oeffentliche GitHub-Artefakte und kuratierte Datensatzvorbereitung.']},
+        bsc:{year:'2025 - heute',title:'Bachelor of Science — Informatik',org:'University of the People, Pasadena, Kalifornien, USA • Laufend'},
+        asc:{year:'2024 - 2025',title:'Associate of Science — Informatik',org:'University of the People, Pasadena, Kalifornien, USA • Abgeschlossen'},
+        review:{year:'2025',title:'Reviewer — 6th Student Symposium (Faculty of Computing)',org:'General Sir John Kotelawala Defence University, Colombo, Sri Lanka • Peer-Review-Taetigkeit'}
+      },
+      contact:{
+        formTitle:'Nachricht senden',
+        labels:{name:'Ihr Name',email:'Ihre E-Mail',subject:'Betreff',message:'Nachricht'},
+        placeholders:{name:'Max Mustermann',email:'sie@example.com',subject:'Forschungsanfrage, App-Frage usw.',message:'Ihre Nachricht',captcha:'?'},
+        send:'Nachricht senden',
+        captcha:'Pruefen:'
+      },
+      detail:{overview:'Ueberblick',tech:'Tech-Stack',highlights:'Highlights',profile:'Projektprofil',visit:'Projekt besuchen',reference:'Referenzlink',closeAria:'Details schliessen'},
+      form:{spam:'Spam erkannt.',required:'Bitte alle Pflichtfelder ausfuellen.',captcha:'Captcha-Antwort ist falsch. Bitte erneut versuchen.',opening:'E-Mail-Programm wird geoeffnet...',subjectPrefix:'Kontakt von '}
+    }
+  };
+
+  var projectCatalog={
     skeindb:{
       title:'SkeinDB',
-      subtitle:'Single-binary research database · Rust · Axum · QUIC',
-      overview:'SkeinDB is an experimental database engine focused on practical performance with research headroom. It combines cell-interned MVCC, RPC-heavy architecture, and protocol compatibility to serve both systems experiments and real workloads.',
       stack:['Rust','Axum','QUIC','MySQL Protocol','SkeinQL','Web Admin'],
-      highlights:['Cell-interned MVCC model for efficient version handling','74 RPC methods and broad systems instrumentation','Research tracks including vector search, differential privacy, and Wasm operators','19-panel web admin interface for operational visibility'],
-      profile:['Primary orientation: Database systems research','Paper published in IJRCOM','Single-binary deployment for simpler operations','Cross-domain experimentation environment'],
       images:['assets/screenshots/skeindb-hero.png','assets/screenshots/skeindb-detail.png'],
       live:'https://minh.systems/SkeinDB/site/',
-      secondary:'https://minh.systems/SkeinDB/'
+      secondary:'https://minh.systems/SkeinDB/',
+      copy:{
+        en:{subtitle:'Single-binary research database · Rust · Axum · QUIC',overview:'SkeinDB is an experimental database engine focused on practical performance with research headroom. It combines cell-interned MVCC, RPC-heavy architecture, and protocol compatibility to serve both systems experiments and real workloads.',highlights:['Cell-interned MVCC model for efficient version handling','74 RPC methods and broad systems instrumentation','Research tracks including vector search, differential privacy, and Wasm operators','19-panel web admin interface for operational visibility'],profile:['Primary orientation: Database systems research','Paper published in IJRCOM','Single-binary deployment for simpler operations','Cross-domain experimentation environment']},
+        de:{subtitle:'Single-Binary Forschungsdatenbank · Rust · Axum · QUIC',overview:'SkeinDB ist eine experimentelle Datenbank-Engine mit Fokus auf praktikable Performance und Forschungspotenzial. Sie kombiniert cell-interned MVCC, RPC-zentrierte Architektur und Protokoll-Kompatibilitaet fuer Experimente und reale Workloads.',highlights:['Cell-interned MVCC fuer effiziente Versionsverwaltung','74 RPC-Methoden mit breiter Systeminstrumentierung','Forschungsfelder inkl. Vektorsuche, Differential Privacy und Wasm-Operatoren','19-Panel Web-Admin fuer operative Transparenz'],profile:['Ausrichtung: Datenbanksystemforschung','Publikation im IJRCOM','Single-Binary Deployment fuer einfache Operation','Plattform fuer interdisziplinaere Experimente']}
+      }
     },
     shotsift:{
       title:'ShotSift',
-      subtitle:'Privacy-first photo cleanup on iOS',
-      overview:'ShotSift helps users reclaim storage and reduce visual clutter using on-device analysis. The workflow prioritizes trust, speed, and clear action grouping for duplicate and low-value media removal.',
       stack:['Swift','Vision Framework','Photos API','On-device AI'],
-      highlights:['Detects duplicates, similar shots, blurry images, and screenshots','No cloud dependency for analysis workflows','Large media identification for storage savings','Curated cleanup actions with user control'],
-      profile:['Primary orientation: Consumer iOS utility','Data handling: On-device only','UX goal: fast declutter decisions','Deployment: native iOS app experience'],
       images:['assets/screenshots/shotsift-hero.png','assets/screenshots/shotsift-detail.png'],
       live:'https://minh.systems/ShotSift/',
-      secondary:'https://github.com/pinkysworld'
+      secondary:'https://github.com/pinkysworld',
+      copy:{
+        en:{subtitle:'Privacy-first photo cleanup on iOS',overview:'ShotSift helps users reclaim storage and reduce visual clutter using on-device analysis. The workflow prioritizes trust, speed, and clear action grouping for duplicate and low-value media removal.',highlights:['Detects duplicates, similar shots, blurry images, and screenshots','No cloud dependency for analysis workflows','Large media identification for storage savings','Curated cleanup actions with user control'],profile:['Primary orientation: Consumer iOS utility','Data handling: On-device only','UX goal: fast declutter decisions','Deployment: native iOS app experience']},
+        de:{subtitle:'Datenschutzorientierte Foto-Bereinigung auf iOS',overview:'ShotSift hilft Nutzern, Speicher freizugeben und visuelle Unordnung zu reduzieren, komplett mit On-Device-Analyse. Der Workflow priorisiert Vertrauen, Geschwindigkeit und klare Entscheidungsgruppen.',highlights:['Erkennt Duplikate, aehnliche Aufnahmen, unscharfe Bilder und Screenshots','Keine Cloud-Abhaengigkeit fuer Analyseablaeufe','Erkennung grosser Dateien fuer Speichereinsparung','Kuratiere Bereinigungsaktionen mit voller Nutzerkontrolle'],profile:['Ausrichtung: iOS Consumer Utility','Datenverarbeitung: ausschliesslich lokal','UX-Ziel: schnelle Declutter-Entscheidungen','Deployment: native iOS-App-Erfahrung']}
+      }
     },
     rootling:{
       title:'Rootling',
-      subtitle:'Plant propagation tracker with visual growth logs',
-      overview:'Rootling brings plant propagation management into a structured, data-backed app flow. It combines daily tracking, growth timelines, and reminders with a clean interface optimized for long-running horticulture journeys.',
       stack:['Swift','CloudKit','Weather integration','PDF/CSV Export'],
-      highlights:['Supports 15 propagation methods and rich photo journals','200+ plant library with care context','Reminder and weather-aware planning support','Export options for archival and reporting'],
-      profile:['Primary orientation: Lifestyle + tracking app','Sync strategy: iCloud-enabled','Output modes: Time-lapse and data export','User profile: hobbyists to advanced growers'],
       images:['assets/screenshots/rootling-hero.png','assets/screenshots/rootling-detail.png'],
       live:'https://minh.systems/Rootling/',
-      secondary:'https://github.com/pinkysworld'
+      secondary:'https://github.com/pinkysworld',
+      copy:{
+        en:{subtitle:'Plant propagation tracker with visual growth logs',overview:'Rootling brings plant propagation management into a structured, data-backed app flow. It combines daily tracking, growth timelines, and reminders with a clean interface optimized for long-running horticulture journeys.',highlights:['Supports 15 propagation methods and rich photo journals','200+ plant library with care context','Reminder and weather-aware planning support','Export options for archival and reporting'],profile:['Primary orientation: Lifestyle + tracking app','Sync strategy: iCloud-enabled','Output modes: Time-lapse and data export','User profile: hobbyists to advanced growers']},
+        de:{subtitle:'Plant-Propagation-Tracker mit visuellen Wachstumsprotokollen',overview:'Rootling ueberfuehrt Plant-Propagation-Management in einen strukturierten, datenbasierten App-Flow. Es kombiniert taegliches Tracking, Wachstumstimeline und Erinnerungen in einer klaren UI.',highlights:['Unterstuetzt 15 Vermehrungsmethoden mit umfangreichen Fotojournalen','200+ Pflanzenbibliothek mit Pflegekontext','Erinnerungen und wetterbezogene Planungsunterstuetzung','Exportoptionen fuer Archivierung und Auswertung'],profile:['Ausrichtung: Lifestyle- und Tracking-App','Sync-Strategie: iCloud-aktiviert','Ausgabeformen: Zeitraffer und Datenexport','Zielgruppe: Einsteiger bis fortgeschrittene Grower']}
+      }
     },
     ridgefocus:{
       title:'RidgeFocus',
-      subtitle:'Focused work timer and productivity analytics',
-      overview:'RidgeFocus is a focus operating system for individuals who work in deep sessions. It combines Pomodoro mechanics, streak design, widget support, and longitudinal usage analytics in a minimal interface.',
       stack:['Swift','WidgetKit','iCloud','Calendar integration'],
-      highlights:['Pomodoro workflows with custom durations','Gamified streak and achievement system','Lock Screen and Home Screen widgets','Session analytics and habit trends'],
-      profile:['Primary orientation: productivity app','Data model: personal session history','Platform features: widgets and reminders','Design goal: low-friction daily use'],
       images:['assets/screenshots/ridgefocus-hero.png','assets/screenshots/ridgefocus-detail.png'],
       live:'https://minh.systems/RidgeFocus/',
-      secondary:'https://github.com/pinkysworld'
+      secondary:'https://github.com/pinkysworld',
+      copy:{
+        en:{subtitle:'Focused work timer and productivity analytics',overview:'RidgeFocus is a focus operating system for individuals who work in deep sessions. It combines Pomodoro mechanics, streak design, widget support, and longitudinal usage analytics in a minimal interface.',highlights:['Pomodoro workflows with custom durations','Gamified streak and achievement system','Lock Screen and Home Screen widgets','Session analytics and habit trends'],profile:['Primary orientation: productivity app','Data model: personal session history','Platform features: widgets and reminders','Design goal: low-friction daily use']},
+        de:{subtitle:'Fokus-Timer und Produktivitaetsanalysen',overview:'RidgeFocus ist ein Fokus-Betriebssystem fuer Menschen mit Deep-Work-Sessions. Es verbindet Pomodoro-Mechanik, Streak-Design, Widget-Support und langfristige Nutzungsanalysen in einer reduzierten Oberflaeche.',highlights:['Pomodoro-Workflows mit flexiblen Zeiten','Gamifiziertes Streak- und Achievement-System','Widgets fuer Sperrbildschirm und Homescreen','Session-Analysen und Gewohnheitstrends'],profile:['Ausrichtung: Produktivitaets-App','Datenmodell: persoenliche Session-Historie','Plattformfeatures: Widgets und Erinnerungen','Designziel: taegliche Nutzung mit geringer Reibung']}
+      }
     },
     appsweep:{
       title:'AppSweep',
-      subtitle:'Universal update center for macOS apps',
-      overview:'AppSweep centralizes update discovery across heterogeneous macOS app ecosystems. It reduces manual update checks by combining Sparkle, GitHub Releases, Electron metadata, and additional feeds into one operational view.',
       stack:['Swift','macOS','Sparkle','GitHub API'],
-      highlights:['Finds updates across multiple distribution mechanisms','Provides one-click jump links to updates','Includes release notes and security status context','Inventory export for systems hygiene'],
-      profile:['Primary orientation: macOS utility tool','Integration scope: broad app distribution channels','Operational value: time savings + consistency','Audience: power users and admins'],
       images:['assets/screenshots/appsweep-hero.png','assets/screenshots/appsweep-detail.png'],
       live:'https://minh.systems/AppSweep/',
-      secondary:'https://github.com/pinkysworld'
+      secondary:'https://github.com/pinkysworld',
+      copy:{
+        en:{subtitle:'Universal update center for macOS apps',overview:'AppSweep centralizes update discovery across heterogeneous macOS app ecosystems. It reduces manual update checks by combining Sparkle, GitHub Releases, Electron metadata, and additional feeds into one operational view.',highlights:['Finds updates across multiple distribution mechanisms','Provides one-click jump links to updates','Includes release notes and security status context','Inventory export for systems hygiene'],profile:['Primary orientation: macOS utility tool','Integration scope: broad app distribution channels','Operational value: time savings + consistency','Audience: power users and admins']},
+        de:{subtitle:'Universelles Update-Center fuer macOS-Apps',overview:'AppSweep buendelt Update-Erkennung ueber heterogene macOS-App-Oekosysteme. Manuelle Updatepruefungen werden reduziert, indem Sparkle, GitHub Releases, Electron-Metadaten und weitere Feeds in einer Sicht kombiniert werden.',highlights:['Findet Updates ueber mehrere Distributionswege','Bietet One-Click-Sprunglinks zu Updates','Enthaelt Release Notes und Security-Kontext','Inventar-Export fuer bessere Systemhygiene'],profile:['Ausrichtung: macOS Utility-Tool','Integrationsumfang: breite Distributionskanaele','Operativer Nutzen: Zeitersparnis und Konsistenz','Zielgruppe: Power User und Admins']}
+      }
     },
     shelterfall:{
       title:'Shelter Fall',
-      subtitle:'Post-apocalyptic survival strategy game',
-      overview:'Shelter Fall is a systems-oriented strategy game built around compounding pressure. Players balance shelter construction, survivor management, research choices, and random world events through escalating survival nights.',
       stack:['Swift','SpriteKit','iOS Game Architecture'],
-      highlights:['20-night survival arc with escalating difficulty','Technology research tree and progression loops','Event-driven replayability with dynamic constraints','Resource and defense balancing mechanics'],
-      profile:['Primary orientation: strategy game design','Core loop: gather, build, defend, adapt','Session style: tactical and replayable','Content depth: multi-difficulty progression'],
       images:['assets/screenshots/shelterfall-hero.png','assets/screenshots/shelterfall-detail.png'],
       live:'http://shelterfall.minh.systems/',
-      secondary:'https://shelterfall.minh.systems/'
+      secondary:'https://shelterfall.minh.systems/',
+      copy:{
+        en:{subtitle:'Post-apocalyptic survival strategy game',overview:'Shelter Fall is a systems-oriented strategy game built around compounding pressure. Players balance shelter construction, survivor management, research choices, and random world events through escalating survival nights.',highlights:['20-night survival arc with escalating difficulty','Technology research tree and progression loops','Event-driven replayability with dynamic constraints','Resource and defense balancing mechanics'],profile:['Primary orientation: strategy game design','Core loop: gather, build, defend, adapt','Session style: tactical and replayable','Content depth: multi-difficulty progression']},
+        de:{subtitle:'Postapokalyptisches Survival-Strategiespiel',overview:'Shelter Fall ist ein systemorientiertes Strategiespiel mit kumulativem Druck. Spieler balancieren Shelter-Bau, Survivor-Management, Forschungsentscheidungen und Zufallsereignisse ueber zunehmend harte Ueberlebensnaechte.',highlights:['20-Naechte-Survival-Arc mit steigender Schwierigkeit','Technologiebaum und Progressionsschleifen','Event-basierte Wiederspielbarkeit mit dynamischen Einschränkungen','Ressourcen- und Verteidigungsbalancing'],profile:['Ausrichtung: Strategie-Game-Design','Core Loop: sammeln, bauen, verteidigen, anpassen','Session-Stil: taktisch und wiederspielbar','Inhaltstiefe: Progression mit mehreren Schwierigkeitsstufen']}
+      }
     }
   };
 
@@ -809,6 +1009,21 @@ footer a{color:#bae4ff}
   var secondaryEl=document.getElementById('detail-secondary-link');
   var closeBtn=detail.querySelector('[data-close-detail]');
   var lastTrigger=null;
+  var capLabel=document.getElementById('cap-label');
+  var langButtons=document.querySelectorAll('.lang-btn');
+  var langSwitcher=document.querySelector('.lang-switcher');
+
+  function txt(selector,value){
+    var el=document.querySelector(selector);
+    if(el&&typeof value==='string') el.textContent=value;
+  }
+
+  function txtAll(selector,values){
+    if(!values) return;
+    document.querySelectorAll(selector).forEach(function(el,idx){
+      if(typeof values[idx]==='string') el.textContent=values[idx];
+    });
+  }
 
   function fillList(container,items,tag){
     container.innerHTML='';
@@ -819,9 +1034,27 @@ footer a{color:#bae4ff}
     });
   }
 
-  function openDetail(key){
-    var data=projectData[key];
+  function getProjectData(key){
+    var entry=projectCatalog[key];
+    if(!entry) return null;
+    var localized=(entry.copy[state.lang]||entry.copy.en);
+    return {
+      title:entry.title,
+      subtitle:localized.subtitle,
+      overview:localized.overview,
+      stack:entry.stack,
+      highlights:localized.highlights,
+      profile:localized.profile,
+      images:entry.images,
+      live:entry.live,
+      secondary:entry.secondary
+    };
+  }
+
+  function openDetail(key,skipFocus){
+    var data=getProjectData(key);
     if(!data) return;
+    state.activeProjectKey=key;
 
     titleEl.textContent=data.title;
     subtitleEl.textContent=data.subtitle;
@@ -842,7 +1075,7 @@ footer a{color:#bae4ff}
     detail.classList.add('open');
     detail.setAttribute('aria-hidden','false');
     document.body.style.overflow='hidden';
-    if(closeBtn) closeBtn.focus();
+    if(closeBtn&&!skipFocus) closeBtn.focus();
   }
 
   function closeDetail(){
@@ -909,6 +1142,161 @@ footer a{color:#bae4ff}
     window.addEventListener('scroll',updateHint,{passive:true});
   }
 
+  function applyLanguage(lang){
+    state.lang=lang==='de'?'de':'en';
+    var dict=i18n[state.lang]||i18n.en;
+    document.documentElement.lang=state.lang;
+    document.title=dict.meta.title;
+    var descMeta=document.querySelector('meta[name="description"]');
+    if(descMeta) descMeta.setAttribute('content',dict.meta.description);
+
+    if(langSwitcher) langSwitcher.setAttribute('aria-label',dict.langSwitcher.selectorAria);
+    var enBtn=document.querySelector('.lang-btn[data-lang="en"]');
+    var deBtn=document.querySelector('.lang-btn[data-lang="de"]');
+    if(enBtn){
+      enBtn.classList.toggle('active',state.lang==='en');
+      enBtn.setAttribute('aria-label',dict.langSwitcher.switchEn);
+    }
+    if(deBtn){
+      deBtn.classList.toggle('active',state.lang==='de');
+      deBtn.setAttribute('aria-label',dict.langSwitcher.switchDe);
+    }
+
+    txt('.nav-links a[href="#projects"]',dict.nav.projects);
+    txt('.nav-links a[href="#publications"]',dict.nav.publications);
+    txt('.nav-links a[href="#skills"]',dict.nav.skills);
+    txt('.nav-links a[href="#education"]',dict.nav.education);
+    txt('.nav-links a[href="#contact"]',dict.nav.contact);
+
+    txt('.eyebrow',dict.hero.eyebrow);
+    txt('.hero h1 .accent',dict.hero.accent);
+    txt('.hero-lede',dict.hero.lede);
+    txt('.btn-primary .btn-text',dict.hero.ctaPrimary);
+    txt('.btn-ghost',dict.hero.ctaSecondary);
+    txt('.scroll-hint',dict.hero.scrollHint);
+
+    var stats=document.querySelectorAll('.hero-side .side-stat');
+    if(stats[0]){
+      txt('.hero-side .side-stat:nth-child(1) .label',dict.hero.focusLabel);
+      txt('.hero-side .side-stat:nth-child(1) .value',dict.hero.focusValue);
+    }
+    if(stats[1]){
+      txt('.hero-side .side-stat:nth-child(2) .label',dict.hero.trackLabel);
+      txt('.hero-side .side-stat:nth-child(2) .value',dict.hero.trackValue);
+    }
+    if(stats[2]){
+      txt('.hero-side .side-stat:nth-child(3) .label',dict.hero.outputLabel);
+      txt('.hero-side .side-stat:nth-child(3) .value',dict.hero.outputValue);
+    }
+
+    txt('#projects .section-kicker',dict.sections.projectsKicker);
+    txt('#projects .section-title',dict.sections.projectsTitle);
+    txt('#projects .section-note',dict.sections.projectsNote);
+
+    var cards=document.querySelectorAll('#projects .projects-grid .project-card');
+    cards.forEach(function(card,idx){
+      var key=cardOrder[idx];
+      var cardCopy=dict.cards[key];
+      if(!cardCopy) return;
+      var badge=card.querySelector('.project-badge');
+      var desc=card.querySelector('.project-body p');
+      var showMore=card.querySelector('.show-more-btn');
+      var liveLink=card.querySelector('.project-link');
+      if(badge) badge.textContent=cardCopy.badge;
+      if(desc) desc.textContent=cardCopy.desc;
+      if(showMore) showMore.textContent=dict.cards.showMore;
+      if(liveLink) liveLink.textContent=dict.cards.liveSite;
+    });
+
+    var secondaryCards=document.querySelectorAll('#projects .secondary-card');
+    if(secondaryCards[0]){
+      var firstP=secondaryCards[0].querySelector('p');
+      var firstA=secondaryCards[0].querySelector('a');
+      if(firstP) firstP.textContent=dict.secondary.focusledgerDesc;
+      if(firstA) firstA.textContent=dict.secondary.focusledgerLink;
+    }
+    if(secondaryCards[1]){
+      var secondP=secondaryCards[1].querySelector('p');
+      var secondA=secondaryCards[1].querySelector('a');
+      if(secondP) secondP.textContent=dict.secondary.pimiDesc;
+      if(secondA) secondA.textContent=dict.secondary.pimiLink;
+    }
+
+    txt('#publications .section-kicker',dict.sections.publicationsKicker);
+    txt('#publications .section-title',dict.sections.publicationsTitle);
+    txt('#publications .section-note',dict.sections.publicationsNote);
+    txtAll('#publications .pub-type',dict.publications.types);
+
+    txt('#skills .section-kicker',dict.sections.skillsKicker);
+    txt('#skills .section-title',dict.sections.skillsTitle);
+    txt('#skills .section-note',dict.sections.skillsNote);
+    txtAll('#skills .skill-block h4',dict.skillBlocks);
+
+    txt('#education .section-kicker',dict.sections.educationKicker);
+    txt('#education .section-title',dict.sections.educationTitle);
+    txt('#education .section-note',dict.sections.educationNote);
+
+    var timeline=document.querySelectorAll('#education .timeline-item');
+    if(timeline[0]){
+      timeline[0].querySelector('.timeline-year').textContent=dict.education.preDoc.year;
+      timeline[0].querySelector('h4').textContent=dict.education.preDoc.title;
+      timeline[0].querySelector('p').textContent=dict.education.preDoc.org;
+      var bullets=timeline[0].querySelectorAll('li');
+      dict.education.preDoc.bullets.forEach(function(line,idx){
+        if(bullets[idx]) bullets[idx].textContent=line;
+      });
+    }
+    if(timeline[1]){
+      timeline[1].querySelector('.timeline-year').textContent=dict.education.bsc.year;
+      timeline[1].querySelector('h4').textContent=dict.education.bsc.title;
+      timeline[1].querySelector('p').textContent=dict.education.bsc.org;
+    }
+    if(timeline[2]){
+      timeline[2].querySelector('.timeline-year').textContent=dict.education.asc.year;
+      timeline[2].querySelector('h4').textContent=dict.education.asc.title;
+      timeline[2].querySelector('p').textContent=dict.education.asc.org;
+    }
+    if(timeline[3]){
+      timeline[3].querySelector('.timeline-year').textContent=dict.education.review.year;
+      timeline[3].querySelector('h4').textContent=dict.education.review.title;
+      timeline[3].querySelector('p').textContent=dict.education.review.org;
+    }
+
+    txt('#contact .section-kicker',dict.sections.contactKicker);
+    txt('#contact .section-title',dict.sections.contactTitle);
+    txt('#contact .section-note',dict.sections.contactNote);
+    txt('#contact .form-panel h3',dict.contact.formTitle);
+    txt('label[for="cf-name"]',dict.contact.labels.name);
+    txt('label[for="cf-email"]',dict.contact.labels.email);
+    txt('label[for="cf-subject"]',dict.contact.labels.subject);
+    txt('label[for="cf-msg"]',dict.contact.labels.message);
+    txt('#cf-send',dict.contact.send);
+    if(capLabel) capLabel.textContent=dict.contact.captcha;
+    var nameInput=document.getElementById('cf-name');
+    var emailInput=document.getElementById('cf-email');
+    var subjectInput=document.getElementById('cf-subject');
+    var msgInput=document.getElementById('cf-msg');
+    if(nameInput) nameInput.placeholder=dict.contact.placeholders.name;
+    if(emailInput) emailInput.placeholder=dict.contact.placeholders.email;
+    if(subjectInput) subjectInput.placeholder=dict.contact.placeholders.subject;
+    if(msgInput) msgInput.placeholder=dict.contact.placeholders.message;
+    if(capA) capA.placeholder=dict.contact.placeholders.captcha;
+
+    var detailHeads=document.querySelectorAll('#project-detail .panel-card h4');
+    if(detailHeads[0]) detailHeads[0].textContent=dict.detail.overview;
+    if(detailHeads[1]) detailHeads[1].textContent=dict.detail.tech;
+    if(detailHeads[2]) detailHeads[2].textContent=dict.detail.highlights;
+    if(detailHeads[3]) detailHeads[3].textContent=dict.detail.profile;
+    txt('#detail-live',dict.detail.visit);
+    txt('#detail-secondary-link',dict.detail.reference);
+    if(closeBtn) closeBtn.setAttribute('aria-label',dict.detail.closeAria);
+
+    if(detail.classList.contains('open')&&state.activeProjectKey){
+      openDetail(state.activeProjectKey,true);
+    }
+    try{localStorage.setItem('siteLanguage',state.lang);}catch(err){}
+  }
+
   // Email obfuscation
   var p=['michel','_ng','@','icloud','.com'];
   var email=p[0]+p[1]+p[2]+p[3]+p[4];
@@ -925,6 +1313,21 @@ footer a{color:#bae4ff}
   var capQ=document.getElementById('cap-q');
   var capA=document.getElementById('cap-a');
   var statusEl=document.getElementById('cf-status');
+
+  langButtons.forEach(function(btn){
+    btn.addEventListener('click',function(){
+      applyLanguage(btn.dataset.lang||'en');
+    });
+  });
+  var initialLang='en';
+  try{
+    var savedLang=localStorage.getItem('siteLanguage');
+    if(savedLang==='en'||savedLang==='de') initialLang=savedLang;
+    else if((navigator.language||'').toLowerCase().indexOf('de')===0) initialLang='de';
+  }catch(err){
+    if((navigator.language||'').toLowerCase().indexOf('de')===0) initialLang='de';
+  }
+  applyLanguage(initialLang);
 
   function regenCaptcha(){
     a=Math.floor(Math.random()*10)+2;
@@ -953,27 +1356,27 @@ footer a{color:#bae4ff}
 
       if(honeypot){
         statusEl.className='form-status err';
-        statusEl.textContent='Spam detected.';
+        statusEl.textContent=i18n[state.lang].form.spam;
         return;
       }
       if(!name||!userEmail||!msg){
         statusEl.className='form-status err';
-        statusEl.textContent='Please fill in all required fields.';
+        statusEl.textContent=i18n[state.lang].form.required;
         return;
       }
       if(parseInt(userAnswer,10)!==ans){
         statusEl.className='form-status err';
-        statusEl.textContent='Incorrect captcha answer. Please try again.';
+        statusEl.textContent=i18n[state.lang].form.captcha;
         regenCaptcha();
         return;
       }
 
-      var subject=encodeURIComponent(subj||('Contact from '+name));
+      var subject=encodeURIComponent(subj||(i18n[state.lang].form.subjectPrefix+name));
       var body=encodeURIComponent('From: '+name+' <'+userEmail+'>\n\n'+msg);
       window.location.href='ma'+'il'+'to:'+email+'?subject='+subject+'&body='+body;
 
       statusEl.className='form-status ok';
-      statusEl.textContent='Opening your email client...';
+      statusEl.textContent=i18n[state.lang].form.opening;
       regenCaptcha();
     });
   }
