@@ -54,7 +54,7 @@ body::after{width:58rem;height:58rem;bottom:-24rem;left:-18rem;background:radial
 .nav-links a:hover{color:#fff}
 
 /* Hero */
-.hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;overflow:hidden;padding:8rem 1.4rem 4.4rem}
+.hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;overflow:hidden;padding:8rem 1.4rem 4.4rem;background:#08121d}
 .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(1.1) contrast(1.02) brightness(.62)}
 .hero-overlay{position:absolute;inset:0;background:
   radial-gradient(circle at 20% 20%,rgba(17,40,60,.22),transparent 45%),
@@ -221,31 +221,56 @@ footer a{color:#bae4ff}
   .brand{font-size:.93rem}
   .nav-links{width:100%;flex-wrap:nowrap;gap:.5rem;overflow-x:auto;padding-bottom:.2rem;scrollbar-width:none}
   .nav-links::-webkit-scrollbar{display:none}
-  .nav-links a{white-space:nowrap;font-size:.67rem;padding:.36rem .54rem;border:1px solid rgba(142,184,208,.3);border-radius:999px;background:rgba(12,29,43,.7)}
-  .hero{min-height:100svh;padding-top:9.2rem;padding-bottom:5.2rem}
+  .nav-links a{white-space:nowrap;font-size:.67rem;padding:.44rem .64rem;border:1px solid rgba(142,184,208,.3);border-radius:999px;background:rgba(12,29,43,.7)}
+  .grain,.hero-grid{display:none}
+  .hero-video{display:none}
+  .hero-overlay{background:linear-gradient(180deg,rgba(4,12,20,.42) 0%,rgba(4,12,20,.75) 62%,rgba(4,12,20,.92) 100%)}
+  .hero{min-height:auto;padding-top:8.45rem;padding-bottom:3.9rem;background:
+    linear-gradient(180deg,rgba(5,15,24,.24) 0%,rgba(5,15,24,.82) 76%,rgba(5,15,24,.95) 100%),
+    url('assets/screenshots/rootling-hero.png') center/cover no-repeat}
   .hero h1{font-size:clamp(1.95rem,9vw,2.7rem)}
   .hero-lede{font-size:.95rem;margin-bottom:1rem}
   .hero-actions{margin-bottom:.95rem;gap:.55rem}
-  .hero-actions .btn{flex:1;justify-content:center;min-width:140px}
+  .hero-actions .btn{flex:1;justify-content:center;min-width:140px;min-height:44px}
   .identity-row a{font-size:.67rem;padding:.34rem .52rem}
   .side-stat{padding:.72rem .78rem}
   .side-stat .value{font-size:.84rem}
-  .section{padding:3.15rem .85rem}
+  .section{padding:2.9rem .85rem}
+  .section-head{margin-bottom:1.15rem}
+  .section-title{font-size:clamp(1.34rem,7vw,1.86rem)}
+  .section-note{font-size:.9rem}
   .secondary-projects{grid-template-columns:1fr}
   .skill-columns{grid-template-columns:1fr}
   .hero-side{grid-template-columns:1fr}
   .timeline-item{grid-template-columns:1fr}
+  .project-card{box-shadow:0 9px 24px rgba(0,0,0,.24)}
   .project-body{padding:.86rem .8rem .92rem}
   .project-actions{flex-direction:column;align-items:stretch}
-  .show-more-btn,.project-link{width:100%;text-align:center;justify-content:center}
+  .show-more-btn,.project-link{width:100%;text-align:center;justify-content:center;min-height:42px}
   .project-link{display:inline-flex;padding:.52rem .78rem;border:1px solid rgba(157,213,244,.28);border-radius:999px;background:rgba(12,34,50,.6)}
+  .pub-item h4{font-size:.87rem}
+  .pub-item p{font-size:.76rem}
+  .timeline-item ul{font-size:.79rem}
+  .contact-panel,.form-panel{padding:.95rem}
+  .field input,.field textarea{font-size:16px}
   .project-detail{align-items:flex-end}
-  .detail-panel{width:100%;max-height:100vh;margin:0;border-radius:18px 18px 0 0;position:fixed;left:0;right:0;bottom:0;top:auto}
-  .detail-inner{padding:.9rem .82rem 1.2rem}
+  .detail-panel{width:100%;height:calc(100dvh - .7rem);max-height:calc(100dvh - .7rem);margin:0;border-radius:18px 18px 0 0;position:fixed;left:0;right:0;bottom:0;top:auto}
+  .detail-inner{padding:.9rem .82rem calc(1.25rem + env(safe-area-inset-bottom))}
   .detail-top{position:sticky;top:0;background:linear-gradient(180deg,rgba(10,28,42,.96),rgba(10,28,42,.7));padding-bottom:.48rem;z-index:2}
   .detail-gallery img{min-height:170px}
+  .detail-actions{position:sticky;bottom:0;background:linear-gradient(180deg,rgba(10,27,41,0),rgba(10,27,41,.96) 24%,rgba(10,27,41,.98) 100%);padding-top:.62rem;padding-bottom:.2rem;margin-top:.82rem}
   .detail-actions a{flex:1;justify-content:center}
   .scroll-hint{bottom:.75rem;font-size:.61rem}
+}
+
+@media (max-width:430px){
+  .hero{padding-top:8.2rem;padding-bottom:3.4rem}
+  .hero-actions .btn{min-width:0;padding:.68rem .82rem;font-size:.73rem}
+  .identity-row{gap:.38rem}
+  .identity-row a{font-size:.63rem;padding:.3rem .46rem}
+  .nav-links a{font-size:.64rem;padding:.4rem .56rem}
+  .section{padding:2.7rem .72rem}
+  .scroll-hint{bottom:.55rem}
 }
 
 @media (prefers-reduced-motion: reduce){
@@ -270,8 +295,8 @@ footer a{color:#bae4ff}
 </nav>
 
 <header class="hero" id="top">
-  <video class="hero-video" autoplay muted loop playsinline poster="assets/screenshots/rootling-hero.png" aria-hidden="true">
-    <source src="assets/hero-reel.mp4" type="video/mp4">
+  <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="assets/screenshots/rootling-hero.png" aria-hidden="true">
+    <source src="assets/hero-reel.mp4" type="video/mp4" media="(min-width: 761px)">
   </video>
   <div class="hero-overlay" aria-hidden="true"></div>
   <div class="hero-grid" aria-hidden="true"></div>
@@ -318,9 +343,9 @@ footer a{color:#bae4ff}
     <div class="section-head reveal" style="--delay:40ms">
       <div>
         <p class="section-kicker">Featured Work</p>
-        <h2 class="section-title">Interactive Project Gallery With Deep Dives</h2>
+        <h2 class="section-title">Featured Projects</h2>
       </div>
-      <p class="section-note">Each project now includes a Show More panel with architecture context, capability highlights, and screenshots from live app pages.</p>
+      <p class="section-note">Tap Show More to see project details and screenshots.</p>
     </div>
 
     <div class="projects-grid">
@@ -857,13 +882,25 @@ footer a{color:#bae4ff}
 
   document.querySelectorAll('.reveal').forEach(function(el){ observer.observe(el); });
 
-  // Respect reduced motion for background video
-  var prefersReduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // Respect reduced motion and disable hero video on mobile
+  var reducedMotionQuery=window.matchMedia('(prefers-reduced-motion: reduce)');
+  var mobileVideoOffQuery=window.matchMedia('(max-width: 760px)');
   var heroVideo=document.querySelector('.hero-video');
   var scrollHint=document.querySelector('.scroll-hint');
-  if(prefersReduced&&heroVideo){
-    heroVideo.pause();
+  function syncHeroVideoState(){
+    if(!heroVideo) return;
+    if(reducedMotionQuery.matches||mobileVideoOffQuery.matches){
+      heroVideo.pause();
+      return;
+    }
+    var playPromise=heroVideo.play();
+    if(playPromise&&playPromise.catch) playPromise.catch(function(){});
   }
+  syncHeroVideoState();
+  if(reducedMotionQuery.addEventListener) reducedMotionQuery.addEventListener('change',syncHeroVideoState);
+  else if(reducedMotionQuery.addListener) reducedMotionQuery.addListener(syncHeroVideoState);
+  if(mobileVideoOffQuery.addEventListener) mobileVideoOffQuery.addEventListener('change',syncHeroVideoState);
+  else if(mobileVideoOffQuery.addListener) mobileVideoOffQuery.addListener(syncHeroVideoState);
   if(scrollHint){
     var updateHint=function(){
       scrollHint.style.opacity=window.scrollY>90?'0':'0.86';
