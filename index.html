@@ -407,6 +407,21 @@ footer a{color:#bae4ff}
 
       <article class="project-card reveal" style="--delay:190ms">
         <div class="project-media">
+          <img src="assets/screenshots/mushbloom-hero.png" alt="MushBloom screenshot">
+          <span class="project-badge">iOS App</span>
+        </div>
+        <div class="project-body">
+          <h3>MushBloom</h3>
+          <div class="project-tech">Swift · Core ML · iCloud · PDF/CSV Export</div>
+          <p>Mushroom cultivation companion with strain guides, grow journals, AI contamination scans, and environmental logging.</p>
+          <div class="project-actions">
+            <button class="show-more-btn" data-project="mushbloom">Show More</button>
+            <a class="project-link" href="https://mushbloom.minh.systems/" target="_blank" rel="noopener">Live Site</a>
+          </div>
+        </div>
+      </article>
+      <article class="project-card reveal" style="--delay:230ms">
+        <div class="project-media">
           <img src="assets/screenshots/ridgefocus-hero.png" alt="RidgeFocus screenshot">
           <span class="project-badge">iOS App</span>
         </div>
@@ -421,7 +436,7 @@ footer a{color:#bae4ff}
         </div>
       </article>
 
-      <article class="project-card reveal" style="--delay:230ms">
+      <article class="project-card reveal" style="--delay:270ms">
         <div class="project-media">
           <img src="assets/screenshots/appsweep-hero.png" alt="AppSweep screenshot">
           <span class="project-badge">macOS Tool</span>
@@ -437,7 +452,7 @@ footer a{color:#bae4ff}
         </div>
       </article>
 
-      <article class="project-card reveal" style="--delay:270ms">
+      <article class="project-card reveal" style="--delay:310ms">
         <div class="project-media">
           <img src="assets/screenshots/shelterfall-hero.png" alt="Shelter Fall screenshot">
           <span class="project-badge">Game</span>
@@ -731,7 +746,7 @@ footer a{color:#bae4ff}
 <script>
 (function(){
   var state={lang:'en',activeProjectKey:null};
-  var cardOrder=['skeindb','shotsift','rootling','ridgefocus','appsweep','shelterfall'];
+  var cardOrder=['skeindb','shotsift','rootling','mushbloom','ridgefocus','appsweep','shelterfall'];
   var i18n={
     en:{
       meta:{
@@ -777,6 +792,7 @@ footer a{color:#bae4ff}
         skeindb:{badge:'Research',desc:'Single-binary database architecture with cell-interned MVCC and a research-first execution model.'},
         shotsift:{badge:'iOS App',desc:'Private photo decluttering experience for duplicates, screenshots, bursts, and large-media cleanup workflows.'},
         rootling:{badge:'iOS App',desc:'Plant propagation tracker with visual journals, reminders, weather context, and exportable records.'},
+        mushbloom:{badge:'iOS App',desc:'Mushroom cultivation companion with strain guides, grow journals, AI contamination scans, and environmental logging.'},
         ridgefocus:{badge:'iOS App',desc:'Pomodoro and deep-work platform with streak systems, widgets, and lightweight personal productivity insights.'},
         appsweep:{badge:'macOS Tool',desc:'Universal macOS updater that merges multiple update sources into a single inventory and action flow.'},
         shelterfall:{badge:'Game',desc:'Post-apocalyptic strategy game with progression systems, dynamic events, and escalating survival pressure.'}
@@ -863,6 +879,7 @@ footer a{color:#bae4ff}
         skeindb:{badge:'Forschung',desc:'Single-Binary Datenbankarchitektur mit cell-interned MVCC und forschungsorientiertem Ausfuehrungsmodell.'},
         shotsift:{badge:'iOS-App',desc:'Datenschutzorientierte Foto-Bereinigung fuer Duplikate, Screenshots, Serienbilder und grosse Medien.'},
         rootling:{badge:'iOS-App',desc:'Plant-Propagation-Tracker mit visuellen Journalen, Erinnerungen, Wetterbezug und Exportfunktionen.'},
+        mushbloom:{badge:'iOS-App',desc:'Pilzzucht-Begleiter mit Strain-Guides, Grow-Journalen, KI-Kontaminationsscanner und Umweltprotokollen.'},
         ridgefocus:{badge:'iOS-App',desc:'Pomodoro- und Deep-Work-App mit Streak-System, Widgets und schlanker Produktivitaetsanalyse.'},
         appsweep:{badge:'macOS-Tool',desc:'Universeller macOS-Updater, der mehrere Quellen in einer Uebersicht zusammenfuehrt.'},
         shelterfall:{badge:'Spiel',desc:'Postapokalyptisches Strategiespiel mit Progression, dynamischen Events und steigendem Schwierigkeitsdruck.'}
@@ -939,6 +956,17 @@ footer a{color:#bae4ff}
       copy:{
         en:{subtitle:'Plant propagation tracker with visual growth logs',overview:'Rootling brings plant propagation management into a structured, data-backed app flow. It combines daily tracking, growth timelines, and reminders with a clean interface optimized for long-running horticulture journeys.',highlights:['Supports 15 propagation methods and rich photo journals','200+ plant library with care context','Reminder and weather-aware planning support','Export options for archival and reporting'],profile:['Primary orientation: Lifestyle + tracking app','Sync strategy: iCloud-enabled','Output modes: Time-lapse and data export','User profile: hobbyists to advanced growers']},
         de:{subtitle:'Plant-Propagation-Tracker mit visuellen Wachstumsprotokollen',overview:'Rootling ueberfuehrt Plant-Propagation-Management in einen strukturierten, datenbasierten App-Flow. Es kombiniert taegliches Tracking, Wachstumstimeline und Erinnerungen in einer klaren UI.',highlights:['Unterstuetzt 15 Vermehrungsmethoden mit umfangreichen Fotojournalen','200+ Pflanzenbibliothek mit Pflegekontext','Erinnerungen und wetterbezogene Planungsunterstuetzung','Exportoptionen fuer Archivierung und Auswertung'],profile:['Ausrichtung: Lifestyle- und Tracking-App','Sync-Strategie: iCloud-aktiviert','Ausgabeformen: Zeitraffer und Datenexport','Zielgruppe: Einsteiger bis fortgeschrittene Grower']}
+      }
+    },
+    mushbloom:{
+      title:'MushBloom',
+      stack:['Swift','Core ML','iCloud','PDF/CSV Export','Strain Library'],
+      images:['assets/screenshots/mushbloom-hero.png','assets/screenshots/mushbloom-detail.png'],
+      live:'https://mushbloom.minh.systems/',
+      secondary:'https://apps.apple.com/app/mushbloom',
+      copy:{
+        en:{subtitle:'Mushroom growing companion with AI-assisted cultivation tools',overview:'MushBloom gives mushroom cultivators a structured workflow for every grow. It combines a rich strain reference library, daily grow journals, contamination checks, and environmental logging so each batch is easier to document, monitor, and improve over time.',highlights:['26+ strain guides with substrate, humidity, fruiting, and harvest reference data','Grow journal for inoculation, progress notes, photos, and stage-by-stage tracking','AI contamination scanner to catch common mold issues from camera captures','Environmental logging, iCloud sync, and PDF/CSV exports for durable records'],profile:['Primary orientation: cultivation companion app','Audience: hobby growers to advanced mycology users','Data flow: journals, reminders, and iCloud-backed grow records','Commercial model: one-time App Store purchase']},
+        de:{subtitle:'Pilzzucht-Begleiter mit KI-gestuetzten Anbautools',overview:'MushBloom bietet Pilzzuechtern einen strukturierten Workflow fuer jeden Grow. Die App verbindet eine umfangreiche Strain-Referenzbibliothek, taegliche Grow-Journale, Kontaminationschecks und Umweltprotokolle, damit sich jede Charge sauber dokumentieren, ueberwachen und verbessern laesst.',highlights:['26+ Strain-Guides mit Referenzdaten zu Substrat, Feuchtigkeit, Fruchtung und Ernte','Grow-Journal fuer Inokulation, Fortschrittsnotizen, Fotos und Phasen-Tracking','KI-Kontaminationsscanner zur fruehen Erkennung haeufiger Schimmelprobleme per Kamera','Umweltprotokolle, iCloud-Sync sowie PDF/CSV-Exporte fuer belastbare Aufzeichnungen'],profile:['Ausrichtung: Begleit-App fuer Pilzzucht','Zielgruppe: Hobby-Grower bis fortgeschrittene Mykologie-Nutzer','Datenfluss: Journale, Erinnerungen und iCloud-gestuetzte Grow-Daten','Kommerzielles Modell: einmaliger Kauf im App Store']}
       }
     },
     ridgefocus:{
