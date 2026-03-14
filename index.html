@@ -617,6 +617,22 @@ footer a{color:#bae4ff}
           </div>
         </div>
       </article>
+
+      <article class="project-card reveal" style="--delay:390ms">
+        <div class="project-media">
+          <picture><source srcset="assets/screenshots/safedrop-hero.webp" type="image/webp"><img loading="lazy" decoding="async" src="assets/screenshots/safedrop-hero.png" alt="SafeDrop screenshot" width="1560" height="980"></picture>
+          <span class="project-badge">Research</span>
+        </div>
+        <div class="project-body">
+          <h3>SafeDrop</h3>
+          <div class="project-tech">Rust · Content-addressed Storage · Signed Receipts · Path-aware Reachability</div>
+          <p>Home-hosted secure file sharing with proof-carrying delivery, reachability evidence, and explanation-first design.</p>
+          <div class="project-actions">
+            <button class="show-more-btn" data-project="safedrop">Show More</button>
+            <a class="project-link" href="http://minh.systems/SafeDrop/" target="_blank" rel="noopener">Live Site</a>
+          </div>
+        </div>
+      </article>
       </div>
 
     <div class="secondary-projects">
@@ -919,7 +935,7 @@ footer a{color:#bae4ff}
 <script>
 (function(){
   var state={lang:'en',activeProjectKey:null};
-  var cardOrder=['skeindb','nexusfs','sentineledge','verilog','shotsift','rootling','mushbloom','ridgefocus','appsweep','shelterfall','nomadfoodtruck'];
+  var cardOrder=['skeindb','nexusfs','sentineledge','verilog','safedrop','shotsift','rootling','mushbloom','ridgefocus','appsweep','shelterfall','nomadfoodtruck'];
   var i18n={
     en:{
       meta:{
@@ -972,7 +988,8 @@ footer a{color:#bae4ff}
           ridgefocus:{badge:'iOS App',desc:'Pomodoro and deep-work platform with streak systems, widgets, and lightweight personal productivity insights.'},
           appsweep:{badge:'macOS Tool',desc:'Universal macOS updater that merges multiple update sources into a single inventory and action flow.'},
           shelterfall:{badge:'Game',desc:'Post-apocalyptic strategy game with progression systems, dynamic events, and escalating survival pressure.'},
-          nomadfoodtruck:{badge:'Game',desc:'Build your street food empire from a single van to a citywide fleet. Craft menus, master the lunch rush, hire staff, and conquer every district.'}
+          nomadfoodtruck:{badge:'Game',desc:'Build your street food empire from a single van to a citywide fleet. Craft menus, master the lunch rush, hire staff, and conquer every district.'},
+          safedrop:{badge:'Research',desc:'Home-hosted secure file sharing with proof-carrying delivery, reachability evidence, and explanation-first design.'}
         },
       secondary:{
         focusledgerDesc:'AI-assisted macOS productivity tracker with local timeline screenshots, focus sessions, and private analytics.',
@@ -1063,7 +1080,8 @@ footer a{color:#bae4ff}
           ridgefocus:{badge:'iOS-App',desc:'Pomodoro- und Deep-Work-App mit Streak-System, Widgets und schlanker Produktivitaetsanalyse.'},
           appsweep:{badge:'macOS-Tool',desc:'Universeller macOS-Updater, der mehrere Quellen in einer Uebersicht zusammenfuehrt.'},
           shelterfall:{badge:'Spiel',desc:'Postapokalyptisches Strategiespiel mit Progression, dynamischen Events und steigendem Schwierigkeitsdruck.'},
-          nomadfoodtruck:{badge:'Spiel',desc:'Baue dein Street-Food-Imperium auf — vom einzelnen Van zur stadtweiten Flotte. Erstelle Menüs, meistere den Lunch-Rush und erobere jeden Bezirk.'}
+          nomadfoodtruck:{badge:'Spiel',desc:'Baue dein Street-Food-Imperium auf — vom einzelnen Van zur stadtweiten Flotte. Erstelle Menüs, meistere den Lunch-Rush und erobere jeden Bezirk.'},
+          safedrop:{badge:'Forschung',desc:'Selbst gehosteter sicherer Dateitransfer mit Zustellnachweisen, Erreichbarkeitsevidenz und erklaerungsorientiertem Design.'}
         },
       secondary:{
         focusledgerDesc:'KI-gestuetzter macOS-Produktivitaetstracker mit lokalen Timeline-Screenshots, Fokus-Sessions und privaten Analysen.',
@@ -1225,6 +1243,17 @@ footer a{color:#bae4ff}
         copy:{
           en:{subtitle:'Street food empire sim — from one van to a citywide fleet',overview:'Nomad Kitchen Tycoon is the food truck management sim you have been waiting for. Start with a single beat-up van and grow it into a citywide fleet. Craft winning menus, master fast-paced lunch rush events, hire talented staff, and conquer 8 unique city districts. Features 30+ recipes, deep staff and truck upgrade systems, and 100% offline gameplay.',highlights:['Deep food truck management with real progression layers','Fast-paced rush events where speed and timing drive bigger tips','8 unique city districts, each with their own customer tastes','30+ recipes to discover, master, and add to your trucks','Hire chefs, servers, and managers with unique traits','100% offline — play anytime, anywhere at your own pace'],profile:['Primary platform: iPhone and iPad','Available free on the App Store','Game pillar: management sim with quick sessions and long-term goals','100% offline — no internet required']},
           de:{subtitle:'Street-Food-Imperium-Sim — vom einzelnen Van zur stadtweiten Flotte',overview:'Nomad Kitchen Tycoon ist der Food-Truck-Management-Simulator, auf den du gewartet hast. Starte mit einem alten Van und baue eine stadtweite Flotte auf. Erstelle gewinnende Menues, meistere rasante Lunch-Rush-Events, stelle talentiertes Personal ein und erobere 8 einzigartige Stadtbezirke. Mit 30+ Rezepten, tiefgreifenden Upgrade-Systemen und 100% Offline-Gameplay.',highlights:['Tiefgreifendes Food-Truck-Management mit echten Progressionsstufen','Rasante Rush-Events, bei denen Geschwindigkeit groessere Trinkgelder bringt','8 einzigartige Stadtbezirke mit unterschiedlichen Kundengeschmaeckern','30+ Rezepte zum Entdecken, Meistern und Erweitern','Personal mit einzigartigen Eigenschaften einstellen und entwickeln','100% offline — jederzeit und ueberall spielbar'],profile:['Hauptplattform: iPhone und iPad','Kostenlos im App Store verfuegbar','Spielsaeule: Management-Sim mit schnellen Sessions und langfristigen Zielen','100% offline — kein Internet noetig']}
+        }
+      },
+      safedrop:{
+        title:'SafeDrop',
+        stack:['Rust','Content-addressed Storage','Signed Receipts','Path-aware Reachability','Append-only Audit','Single Binary'],
+        images:['assets/screenshots/safedrop-hero.webp','assets/screenshots/safedrop-detail.webp'],
+        live:'http://minh.systems/SafeDrop/',
+        secondary:'https://github.com/pinkysworld/SafeDrop',
+        copy:{
+          en:{subtitle:'Home-hosted secure file sharing with delivery evidence',overview:'SafeDrop is a local-first secure file drop that works from a home PC whenever it is online. It combines content-addressed storage, signed receipts, path-aware reachability, and explanation-first UX inside a single executable. The project includes a full research paper draft, 50 research tracks, and an AI-agent coding pack.',highlights:['Single-executable deployment with no cloud accounts required','Proof-carrying delivery with deterministic manifests and segment receipts','Path-aware reachability: direct bind, router mapping, assisted connectivity, or encrypted relay','Append-only audit events and human-readable evidence cards','Energy-aware scheduling and conservative policy defaults','50 research tracks spanning reachability, proofs, privacy, and supply-chain trust'],profile:['Primary orientation: systems research and open-source tool','Deployment: home PC, laptop, desktop, mini PC, or Raspberry Pi','Architecture: layered single-binary design','Research output: IJRC-ready design paper with 50 tracks across 6 bundles']},
+          de:{subtitle:'Selbst gehosteter sicherer Dateitransfer mit Zustellnachweisen',overview:'SafeDrop ist ein lokaler sicherer Dateitransfer, der von einem Heim-PC aus funktioniert, wann immer dieser online ist. Es kombiniert Content-Addressed Storage, signierte Quittungen, pfadbewusste Erreichbarkeit und erklaerungsorientierte UX in einer einzigen ausfuehrbaren Datei. Das Projekt umfasst einen vollstaendigen Forschungspapier-Entwurf, 50 Forschungstracks und ein KI-Agenten-Coding-Pack.',highlights:['Single-Executable-Deployment ohne Cloud-Konten','Zustellnachweise mit deterministischen Manifesten und Segment-Quittungen','Pfadbewusste Erreichbarkeit: direktes Binding, Router-Mapping, unterstuetzte Konnektivitaet oder verschluesseltes Relay','Append-only Audit-Events und menschenlesbare Evidenzkarten','Energiebewusstes Scheduling und konservative Policy-Defaults','50 Forschungstracks zu Erreichbarkeit, Beweisen, Datenschutz und Supply-Chain-Trust'],profile:['Ausrichtung: Systemforschung und Open-Source-Tool','Deployment: Heim-PC, Laptop, Desktop, Mini-PC oder Raspberry Pi','Architektur: geschichtetes Single-Binary-Design','Forschungsoutput: IJRC-bereites Designpapier mit 50 Tracks in 6 Buendeln']}
         }
       }
     };
