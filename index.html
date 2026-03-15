@@ -17,11 +17,15 @@
 <meta name="theme-color" content="#071019">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="canonical" href="https://minh.systems/">
+<link rel="alternate" hreflang="en" href="https://minh.systems/">
+<link rel="alternate" hreflang="de" href="https://minh.systems/">
+<link rel="alternate" hreflang="x-default" href="https://minh.systems/">
 <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
 <link rel="dns-prefetch" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7432586849833215" crossorigin="anonymous"></script>
 <link rel="preload" as="image" href="assets/screenshots/skeindb-hero.webp" type="image/webp" fetchpriority="high">
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Sora:wght@300;400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
@@ -629,7 +633,7 @@ footer a{color:#bae4ff}
           <p>Home-hosted secure file sharing with proof-carrying delivery, reachability evidence, and explanation-first design.</p>
           <div class="project-actions">
             <button class="show-more-btn" data-project="safedrop">Show More</button>
-            <a class="project-link" href="http://minh.systems/SafeDrop/" target="_blank" rel="noopener">Live Site</a>
+            <a class="project-link" href="https://minh.systems/SafeDrop/" target="_blank" rel="noopener">Live Site</a>
           </div>
         </div>
       </article>
@@ -935,7 +939,7 @@ footer a{color:#bae4ff}
 <script>
 (function(){
   var state={lang:'en',activeProjectKey:null};
-  var cardOrder=['skeindb','nexusfs','sentineledge','verilog','safedrop','shotsift','rootling','mushbloom','ridgefocus','appsweep','shelterfall','nomadfoodtruck'];
+  var cardOrder=['skeindb','nexusfs','sentineledge','verilog','shotsift','rootling','mushbloom','ridgefocus','appsweep','shelterfall','nomadfoodtruck','safedrop'];
   var i18n={
     en:{
       meta:{
@@ -1126,13 +1130,13 @@ footer a{color:#bae4ff}
   var projectCatalog={
     skeindb:{
       title:'SkeinDB',
-      stack:['Swift','SpriteKit','Rush Gameplay','District Strategy','Menu & Recipe Systems','Staff Management'],
+      stack:['Rust','Axum','QUIC','MySQL Protocol','MVCC','Cell-interned Storage'],
       images:['assets/screenshots/skeindb-hero.webp','assets/screenshots/skeindb-detail.webp'],
       live:'https://minh.systems/SkeinDB/site/',
       secondary:'https://minh.systems/SkeinDB/',
       copy:{
-        en:{subtitle:'Single-binary research database · Rust · Axum · QUIC',overview:'Nomad Kitchen Tycoon is the food truck management sim you\'ve been waiting for. Start with a single beat-up van and grow it into a citywide fleet. Craft winning menus, master fast-paced lunch rush events, hire talented staff, and conquer 8 unique city districts. Features 30+ recipes, deep staff and truck upgrade systems, and 100% offline gameplay.',highlights:['Deep food truck management with real progression layers','Fast-paced rush events where speed and timing drive bigger tips','8 unique city districts, each with their own customer tastes','30+ recipes to discover, master, and add to your trucks','Hire chefs, servers, and managers with unique traits','100% offline — play anytime, anywhere at your own pace'],profile:['Primary platform: iPhone and iPad','Available free on the App Store','Game pillar: management sim with quick sessions and long-term goals','100% offline — no internet required']},
-        de:{subtitle:'Street-Food-Imperium-Sim — vom einzelnen Van zur stadtweiten Flotte',overview:'Nomad Kitchen Tycoon ist der Food-Truck-Management-Simulator, auf den du gewartet hast. Starte mit einem einzelnen alten Van und baue eine stadtweite Flotte auf. Erstelle gewinnende Menues, meistere rasante Lunch-Rush-Events, stelle talentiertes Personal ein und erobere 8 einzigartige Stadtbezirke. Mit 30+ Rezepten, tiefgreifenden Upgrade-Systemen und 100% Offline-Gameplay.',highlights:['Tiefgreifendes Food-Truck-Management mit echten Progressionsstufen','Rasante Rush-Events, bei denen Geschwindigkeit groessere Trinkgelder bringt','8 einzigartige Stadtbezirke mit unterschiedlichen Kundengeschmaeckern','30+ Rezepte zum Entdecken, Meistern und Erweitern','Personal mit einzigartigen Eigenschaften einstellen und entwickeln','100% offline — jederzeit und ueberall spielbar'],profile:['Hauptplattform: iPhone und iPad','Kostenlos im App Store verfuegbar','Spielsaeule: Management-Sim mit schnellen Sessions und langfristigen Zielen','100% offline — kein Internet noetig']}
+        en:{subtitle:'Single-binary research database · Rust · Axum · QUIC',overview:'SkeinDB is a single-binary database engine purpose-built for research exploration. It combines a cell-interned MVCC storage model with a custom query execution pipeline, MySQL-compatible wire protocol, and QUIC transport — designed as a compact, self-contained system for studying storage engine internals, concurrency control, and protocol-level optimizations.',highlights:['Cell-interned MVCC storage engine with fine-grained versioning','MySQL-compatible wire protocol for standard client tooling','QUIC-based transport layer for modern, multiplexed connections','Single-binary deployment with no external dependencies','Research-first architecture for exploring query execution strategies','Designed for studying concurrency control and storage tradeoffs'],profile:['Primary orientation: database systems research','Architecture: single self-contained binary','Wire protocol: MySQL-compatible','Transport: QUIC-enabled']},
+        de:{subtitle:'Single-Binary-Forschungsdatenbank · Rust · Axum · QUIC',overview:'SkeinDB ist eine Single-Binary-Datenbank-Engine fuer Forschungszwecke. Sie kombiniert ein cell-interned MVCC-Speichermodell mit einer eigenen Query-Execution-Pipeline, MySQL-kompatiblem Wire-Protokoll und QUIC-Transport — konzipiert als kompaktes, eigenstaendiges System zur Erforschung von Storage-Engine-Internals, Concurrency-Control und Protokoll-Optimierungen.',highlights:['Cell-interned MVCC-Storage-Engine mit feingranularer Versionierung','MySQL-kompatibles Wire-Protokoll fuer Standard-Client-Tools','QUIC-basierte Transportschicht fuer moderne, gemultiplexte Verbindungen','Single-Binary-Deployment ohne externe Abhaengigkeiten','Research-First-Architektur zur Erforschung von Query-Execution-Strategien','Konzipiert fuer die Untersuchung von Concurrency-Control und Storage-Tradeoffs'],profile:['Ausrichtung: Datenbanksystem-Forschung','Architektur: einzelne eigenstaendige Binary','Wire-Protokoll: MySQL-kompatibel','Transport: QUIC-faehig']}
       }
     },
     nexusfs:{
@@ -1249,7 +1253,7 @@ footer a{color:#bae4ff}
         title:'SafeDrop',
         stack:['Rust','Content-addressed Storage','Signed Receipts','Path-aware Reachability','Append-only Audit','Single Binary'],
         images:['assets/screenshots/safedrop-hero.webp','assets/screenshots/safedrop-detail.webp'],
-        live:'http://minh.systems/SafeDrop/',
+        live:'https://minh.systems/SafeDrop/',
         secondary:'https://github.com/pinkysworld/SafeDrop',
         copy:{
           en:{subtitle:'Home-hosted secure file sharing with delivery evidence',overview:'SafeDrop is a local-first secure file drop that works from a home PC whenever it is online. It combines content-addressed storage, signed receipts, path-aware reachability, and explanation-first UX inside a single executable. The project includes a full research paper draft, 50 research tracks, and an AI-agent coding pack.',highlights:['Single-executable deployment with no cloud accounts required','Proof-carrying delivery with deterministic manifests and segment receipts','Path-aware reachability: direct bind, router mapping, assisted connectivity, or encrypted relay','Append-only audit events and human-readable evidence cards','Energy-aware scheduling and conservative policy defaults','50 research tracks spanning reachability, proofs, privacy, and supply-chain trust'],profile:['Primary orientation: systems research and open-source tool','Deployment: home PC, laptop, desktop, mini PC, or Raspberry Pi','Architecture: layered single-binary design','Research output: IJRC-ready design paper with 50 tracks across 6 bundles']},
@@ -1477,7 +1481,7 @@ footer a{color:#bae4ff}
     var timeline=document.querySelectorAll('#education .timeline-item');
     if(timeline[0]){
       timeline[0].querySelector('.timeline-year').textContent=dict.education.preDoc.year;
-      timeline[0].querySelector('h4').textContent=dict.education.preDoc.title;
+      timeline[0].querySelector('h3').textContent=dict.education.preDoc.title;
       timeline[0].querySelector('p').textContent=dict.education.preDoc.org;
       var bullets=timeline[0].querySelectorAll('li');
       dict.education.preDoc.bullets.forEach(function(line,idx){
@@ -1486,17 +1490,17 @@ footer a{color:#bae4ff}
     }
     if(timeline[1]){
       timeline[1].querySelector('.timeline-year').textContent=dict.education.bsc.year;
-      timeline[1].querySelector('h4').textContent=dict.education.bsc.title;
+      timeline[1].querySelector('h3').textContent=dict.education.bsc.title;
       timeline[1].querySelector('p').textContent=dict.education.bsc.org;
     }
     if(timeline[2]){
       timeline[2].querySelector('.timeline-year').textContent=dict.education.asc.year;
-      timeline[2].querySelector('h4').textContent=dict.education.asc.title;
+      timeline[2].querySelector('h3').textContent=dict.education.asc.title;
       timeline[2].querySelector('p').textContent=dict.education.asc.org;
     }
     if(timeline[3]){
       timeline[3].querySelector('.timeline-year').textContent=dict.education.review.year;
-      timeline[3].querySelector('h4').textContent=dict.education.review.title;
+      timeline[3].querySelector('h3').textContent=dict.education.review.title;
       timeline[3].querySelector('p').textContent=dict.education.review.org;
     }
 
@@ -1675,21 +1679,6 @@ footer a{color:#bae4ff}
     backToTop.addEventListener('click',function(){
       window.scrollTo({top:0,behavior:'smooth'});
     });
-  }
-
-  // Defer AdSense loading until after page interaction or idle
-  function loadAdSense(){
-    if(document.querySelector('script[src*="adsbygoogle"]')) return;
-    var s=document.createElement('script');
-    s.src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7432586849833215';
-    s.async=true;
-    s.crossOrigin='anonymous';
-    document.head.appendChild(s);
-  }
-  if('requestIdleCallback' in window){
-    requestIdleCallback(loadAdSense,{timeout:3500});
-  }else{
-    setTimeout(loadAdSense,3500);
   }
 
   // Defer hero video playback until after LCP
