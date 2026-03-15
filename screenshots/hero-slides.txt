@@ -10,4 +10,5 @@ file '/Users/michelpicker/Library/Mobile Documents/com~apple~CloudDocs/Projekte/
 duration 2.8
 file '/Users/michelpicker/Library/Mobile Documents/com~apple~CloudDocs/Projekte/minh-systems/assets/screenshots/skeindb-hero.png'
 duration 2.8
-file '/Users/michelpicker/Library/Mobile Documents/com~apple~CloudDocs/Projekte/minh-systems/assets/screenshots/skeindb-hero.png'
+file '/Users/michelpicker/Library/Mobile Documents/com~apple~CloudDocs/Projekte/minh-systems/assets/screenshots/mushbloom-hero.png'
+duration 2.8
