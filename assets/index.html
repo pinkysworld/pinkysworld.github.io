@@ -22,6 +22,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7432586849833215" crossorigin="anonymous"></script>
 <link rel="preload" as="image" href="assets/screenshots/skeindb-hero.webp" type="image/webp" fetchpriority="high">
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Sora:wght@300;400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
@@ -1646,21 +1647,6 @@ footer a{color:#bae4ff}
     backToTop.addEventListener('click',function(){
       window.scrollTo({top:0,behavior:'smooth'});
     });
-  }
-
-  // Defer AdSense loading until after page interaction or idle
-  function loadAdSense(){
-    if(document.querySelector('script[src*="adsbygoogle"]')) return;
-    var s=document.createElement('script');
-    s.src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7432586849833215';
-    s.async=true;
-    s.crossOrigin='anonymous';
-    document.head.appendChild(s);
-  }
-  if('requestIdleCallback' in window){
-    requestIdleCallback(loadAdSense,{timeout:3500});
-  }else{
-    setTimeout(loadAdSense,3500);
   }
 
   // Defer hero video playback until after LCP
