@@ -32,7 +32,7 @@
         title:'Michél Nguyen — Researcher & Engineer',
         description:'Portfolio of Michél Nguyen: independent researcher and software engineer building production apps, games, and systems research.'
       },
-      nav:{projects:'Projects',publications:'Publications',writing:'Writing',skills:'Skills',education:'Education',contact:'Contact'},
+      nav:{projects:'Projects',publications:'Publications',writing:'Writing',music:'Music',skills:'Skills',education:'Education',contact:'Contact'},
       langSwitcher:{selectorAria:'Language selector',switchEn:'Switch to English',switchDe:'Switch to German'},
       hero:{
         eyebrow:'Independent Research + Product Engineering',
@@ -58,6 +58,9 @@
         writingKicker:'Notes & Essays',
         writingTitle:'Writing',
         writingNote:'Selected notes, explainers, and behind-the-paper reflections.',
+        musicKicker:'Music',
+        musicTitle:'Songs & Albums',
+        musicNote:'A curated home for my released music, with direct listening links on YouTube Music and Spotify.',
         skillsKicker:'Expertise',
         skillsTitle:'Professional Skills',
         skillsNote:'Cross-functional capability from systems architecture to production app delivery and academic writing.',
@@ -115,6 +118,11 @@
           {title:'Federated IDS on constrained IoT nodes',excerpt:'Trade-offs, compression choices, and open problems from the 2025 TechRxiv preprint.',cta:'Read note'}
         ]
       },
+      music:{
+        youtube:{kicker:'Artist Channel',title:'MINH NG on YouTube Music',desc:'Listen to songs, albums, and new releases on my YouTube Music artist channel.',cta:'Open YouTube Music'},
+        spotify:{kicker:'Streaming Profile',title:'MINH NG on Spotify',desc:'Follow the public Spotify artist profile for releases, saves, and playlist listening.',cta:'Open Spotify'},
+        browser:{kicker:'Albums & Releases',title:'Pick a release to preview',note:'Click an album or single to load a playable Spotify preview.',preview:'Now Previewing',open:'Open on Spotify'}
+      },
       skillBlocks:['Systems & Databases','Apple Development','Protocols & Backend','Research Domains'],
       education:{
         preDoc:{year:'Q3 2025 - now',title:'Pre-doctoral Research Preparation — Cybersecurity (MPhil/PhD Track)',org:'General Sir John Kotelawala Defence University, Sri Lanka • Research preparation phase for graduate study.',bullets:['Research synopsis and topic development focused on malware classification with machine learning.','Literature review, static/dynamic feature engineering, model training, and evaluation for robustness and drift.','Outputs in progress: preprint manuscript, public GitHub artifacts, and curated dataset preparation.']},
@@ -138,7 +146,7 @@
         title:'Michél Nguyen — Forscher & Entwickler',
         description:'Portfolio von Michél Nguyen: unabhängige Forschung und Softwareentwicklung für produktive Apps, Games und Systemforschung.'
       },
-      nav:{projects:'Projekte',publications:'Publikationen',writing:'Texte',skills:'Kompetenzen',education:'Ausbildung',contact:'Kontakt'},
+      nav:{projects:'Projekte',publications:'Publikationen',writing:'Texte',music:'Musik',skills:'Kompetenzen',education:'Ausbildung',contact:'Kontakt'},
       langSwitcher:{selectorAria:'Sprachauswahl',switchEn:'Zu Englisch wechseln',switchDe:'Zu Deutsch wechseln'},
       hero:{
         eyebrow:'Unabhaengige Forschung + Produktentwicklung',
@@ -164,6 +172,9 @@
         writingKicker:'Notizen & Essays',
         writingTitle:'Texte',
         writingNote:'Ausgewaehlte Notizen, Erklaerungen und Gedanken rund um Paper und Projekte.',
+        musicKicker:'Musik',
+        musicTitle:'Songs & Alben',
+        musicNote:'Ein kuratierter Ort fuer meine veroeffentlichte Musik mit direkten Links zu YouTube Music und Spotify.',
         skillsKicker:'Kompetenzen',
         skillsTitle:'Fachliche Kompetenzen',
         skillsNote:'Breites Profil von Systemarchitektur bis App-Entwicklung und wissenschaftlichem Schreiben.',
@@ -220,6 +231,11 @@
           {title:'Proof-carrying Dateiuebertragung, erklaert',excerpt:'Was pfadbewusste Erreichbarkeit fuer SafeDrop bedeutet und warum Quittungen Logs schlagen.',cta:'Lesen'},
           {title:'Federated IDS auf ressourcenarmen IoT-Knoten',excerpt:'Trade-offs, Kompressionsentscheidungen und offene Fragen aus dem TechRxiv-Preprint 2025.',cta:'Lesen'}
         ]
+      },
+      music:{
+        youtube:{kicker:'Artist Channel',title:'MINH NG auf YouTube Music',desc:'Hoere Songs, Alben und neue Releases auf meinem YouTube-Music-Kanal.',cta:'YouTube Music oeffnen'},
+        spotify:{kicker:'Streaming-Profil',title:'MINH NG auf Spotify',desc:'Folge dem oeffentlichen Spotify-Artist-Profil fuer Releases, Saves und Playlist-Hoeren.',cta:'Spotify oeffnen'},
+        browser:{kicker:'Alben & Releases',title:'Release zum Preview auswaehlen',note:'Klicke ein Album oder Single an, um eine spielbare Spotify-Vorschau zu laden.',preview:'Aktuelle Vorschau',open:'Auf Spotify oeffnen'}
       },
       skillBlocks:['Systeme & Datenbanken','Apple-Entwicklung','Protokolle & Backend','Forschungsfelder'],
       education:{
@@ -543,6 +559,7 @@
     txt('.nav-links a[href="#projects"]',dict.nav.projects);
     txt('.nav-links a[href="#publications"]',dict.nav.publications);
     txt('.nav-links a[href="#writing"]',dict.nav.writing);
+    txt('.nav-links a[href="#music"]',dict.nav.music);
     txt('.nav-links a[href="#skills"]',dict.nav.skills);
     txt('.nav-links a[href="#education"]',dict.nav.education);
     txt('.nav-links a[href="#contact"]',dict.nav.contact);
@@ -625,6 +642,29 @@
       if(p) p.textContent=copy.excerpt;
       if(a) a.textContent=copy.cta;
     });
+
+    txt('#music .section-kicker',dict.sections.musicKicker);
+    txt('#music .section-title',dict.sections.musicTitle);
+    txt('#music .section-note',dict.sections.musicNote);
+    var musicCards=document.querySelectorAll('#music .music-card');
+    ['youtube','spotify'].forEach(function(key,idx){
+      var card=musicCards[idx];
+      var copy=dict.music[key];
+      if(!card||!copy) return;
+      var k=card.querySelector('.music-kicker');
+      var h=card.querySelector('h3');
+      var p=card.querySelector('p');
+      var a=card.querySelector('.music-link');
+      if(k) k.textContent=copy.kicker;
+      if(h) h.textContent=copy.title;
+      if(p) p.textContent=copy.desc;
+      if(a) a.textContent=copy.cta;
+    });
+    txt('#music .music-browser-kicker',dict.music.browser.kicker);
+    txt('#music .music-browser-head h3',dict.music.browser.title);
+    txt('#music .music-browser-head p:last-child',dict.music.browser.note);
+    txt('#music .music-preview-label',dict.music.browser.preview);
+    txt('#music-preview-link',dict.music.browser.open);
 
     txt('#skills .section-kicker',dict.sections.skillsKicker);
     txt('#skills .section-title',dict.sections.skillsTitle);
@@ -821,12 +861,32 @@
   var yearEl=document.getElementById('year');
   if(yearEl) yearEl.textContent=String(new Date().getFullYear());
 
+  // Music release preview switcher
+  var releaseCards=document.querySelectorAll('.release-card');
+  var previewFrame=document.getElementById('music-preview-frame');
+  var previewTitle=document.getElementById('music-preview-title');
+  var previewLink=document.getElementById('music-preview-link');
+  releaseCards.forEach(function(card){
+    card.addEventListener('click',function(){
+      var id=card.dataset.spotifyId;
+      var title=card.dataset.title||'Spotify preview';
+      var url=card.dataset.url||('https://open.spotify.com/album/'+id);
+      if(!id||!previewFrame) return;
+      releaseCards.forEach(function(item){ item.classList.remove('active'); });
+      card.classList.add('active');
+      if(previewTitle) previewTitle.textContent=title;
+      if(previewLink) previewLink.href=url;
+      previewFrame.title='Spotify preview: '+title;
+      previewFrame.src='https://open.spotify.com/embed/album/'+id+'?utm_source=generator&theme=0';
+    });
+  });
+
   // Unified scroll handler with rAF throttle for performance
   var progressBar=document.getElementById('scroll-progress');
   var backToTop=document.getElementById('back-to-top');
   var nav=document.querySelector('.site-nav');
   var navLinks=document.querySelectorAll('.nav-links a[href^="#"]');
-  var sectionIds=['projects','publications','writing','skills','education','contact'];
+  var sectionIds=['projects','publications','writing','music','skills','education','contact'];
   var scrollTicking=false;
 
   function onScroll(){
