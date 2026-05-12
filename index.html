@@ -42,7 +42,7 @@
      Uncomment after configuring the domain in your Plausible dashboard. -->
 <!-- <script defer data-domain="minh.systems" src="https://plausible.io/js/script.outbound-links.js"></script> -->
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Person","name":"Michél Nguyen","url":"https://minh.systems","sameAs":["https://orcid.org/0000-0001-6834-4422","https://github.com/pinkysworld","https://scholar.google.com/citations?user=6HheUI4AAAAJ","https://www.linkedin.com/in/michelnguyengermany/","https://music.youtube.com/@minh_ng","https://open.spotify.com/artist/6kO0YIwxOV1NvHwDRkq9F0"],"jobTitle":"Independent Researcher & Software Engineer","knowsAbout":["Database Systems","iOS Development","macOS Development","Cybersecurity","Applied Research","Music Production"]}
+{"@context":"https://schema.org","@type":"Person","name":"Michél Nguyen","url":"https://minh.systems","sameAs":["https://orcid.org/0000-0001-6834-4422","https://github.com/pinkysworld","https://scholar.google.com/citations?user=6HheUI4AAAAJ","https://www.linkedin.com/in/michelnguyengermany/","https://music.youtube.com/@minh_ng","https://open.spotify.com/artist/6kO0YIwxOV1NvHwDRkq9F0","https://music.apple.com/be/artist/minh-ng/1788092762"],"jobTitle":"Independent Researcher & Software Engineer","knowsAbout":["Database Systems","iOS Development","macOS Development","Cybersecurity","Applied Research","Music Production"]}
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebSite","url":"https://minh.systems/","name":"minh.systems","inLanguage":["en","de"],"author":{"@type":"Person","name":"Michél Nguyen","url":"https://minh.systems/"}}
@@ -125,6 +125,7 @@
         <a href="https://www.linkedin.com/in/michelnguyengermany/" target="_blank" rel="noopener">LinkedIn</a>
         <a href="https://music.youtube.com/@minh_ng" target="_blank" rel="noopener">YouTube Music</a>
         <a href="https://open.spotify.com/artist/6kO0YIwxOV1NvHwDRkq9F0" target="_blank" rel="noopener">Spotify</a>
+        <a href="https://music.apple.com/be/artist/minh-ng/1788092762" target="_blank" rel="noopener">Apple Music</a>
       </div>
     </div>
 
@@ -468,19 +469,19 @@
         <div class="w-kicker">Note</div>
         <h3>Why SkeinDB ships a single binary</h3>
         <p>The operational case for merging admin UI, wire protocols, and research tracks into one executable.</p>
-        <a href="https://minh.systems/SkeinDB/site/" target="_blank" rel="noopener">Read note</a>
+        <button class="note-open-btn" type="button" data-note="skeindb">Read note</button>
       </article>
       <article class="writing-card reveal" style="--delay:80ms">
         <div class="w-kicker">Note</div>
         <h3>Proof-carrying file delivery, explained</h3>
         <p>What &quot;path-aware reachability&quot; means for home-hosted SafeDrop and why receipts beat logs.</p>
-        <a href="https://minh.systems/SafeDrop/" target="_blank" rel="noopener">Read note</a>
+        <button class="note-open-btn" type="button" data-note="safedrop">Read note</button>
       </article>
       <article class="writing-card reveal" style="--delay:110ms">
         <div class="w-kicker">Note</div>
         <h3>Federated IDS on constrained IoT nodes</h3>
         <p>Trade-offs, compression choices, and open problems from the 2025 TechRxiv preprint.</p>
-        <a href="https://doi.org/10.36227/techrxiv.176403418.87468767/v1" target="_blank" rel="noopener">Read note</a>
+        <button class="note-open-btn" type="button" data-note="wardex">Read note</button>
       </article>
     </div>
   </section>
@@ -493,7 +494,7 @@
         <p class="section-kicker">Music</p>
         <h2 class="section-title">Songs &amp; Albums</h2>
       </div>
-      <p class="section-note">A curated home for my released music, with direct listening links on YouTube Music and Spotify.</p>
+      <p class="section-note">A curated home for my released music, with direct listening links on YouTube Music, Spotify, and Apple Music.</p>
     </div>
 
     <div class="music-grid">
@@ -528,6 +529,22 @@
           <p>Follow the public Spotify artist profile for releases, saves, and playlist listening.</p>
         </div>
         <a class="music-link" href="https://open.spotify.com/artist/6kO0YIwxOV1NvHwDRkq9F0" target="_blank" rel="noopener">Open Spotify</a>
+      </article>
+
+      <article class="music-card reveal" style="--delay:100ms">
+        <div class="music-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 18V5l12-2v13"/>
+            <circle cx="6" cy="18" r="3"/>
+            <circle cx="18" cy="16" r="3"/>
+          </svg>
+        </div>
+        <div>
+          <div class="music-kicker">Streaming Profile</div>
+          <h3>MINH NG on Apple Music</h3>
+          <p>Open the Apple Music artist page for albums, songs, and library listening.</p>
+        </div>
+        <a class="music-link" href="https://music.apple.com/be/artist/minh-ng/1788092762" target="_blank" rel="noopener">Open Apple Music</a>
       </article>
     </div>
 
@@ -701,7 +718,7 @@
           </div>
           <div class="contact-row">
             <div class="label">Music</div>
-            <div class="value"><a href="https://music.youtube.com/@minh_ng" target="_blank" rel="noopener">YouTube Music</a> · <a href="https://open.spotify.com/artist/6kO0YIwxOV1NvHwDRkq9F0" target="_blank" rel="noopener">Spotify</a></div>
+            <div class="value"><a href="https://music.youtube.com/@minh_ng" target="_blank" rel="noopener">YouTube Music</a> · <a href="https://open.spotify.com/artist/6kO0YIwxOV1NvHwDRkq9F0" target="_blank" rel="noopener">Spotify</a> · <a href="https://music.apple.com/be/artist/minh-ng/1788092762" target="_blank" rel="noopener">Apple Music</a></div>
           </div>
         </div>
       </aside>
@@ -750,6 +767,7 @@
       <a href="https://scholar.google.com/citations?user=6HheUI4AAAAJ" target="_blank" rel="noopener">Scholar</a>
       <a href="https://www.linkedin.com/in/michelnguyengermany/" target="_blank" rel="noopener">LinkedIn</a>
       <a href="https://music.youtube.com/@minh_ng" target="_blank" rel="noopener">Music</a>
+      <a href="https://music.apple.com/be/artist/minh-ng/1788092762" target="_blank" rel="noopener">Apple Music</a>
     </div>
     <div class="footer-copy">&copy; <span id="year"></span> Michél Nguyen</div>
   </div>
@@ -801,6 +819,31 @@
       <div class="detail-actions">
         <a class="primary" id="detail-live" href="#" target="_blank" rel="noopener">Visit Project</a>
         <a id="detail-secondary-link" href="#" target="_blank" rel="noopener">Reference Link</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="project-detail note-detail" id="note-detail" aria-hidden="true">
+  <div class="detail-backdrop" data-close-note></div>
+  <div class="detail-panel note-panel" role="dialog" aria-modal="true" aria-labelledby="note-title">
+    <div class="detail-inner">
+      <div class="detail-top">
+        <div class="detail-title-wrap">
+          <p class="note-label" id="note-kicker">Project Note</p>
+          <h3 id="note-title">Note</h3>
+          <p id="note-subtitle"></p>
+        </div>
+        <button class="detail-close" type="button" aria-label="Close note" data-close-note>&times;</button>
+      </div>
+
+      <div class="note-body">
+        <p class="note-lede" id="note-lede"></p>
+        <div class="note-sections" id="note-sections"></div>
+      </div>
+
+      <div class="detail-actions note-actions">
+        <a class="primary" id="note-project-link" href="#" target="_blank" rel="noopener">Open Project</a>
       </div>
     </div>
   </div>

@@ -24,7 +24,7 @@
     safedrop:       'pinkysworld/SafeDrop'
   };
 
-  var state={lang:'en',activeProjectKey:null};
+  var state={lang:'en',activeProjectKey:null,activeNoteKey:null};
   var cardOrder=['skeindb','nexusfs','wardex','verilog','shotsift','rootling','mushbloom','ridgefocus','appsweep','shelterfall','nomadfoodtruck','safedrop'];
   var i18n={
     en:{
@@ -60,7 +60,7 @@
         writingNote:'Selected notes, explainers, and behind-the-paper reflections.',
         musicKicker:'Music',
         musicTitle:'Songs & Albums',
-        musicNote:'A curated home for my released music, with direct listening links on YouTube Music and Spotify.',
+        musicNote:'A curated home for my released music, with direct listening links on YouTube Music, Spotify, and Apple Music.',
         skillsKicker:'Expertise',
         skillsTitle:'Professional Skills',
         skillsNote:'Cross-functional capability from systems architecture to production app delivery and academic writing.',
@@ -118,9 +118,11 @@
           {title:'Federated IDS on constrained IoT nodes',excerpt:'Trade-offs, compression choices, and open problems from the 2025 TechRxiv preprint.',cta:'Read note'}
         ]
       },
+      note:{kicker:'Project Note',closeAria:'Close note',projectLink:'Open Project'},
       music:{
         youtube:{kicker:'Artist Channel',title:'MINH NG on YouTube Music',desc:'Listen to songs, albums, and new releases on my YouTube Music artist channel.',cta:'Open YouTube Music'},
         spotify:{kicker:'Streaming Profile',title:'MINH NG on Spotify',desc:'Follow the public Spotify artist profile for releases, saves, and playlist listening.',cta:'Open Spotify'},
+        apple:{kicker:'Streaming Profile',title:'MINH NG on Apple Music',desc:'Open the Apple Music artist page for albums, songs, and library listening.',cta:'Open Apple Music'},
         browser:{kicker:'Albums & Releases',title:'Pick a release to preview',note:'Click an album or single to load a playable Spotify preview.',preview:'Now Previewing',open:'Open on Spotify'}
       },
       skillBlocks:['Systems & Databases','Apple Development','Protocols & Backend','Research Domains'],
@@ -174,7 +176,7 @@
         writingNote:'Ausgewaehlte Notizen, Erklaerungen und Gedanken rund um Paper und Projekte.',
         musicKicker:'Musik',
         musicTitle:'Songs & Alben',
-        musicNote:'Ein kuratierter Ort fuer meine veroeffentlichte Musik mit direkten Links zu YouTube Music und Spotify.',
+        musicNote:'Ein kuratierter Ort fuer meine veroeffentlichte Musik mit direkten Links zu YouTube Music, Spotify und Apple Music.',
         skillsKicker:'Kompetenzen',
         skillsTitle:'Fachliche Kompetenzen',
         skillsNote:'Breites Profil von Systemarchitektur bis App-Entwicklung und wissenschaftlichem Schreiben.',
@@ -232,9 +234,11 @@
           {title:'Federated IDS auf ressourcenarmen IoT-Knoten',excerpt:'Trade-offs, Kompressionsentscheidungen und offene Fragen aus dem TechRxiv-Preprint 2025.',cta:'Lesen'}
         ]
       },
+      note:{kicker:'Projektnotiz',closeAria:'Notiz schliessen',projectLink:'Projekt oeffnen'},
       music:{
         youtube:{kicker:'Artist Channel',title:'MINH NG auf YouTube Music',desc:'Hoere Songs, Alben und neue Releases auf meinem YouTube-Music-Kanal.',cta:'YouTube Music oeffnen'},
         spotify:{kicker:'Streaming-Profil',title:'MINH NG auf Spotify',desc:'Folge dem oeffentlichen Spotify-Artist-Profil fuer Releases, Saves und Playlist-Hoeren.',cta:'Spotify oeffnen'},
+        apple:{kicker:'Streaming-Profil',title:'MINH NG auf Apple Music',desc:'Oeffne die Apple-Music-Artist-Seite fuer Alben, Songs und Library-Hoeren.',cta:'Apple Music oeffnen'},
         browser:{kicker:'Alben & Releases',title:'Release zum Preview auswaehlen',note:'Klicke ein Album oder Single an, um eine spielbare Spotify-Vorschau zu laden.',preview:'Aktuelle Vorschau',open:'Auf Spotify oeffnen'}
       },
       skillBlocks:['Systeme & Datenbanken','Apple-Entwicklung','Protokolle & Backend','Forschungsfelder'],
@@ -392,6 +396,87 @@
       }
     };
 
+  var noteCatalog={
+    skeindb:{
+      project:'SkeinDB',
+      href:'https://minh.systems/SkeinDB/site/',
+      copy:{
+        en:{
+          title:'Why SkeinDB ships a single binary',
+          subtitle:'The operational case for packaging the engine, protocols, admin UI, and research tracks together.',
+          lede:'SkeinDB is shaped around a simple deployment idea: the fastest way to evaluate a database system is to run one executable, open one local admin surface, and immediately see how the research claims behave under real workload pressure.',
+          sections:[
+            {title:'Why this matters',body:'Database projects often split the interesting parts across services, dashboards, migrations, and scripts. That makes demos fragile and makes research harder to reproduce. A single binary keeps installation, observability, protocol compatibility, and experimental features close enough that the whole system can be inspected as one artifact.'},
+            {title:'The design trade-off',body:'The approach increases responsibility inside one executable, but it also creates a clean adoption path: MySQL and PostgreSQL-facing clients can connect, SkeinAdmin can explain what is happening, and the research tracks can be tested without asking the reader to assemble a small platform first.'},
+            {title:'What to look for',body:'The important part is not only that SkeinDB runs. It is that the admin UI, wire protocols, index advice, persistence model, and runtime evidence all tell the same story. That makes the project easier to evaluate, easier to teach, and easier to harden.'}
+          ]
+        },
+        de:{
+          title:'Warum SkeinDB als Single Binary ausgeliefert wird',
+          subtitle:'Der operative Grund, Engine, Protokolle, Admin-UI und Forschungstracks zusammen zu paketieren.',
+          lede:'SkeinDB folgt einer einfachen Deployment-Idee: Ein Datenbanksystem laesst sich am besten bewerten, wenn man eine ausfuehrbare Datei startet, eine lokale Admin-Oberflaeche oeffnet und direkt sieht, wie sich die Forschungsclaims unter echter Last verhalten.',
+          sections:[
+            {title:'Warum das wichtig ist',body:'Datenbankprojekte verteilen die interessanten Teile oft auf Services, Dashboards, Migrationen und Skripte. Das macht Demos bruechig und Forschung schwer reproduzierbar. Eine Single Binary haelt Installation, Beobachtbarkeit, Protokollkompatibilitaet und Experimente als ein pruefbares Artefakt zusammen.'},
+            {title:'Der Trade-off',body:'Der Ansatz legt mehr Verantwortung in eine ausfuehrbare Datei, schafft aber einen klaren Adoptionspfad: MySQL- und PostgreSQL-nahe Clients koennen verbinden, SkeinAdmin erklaert das Verhalten, und Forschungstracks lassen sich testen, ohne zuerst eine kleine Plattform aufzubauen.'},
+            {title:'Worauf man achten sollte',body:'Wichtig ist nicht nur, dass SkeinDB laeuft. Admin-UI, Wire-Protokolle, Index Advice, Persistenzmodell und Runtime-Evidenz muessen dieselbe Geschichte erzaehlen. Genau dadurch wird das Projekt leichter bewertbar, erklaerbar und haertbar.'}
+          ]
+        }
+      }
+    },
+    safedrop:{
+      project:'SafeDrop',
+      href:'https://minh.systems/SafeDrop/',
+      copy:{
+        en:{
+          title:'Proof-carrying file delivery, explained',
+          subtitle:'Why SafeDrop treats delivery evidence as a first-class part of secure file sharing.',
+          lede:'SafeDrop is not just a file drop. It is a file drop that tries to answer the question people usually ask after sending something important: what exactly happened to this file, and what evidence do I have?',
+          sections:[
+            {title:'Receipts beat vague logs',body:'A normal log tells you an event occurred. A receipt can describe what was delivered, which manifest it matched, how the content was addressed, and which path was used. That distinction matters when a tool is self-hosted and the sender needs confidence without outsourcing trust to a cloud provider.'},
+            {title:'Path-aware reachability',body:'Home-hosted software lives in messy networks: direct bind, router mapping, assisted connectivity, and relay paths all behave differently. SafeDrop names those paths instead of hiding them, so the interface can explain whether a transfer was direct, assisted, or routed through a fallback.'},
+            {title:'The user-facing goal',body:'The technical pieces are there to produce a calmer experience. The recipient should get the file; the sender should get evidence; and both sides should see enough explanation to understand the security posture without reading a research paper first.'}
+          ]
+        },
+        de:{
+          title:'Proof-carrying Dateiuebertragung, erklaert',
+          subtitle:'Warum SafeDrop Zustellnachweise als Kernteil sicherer Dateiuebertragung behandelt.',
+          lede:'SafeDrop ist nicht nur ein File Drop. Es beantwortet die Frage, die nach wichtigen Transfers oft offen bleibt: Was genau ist mit dieser Datei passiert, und welche Evidenz habe ich dafuer?',
+          sections:[
+            {title:'Quittungen schlagen vage Logs',body:'Ein normales Log sagt, dass ein Ereignis stattgefunden hat. Eine Quittung kann beschreiben, was zugestellt wurde, zu welchem Manifest es passt, wie der Inhalt adressiert wurde und welcher Pfad benutzt wurde. Das ist wichtig, wenn Vertrauen nicht einfach an einen Cloud-Anbieter ausgelagert werden soll.'},
+            {title:'Pfadbewusste Erreichbarkeit',body:'Self-hosted Software lebt in unordentlichen Netzwerken: Direct Bind, Router-Mapping, unterstuetzte Konnektivitaet und Relay-Pfade verhalten sich unterschiedlich. SafeDrop benennt diese Pfade, damit die Oberflaeche erklaeren kann, ob ein Transfer direkt, assistiert oder ueber Fallback lief.'},
+            {title:'Das Ziel fuer Nutzer',body:'Die technischen Bausteine sollen eine ruhigere Erfahrung schaffen. Die empfangende Person bekommt die Datei, die sendende Person bekommt Evidenz, und beide Seiten verstehen die Sicherheitslage, ohne zuerst ein Forschungspapier lesen zu muessen.'}
+          ]
+        }
+      }
+    },
+    wardex:{
+      project:'Wardex',
+      href:'https://minh.systems/Wardex/site/',
+      copy:{
+        en:{
+          title:'Federated IDS on constrained IoT nodes',
+          subtitle:'How Wardex connects practical XDR workflows with research on privacy-aware intrusion detection.',
+          lede:'The Wardex line of work starts from a practical tension: small IoT devices generate security signals, but they often lack the compute, memory, and privacy budget needed for heavyweight centralized detection.',
+          sections:[
+            {title:'Why federated learning fits',body:'Federated learning lets devices contribute to a shared model without shipping every raw event to a central system. For intrusion detection, that creates a promising middle ground: local signals can improve global detection while reducing the exposure of sensitive telemetry.'},
+            {title:'The hard parts',body:'Constrained nodes make every design choice visible. Feature extraction must stay cheap, communication rounds must be bounded, and models must survive drift, imbalance, noisy labels, and adversarial behavior. Wardex frames those constraints as system requirements rather than afterthoughts.'},
+            {title:'From paper to platform',body:'The project connection matters because research claims become more useful when they meet an operational surface. Wardex turns detection, response orchestration, and telemetry correlation into a product-shaped context where federated IDS ideas can be tested against real workflow pressure.'}
+          ]
+        },
+        de:{
+          title:'Federated IDS auf ressourcenarmen IoT-Knoten',
+          subtitle:'Wie Wardex praktische XDR-Workflows mit privacy-bewusster Intrusion Detection verbindet.',
+          lede:'Die Wardex-Arbeit beginnt mit einer praktischen Spannung: Kleine IoT-Geraete erzeugen Sicherheitssignale, haben aber oft nicht genug Rechenleistung, Speicher oder Privacy-Budget fuer schwere zentralisierte Erkennung.',
+          sections:[
+            {title:'Warum Federated Learning passt',body:'Federated Learning erlaubt Geraeten, zu einem gemeinsamen Modell beizutragen, ohne jedes rohe Ereignis zentral hochzuladen. Fuer Intrusion Detection entsteht so ein Mittelweg: Lokale Signale verbessern globale Erkennung und reduzieren zugleich die Exposition sensibler Telemetrie.'},
+            {title:'Die schwierigen Teile',body:'Ressourcenarme Knoten machen jede Designentscheidung sichtbar. Feature Extraction muss guenstig bleiben, Kommunikationsrunden muessen begrenzt sein, und Modelle muessen Drift, Imbalance, verrauschte Labels und adversariales Verhalten aushalten. Wardex behandelt diese Punkte als Systemanforderungen.'},
+            {title:'Vom Paper zur Plattform',body:'Die Projektverbindung ist wichtig, weil Forschungsclaims nuetzlicher werden, wenn sie eine operative Oberflaeche treffen. Wardex bringt Detection, Response-Orchestrierung und Telemetrie-Korrelation in einen produktnahen Kontext, in dem Federated-IDS-Ideen gegen echte Workflow-Last getestet werden koennen.'}
+          ]
+        }
+      }
+    }
+  };
+
   var detail=document.getElementById('project-detail');
   var titleEl=document.getElementById('detail-title');
   var subtitleEl=document.getElementById('detail-subtitle');
@@ -404,6 +489,14 @@
   var liveEl=document.getElementById('detail-live');
   var secondaryEl=document.getElementById('detail-secondary-link');
   var closeBtn=detail?detail.querySelector('[data-close-detail]'):null;
+  var noteDetail=document.getElementById('note-detail');
+  var noteKicker=document.getElementById('note-kicker');
+  var noteTitle=document.getElementById('note-title');
+  var noteSubtitle=document.getElementById('note-subtitle');
+  var noteLede=document.getElementById('note-lede');
+  var noteSections=document.getElementById('note-sections');
+  var noteProjectLink=document.getElementById('note-project-link');
+  var noteCloseBtn=noteDetail?noteDetail.querySelector('[data-close-note]'):null;
   var lastTrigger=null;
   var capLabel=document.getElementById('cap-label');
   var langButtons=document.querySelectorAll('.lang-btn');
@@ -485,6 +578,67 @@
     if(lastTrigger) lastTrigger.focus();
   }
 
+  function getNoteData(key){
+    var entry=noteCatalog[key];
+    if(!entry) return null;
+    var localized=(entry.copy[state.lang]||entry.copy.en);
+    return {
+      project:entry.project,
+      href:entry.href,
+      title:localized.title,
+      subtitle:localized.subtitle,
+      lede:localized.lede,
+      sections:localized.sections
+    };
+  }
+
+  function fillNoteSections(sections){
+    noteSections.innerHTML='';
+    sections.forEach(function(section){
+      var block=document.createElement('article');
+      block.className='note-section';
+      var heading=document.createElement('h4');
+      var body=document.createElement('p');
+      heading.textContent=section.title;
+      body.textContent=section.body;
+      block.appendChild(heading);
+      block.appendChild(body);
+      noteSections.appendChild(block);
+    });
+  }
+
+  function openNote(key,skipFocus){
+    var data=getNoteData(key);
+    if(!data||!noteDetail) return;
+    var dict=i18n[state.lang];
+    state.activeNoteKey=key;
+    if(noteKicker) noteKicker.textContent=dict.note.kicker+' · '+data.project;
+    if(noteTitle) noteTitle.textContent=data.title;
+    if(noteSubtitle) noteSubtitle.textContent=data.subtitle;
+    if(noteLede) noteLede.textContent=data.lede;
+    if(noteSections) fillNoteSections(data.sections);
+    if(noteProjectLink){
+      noteProjectLink.href=data.href;
+      noteProjectLink.textContent=dict.note.projectLink;
+    }
+    if(noteCloseBtn) noteCloseBtn.setAttribute('aria-label',dict.note.closeAria);
+    noteDetail.classList.add('open');
+    noteDetail.setAttribute('aria-hidden','false');
+    document.body.style.overflow='hidden';
+    if(noteCloseBtn&&!skipFocus) noteCloseBtn.focus();
+  }
+
+  function closeNote(){
+    if(!noteDetail) return;
+    if(document.activeElement && noteDetail.contains(document.activeElement)){
+      document.activeElement.blur();
+    }
+    noteDetail.classList.remove('open');
+    noteDetail.setAttribute('aria-hidden','true');
+    document.body.style.overflow='';
+    if(lastTrigger) lastTrigger.focus();
+  }
+
   document.querySelectorAll('.show-more-btn').forEach(function(btn){
     btn.addEventListener('click',function(){
       lastTrigger=btn;
@@ -492,12 +646,25 @@
     });
   });
 
+  document.querySelectorAll('.note-open-btn').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      lastTrigger=btn;
+      openNote(btn.dataset.note);
+    });
+  });
+
   document.querySelectorAll('[data-close-detail]').forEach(function(el){
     el.addEventListener('click',closeDetail);
   });
 
+  document.querySelectorAll('[data-close-note]').forEach(function(el){
+    el.addEventListener('click',closeNote);
+  });
+
   document.addEventListener('keydown',function(ev){
-    if(ev.key==='Escape'&&detail&&detail.classList.contains('open')) closeDetail();
+    if(ev.key!=='Escape') return;
+    if(noteDetail&&noteDetail.classList.contains('open')) closeNote();
+    else if(detail&&detail.classList.contains('open')) closeDetail();
   });
 
   // Reveal animation
@@ -636,7 +803,7 @@
       var k=card.querySelector('.w-kicker');
       var h=card.querySelector('h3');
       var p=card.querySelector('p');
-      var a=card.querySelector('a');
+      var a=card.querySelector('.note-open-btn');
       if(k) k.textContent=dict.writing.kicker;
       if(h) h.textContent=copy.title;
       if(p) p.textContent=copy.excerpt;
@@ -647,7 +814,7 @@
     txt('#music .section-title',dict.sections.musicTitle);
     txt('#music .section-note',dict.sections.musicNote);
     var musicCards=document.querySelectorAll('#music .music-card');
-    ['youtube','spotify'].forEach(function(key,idx){
+    ['youtube','spotify','apple'].forEach(function(key,idx){
       var card=musicCards[idx];
       var copy=dict.music[key];
       if(!card||!copy) return;
@@ -665,6 +832,8 @@
     txt('#music .music-browser-head p:last-child',dict.music.browser.note);
     txt('#music .music-preview-label',dict.music.browser.preview);
     txt('#music-preview-link',dict.music.browser.open);
+    if(noteCloseBtn) noteCloseBtn.setAttribute('aria-label',dict.note.closeAria);
+    if(noteProjectLink) noteProjectLink.textContent=dict.note.projectLink;
 
     txt('#skills .section-kicker',dict.sections.skillsKicker);
     txt('#skills .section-title',dict.sections.skillsTitle);
@@ -732,6 +901,9 @@
 
     if(detail&&detail.classList.contains('open')&&state.activeProjectKey){
       openDetail(state.activeProjectKey,true);
+    }
+    if(noteDetail&&noteDetail.classList.contains('open')&&state.activeNoteKey){
+      openNote(state.activeNoteKey,true);
     }
     try{localStorage.setItem('siteLanguage',state.lang);}catch(err){}
   }
