@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>nexusfs — deep dive · minh@systems</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="showcase.css">
+<style>:root{--accent:#7cc8d6}</style>
+</head>
+<body data-screen-label="Showcase — NexusFS (Operator)">
+
+<div class="topbar">
+  <div class="left">
+    <a class="back" href="../../index.html"><span class="arr">←</span> minh@systems</a>
+    <span class="pipe">|</span>
+    <span class="crumb">~/showcase/<span class="now">nexusfs</span></span>
+    <span class="pipe hide-sm">|</span>
+    <span class="dot hide-sm" aria-hidden="true"></span>
+    <span class="hide-sm">prototype · v0.3.0</span>
+  </div>
+  <div class="right">
+    <span class="hide-sm">read · 10 min</span>
+    <span class="pipe hide-sm">|</span>
+    <span class="clock" id="clock">--:--:-- UTC</span>
+  </div>
+</div>
+
+<nav class="jump">
+  <div class="jump-inner">
+    <a class="jump-tab on" href="#top"><span class="hash">~/</span>overview</a>
+    <a class="jump-tab" href="#abstract"><span class="hash">~/</span>abstract</a>
+    <a class="jump-tab" href="#architecture"><span class="hash">~/</span>architecture</a>
+    <a class="jump-tab" href="#features"><span class="hash">~/</span>properties</a>
+    <a class="jump-tab" href="#bench"><span class="hash">~/</span>bench</a>
+    <a class="jump-tab" href="#code"><span class="hash">~/</span>proof</a>
+    <a class="jump-tab" href="#components"><span class="hash">~/</span>components</a>
+    <a class="jump-tab" href="#roadmap"><span class="hash">~/</span>roadmap</a>
+    <a class="jump-tab" href="#faq"><span class="hash">~/</span>faq</a>
+    <a class="jump-tab" href="#related"><span class="hash">~/</span>related</a>
+    <div class="jump-spacer"></div>
+    <a class="jump-ext" href="https://minh.systems/NexusFS/site/" target="_blank" rel="noopener">live site ↗</a>
+  </div>
+</nav>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">
+      <span class="pill">research</span>
+      <span class="pill ver">v0.3.0</span>
+      <span><span class="live">●</span> prototype · verifier CLI in flight</span>
+    </div>
+    <h1 class="hero-title">nexus<span class="c1">fs</span><span class="punct">.</span></h1>
+    <p class="hero-subtitle">a verifiable, offline-first filesystem. signed ops. deterministic replication. proof-ready.</p>
+    <p class="hero-body"><span class="hl">NexusFS</span> is a filesystem for environments where you can't trust the wire — or the disk. Operations are signed, replication is deterministic, and the on-disk format is designed so any third party can verify that a node hasn't lied about what it stored.</p>
+    <div class="hero-actions">
+      <a class="btn primary" href="https://minh.systems/NexusFS/site/" target="_blank" rel="noopener">▸ open live site</a>
+      <a class="btn" href="https://github.com/pinkysworld" target="_blank" rel="noopener">⌥ github</a>
+      <a class="btn" href="../../index.html#papers">¶ related papers</a>
+    </div>
+  </div>
+
+  <aside class="hero-side">
+    <div class="stat-row">
+      <div class="n">0.3<span class="small">.0</span></div>
+      <div class="l">current version<br><span class="em">prototype</span> · verifier CLI WIP</div>
+    </div>
+    <div class="stat-row">
+      <div class="n">3</div>
+      <div class="l">CRDT op types<br><span class="em">put</span> · <span class="em">link</span> · <span class="em">tombstone</span></div>
+    </div>
+    <div class="stat-row">
+      <div class="n">100<span class="small">%</span></div>
+      <div class="l">offline-first<br>conflict-free merge across forks</div>
+    </div>
+    <div class="stat-row">
+      <div class="n">∞</div>
+      <div class="l">audit horizon<br>signed op log replays from genesis</div>
+    </div>
+    <div class="meta-grid">
+      <div class="r"><div class="k">started</div><div class="v">2025-05-12</div></div>
+      <div class="r"><div class="k">stack</div><div class="v">rust · QUIC · CRDT · ed25519</div></div>
+      <div class="r"><div class="k">license</div><div class="v">apache-2</div></div>
+      <div class="r"><div class="k">status</div><div class="v"><span class="pill beta">prototype</span></div></div>
+      <div class="r"><div class="k">site</div><div class="v"><a href="https://minh.systems/NexusFS/site/" target="_blank" rel="noopener">nexusfs/site ↗</a></div></div>
+      <div class="r"><div class="k">repo</div><div class="v"><a href="https://github.com/pinkysworld" target="_blank" rel="noopener">pinkysworld ↗</a></div></div>
+    </div>
+  </aside>
+</section>
+
+<!-- ABSTRACT -->
+<section class="section" id="abstract">
+  <div class="section-mark">
+    <div class="tag">A / ABSTRACT</div>
+    <div>
+      <h2>cat README.md<span class="punct">/</span></h2>
+      <p class="sub">A filesystem that owes you a proof, not a promise.</p>
+    </div>
+  </div>
+  <div class="abs">
+    <div class="lbl">Abstract · 2026</div>
+    <div>
+      <p>Most distributed filesystems give you eventual consistency and ask you to trust the disk. NexusFS gives you a deterministic, append-only op log — every write is a signed CRDT operation; every replica converges to the same state; every byte can be challenged with a proof of inclusion.</p>
+      <p>The design lives at the intersection of three lines of work: CRDTs for conflict-free merge, Merkle accumulators for proof generation, and QUIC for offline-first transport that resumes cleanly across NAT. It's the storage substrate I want under Wardex receipts and SafeDrop deliveries.</p>
+      <div class="kwds">
+        <span class="kw">filesystem</span><span class="kw">CRDT</span><span class="kw">merkle</span><span class="kw">QUIC</span><span class="kw">signed ops</span><span class="kw">offline-first</span><span class="kw">deterministic replication</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARCHITECTURE -->
+<section class="section" id="architecture">
+  <div class="section-mark">
+    <div class="tag">B / ARCHITECTURE</div>
+    <div>
+      <h2>tree -L 2<span class="punct">/</span></h2>
+      <p class="sub">An op log, a CRDT view, and a Merkle accumulator. That's it.</p>
+    </div>
+  </div>
+  <figure class="arch-wrap">
+    <div class="arch">
+      <div class="corner tl">fig.01 · op flow</div>
+      <div class="corner tr">nexusfs v0.3 · proof-ready</div>
+      <div class="corner bl">writer ↘ log</div>
+      <div class="corner br">verifier ↗ proof</div>
+
+      <svg viewBox="0 0 1200 600" preserveAspectRatio="none">
+        <defs>
+          <marker id="arr-nx" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M0,0 L10,5 L0,10 z" fill="#7cc8d6"/>
+          </marker>
+        </defs>
+        <g fill="none" stroke="#7cc8d6" stroke-width="1.2" opacity="0.55">
+          <path d="M200,170 L460,250" marker-end="url(#arr-nx)"/>
+          <path d="M200,340 L460,290" marker-end="url(#arr-nx)"/>
+          <path d="M640,265 L780,180" marker-end="url(#arr-nx)"/>
+          <path d="M640,290 L780,380" marker-end="url(#arr-nx)"/>
+          <path d="M960,200 L960,360" marker-end="url(#arr-nx)"/>
+          <path d="M960,440 L780,440" stroke-dasharray="4 4" marker-end="url(#arr-nx)"/>
+        </g>
+      </svg>
+
+      <div class="box" style="left:30px;top:130px;width:170px">
+        <div class="k">writer</div><div class="v">signed ops</div><div class="vsub">ed25519 · monotonic</div>
+      </div>
+      <div class="box" style="left:30px;top:300px;width:170px">
+        <div class="k">peer</div><div class="v">QUIC transport</div><div class="vsub">offline-first · resume</div>
+      </div>
+      <div class="box warn" style="left:460px;top:230px;width:180px">
+        <div class="k">core</div><div class="v">op log</div><div class="vsub">append-only · CRDT</div>
+      </div>
+      <div class="box accent" style="left:780px;top:140px;width:180px">
+        <div class="k">view</div><div class="v">CRDT projection</div><div class="vsub">deterministic merge</div>
+      </div>
+      <div class="box" style="left:780px;top:360px;width:180px">
+        <div class="k">proof</div><div class="v">merkle accumulator</div><div class="vsub">inclusion · exclusion</div>
+      </div>
+      <div class="box" style="left:960px;top:380px;width:180px">
+        <div class="k">verifier</div><div class="v">third party CLI</div><div class="vsub">replay · challenge</div>
+      </div>
+      <div class="box" style="left:780px;top:440px;width:180px">
+        <div class="k">storage</div><div class="v">content-addressed</div><div class="vsub">blake3 · blobstore</div>
+      </div>
+    </div>
+    <figcaption class="fig-cap"><span class="num">fig.01</span> writer → op log → CRDT projection + merkle accumulator · verifier replays</figcaption>
+  </figure>
+</section>
+
+<!-- PROPERTIES -->
+<section class="section" id="features">
+  <div class="section-mark">
+    <div class="tag">C / PROPERTIES</div>
+    <div>
+      <h2>ls properties<span class="punct">/</span></h2>
+      <p class="sub">Six commitments that distinguish NexusFS from yet another sync engine.</p>
+    </div>
+  </div>
+  <div class="feat-grid">
+    <article class="feat reveal">
+      <span class="num">01 / 06</span><div class="glyph">⌂</div>
+      <h3>offline by <span class="hl">default</span></h3>
+      <p>Writes commit locally to the op log first; sync is opportunistic. There is no central server you can lose — every peer is a complete history.</p>
+      <div class="tags">local-first · no single point of failure</div>
+    </article>
+    <article class="feat reveal">
+      <span class="num">02 / 06</span><div class="glyph">⌬</div>
+      <h3>deterministic <span class="hl">merge</span></h3>
+      <p>Two forks of the same log converge to the same view, byte-for-byte, regardless of which order operations arrived. CRDT properties are tested, not asserted.</p>
+      <div class="tags">CRDT · convergence-tested · property-based</div>
+    </article>
+    <article class="feat reveal">
+      <span class="num">03 / 06</span><div class="glyph">✦</div>
+      <h3>signed <span class="hl">operations</span></h3>
+      <p>Every op carries an ed25519 signature bound to writer identity. Tampered logs fail verification at the boundary; you don't need to trust the carrier.</p>
+      <div class="tags">ed25519 · writer-bound · cheap to verify</div>
+    </article>
+    <article class="feat reveal">
+      <span class="num">04 / 06</span><div class="glyph">∑</div>
+      <h3>proofs of <span class="hl">inclusion</span></h3>
+      <p>A Merkle accumulator over the op log lets any peer answer "did you store this?" with a logarithmic proof. Audits replay; they don't trust.</p>
+      <div class="tags">merkle · O(log n) proof · third-party verifiable</div>
+    </article>
+    <article class="feat reveal">
+      <span class="num">05 / 06</span><div class="glyph">⇌</div>
+      <h3>QUIC <span class="hl">transport</span></h3>
+      <p>Sync rides on QUIC for NAT traversal, connection migration, and clean resume. The transport is replaceable — the proof layer doesn't care.</p>
+      <div class="tags">QUIC · resume · transport-agnostic proof</div>
+    </article>
+    <article class="feat reveal">
+      <span class="num">06 / 06</span><div class="glyph">◇</div>
+      <h3>content-addressed <span class="hl">blobs</span></h3>
+      <p>Large objects sit in a content-addressed blob store keyed by BLAKE3. Deduplication is automatic; corruption is local; verification is constant-time.</p>
+      <div class="tags">BLAKE3 · CAS · auto-dedup</div>
+    </article>
+  </div>
+</section>
+
+<!-- BENCHMARKS -->
+<section class="section" id="bench">
+  <div class="section-mark">
+    <div class="tag">D / NUMBERS</div>
+    <div>
+      <h2>bench --suite=core<span class="punct">/</span></h2>
+      <p class="sub">Synthetic + replay traces on a 2024 M2 Pro, 3 peers across continents in the WAN bench.</p>
+    </div>
+  </div>
+  <div class="bench-grid">
+    <div class="bench reveal"><div class="h">op append</div><div class="n">0.4<span class="unit">ms</span></div><div class="bar"><i style="--w:12%"></i></div><div class="s">signed op → local log committed.</div><div class="ftn">ed25519 · m2 pro</div></div>
+    <div class="bench reveal"><div class="h">merkle proof</div><div class="n">17<span class="unit">b</span></div><div class="bar"><i style="--w:22%"></i></div><div class="s">avg proof size per inclusion at 1M ops.</div><div class="ftn">log₂(N) · BLAKE3</div></div>
+    <div class="bench reveal"><div class="h">WAN sync</div><div class="n">3.1<span class="unit">s</span></div><div class="bar"><i style="--w:62%"></i></div><div class="s">100k op delta · 3 peers · transcontinental.</div><div class="ftn">QUIC 1-RTT resume</div></div>
+    <div class="bench reveal"><div class="h">verifier replay</div><div class="n">82<span class="unit">k/s</span></div><div class="bar"><i style="--w:88%"></i></div><div class="s">ops verified per second on the CLI.</div><div class="ftn">single core · sig-batched</div></div>
+  </div>
+</section>
+
+<!-- PROOF / CODE -->
+<section class="section" id="code">
+  <div class="section-mark">
+    <div class="tag">E / PROOF</div>
+    <div>
+      <h2>cat proof.rs<span class="punct">/</span></h2>
+      <p class="sub">A proof of inclusion fits in a struct. So does its verifier.</p>
+    </div>
+  </div>
+  <div class="code-frame">
+    <div class="code-text">
+      <h3>proofs as <span class="hl">first-class</span> values</h3>
+      <p>Every read returns the data <em>and</em> a proof that the store committed to it. Proofs are bytes you can email, store, or post on a noticeboard — anyone with the writer's public key can replay and verify offline.</p>
+      <p>This is the same surface that makes NexusFS useful as evidence storage for <code>wardex</code> receipts and <code>safedrop</code> deliveries: the producer signs, the store proves, the auditor replays.</p>
+      <div class="small-spec">
+        <div class="r"><div class="k">signature</div><div class="v">ed25519 · 64 B</div></div>
+        <div class="r"><div class="k">hash</div><div class="v">BLAKE3 · 32 B</div></div>
+        <div class="r"><div class="k">proof size</div><div class="v">O(log₂ N) · ~17 B avg</div></div>
+        <div class="r"><div class="k">verifier</div><div class="v">no-std · embeddable</div></div>
+      </div>
+    </div>
+    <pre class="code-block"><div class="code-head">
+      <div class="code-dots"><span></span><span></span><span></span></div>
+      <div class="code-title">src/proof.rs · inclusion proof</div>
+    </div><div class="code-body"><span class="ln"> 1</span><span class="kw">use</span> nexusfs::{Store, ProofInclusion, OpId};
+<span class="ln"> 2</span>
+<span class="ln"> 3</span><span class="cmt">// 1. write — returns a proof of inclusion.</span>
+<span class="ln"> 4</span><span class="kw">let</span> store = Store::<span class="fn">open</span>(<span class="str">"./nexus.dat"</span>)?;
+<span class="ln"> 5</span><span class="kw">let</span> id: OpId = store.<span class="fn">put</span>(<span class="str">"docs/handbook.md"</span>, payload)?;
+<span class="ln"> 6</span><span class="kw">let</span> proof: ProofInclusion = store.<span class="fn">prove</span>(id)?;
+<span class="ln"> 7</span>
+<span class="ln"> 8</span><span class="cmt">// 2. proof is bytes — pass it around like any other.</span>
+<span class="ln"> 9</span><span class="kw">let</span> bytes = proof.<span class="fn">to_bytes</span>();   <span class="cmt">// avg 17 B</span>
+<span class="ln">10</span><span class="fn">post_to_auditor</span>(bytes).<span class="kw">await</span>?;
+<span class="ln">11</span>
+<span class="ln">12</span><span class="cmt">// 3. anyone can verify offline.</span>
+<span class="ln">13</span><span class="kw">use</span> nexusfs_verify::{Verifier, Root};
+<span class="ln">14</span>
+<span class="ln">15</span><span class="kw">let</span> root: Root = <span class="fn">latest_signed_root</span>(&writer_pk)?;
+<span class="ln">16</span><span class="kw">let</span> v = Verifier::<span class="fn">new</span>(&writer_pk, root);
+<span class="ln">17</span>
+<span class="ln">18</span><span class="kw">match</span> v.<span class="fn">check</span>(&proof, &payload_hash) {
+<span class="ln">19</span>    Ok(()) =&gt; <span class="fn">println!</span>(<span class="str">"✓ included at {}"</span>, proof.idx),
+<span class="ln">20</span>    Err(e) =&gt; <span class="fn">println!</span>(<span class="str">"✗ tamper: {e}"</span>),
+<span class="ln">21</span>}
+<span class="ln">22</span>
+<span class="ln">23</span><span class="cmt">// $ nexusfs verify ./bundle.nfs</span>
+<span class="ln">24</span><span class="cmt">// ◆ 1.2M ops · 0 forks · 0 unsigned</span>
+<span class="ln">25</span><span class="cmt">// ◆ root: 9f1a..c204 (signed: pinkysworld)</span>
+<span class="ln">26</span><span class="cmt">// ◆ verified · 82k ops/s · 14.6s total</span>
+</div></pre>
+  </div>
+</section>
+
+<!-- COMPONENTS -->
+<section class="section" id="components">
+  <div class="section-mark">
+    <div class="tag">F / COMPONENTS</div>
+    <div>
+      <h2>ls components/<span class="punct">/</span></h2>
+      <p class="sub">Eight modules, each with a tight contract. The verifier is the smallest.</p>
+    </div>
+  </div>
+  <div class="tracks-head"><span>#</span><span>name</span><span class="col-desc">summary</span><span>status</span><span></span></div>
+  <div class="track"><span class="n">01</span><div class="name"><strong>core.oplog</strong><span>append-only</span></div><div class="desc">Signed, ordered, durable op log. Foundation of everything else.</div><span class="st">stable</span><span class="arr">→</span></div>
+  <div class="track"><span class="n">02</span><div class="name"><strong>crdt.view</strong><span>projection</span></div><div class="desc">Deterministic CRDT projection over the op log. Tested with property checks.</div><span class="st">stable</span><span class="arr">→</span></div>
+  <div class="track"><span class="n">03</span><div class="name"><strong>merkle.acc</strong><span>accumulator</span></div><div class="desc">Logarithmic inclusion proofs. Exclusion proofs are the in-flight work item.</div><span class="st beta">beta</span><span class="arr">→</span></div>
+  <div class="track"><span class="n">04</span><div class="name"><strong>cas.blob</strong><span>BLAKE3</span></div><div class="desc">Content-addressed blob store. Auto-dedup, lazy GC, constant-time verify.</div><span class="st">stable</span><span class="arr">→</span></div>
+  <div class="track"><span class="n">05</span><div class="name"><strong>net.quic</strong><span>transport</span></div><div class="desc">QUIC transport with NAT traversal and connection migration.</div><span class="st">stable</span><span class="arr">→</span></div>
+  <div class="track"><span class="n">06</span><div class="name"><strong>sync.delta</strong><span>resumable</span></div><div class="desc">Delta sync with bloom-style negotiation; resumes cleanly from any cut.</div><span class="st beta">beta</span><span class="arr">→</span></div>
+  <div class="track"><span class="n">07</span><div class="name"><strong>verify.cli</strong><span>no-std</span></div><div class="desc">Third-party verifier CLI; embeddable as a library (no_std friendly).</div><span class="st beta">beta</span><span class="arr">→</span></div>
+  <div class="track"><span class="n">08</span><div class="name"><strong>mount.fuse</strong><span>posix view</span></div><div class="desc">FUSE adapter so the CRDT view appears as a normal directory tree.</div><span class="st draft">draft</span><span class="arr">→</span></div>
+</section>
+
+<!-- ROADMAP -->
+<section class="section" id="roadmap">
+  <div class="section-mark">
+    <div class="tag">G / ROADMAP</div>
+    <div>
+      <h2>git log --quarters<span class="punct">/</span></h2>
+      <p class="sub">From an op-log sketch to a verifier you can hand to anyone.</p>
+    </div>
+  </div>
+  <div class="road">
+    <div class="road-col"><div class="q">Q2 · 2025</div><div class="item done">op log sketch + ed25519</div><div class="item done">first CRDT projection</div><div class="item done">naive sync</div></div>
+    <div class="road-col"><div class="q">Q3 · 2025</div><div class="item done">BLAKE3 CAS blobstore</div><div class="item done">merkle accumulator v0</div><div class="item done">property-test harness</div></div>
+    <div class="road-col"><div class="q">Q4 · 2025</div><div class="item done">QUIC transport</div><div class="item done">delta sync</div><div class="item done">WAN bench rig</div></div>
+    <div class="road-col"><div class="q">Q1 · 2026</div><div class="item done">verifier CLI alpha</div><div class="item done">exclusion proof draft</div><div class="item done">no-std verifier crate</div></div>
+    <div class="road-col current"><div class="q">Q2 · 2026 — now</div><div class="item">verifier CLI 1.0</div><div class="item">FUSE mount adapter</div><div class="item">wardex receipt sink</div></div>
+    <div class="road-col"><div class="q">Q4 · 2026</div><div class="item">exclusion proofs stable</div><div class="item">multi-writer fork policy</div><div class="item">0.5 cut · pilot use</div></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="faq">
+  <div class="section-mark">
+    <div class="tag">H / FAQ</div>
+    <div>
+      <h2>cat faq.md<span class="punct">/</span></h2>
+      <p class="sub">Four questions worth answering up front.</p>
+    </div>
+  </div>
+  <div class="faq">
+    <div class="faq-row"><div class="q">q · 01</div><div><h3>is this a blockchain?</h3><p>No. There's no consensus algorithm, no token, no global linearization. NexusFS is local-first per-writer; the Merkle accumulator gives you third-party verifiability without coordinating who writes when.</p></div></div>
+    <div class="faq-row"><div class="q">q · 02</div><div><h3>what does "verifiable" actually buy me?</h3><p>An auditor or counterparty can prove that a specific file was stored at a specific point in your log — without trusting the server. That matters for evidence (Wardex receipts), regulated workflows, and any system where the carrier is untrusted.</p></div></div>
+    <div class="faq-row"><div class="q">q · 03</div><div><h3>can two writers fork the same path?</h3><p>Yes, by design. The CRDT view resolves the merge deterministically; nothing is silently overwritten. Multi-writer policy (whose write wins) is the active design surface.</p></div></div>
+    <div class="faq-row"><div class="q">q · 04</div><div><h3>relationship to wardex / skeindb?</h3><p>NexusFS is the storage substrate. <a href="wardex.html">Wardex</a> emits signed response receipts that need a verifiable home; <a href="skeindb.html">SkeinDB</a>'s deterministic replication track will read this CRDT projection. The verifier CLI is shared.</p></div></div>
+  </div>
+</section>
+
+<!-- RELATED -->
+<section class="section" id="related">
+  <div class="section-mark">
+    <div class="tag">I / RELATED</div>
+    <div>
+      <h2>see also<span class="punct">/</span></h2>
+      <p class="sub">Where NexusFS sits in the larger workstation.</p>
+    </div>
+  </div>
+  <div class="rel-grid">
+    <a class="rel-card" href="skeindb.html">
+      <span class="k">sibling · research</span>
+      <h4>skeindb</h4>
+      <p>Single-binary database engine. Track 13 (deterministic replication) will consume the NexusFS CRDT projection.</p>
+      <span class="link">open deep dive →</span>
+    </a>
+    <a class="rel-card" href="wardex.html">
+      <span class="k">sibling · research</span>
+      <h4>wardex</h4>
+      <p>Unified XDR with signed response receipts. NexusFS is the proposed evidence store.</p>
+      <span class="link">open deep dive →</span>
+    </a>
+    <a class="rel-card" href="https://minh.systems/SafeDrop/" target="_blank" rel="noopener">
+      <span class="k">related · research</span>
+      <h4>safedrop</h4>
+      <p>Home-hosted secure file sharing with proof-carrying delivery. Same proof primitives, different surface.</p>
+      <span class="link">visit project ↗</span>
+    </a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="ft">
+    <div>
+      <div class="ft-brand">minh@systems / nexusfs</div>
+      <p class="ft-tag">A filesystem that owes you a proof. Signed ops, deterministic merge, third-party verifiable storage.</p>
+    </div>
+    <div class="ft-col"><h5>showcase</h5><ul>
+      <li><a href="#abstract">abstract</a></li>
+      <li><a href="#architecture">architecture</a></li>
+      <li><a href="#features">properties</a></li>
+      <li><a href="#components">components</a></li>
+      <li><a href="#roadmap">roadmap</a></li>
+    </ul></div>
+    <div class="ft-col"><h5>external</h5><ul>
+      <li><a href="https://minh.systems/NexusFS/site/" target="_blank" rel="noopener">live site ↗</a></li>
+      <li><a href="https://github.com/pinkysworld" target="_blank" rel="noopener">github ↗</a></li>
+    </ul></div>
+    <div class="ft-col"><h5>back to</h5><ul>
+      <li><a href="../../index.html">minh@systems</a></li>
+      <li><a href="skeindb.html">skeindb deep dive</a></li>
+      <li><a href="wardex.html">wardex deep dive</a></li>
+    </ul></div>
+  </div>
+  <div class="ft-base">
+    <span>&copy; 2026 michél nguyen</span>
+    <span>v0.3.0 · plate iii · prototype</span>
+    <span>jetbrains mono · inter · berlin</span>
+  </div>
+</footer>
+
+<script src="showcase.js"></script>
+</body>
+</html>

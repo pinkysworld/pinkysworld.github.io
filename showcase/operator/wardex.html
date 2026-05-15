@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>wardex — deep dive · minh@systems</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="showcase.css">
+<style>:root{--accent:#e8b86b}</style>
+</head>
+<body data-screen-label="Showcase — Wardex (Operator)">
+
+<div class="topbar">
+  <div class="left">
+    <a class="back" href="../../index.html"><span class="arr">←</span> minh@systems</a>
+    <span class="pipe">|</span>
+    <span class="crumb">~/showcase/<span class="now">wardex</span></span>
+    <span class="pipe hide-sm">|</span>
+    <span class="dot hide-sm" aria-hidden="true"></span>
+    <span class="hide-sm">beta · v0.4.1</span>
+  </div>
+  <div class="right">
+    <span class="hide-sm">read · 11 min</span>
+    <span class="pipe hide-sm">|</span>
+    <span class="clock" id="clock">--:--:-- UTC</span>
+  </div>
+</div>
+
+<nav class="jump">
+  <div class="jump-inner">
+    <a class="jump-tab on" href="#top"><span class="hash">~/</span>overview</a>
+    <a class="jump-tab" href="#abstract"><span class="hash">~/</span>abstract</a>
+    <a class="jump-tab" href="#architecture"><span class="hash">~/</span>architecture</a>
+    <a class="jump-tab" href="#features"><span class="hash">~/</span>capabilities</a>
+    <a class="jump-tab" href="#bench"><span class="hash">~/</span>bench</a>
+    <a class="jump-tab" href="#code"><span class="hash">~/</span>detect</a>
+    <a class="jump-tab" href="#modules"><span class="hash">~/</span>modules</a>
+    <a class="jump-tab" href="#roadmap"><span class="hash">~/</span>roadmap</a>
+    <a class="jump-tab" href="#paper"><span class="hash">~/</span>paper</a>
+    <a class="jump-tab" href="#faq"><span class="hash">~/</span>faq</a>
+    <a class="jump-tab" href="#related"><span class="hash">~/</span>related</a>
+    <div class="jump-spacer"></div>
+    <a class="jump-ext" href="https://minh.systems/Wardex/site/" target="_blank" rel="noopener">live site ↗</a>
+  </div>
+</nav>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">
+      <span class="pill">research</span>
+      <span class="pill ver">v0.4.1</span>
+      <span><span class="live">●</span> beta · cross-layer detection live</span>
+    </div>
+    <h1 class="hero-title">war<span class="c1">dex</span><span class="punct">.</span></h1>
+    <p class="hero-subtitle">unified XDR · cross-layer detection · federated learning at the edge.</p>
+    <p class="hero-body"><span class="hl">Wardex</span> correlates security telemetry across endpoints, networks, and cloud workloads — and trains its detectors with <span class="hl">federated learning</span> so models improve without raw data ever leaving the host. Response orchestration is built in, not bolted on.</p>
+    <div class="hero-actions">
+      <a class="btn primary" href="https://minh.systems/Wardex/site/" target="_blank" rel="noopener">▸ open live site</a>
+      <a class="btn" href="https://doi.org/10.36227/techrxiv.176403418.87468767/v1" target="_blank" rel="noopener">¶ read paper</a>
+      <a class="btn" href="https://github.com/pinkysworld" target="_blank" rel="noopener">⌥ github</a>
+    </div>
+  </div>
+
+  <aside class="hero-side">
+    <div class="stat-row">
+      <div class="n">0.4<span class="small">.1</span></div>
+      <div class="l">current version<br><span class="em">beta</span> · pilot deployments</div>
+    </div>
+    <div class="stat-row">
+      <div class="n">3</div>
+      <div class="l">telemetry layers<br><span class="em">endpoint</span> · <span class="em">network</span> · <span class="em">cloud</span></div>
+    </div>
+    <div class="stat-row">
+      <div class="n">9</div>
+      <div class="l">detector modules<br><span class="em">federated</span> · drift-aware</div>
+    </div>
+    <div class="stat-row">
+      <div class="n">0</div>
+      <div class="l">raw telemetry leaves the host<br><span class="em">DP-SGD</span> · gradient clipping</div>
+    </div>
+    <div class="meta-grid">
+      <div class="r"><div class="k">started</div><div class="v">2025-02-10</div></div>
+      <div class="r"><div class="k">stack</div><div class="v">rust · ebpf · onnx · DP-SGD</div></div>
+      <div class="r"><div class="k">license</div><div class="v">apache-2 · open core</div></div>
+      <div class="r"><div class="k">status</div><div class="v"><span class="pill beta">beta</span><span class="pill warn">pilots</span></div></div>
+      <div class="r"><div class="k">paper</div><div class="v"><a href="https://doi.org/10.36227/techrxiv.176403418.87468767/v1" target="_blank" rel="noopener">TechRxiv 2025 ↗</a></div></div>
+      <div class="r"><div class="k">site</div><div class="v"><a href="https://minh.systems/Wardex/site/" target="_blank" rel="noopener">wardex/site ↗</a></div></div>
+    </div>
+  </aside>
+</section>
+
+<!-- ABSTRACT -->
+<section class="section" id="abstract">
+  <div class="section-mark">
+    <div class="tag">A / ABSTRACT</div>
+    <div>
+      <h2>cat README.md<span class="punct">/</span></h2>
+      <p class="sub">XDR done from the threat-model out, not the dashboard in.</p>
+    </div>
+  </div>
+  <div class="abs">
+    <div class="lbl">Abstract · 2026</div>
+    <div>
+      <p>Most XDR platforms started as endpoint products and bolted on network and cloud telemetry. The seams show up where it hurts most: in detection lag, in over-fitted rules, and in privacy posture. Wardex was built the other direction — a federated detection substrate first, with endpoint, network, and cloud collectors plugged into the same correlation graph.</p>
+      <p>The architectural commitment is that <em>raw telemetry never leaves the host</em>. Models update via federated gradients with differential privacy; correlations are computed on encrypted feature digests. Response orchestration uses the same execution surface as detection, so playbooks ship with provenance.</p>
+      <div class="kwds">
+        <span class="kw">XDR</span><span class="kw">federated learning</span><span class="kw">DP-SGD</span><span class="kw">eBPF</span><span class="kw">ONNX runtime</span><span class="kw">cross-layer correlation</span><span class="kw">response orchestration</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARCHITECTURE -->
+<section class="section" id="architecture">
+  <div class="section-mark">
+    <div class="tag">B / ARCHITECTURE</div>
+    <div>
+      <h2>tree -L 2<span class="punct">/</span></h2>
+      <p class="sub">Three telemetry layers feeding one correlation graph and one orchestrator.</p>
+    </div>
+  </div>
+  <figure class="arch-wrap">
+    <div class="arch">
+      <div class="corner tl">fig.01 · cross-layer flow</div>
+      <div class="corner tr">wardex v0.4 · federated</div>
+      <div class="corner bl">collectors ↘ correlation</div>
+      <div class="corner br">decision ↗ orchestrator</div>
+
+      <svg viewBox="0 0 1200 600" preserveAspectRatio="none">
+        <defs>
+          <marker id="arr-wx" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M0,0 L10,5 L0,10 z" fill="#e8b86b"/>
+          </marker>
+        </defs>
+        <g fill="none" stroke="#e8b86b" stroke-width="1.2" opacity="0.55">
+          <path d="M200,120 L460,260" marker-end="url(#arr-wx)"/>
+          <path d="M200,270 L460,275" marker-end="url(#arr-wx)"/>
+          <path d="M200,420 L460,300" marker-end="url(#arr-wx)"/>
+          <path d="M640,275 L780,200" marker-end="url(#arr-wx)"/>
+          <path d="M640,275 L780,360" marker-end="url(#arr-wx)"/>
+          <path d="M960,200 L960,360" marker-end="url(#arr-wx)"/>
+          <path d="M960,440 L780,440" stroke-dasharray="4 4" marker-end="url(#arr-wx)"/>
+        </g>
+      </svg>
+
+      <!-- collectors -->
+      <div class="box" style="left:30px;top:80px;width:170px">
+        <div class="k">collector</div><div class="v">endpoint · eBPF</div><div class="vsub">syscalls · proc · file</div>
+      </div>
+      <div class="box" style="left:30px;top:230px;width:170px">
+        <div class="k">collector</div><div class="v">network · flows</div><div class="vsub">nflog · pcap · dns</div>
+      </div>
+      <div class="box" style="left:30px;top:380px;width:170px">
+        <div class="k">collector</div><div class="v">cloud · API</div><div class="vsub">audit logs · IAM · k8s</div>
+      </div>
+
+      <!-- correlation graph -->
+      <div class="box warn" style="left:460px;top:230px;width:180px">
+        <div class="k">core</div><div class="v">correlation graph</div><div class="vsub">entity-bound · streaming</div>
+      </div>
+
+      <!-- detectors -->
+      <div class="box accent" style="left:780px;top:150px;width:180px">
+        <div class="k">detector</div><div class="v">federated ML</div><div class="vsub">DP-SGD · drift-aware</div>
+      </div>
+      <div class="box" style="left:780px;top:320px;width:180px">
+        <div class="k">detector</div><div class="v">rule engine</div><div class="vsub">sigma · provenance</div>
+      </div>
+
+      <!-- orchestrator -->
+      <div class="box" style="left:960px;top:380px;width:180px">
+        <div class="k">action</div><div class="v">orchestrator</div><div class="vsub">playbooks · receipts</div>
+      </div>
+
+      <div class="box" style="left:780px;top:420px;width:180px">
+        <div class="k">policy</div><div class="v">response gate</div><div class="vsub">approval · safety</div>
+      </div>
+    </div>
+    <figcaption class="fig-cap"><span class="num">fig.01</span> collectors → correlation graph → detectors → orchestrator · feedback loop dashed</figcaption>
+  </figure>
+</section>
+
+<!-- CAPABILITIES -->
+<section class="section" id="features">
+  <div class="section-mark">
+    <div class="tag">C / CAPABILITIES</div>
+    <div>
+      <h2>ls capabilities<span class="punct">/</span></h2>
+      <p class="sub">Six commitments that distinguish Wardex from a SIEM with marketing.</p>
+    </div>
+  </div>
+  <div class="feat-grid">
+    <article class="feat reveal">
+      <span class="num">01 / 06</span><div class="glyph">⌬</div>
+      <h3>cross-layer <span class="hl">correlation</span></h3>
+      <p>Endpoint, network, and cloud events bind to the same entity graph. A process spawning a curl spawning a cloud API call is one alert, not three.</p>
+      <div class="tags">entity binding · streaming · n-ary joins</div>
+    </article>
+    <article class="feat reveal">
+      <span class="num">02 / 06</span><div class="glyph">⊞</div>
+      <h3>federated learning, <span class="hl">on-host</span></h3>
+      <p>Detectors train locally; only gradients leave, clipped &amp; noised for ε-DP. Models improve across the fleet without telemetry pooling.</p>
+      <div class="tags">DP-SGD · gradient clipping · secure agg</div>
+    </article>
+    <article class="feat reveal">
+      <span class="num">03 / 06</span><div class="glyph">∂</div>
+      <h3>drift-aware <span class="hl">detectors</span></h3>
+      <p>Each detector ships with a calibrated drift monitor. Quiet degradation surfaces as a separate signal before false negatives accumulate.</p>
+      <div class="tags">PSI · KS-test · calibrated</div>
+    </article>
+    <article class="feat reveal">
+      <span class="num">04 / 06</span><div class="glyph">⌥</div>
+      <h3>response with <span class="hl">receipts</span></h3>
+      <p>The orchestrator executes playbooks behind a signed policy gate. Every action emits a tamper-evident receipt — auditors can replay, not just read.</p>
+      <div class="tags">policy gate · signed actions · audit replay</div>
+    </article>
+    <article class="feat reveal">
+      <span class="num">05 / 06</span><div class="glyph">⚙</div>
+      <h3>eBPF <span class="hl">first</span> on linux</h3>
+      <p>No kernel modules. Endpoint coverage rides on eBPF probes with CO-RE for portability. macOS uses EndpointSecurity; Windows via ETW.</p>
+      <div class="tags">eBPF · CO-RE · EndpointSecurity · ETW</div>
+    </article>
+    <article class="feat reveal">
+      <span class="num">06 / 06</span><div class="glyph">◇</div>
+      <h3>onnx runtime, <span class="hl">portable</span></h3>
+      <p>Detectors ship as ONNX. Same model runs on the edge, the analyst's laptop, and the cloud verifier. No platform-specific re-training.</p>
+      <div class="tags">ONNX · portable inference · single artifact</div>
+    </article>
+  </div>
+</section>
+
+<!-- BENCHMARKS -->
+<section class="section" id="bench">
+  <div class="section-mark">
+    <div class="tag">D / NUMBERS</div>
+    <div>
+      <h2>bench --suite=detect<span class="punct">/</span></h2>
+      <p class="sub">Measured on the CIC-IDS2018 + internal pilot blend. Reproducible fixtures in /bench.</p>
+    </div>
+  </div>
+  <div class="bench-grid">
+    <div class="bench reveal"><div class="h">detection p50</div><div class="n">68<span class="unit">ms</span></div><div class="bar"><i style="--w:74%"></i></div><div class="s">event → enriched alert, end-to-end.</div><div class="ftn">vs splunk: −82%</div></div>
+    <div class="bench reveal"><div class="h">F1 · drift fold</div><div class="n">0.94</div><div class="bar"><i style="--w:94%"></i></div><div class="s">macro-F1 across 12 attack families, day-7 drift fold.</div><div class="ftn">held-out · drift-aware</div></div>
+    <div class="bench reveal"><div class="h">privacy budget</div><div class="n">ε=2<span class="unit">.0</span></div><div class="bar"><i style="--w:60%"></i></div><div class="s">per-round DP budget for federated rounds.</div><div class="ftn">RDP accounting · δ=1e-5</div></div>
+    <div class="bench reveal"><div class="h">collector overhead</div><div class="n">1.8<span class="unit">%</span></div><div class="bar"><i style="--w:18%"></i></div><div class="s">avg CPU on a busy app server (eBPF mode).</div><div class="ftn">m1 · m2 · xeon · same band</div></div>
+  </div>
+</section>
+
+<!-- CODE -->
+<section class="section" id="code">
+  <div class="section-mark">
+    <div class="tag">E / DETECT</div>
+    <div>
+      <h2>cat detector.toml<span class="punct">/</span></h2>
+      <p class="sub">A detector is a manifest. The rest is provenance.</p>
+    </div>
+  </div>
+  <div class="code-frame">
+    <div class="code-text">
+      <h3>detectors as <span class="hl">first-class</span> artifacts</h3>
+      <p>Every detector is a versioned manifest: the model (ONNX), the feature spec, the drift monitor, and the response gate. Wardex loads the manifest and binds it to the correlation graph — no glue scripts.</p>
+      <p>The same manifest format is what gets shared in federated rounds. Hash-stable identity means the analyst, the verifier, and the auditor all reason about the same artifact.</p>
+      <div class="small-spec">
+        <div class="r"><div class="k">format</div><div class="v">TOML + ONNX + sigstore</div></div>
+        <div class="r"><div class="k">feature spec</div><div class="v">protobuf schema · typed</div></div>
+        <div class="r"><div class="k">drift</div><div class="v">PSI threshold · KS fallback</div></div>
+        <div class="r"><div class="k">response</div><div class="v">policy-gated · signed</div></div>
+      </div>
+    </div>
+    <pre class="code-block"><div class="code-head">
+      <div class="code-dots"><span></span><span></span><span></span></div>
+      <div class="code-title">detectors/c2_beacon.toml</div>
+    </div><div class="code-body"><span class="ln"> 1</span><span class="cmt"># wardex detector manifest · hash-stable</span>
+<span class="ln"> 2</span>[<span class="kw">detector</span>]
+<span class="ln"> 3</span>name    = <span class="str">"c2_beacon"</span>
+<span class="ln"> 4</span>version = <span class="str">"1.4.2"</span>
+<span class="ln"> 5</span>layer   = [<span class="str">"endpoint"</span>, <span class="str">"network"</span>]
+<span class="ln"> 6</span>
+<span class="ln"> 7</span>[<span class="kw">model</span>]
+<span class="ln"> 8</span>artifact = <span class="str">"./models/c2_beacon.onnx"</span>
+<span class="ln"> 9</span>features = <span class="str">"./schemas/c2_beacon.proto"</span>
+<span class="ln">10</span>
+<span class="ln">11</span>[<span class="kw">drift</span>]
+<span class="ln">12</span>monitor   = <span class="str">"psi"</span>
+<span class="ln">13</span>threshold = <span class="num">0.18</span>
+<span class="ln">14</span>fallback  = <span class="str">"ks-test"</span>
+<span class="ln">15</span>
+<span class="ln">16</span>[<span class="kw">federated</span>]
+<span class="ln">17</span>aggregator = <span class="str">"secagg.v2"</span>
+<span class="ln">18</span>dp = { epsilon = <span class="num">2.0</span>, delta = <span class="num">1e-5</span> }
+<span class="ln">19</span>
+<span class="ln">20</span>[<span class="kw">response</span>]
+<span class="ln">21</span>policy    = <span class="str">"isolate_host_24h"</span>
+<span class="ln">22</span>gate      = <span class="str">"sec_oncall.signed"</span>
+<span class="ln">23</span>receipt   = <span class="kw">true</span>
+<span class="ln">24</span>
+<span class="ln">25</span><span class="cmt"># $ wardex apply detectors/c2_beacon.toml</span>
+<span class="ln">26</span><span class="cmt"># ◆ loaded · hash 7f3a..b201</span>
+<span class="ln">27</span><span class="cmt"># ◆ bound · 2 collectors</span>
+<span class="ln">28</span><span class="cmt"># ◆ drift monitor active</span>
+</div></pre>
+  </div>
+</section>
+
+<!-- MODULES -->
+<section class="section" id="modules">
+  <div class="section-mark">
+    <div class="tag">F / MODULES</div>
+    <div>
+      <h2>ls modules/<span class="punct">/</span></h2>
+      <p class="sub">Nine detector modules in flight. Each is a manifest. Each is benched against held-out attack families.</p>
+    </div>
+  </div>
+  <div class="tracks-head"><span>#</span><span>name</span><span class="col-desc">summary</span><span>status</span><span></span></div>
+  <div class="track"><span class="n">01</span><div class="name"><strong>c2.beacon</strong><span>command &amp; control</span></div><div class="desc">Periodicity + jitter detection on cross-layer flows + endpoint processes.</div><span class="st">stable</span><span class="arr">→</span></div>
+  <div class="track"><span class="n">02</span><div class="name"><strong>lateral.move</strong><span>internal pivots</span></div><div class="desc">SMB/SSH/RDP graph walks with entity-bound feature pooling.</div><span class="st">stable</span><span class="arr">→</span></div>
+  <div class="track"><span class="n">03</span><div class="name"><strong>cred.misuse</strong><span>identity layer</span></div><div class="desc">Token reuse, impossible-travel, role-escalation across cloud + endpoint.</div><span class="st">stable</span><span class="arr">→</span></div>
+  <div class="track"><span class="n">04</span><div class="name"><strong>exfil.dns</strong><span>covert channels</span></div><div class="desc">Entropy-aware DNS tunneling detector; ε-DP federated retraining.</div><span class="st beta">beta</span><span class="arr">→</span></div>
+  <div class="track"><span class="n">05</span><div class="name"><strong>persistence.runas</strong><span>endpoint</span></div><div class="desc">Service / scheduled-task / launch-agent anomaly clustering.</div><span class="st">stable</span><span class="arr">→</span></div>
+  <div class="track"><span class="n">06</span><div class="name"><strong>cloud.iam_drift</strong><span>posture</span></div><div class="desc">Role policy drift + over-privileged identity scoring.</div><span class="st beta">beta</span><span class="arr">→</span></div>
+  <div class="track"><span class="n">07</span><div class="name"><strong>malware.static</strong><span>artifact</span></div><div class="desc">Static feature ensemble; the topic of the in-flight pre-doctoral work.</div><span class="st beta">beta</span><span class="arr">→</span></div>
+  <div class="track"><span class="n">08</span><div class="name"><strong>ransom.shape</strong><span>endpoint</span></div><div class="desc">File-entropy shape + IO burst clustering with playbook gate.</div><span class="st">stable</span><span class="arr">→</span></div>
+  <div class="track"><span class="n">09</span><div class="name"><strong>insider.access</strong><span>identity</span></div><div class="desc">Off-hours access scoring with explicit fairness constraints.</div><span class="st draft">draft</span><span class="arr">→</span></div>
+</section>
+
+<!-- ROADMAP -->
+<section class="section" id="roadmap">
+  <div class="section-mark">
+    <div class="tag">G / ROADMAP</div>
+    <div>
+      <h2>git log --quarters<span class="punct">/</span></h2>
+      <p class="sub">From eBPF prototype to a pilot-grade XDR.</p>
+    </div>
+  </div>
+  <div class="road">
+    <div class="road-col"><div class="q">Q1 · 2025</div><div class="item done">eBPF collector prototype</div><div class="item done">correlation graph v0</div><div class="item done">first rule detectors</div></div>
+    <div class="road-col"><div class="q">Q2 · 2025</div><div class="item done">cloud + network collectors</div><div class="item done">onnx detector runtime</div><div class="item done">TechRxiv submission</div></div>
+    <div class="road-col"><div class="q">Q3 · 2025</div><div class="item done">federated rounds v1</div><div class="item done">DP-SGD accounting</div><div class="item done">drift monitors</div></div>
+    <div class="road-col"><div class="q">Q4 · 2025</div><div class="item done">orchestrator + policy gate</div><div class="item done">signed action receipts</div><div class="item done">first external pilot</div></div>
+    <div class="road-col current"><div class="q">Q2 · 2026 — now</div><div class="item">malware.static module</div><div class="item">cloud.iam_drift v2</div><div class="item">analyst workbench beta</div></div>
+    <div class="road-col"><div class="q">Q4 · 2026</div><div class="item">multi-tenant fed cohorts</div><div class="item">1.0 cut · open-core release</div><div class="item">audit replay tooling</div></div>
+  </div>
+</section>
+
+<!-- PAPER -->
+<section class="section" id="paper">
+  <div class="section-mark">
+    <div class="tag">H / PAPER</div>
+    <div>
+      <h2>man paper<span class="punct">/</span></h2>
+      <p class="sub">Companion preprint.</p>
+    </div>
+  </div>
+  <div class="paper-cta">
+    <div class="left">
+      <div class="k">companion · techrxiv 2025</div>
+      <h3>federated IDS on <span class="hl">resource-constrained</span> IoT</h3>
+      <p>Trade-offs and open problems for federated intrusion detection on constrained nodes. The bench in this paper underwrites Wardex's edge profile, and the drift-fold protocol is the one shipped in the federated module.</p>
+      <a class="pbtn" href="https://doi.org/10.36227/techrxiv.176403418.87468767/v1" target="_blank" rel="noopener">▸ read on TechRxiv</a>
+    </div>
+    <div class="right">
+      <p class="pdf"><strong>Cite as</strong> — copy the BibTeX block. Indexed on <a href="https://scholar.google.com/citations?user=6HheUI4AAAAJ" target="_blank" rel="noopener">Scholar</a>.</p>
+      <pre class="cite"><span class="k">@misc</span>{<span class="v">nguyen2025fedids</span>,
+  title  = {Federated Learning-Based Intrusion
+            Detection System for IoT Networks in
+            Resource-Constrained Environments},
+  author = {Nguyen, Mich\'el},
+  year   = {2025},
+  doi    = {10.36227/techrxiv.176403418.87468767/v1},
+  url    = {https://doi.org/10.36227/techrxiv.176403418},
+}</pre>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="faq">
+  <div class="section-mark">
+    <div class="tag">I / FAQ</div>
+    <div>
+      <h2>cat faq.md<span class="punct">/</span></h2>
+      <p class="sub">The four questions security teams ask first.</p>
+    </div>
+  </div>
+  <div class="faq">
+    <div class="faq-row"><div class="q">q · 01</div><div><h3>how is this different from a SIEM?</h3><p>A SIEM ingests; Wardex correlates. The detection unit is an entity (process, user, asset) bound across layers — not a stream. SIEMs hand correlation off to humans; Wardex puts it in the graph and ships drift monitors with every detector.</p></div></div>
+    <div class="faq-row"><div class="q">q · 02</div><div><h3>does federated learning actually help here?</h3><p>For rare attack families, yes — sharing gradients across hosts improves recall without pooling sensitive telemetry. For common patterns, signature rules are still better. The paper has the numbers; the module manifest lets you turn either off.</p></div></div>
+    <div class="faq-row"><div class="q">q · 03</div><div><h3>can i trust automated response?</h3><p>Only when the policy gate signs the action. Every response is policy-gated and emits a receipt; nothing destructive runs without a configured signer. Run in advisory mode first — the system is honest about confidence.</p></div></div>
+    <div class="faq-row"><div class="q">q · 04</div><div><h3>relationship to skeindb / nexusfs?</h3><p>Shared philosophy: build systems whose behavior you can reason about. <a href="skeindb.html">SkeinDB</a> answers that for data; Wardex answers it for threats; <a href="nexusfs.html">NexusFS</a> for storage. Several detectors emit signed receipts that NexusFS can store as evidence.</p></div></div>
+  </div>
+</section>
+
+<!-- RELATED -->
+<section class="section" id="related">
+  <div class="section-mark">
+    <div class="tag">J / RELATED</div>
+    <div>
+      <h2>see also<span class="punct">/</span></h2>
+      <p class="sub">Where Wardex sits in the larger workstation.</p>
+    </div>
+  </div>
+  <div class="rel-grid">
+    <a class="rel-card" href="skeindb.html">
+      <span class="k">sibling · research</span>
+      <h4>skeindb</h4>
+      <p>Single-binary database engine with two wire protocols and 14 research tracks. Same "one binary, no sidecars" philosophy.</p>
+      <span class="link">open deep dive →</span>
+    </a>
+    <a class="rel-card" href="nexusfs.html">
+      <span class="k">sibling · research</span>
+      <h4>nexusfs</h4>
+      <p>Verifiable offline-first filesystem. Stores Wardex response receipts as deterministic, signed evidence.</p>
+      <span class="link">open deep dive →</span>
+    </a>
+    <a class="rel-card" href="https://doi.org/10.36227/techrxiv.176403418.87468767/v1" target="_blank" rel="noopener">
+      <span class="k">companion · techrxiv 2025</span>
+      <h4>federated IDS for IoT</h4>
+      <p>The empirical bench underwriting Wardex's edge profile. Drift fold, ε-budget, recall on rare families.</p>
+      <span class="link">read paper ↗</span>
+    </a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="ft">
+    <div>
+      <div class="ft-brand">minh@systems / wardex</div>
+      <p class="ft-tag">Unified XDR built from the threat model out. Cross-layer correlation. Federated detection. Response with receipts.</p>
+    </div>
+    <div class="ft-col"><h5>showcase</h5><ul>
+      <li><a href="#abstract">abstract</a></li>
+      <li><a href="#architecture">architecture</a></li>
+      <li><a href="#features">capabilities</a></li>
+      <li><a href="#modules">modules</a></li>
+      <li><a href="#roadmap">roadmap</a></li>
+      <li><a href="#paper">paper</a></li>
+    </ul></div>
+    <div class="ft-col"><h5>external</h5><ul>
+      <li><a href="https://minh.systems/Wardex/site/" target="_blank" rel="noopener">live site ↗</a></li>
+      <li><a href="https://doi.org/10.36227/techrxiv.176403418.87468767/v1" target="_blank" rel="noopener">techrxiv ↗</a></li>
+      <li><a href="https://github.com/pinkysworld" target="_blank" rel="noopener">github ↗</a></li>
+    </ul></div>
+    <div class="ft-col"><h5>back to</h5><ul>
+      <li><a href="../../index.html">minh@systems</a></li>
+      <li><a href="skeindb.html">skeindb deep dive</a></li>
+      <li><a href="nexusfs.html">nexusfs deep dive</a></li>
+    </ul></div>
+  </div>
+  <div class="ft-base">
+    <span>&copy; 2026 michél nguyen</span>
+    <span>v0.4.1 · plate ii · beta</span>
+    <span>jetbrains mono · inter · berlin</span>
+  </div>
+</footer>
+
+<script src="showcase.js"></script>
+</body>
+</html>
