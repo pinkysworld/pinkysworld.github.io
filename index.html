@@ -283,6 +283,17 @@
   .ptr .arr{color:var(--mute);text-align:center}
   .ptr:hover .arr{color:var(--green)}
   .ptr[hidden]{display:none}
+  .research-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+  .research-card{
+    display:flex;flex-direction:column;gap:12px;padding:18px;background:var(--bg-2);
+    border:1px solid var(--line-2);border-top:2px solid var(--amber);min-height:100%;
+  }
+  .research-card .k{color:var(--amber);font-size:10px;letter-spacing:0.14em;text-transform:uppercase}
+  .research-card h3{color:var(--fg);font-family:var(--mono);font-size:18px;font-weight:600;letter-spacing:-0.01em;line-height:1.2}
+  .research-card p{color:var(--mute);font-size:13px;line-height:1.6}
+  .research-card .meta{color:var(--mute);font-size:11px;line-height:1.5}
+  .research-card .meta strong{color:var(--green);font-weight:600}
+  .research-card .linkline{margin-top:auto;color:var(--green);font-size:11px;letter-spacing:0.12em;text-transform:uppercase}
 
   /* expanded inline */
   .ptr-detail{
@@ -326,6 +337,21 @@
     padding:20px 12px;border-bottom:1px solid var(--line);cursor:pointer;transition:background .12s;
     align-items:start;
   }
+  .log-spotlight{
+    display:grid;grid-template-columns:180px 1fr auto;gap:24px;align-items:start;
+    padding:22px 18px;margin-bottom:18px;background:var(--bg-2);
+    border:1px solid var(--line-2);border-left:2px solid var(--green);
+  }
+  .log-spotlight .stamp{color:var(--green);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;line-height:1.7}
+  .log-spotlight .stamp .meta{color:var(--mute)}
+  .log-spotlight h3{color:var(--fg);font-family:var(--mono);font-size:22px;font-weight:600;letter-spacing:-0.015em;line-height:1.18;margin-bottom:10px}
+  .log-spotlight p{color:var(--mute);font-size:13px;line-height:1.7;font-family:var(--sans);max-width:66ch}
+  .spot-actions{display:flex;flex-direction:column;gap:10px;align-items:stretch;min-width:180px}
+  .spot-actions .btn{justify-content:center}
+  .log-entry-btn{
+    width:100%;border:none;background:transparent;text-align:left;padding:0;
+    font:inherit;letter-spacing:inherit;text-transform:none;
+  }
   .log-entry:hover{background:var(--bg-2)}
   .log-entry .ts{color:var(--mute);font-size:11px;line-height:1.4}
   .log-entry .ts .level{color:var(--green);font-weight:600}
@@ -341,6 +367,46 @@
   }
   .log-entry .read{color:var(--green);font-size:11px;align-self:center}
   .log-entry .read::after{content:" →"}
+  .bib-abstract{
+    margin:16px 0 0 80px;padding:18px 18px 18px 20px;
+    border:1px solid var(--line-2);border-left:2px solid var(--cyan);
+    background:var(--bg-2);
+  }
+  .bib-abstract .k{color:var(--cyan);font-size:11px;letter-spacing:0.14em;text-transform:uppercase}
+  .bib-abstract h4{color:var(--fg);font-family:var(--mono);font-size:18px;font-weight:600;letter-spacing:-0.01em;margin:10px 0 10px}
+  .bib-abstract p{color:var(--mute);font-size:13px;line-height:1.7;max-width:84ch}
+  .bib-abstract .actions{margin-top:12px;display:flex;gap:12px;flex-wrap:wrap}
+  .bib-abstract .actions a{color:var(--green);font-size:11px;letter-spacing:0.12em;text-transform:uppercase}
+  .note-modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;padding:20px;z-index:240}
+  .note-modal.open{display:flex}
+  .note-backdrop{position:absolute;inset:0;background:rgba(4,11,18,.78);backdrop-filter:blur(6px)}
+  .note-panel{
+    position:relative;width:min(860px,calc(100vw - 32px));max-height:calc(100vh - 40px);overflow:auto;
+    background:var(--bg-2);border:1px solid var(--line-2);box-shadow:0 30px 70px rgba(0,0,0,.45);
+  }
+  .note-head{
+    display:flex;justify-content:space-between;gap:18px;align-items:flex-start;
+    padding:20px 20px 16px;border-bottom:1px solid var(--line);
+  }
+  .note-head .meta{color:var(--green);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;line-height:1.7}
+  .note-head h3{color:var(--fg);font-family:var(--mono);font-size:24px;font-weight:600;letter-spacing:-0.015em;line-height:1.2;margin-top:6px}
+  .note-close{
+    flex:0 0 auto;border:1px solid var(--line-2);background:var(--bg-3);color:var(--fg);
+    width:42px;height:42px;cursor:pointer;font:inherit;font-size:18px;
+  }
+  .note-close:hover{border-color:var(--green);color:var(--green)}
+  .note-copy{padding:18px 20px 0}
+  .note-copy p{color:var(--fg);font-size:14px;line-height:1.8;max-width:70ch;margin-bottom:14px}
+  .note-foot{
+    display:flex;justify-content:space-between;gap:16px;align-items:center;flex-wrap:wrap;
+    padding:18px 20px 20px;border-top:1px solid var(--line);margin-top:8px;
+  }
+  .note-tags{display:flex;gap:8px;flex-wrap:wrap}
+  .note-tags span{
+    font-size:10px;letter-spacing:0.08em;color:var(--cyan);
+    border:1px solid var(--line-2);padding:4px 8px;text-transform:uppercase;
+  }
+  .note-links{display:flex;gap:12px;flex-wrap:wrap}
 
   /* ===== MUSIC ===== */
   .music-wrap{
@@ -527,12 +593,15 @@
 
   @media (max-width:980px){
     .hero,.now-grid,.contact-wrap,.music-wrap,.skills,.ft{grid-template-columns:1fr;gap:24px}
+    .research-grid{grid-template-columns:1fr}
     .ptr-head,.ptr{grid-template-columns:24px 1fr 60px 30px;font-size:12px}
     .ptr-head .col-desc,.ptr-head .col-status,.ptr .desc,.ptr .status{display:none}
     .bib-head,.bib-row{grid-template-columns:50px 1fr 60px}
     .bib-head .col-doi,.bib-row .doi{display:none}
+    .bib-abstract{margin-left:50px}
     .tl-item{grid-template-columns:1fr;gap:8px}
-    .log-entry{grid-template-columns:1fr;gap:8px}
+    .log-spotlight,.log-entry{grid-template-columns:1fr;gap:8px}
+    .spot-actions{min-width:0}
     .log-entry .read{display:none}
     .ct-list a{grid-template-columns:70px 1fr 20px;gap:10px}
     .topbar{padding:0 12px;font-size:10px;gap:8px}
@@ -555,7 +624,7 @@
     <span class="dot" aria-hidden="true"></span>
     <span>online · build OK</span>
     <span class="pipe hide-sm">|</span>
-    <span class="hide-sm">highlights: SkeinDB v0.3.17 · Wardex v1.0.19</span>
+    <span class="hide-sm">highlights: SkeinDB v0.3.17 · Wardex v1.0.27</span>
   </div>
   <div class="right">
     <span class="hide-sm">load 0.42 · 0.58 · 0.61</span>
@@ -662,6 +731,40 @@
   </div>
 </section>
 
+<!-- ====== RESEARCH ====== -->
+<section class="section">
+  <div class="section-mark">
+    <div class="tag">R / RESEARCH</div>
+    <div>
+      <h2>cd research<span class="punct">/</span></h2>
+      <p class="sub">The systems and security work I most want collaborators, reviewers, and technical partners to see first.</p>
+    </div>
+  </div>
+  <div class="research-grid">
+    <a class="research-card" href="showcase/operator/skeindb.html">
+      <span class="k">database systems</span>
+      <h3>SkeinDB</h3>
+      <p>Single-binary database engine with cell-interned MVCC, MySQL compatibility, partial PostgreSQL support, and 20 research tracks shipped inside one executable.</p>
+      <div class="meta"><strong>v0.3.17</strong> · deep dive live<br>focus: engines, query systems, admin surfaces</div>
+      <span class="linkline">open deep dive →</span>
+    </a>
+    <a class="research-card" href="showcase/operator/wardex.html">
+      <span class="k">private-cloud security</span>
+      <h3>Wardex</h3>
+      <p>Rust-built XDR and SIEM platform for detections, fleet operations, incident response, and hunting without vendor telemetry lock-in.</p>
+      <div class="meta"><strong>v1.0.27</strong> · deep dive live<br>focus: threat detection, SOC workflows, endpoint operations</div>
+      <span class="linkline">open deep dive →</span>
+    </a>
+    <a class="research-card" href="showcase/operator/nexusfs.html">
+      <span class="k">verifiable storage</span>
+      <h3>NexusFS</h3>
+      <p>Offline-first distributed filesystem with signed operations, deterministic replication, and proof-ready storage semantics for edge systems.</p>
+      <div class="meta"><strong>v0.1.0</strong> · deep dive live<br>focus: local-first sync, CRDT state, verifiable storage</div>
+      <span class="linkline">open deep dive →</span>
+    </a>
+  </div>
+</section>
+
 <!-- ====== PROJECTS ====== -->
 <section class="section" id="projects">
   <div class="section-mark">
@@ -700,7 +803,7 @@
       <div class="name"><strong>wardex</strong><span>rust · xdr · federated ml</span></div>
       <div class="desc">Unified XDR platform with cross-layer threat detection, response orchestration, federated learning.</div>
       <span class="kind research">research</span>
-      <span class="status">deep dive · v1.0.19</span>
+      <span class="status">deep dive · v1.0.27</span>
       <span class="arr">→</span>
     </a>
 
@@ -745,7 +848,7 @@
       <div class="name"><strong>shotsift</strong><span>swift · vision · on-device</span></div>
       <div class="desc">Private photo decluttering for iPhone. Duplicates, screenshots, bursts — all on-device.</div>
       <span class="kind ios">iOS</span>
-      <span class="status">live · v1.4</span>
+      <span class="status">live · v1.2</span>
       <span class="arr">→</span>
     </a>
 
@@ -754,7 +857,7 @@
       <div class="name"><strong>rootling</strong><span>swift · cloudkit</span></div>
       <div class="desc">Plant propagation tracker. Visual journals, weather context, reminders, export.</div>
       <span class="kind ios">iOS</span>
-      <span class="status">live · v2.1</span>
+      <span class="status">live · v1.1</span>
       <span class="arr">→</span>
     </a>
 
@@ -763,7 +866,7 @@
       <div class="name"><strong>mushbloom</strong><span>swift · coreml · icloud</span></div>
       <div class="desc">Mushroom cultivation companion. Strain guides, grow journals, AI contam scans, PDF export.</div>
       <span class="kind ios">iOS</span>
-      <span class="status">live · v1.2</span>
+      <span class="status">live · v1.1</span>
       <span class="arr">→</span>
     </a>
 
@@ -772,7 +875,7 @@
       <div class="name"><strong>ridgefocus</strong><span>swift · widgetkit</span></div>
       <div class="desc">Pomodoro &amp; deep-work. Streak systems, widgets, lightweight productivity insights.</div>
       <span class="kind ios">iOS</span>
-      <span class="status">live · v1.6</span>
+      <span class="status">live · v1.11</span>
       <span class="arr">→</span>
     </a>
 
@@ -799,7 +902,7 @@
       <div class="name"><strong>shelter-fall</strong><span>swift · spritekit</span></div>
       <div class="desc">Post-apocalyptic strategy. Progression, dynamic events, escalating survival pressure.</div>
       <span class="kind game">game</span>
-      <span class="status">live</span>
+      <span class="status">live · v1.14</span>
       <span class="arr">→</span>
     </a>
 
@@ -808,7 +911,7 @@
       <div class="name"><strong>nomad-kitchen-tycoon</strong><span>swift · spritekit</span></div>
       <div class="desc">Food truck management sim. Rush gameplay, district strategy, truck/staff upgrades.</div>
       <span class="kind game">game</span>
-      <span class="status">live</span>
+      <span class="status">live · v1.01</span>
       <span class="arr">→</span>
     </a>
   </div>
@@ -847,6 +950,15 @@
     <div><div class="title">Computational Knightian Uncertainty: Undecidability and the Limits of Cyber Risk Quantification in Software-Intensive Firms</div><span class="where"><span class="venue">IJRC</span> · International Journal of Research in Computing</span></div>
     <span class="kind journal">journal</span>
     <span class="doi"><a href="https://www.ijrcom.org/index.php/ijrc/article/view/192" target="_blank" rel="noopener">IJRC ↗</a></span>
+  </div>
+
+  <div class="bib-abstract">
+    <div class="k">abstract spotlight · computational knightian uncertainty</div>
+    <h4>Why some cyber risk in software-intensive firms cannot be priced away</h4>
+    <p>The paper argues that software creates a residual class of uncertainty that does not collapse neatly into ordinary probabilistic risk. Because many security, safety, and compliance questions are undecidable in the general case, even perfect code visibility and abundant classical computation cannot eliminate all uncertainty. The article names that remainder <strong>computational Knightian uncertainty (CKU)</strong>, then connects it to structural opacity in codebases and to practical downstream effects such as incident severity, cyber insurance outcomes, and M&amp;A discounting.</p>
+    <div class="actions">
+      <a href="https://www.ijrcom.org/index.php/ijrc/article/view/192" target="_blank" rel="noopener">open journal article ↗</a>
+    </div>
   </div>
 
   <div class="bib-row is-journal">
@@ -929,8 +1041,19 @@
       <p class="sub">Notes, behind-the-paper explainers, working thoughts.</p>
     </div>
   </div>
+  <div class="log-spotlight">
+    <div class="stamp">spotlight / latest note<br><span class="meta">2026-05-08 · 6 min · [NOTE]</span></div>
+    <div class="body">
+      <h3>Why SkeinDB ships a single binary</h3>
+      <p>I keep collapsing sidecars back into the database binary because evaluation speed matters more than architectural ceremony at this stage. If the admin plane, runtime evidence, and protocol adapters live in different processes, every claim about the system arrives fragmented. A single executable forces the product, the research surface, and the operational story to line up in one place, which makes the project easier to inspect and much harder to hand-wave.</p>
+    </div>
+    <div class="spot-actions">
+      <button class="btn primary" type="button" data-note="skeindb-binary"><span class="ico">▸</span> open note</button>
+      <a class="btn" href="https://minh.systems/SkeinDB/site/" target="_blank" rel="noopener"><span class="ico">⌘</span> open site</a>
+    </div>
+  </div>
   <div class="log">
-    <a class="log-entry" href="https://minh.systems/SkeinDB/site/" target="_blank" rel="noopener">
+    <button class="log-entry log-entry-btn" type="button" data-note="skeindb-binary">
       <div class="ts">2026-05-08 14:22<br><span class="level">[NOTE]</span> · 6 min</div>
       <div class="body">
         <h4>Why SkeinDB ships a single binary</h4>
@@ -938,8 +1061,8 @@
         <div class="tags"><span>databases</span><span>operations</span><span>rust</span></div>
       </div>
       <span class="read">read</span>
-    </a>
-    <a class="log-entry" href="https://minh.systems/SafeDrop/" target="_blank" rel="noopener">
+    </button>
+    <button class="log-entry log-entry-btn" type="button" data-note="safedrop-receipts">
       <div class="ts">2026-04-22 09:10<br><span class="level">[ESSAY]</span> · 9 min</div>
       <div class="body">
         <h4>Proof-carrying file delivery, explained</h4>
@@ -947,8 +1070,8 @@
         <div class="tags"><span>cryptography</span><span>networking</span><span>trust</span></div>
       </div>
       <span class="read">read</span>
-    </a>
-    <a class="log-entry" href="https://doi.org/10.36227/techrxiv.176403418.87468767/v1" target="_blank" rel="noopener">
+    </button>
+    <button class="log-entry log-entry-btn" type="button" data-note="iot-ids-note">
       <div class="ts">2026-02-14 16:48<br><span class="level">[NOTE]</span> · 12 min</div>
       <div class="body">
         <h4>Federated IDS on constrained IoT nodes</h4>
@@ -956,7 +1079,7 @@
         <div class="tags"><span>federated-learning</span><span>iot</span><span>security</span></div>
       </div>
       <span class="read">read</span>
-    </a>
+    </button>
   </div>
 </section>
 
@@ -1268,6 +1391,26 @@
   </div>
 </footer>
 
+<div class="note-modal" id="note-modal" aria-hidden="true">
+  <div class="note-backdrop" data-note-close></div>
+  <article class="note-panel" role="dialog" aria-modal="true" aria-labelledby="note-title">
+    <div class="note-head">
+      <div>
+        <div class="meta" id="note-meta"></div>
+        <h3 id="note-title"></h3>
+      </div>
+      <button class="note-close" type="button" aria-label="Close note" data-note-close>×</button>
+    </div>
+    <div class="note-copy" id="note-copy"></div>
+    <div class="note-foot">
+      <div class="note-tags" id="note-tags"></div>
+      <div class="note-links">
+        <a class="btn primary" id="note-link" href="#" target="_blank" rel="noopener"><span class="ico">↗</span> open related site</a>
+      </div>
+    </div>
+  </article>
+</div>
+
 <script>
   // clock
   function tickClock(){
@@ -1290,7 +1433,7 @@
     {t:'<span class="dim">       Mode:</span> shipping · weekly · multi-stack', cls:'', d:50},
     {t:'', cls:'', d:60},
     {t:'ls --status', cls:'cmd', d:500},
-    {t:'<span class="k">research/</span> &nbsp;&nbsp;6 projects · 4 active', cls:'', d:80},
+    {t:'<span class="k">research/</span> &nbsp;&nbsp;5 projects · 4 active', cls:'', d:80},
     {t:'<span class="k">apps/</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4 iOS · 2 macOS · all shipping', cls:'', d:80},
     {t:'<span class="k">games/</span> &nbsp;&nbsp;&nbsp;&nbsp;2 live', cls:'', d:80},
     {t:'<span class="k">papers/</span> &nbsp;&nbsp;&nbsp;12 records · 4 journal/in press · 6 preprint', cls:'', d:80},
@@ -1321,9 +1464,49 @@
   }
   render();
 
+  const noteData = {
+    'skeindb-binary': {
+      meta: 'note · 2026-05-08 · 6 min',
+      title: 'Why SkeinDB ships a single binary',
+      paragraphs: [
+        'Most systems become harder to judge exactly when they become more serious. The admin panel moves into a separate service, observability becomes a different stack, migrations become a different ritual, and the actual core starts hiding behind operational fog. That may be acceptable for a mature platform with a large team. It is a terrible way to evaluate a research engine.',
+        'SkeinDB stays in one binary because I want the planner, the wire adapters, the admin surface, and the evidence about runtime behavior to be inspectable in one sitting. When a reviewer opens the project, I want the interesting parts to be adjacent rather than distributed across invisible glue. The single executable is not a stunt. It is a way of preventing the architecture from outrunning comprehension.',
+        'The trade-off is that boundaries have to be disciplined internally instead of outsourced to deployment. If a module grows sloppy, there is no microservice boundary to pretend the shape is cleaner than it is. I like that pressure. It makes every convenience answerable to the question: does this still help someone understand how the system really behaves?'
+      ],
+      tags: ['databases','operations','rust'],
+      href: 'https://minh.systems/SkeinDB/site/',
+      cta: 'open SkeinDB site'
+    },
+    'safedrop-receipts': {
+      meta: 'essay · 2026-04-22 · 9 min',
+      title: 'Proof-carrying file delivery, explained',
+      paragraphs: [
+        'A normal transfer log tells you that a system claims a file moved. It rarely tells you what exact object arrived, which path was used, or whether the receiver got the same payload the sender intended. That gap is where support tickets, trust decay, and forensic confusion begin.',
+        'The SafeDrop idea is that delivery should emit a receipt richer than a success banner. A useful receipt binds the manifest, content address, transfer path, and acknowledgement event into one object that another person can inspect later without trusting the operator’s memory. The point is not maximal cryptographic theater. The point is to make ordinary self-hosted exchange less ambiguous.',
+        'Path-aware reachability matters because a home-hosted system never has one clean network story. Some transfers happen directly, some through router mapping, some through assisted connectivity, some through relay. If the path changes the trust assumptions, the receipt should say so. The interface becomes calmer when the system stops pretending every successful transfer is identical.'
+      ],
+      tags: ['cryptography','networking','trust'],
+      href: 'https://minh.systems/SafeDrop/',
+      cta: 'open SafeDrop site'
+    },
+    'iot-ids-note': {
+      meta: 'note · 2026-02-14 · 12 min',
+      title: 'Federated IDS on constrained IoT nodes',
+      paragraphs: [
+        'Federated intrusion detection sounds elegant until you place it on cheap hardware with inconsistent connectivity and batteries that matter. At that point every modeling decision becomes an operational decision too. You are no longer asking only whether the detector improves. You are asking whether participation itself becomes a burden on the edge node.',
+        'Compression helped, but not in the naive way I expected. Smaller updates are useful, yet the more important win was reducing update volatility so weaker participants could stay in the cohort without falling permanently behind. Stability turned out to be as important as byte count. A node that can contribute modestly and regularly is more valuable than one that spikes and disappears.',
+        'If I rewrote the study today, I would treat drift reporting as a first-class artifact rather than a side measurement. In adversarial environments, the reason a client diverges matters almost as much as the divergence itself. Future versions should expose that story earlier so the operator can tell the difference between benign novelty, broken instrumentation, and deliberate pressure.'
+      ],
+      tags: ['federated-learning','iot','security'],
+      href: 'https://doi.org/10.36227/techrxiv.176403418.87468767/v1',
+      cta: 'open preprint'
+    }
+  };
+
   // keyboard nav
   document.addEventListener('keydown',(e)=>{
     if(e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    if(e.key === 'Escape'){ closeNote(); }
     if(e.key === 'p' || e.key === 'P'){ document.getElementById('projects').scrollIntoView({behavior:'smooth'}); }
     if(e.key === 'r' || e.key === 'R'){ document.getElementById('papers').scrollIntoView({behavior:'smooth'}); }
     if(e.key === 'm' || e.key === 'M'){ document.getElementById('music').scrollIntoView({behavior:'smooth'}); }
@@ -1391,6 +1574,37 @@
   }
   window.addEventListener('scroll', syncTabs, {passive:true});
   syncTabs();
+
+  const noteModal = document.getElementById('note-modal');
+  const noteMeta = document.getElementById('note-meta');
+  const noteTitle = document.getElementById('note-title');
+  const noteCopy = document.getElementById('note-copy');
+  const noteTags = document.getElementById('note-tags');
+  const noteLink = document.getElementById('note-link');
+  function openNote(id){
+    const note = noteData[id];
+    if(!note) return;
+    noteMeta.textContent = note.meta;
+    noteTitle.textContent = note.title;
+    noteCopy.innerHTML = note.paragraphs.map(p => `<p>${p}</p>`).join('');
+    noteTags.innerHTML = note.tags.map(t => `<span>${t}</span>`).join('');
+    noteLink.href = note.href;
+    noteLink.innerHTML = `<span class="ico">↗</span> ${note.cta}`;
+    noteModal.classList.add('open');
+    noteModal.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeNote(){
+    noteModal.classList.remove('open');
+    noteModal.setAttribute('aria-hidden','true');
+    document.body.style.overflow = '';
+  }
+  document.querySelectorAll('[data-note]').forEach(el=>{
+    el.addEventListener('click',()=>openNote(el.dataset.note));
+  });
+  document.querySelectorAll('[data-note-close]').forEach(el=>{
+    el.addEventListener('click',closeNote);
+  });
 
   // reveal
   const io = new IntersectionObserver((entries)=>{
