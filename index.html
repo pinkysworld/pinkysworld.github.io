@@ -132,6 +132,17 @@
   .hero-title .punct{color:var(--mute)}
   .hero-body{font-family:var(--sans);font-size:18px;line-height:1.55;color:var(--fg);max-width:54ch;text-wrap:pretty}
   .hero-body .hl{color:var(--green)}
+  .hero-nowline{
+    margin-top:-6px;max-width:60ch;padding:14px 16px;
+    border:1px solid var(--line-2);background:var(--bg-2);
+    color:var(--mute);font-size:13px;line-height:1.55;font-family:var(--sans);
+  }
+  .hero-nowline .k{
+    color:var(--green);font-family:var(--mono);font-size:11px;
+    letter-spacing:0.14em;text-transform:uppercase;margin-right:8px;
+  }
+  .hero-nowline a{color:var(--cyan);border-bottom:1px dashed transparent}
+  .hero-nowline a:hover{color:var(--green);border-bottom-color:var(--green)}
   .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
   .btn{
     display:inline-flex;align-items:center;gap:10px;
@@ -243,7 +254,7 @@
 
   .proj-table{display:grid}
   .ptr-head,.ptr{
-    display:grid;grid-template-columns:32px 1.4fr 1.1fr 90px 110px 90px 40px;
+    display:grid;grid-template-columns:32px 1.45fr 1.15fr 90px 140px 40px;
     gap:18px;align-items:center;padding:14px 12px;
     border-bottom:1px solid var(--line);
   }
@@ -268,7 +279,6 @@
   .ptr .status.beta::before{background:var(--amber)}
   .ptr .status.proto::before{background:var(--cyan)}
   .ptr .status.draft::before{background:var(--dim)}
-  .ptr .stars{color:var(--amber);font-size:11px}
   .ptr .arr{color:var(--mute);text-align:center}
   .ptr:hover .arr{color:var(--green)}
   .ptr[hidden]{display:none}
@@ -517,7 +527,7 @@
   @media (max-width:980px){
     .hero,.now-grid,.contact-wrap,.music-wrap,.skills,.ft{grid-template-columns:1fr;gap:24px}
     .ptr-head,.ptr{grid-template-columns:24px 1fr 60px 30px;font-size:12px}
-    .ptr-head .col-desc,.ptr-head .col-status,.ptr-head .col-stars,.ptr .desc,.ptr .status,.ptr .stars{display:none}
+    .ptr-head .col-desc,.ptr-head .col-status,.ptr .desc,.ptr .status{display:none}
     .bib-head,.bib-row{grid-template-columns:50px 1fr 60px}
     .bib-head .col-doi,.bib-row .doi{display:none}
     .tl-item{grid-template-columns:1fr;gap:8px}
@@ -578,6 +588,7 @@
     <div class="hero-eyebrow"><span class="live">●</span> Online · Berlin / Remote · Available Q3 2026</div>
     <h1 class="hero-title">Michél&nbsp;Nguyen<span class="punct">.</span><br><span class="c1">researcher</span><span class="punct">,</span> <span class="c2">engineer</span><span class="punct">,</span><br><span class="c3">operator</span><span class="punct">.</span></h1>
     <p class="hero-body">I build <span class="hl">database engines</span>, ship <span class="hl">iOS &amp; macOS apps</span>, publish <span class="hl">cybersecurity research</span>, and release <span class="hl">music</span> from a single workstation in Berlin. I built most of what is listed below end-to-end.</p>
+    <p class="hero-nowline"><span class="k">now</span>Shipping SkeinDB 0.3.17, finishing ShieldLink proof checks, and tuning ShotSift 1.4 for App Store submission. <a href="#now">Open full now.txt →</a></p>
 
     <div class="hero-actions">
       <a class="btn primary" href="#projects"><span class="ico">▸</span> browse projects<span class="kbd">P</span></a>
@@ -670,7 +681,7 @@
 
   <div class="proj-table">
     <div class="ptr-head">
-      <span>#</span><span>name</span><span class="col-desc">summary</span><span>kind</span><span class="col-status">status</span><span class="col-stars">stars</span><span></span>
+      <span>#</span><span>name</span><span class="col-desc">summary</span><span>kind</span><span class="col-status">status</span><span></span>
     </div>
 
     <a class="ptr" data-kind="research" href="showcase/operator/skeindb.html">
@@ -679,7 +690,6 @@
       <div class="desc">Single-binary DB engine with MySQL + Postgres wire compat, 14 research tracks, sandboxed Wasm extensions.</div>
       <span class="kind research">research</span>
       <span class="status">deep dive · v0.3.17</span>
-      <span class="stars">★ 1</span>
       <span class="arr">→</span>
     </a>
 
@@ -689,7 +699,6 @@
       <div class="desc">Unified XDR platform with cross-layer threat detection, response orchestration, federated learning.</div>
       <span class="kind research">research</span>
       <span class="status">deep dive · v1.0.19</span>
-      <span class="stars">★ 1</span>
       <span class="arr">→</span>
     </a>
 
@@ -699,7 +708,6 @@
       <div class="desc">Verifiable offline-first distributed FS. Signed ops, deterministic replication, proof-ready.</div>
       <span class="kind research">research</span>
       <span class="status proto">deep dive · v0.1.0</span>
-      <span class="stars">★ 0</span>
       <span class="arr">→</span>
     </a>
 
@@ -709,7 +717,6 @@
       <div class="desc">Edge-native evidence engine. Turns device telemetry into tamper-evident logs with signed checkpoints.</div>
       <span class="kind research">research</span>
       <span class="status proto">prototype · v0.1.0</span>
-      <span class="stars">★ 0</span>
       <span class="arr">→</span>
     </a>
 
@@ -719,7 +726,6 @@
       <div class="desc">Home-hosted secure file sharing with proof-carrying delivery and reachability evidence.</div>
       <span class="kind research">research</span>
       <span class="status beta">beta · v0.1.0</span>
-      <span class="stars">★ 0</span>
       <span class="arr">→</span>
     </a>
 
@@ -729,7 +735,6 @@
       <div class="desc">Local Revolut trading scanner with OOS-gated recommendations, risk sizing, live TP/SL tracking, and an HTML dashboard.</div>
       <span class="kind research">research</span>
       <span class="status beta">open source · MIT</span>
-      <span class="stars">★ 1</span>
       <span class="arr">→</span>
     </a>
 
@@ -739,7 +744,6 @@
       <div class="desc">Private photo decluttering for iPhone. Duplicates, screenshots, bursts — all on-device.</div>
       <span class="kind ios">iOS</span>
       <span class="status">live · v1.4</span>
-      <span class="stars">★ 0</span>
       <span class="arr">→</span>
     </a>
 
@@ -749,7 +753,6 @@
       <div class="desc">Plant propagation tracker. Visual journals, weather context, reminders, export.</div>
       <span class="kind ios">iOS</span>
       <span class="status">live · v2.1</span>
-      <span class="stars">★ 0</span>
       <span class="arr">→</span>
     </a>
 
@@ -759,7 +762,6 @@
       <div class="desc">Mushroom cultivation companion. Strain guides, grow journals, AI contam scans, PDF export.</div>
       <span class="kind ios">iOS</span>
       <span class="status">live · v1.2</span>
-      <span class="stars">★ 0</span>
       <span class="arr">→</span>
     </a>
 
@@ -769,7 +771,6 @@
       <div class="desc">Pomodoro &amp; deep-work. Streak systems, widgets, lightweight productivity insights.</div>
       <span class="kind ios">iOS</span>
       <span class="status">live · v1.6</span>
-      <span class="stars">★ 0</span>
       <span class="arr">→</span>
     </a>
 
@@ -779,7 +780,6 @@
       <div class="desc">Universal macOS updater. Sparkle, GitHub, Mac App Store sources unified into one flow.</div>
       <span class="kind macos">macOS</span>
       <span class="status">live · v2.0</span>
-      <span class="stars">★ 0</span>
       <span class="arr">→</span>
     </a>
 
@@ -789,7 +789,6 @@
       <div class="desc">AI-assisted macOS productivity tracker. Local timeline screenshots + private analytics.</div>
       <span class="kind macos">macOS</span>
       <span class="status beta">beta</span>
-      <span class="stars">★ 0</span>
       <span class="arr">→</span>
     </a>
 
@@ -799,7 +798,6 @@
       <div class="desc">Post-apocalyptic strategy. Progression, dynamic events, escalating survival pressure.</div>
       <span class="kind game">game</span>
       <span class="status">live</span>
-      <span class="stars">★ 0</span>
       <span class="arr">→</span>
     </a>
 
@@ -809,7 +807,6 @@
       <div class="desc">Food truck management sim. Rush gameplay, district strategy, truck/staff upgrades.</div>
       <span class="kind game">game</span>
       <span class="status">live</span>
-      <span class="stars">★ 0</span>
       <span class="arr">→</span>
     </a>
   </div>
@@ -845,7 +842,7 @@
 
   <div class="bib-row is-journal">
     <span class="yr">2026.01</span>
-    <div><div class="title">Computational Knightian Uncertainty: Undecidability and the Limits of Cyber Risk Quantification in Software-Intensive Firms</div><span class="where"><span class="venue">IJRC</span> · International Journal of Research in Computing · rel. <a href="#projects">skeindb</a></span></div>
+    <div><div class="title">Computational Knightian Uncertainty: Undecidability and the Limits of Cyber Risk Quantification in Software-Intensive Firms</div><span class="where"><span class="venue">IJRC</span> · International Journal of Research in Computing</span></div>
     <span class="kind journal">journal</span>
     <span class="doi"><a href="https://www.ijrcom.org/index.php/ijrc/article/view/192" target="_blank" rel="noopener">IJRC ↗</a></span>
   </div>
@@ -1201,7 +1198,7 @@
         <span class="term-line"><span class="k">EMAIL</span>=<span class="s">"minhmichel@outlook.de"</span></span>
         <span class="term-line"><span class="k">PGP</span>=<span class="s">"available on request"</span></span>
         <span class="term-line"><span class="k">TIMEZONE</span>=<span class="s">"Europe/Berlin"</span></span>
-        <span class="term-line"><span class="k">AVAILABLE</span>=<span class="v">true</span> <span class="mute"># from Q3 2026 onward</span></span>
+        <span class="term-line"><span class="k">REPLY_WINDOW</span>=<span class="v">"&lt;72h"</span> <span class="mute"># email or GitHub preferred</span></span>
         <span class="term-line ok">✓ all channels open</span>
         <div class="ct-list">
           <a href="mailto:minhmichel@outlook.de"><span class="ch">email</span><span class="v cyan">minhmichel@outlook.de</span><span class="arr">→</span></a>
@@ -1299,7 +1296,7 @@
     {t:'', cls:'', d:80},
     {t:'cat motd', cls:'cmd', d:500},
     {t:'<span class="warn">→</span> building systems, apps, and research that ship.', cls:'', d:80},
-    {t:'<span class="warn">→</span> open to collaboration · from q3 2026 onward', cls:'', d:80},
+    {t:'<span class="warn">→</span> current focus: systems work, cyber-risk research, shipped Apple apps.', cls:'', d:80},
     {t:'<span class="warn">→</span> press P to browse projects, R for papers.', cls:'', d:80},
     {t:'', cls:'', d:60},
     {t:'_', cls:'cmd cursor', d:0},
