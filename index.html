@@ -427,6 +427,16 @@
   .bib-abstract p{color:var(--mute);font-size:13px;line-height:1.7;max-width:84ch}
   .bib-abstract .actions{margin-top:12px;display:flex;gap:12px;flex-wrap:wrap}
   .bib-abstract .actions a{color:var(--green);font-size:11px;letter-spacing:0.12em;text-transform:uppercase}
+  /* floating hover variant of the abstract spotlight */
+  .bib-spot{
+    position:fixed;z-index:120;margin:0;width:min(680px,calc(100vw - 32px));
+    background:rgba(17,20,22,0.72);
+    backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+    box-shadow:0 18px 44px rgba(0,0,0,0.5);
+    opacity:0;pointer-events:none;transition:opacity .15s;
+  }
+  .bib-spot.show{opacity:1;pointer-events:auto}
+  @media (hover:none){.bib-spot{display:none}}
   .note-modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;padding:20px;z-index:240}
   .note-modal.open{display:flex}
   .note-backdrop{position:absolute;inset:0;background:rgba(4,11,18,.78);backdrop-filter:blur(6px)}
@@ -690,7 +700,6 @@
     .ptr-head .col-desc,.ptr-head .col-status,.ptr .desc,.ptr .status{display:none}
     .bib-head,.bib-row{grid-template-columns:50px 1fr 60px}
     .bib-head .col-doi,.bib-row .doi{display:none}
-    .bib-abstract{margin-left:50px}
     .tl-item{grid-template-columns:1fr;gap:8px}
     .log-spotlight,.log-entry{grid-template-columns:1fr;gap:8px}
     .spot-actions{min-width:0}
@@ -1033,79 +1042,70 @@
     <span>year</span><span>title · venue</span><span>type</span><span class="col-doi">link</span>
   </div>
 
-  <div class="bib-row is-preprint">
+  <div class="bib-row is-preprint" data-abs="beyond-no">
     <span class="yr">2026.04</span>
     <div><div class="title">Beyond No: A Low-Interruption, Autonomy-Supportive Framework for Early Childhood Self-Directed Learning in Prepared Environments</div><span class="where"><span class="venue">ResearchGate</span> · submitted to KDU KJMS</span></div>
     <span class="kind preprint">preprint</span>
     <span class="doi"><a href="https://www.researchgate.net/publication/403982284" target="_blank" rel="noopener">RG ↗</a></span>
   </div>
 
-  <div class="bib-row is-journal">
+  <div class="bib-row is-journal" data-abs="cku">
     <span class="yr">2026.01</span>
     <div><div class="title">Computational Knightian Uncertainty: Undecidability and the Limits of Cyber Risk Quantification in Software-Intensive Firms</div><span class="where"><span class="venue">IJRC</span> · International Journal of Research in Computing</span></div>
     <span class="kind journal">journal</span>
     <span class="doi"><a href="https://www.ijrcom.org/index.php/ijrc/article/view/192" target="_blank" rel="noopener">IJRC ↗</a></span>
   </div>
 
-  <div class="bib-abstract">
-    <div class="k">abstract spotlight · computational knightian uncertainty</div>
-    <h4>Why some cyber risk in software-intensive firms cannot be priced away</h4>
-    <p>The paper argues that software creates a residual class of uncertainty that does not collapse neatly into ordinary probabilistic risk. Because many security, safety, and compliance questions are undecidable in the general case, even perfect code visibility and abundant classical computation cannot eliminate all uncertainty. The article names that remainder <strong>computational Knightian uncertainty (CKU)</strong>, then connects it to structural opacity in codebases and to practical downstream effects such as incident severity, cyber insurance outcomes, and M&amp;A discounting.</p>
-    <div class="actions">
-      <a href="https://www.ijrcom.org/index.php/ijrc/article/view/192" target="_blank" rel="noopener">open journal article ↗</a>
-    </div>
-  </div>
-
-  <div class="bib-row is-journal">
+  <div class="bib-row is-journal" data-abs="shieldlink">
     <span class="yr">2026</span>
     <div><div class="title">ShieldLink: Retry-Aware Authenticated Encryption for Secure and Reliable Chiplet Interconnects</div><span class="where"><span class="venue">IJRCOM</span> · International Journal of Research in Computing · In Press</span></div>
     <span class="kind journal">in press</span>
     <span class="doi"><a href="https://doi.org/10.36227/techrxiv.176800047.72137558/v1" target="_blank" rel="noopener">DOI ↗</a></span>
   </div>
 
-  <div class="bib-row is-preprint">
+  <div class="bib-row is-preprint" data-abs="preons-2">
     <span class="yr">2025</span>
     <div><div class="title">Dual-Polarity Preons II: Parameter-Space Constraints and Viable Regimes for an Emergent Acoustic Metric</div><span class="where"><span class="venue">TechRxiv</span></span></div>
     <span class="kind preprint">preprint</span>
     <span class="doi"><a href="https://doi.org/10.36227/techrxiv.176590637.76612181/v1" target="_blank" rel="noopener">DOI ↗</a></span>
   </div>
 
-  <div class="bib-row is-preprint">
+  <div class="bib-row is-preprint" data-abs="simulated-minds">
     <span class="yr">2025</span>
     <div><div class="title">Simulated Minds, Artificial Consciousness, and the Theory-Relative Simulation Hypothesis</div><span class="where"><span class="venue">TechRxiv</span></span></div>
     <span class="kind preprint">preprint</span>
     <span class="doi"><a href="https://doi.org/10.36227/techrxiv.176583724.41540320/v1" target="_blank" rel="noopener">DOI ↗</a></span>
   </div>
 
-  <div class="bib-row is-journal">
+  <div class="bib-row is-journal" data-abs="preons-1">
     <span class="yr">2025</span>
     <div><div class="title">Dual-Polarity Preons: A Toy Model for Composite Neutral Pairs and Emergent Gravity</div><span class="where"><span class="venue">Cognizance</span></span></div>
     <span class="kind journal">journal</span>
     <span class="doi"><a href="https://doi.org/10.47760/cognizance.2025.v05i11.009" target="_blank" rel="noopener">DOI ↗</a></span>
   </div>
 
-  <div class="bib-row is-preprint">
+  <div class="bib-row is-preprint" data-abs="fl-ids">
     <span class="yr">2025</span>
     <div><div class="title">Federated Learning-Based Intrusion Detection System for IoT Networks in Resource-Constrained Environments</div><span class="where"><span class="venue">TechRxiv</span> · rel. <a href="#projects">wardex</a></span></div>
     <span class="kind preprint">preprint</span>
     <span class="doi"><a href="https://doi.org/10.36227/techrxiv.176403418.87468767/v1" target="_blank" rel="noopener">DOI ↗</a></span>
   </div>
 
-  <div class="bib-row is-preprint">
+  <div class="bib-row is-preprint" data-abs="org-circuits">
     <span class="yr">2025</span>
     <div><div class="title">Computational Complexity of Organizational Decision Hierarchies</div><span class="where"><span class="venue">Research Square</span></span></div>
     <span class="kind preprint">preprint</span>
     <span class="doi"><a href="https://doi.org/10.21203/rs.3.rs-7948428/v1" target="_blank" rel="noopener">DOI ↗</a></span>
   </div>
 
-  <div class="bib-row is-preprint">
+  <div class="bib-row is-preprint" data-abs="quantum-walk">
     <span class="yr">2025</span>
     <div><div class="title">A Quantum Walk-Inspired Algorithm for Dynamic Resource Allocation in Cloud Computing</div><span class="where"><span class="venue">TechRxiv</span> · sustainable business practices</span></div>
     <span class="kind preprint">preprint</span>
     <span class="doi"><a href="https://doi.org/10.36227/techrxiv.176316003.37717757/v1" target="_blank" rel="noopener">DOI ↗</a></span>
   </div>
 
-  <div class="bib-row is-journal">
+  <div class="bib-row is-journal" data-abs="quadralzahlen">
     <span class="yr">2025</span>
     <div><div class="title">Quadralzahlen: A Rotation-Invariant Numeral System That Reduces Upside-Down Misreads in Real-World Displays</div><span class="where"><span class="venue">Cognizance</span></span></div>
     <span class="kind journal">journal</span>
@@ -1747,6 +1747,102 @@
       });
     });
   });
+
+  // paper abstract hover spotlights
+  const bibAbstracts = {
+    'beyond-no': {
+      k:'abstract spotlight · beyond no',
+      h:'Guiding early learners with fewer interruptions',
+      p:'Proposes a low-interruption, autonomy-supportive framework for adults accompanying self-directed learning in early childhood. Instead of steering children through constant verbal correction, the framework leans on prepared environments and minimal, well-timed interventions, so that the child’s own activity — not the adult’s narration of it — stays at the center of the learning episode.',
+      href:'https://www.researchgate.net/publication/403982284', cta:'open preprint ↗'
+    },
+    'cku': {
+      k:'abstract spotlight · computational knightian uncertainty',
+      h:'Why some cyber risk in software-intensive firms cannot be priced away',
+      p:'The paper argues that software creates a residual class of uncertainty that does not collapse neatly into ordinary probabilistic risk. Because many security, safety, and compliance questions are undecidable in the general case, even perfect code visibility and abundant classical computation cannot eliminate all uncertainty. The article names that remainder <strong>computational Knightian uncertainty (CKU)</strong>, then connects it to structural opacity in codebases and to practical downstream effects such as incident severity, cyber insurance outcomes, and M&amp;A discounting.',
+      href:'https://www.ijrcom.org/index.php/ijrc/article/view/192', cta:'open journal article ↗'
+    },
+    'shieldlink': {
+      k:'abstract spotlight · shieldlink',
+      h:'Closing the retry window between link reliability and encryption',
+      p:'Chiplet die-to-die links such as UCIe/CXL handle reliability with link-layer retries while confidentiality lives in higher-layer authenticated encryption. Composed naively, the receiver can acknowledge a frame on a fast CRC check before the slower AEAD verification finishes — a time-of-check/time-of-use window that can desynchronize state or enable denial-of-service. ShieldLink enforces one deliverability invariant: the receive window only advances on successful AEAD verification of exactly the bits that will be delivered.',
+      href:'https://doi.org/10.36227/techrxiv.176800047.72137558/v1', cta:'open preprint ↗'
+    },
+    'preons-2': {
+      k:'abstract spotlight · dual-polarity preons ii',
+      h:'Mapping where the dyad model actually survives',
+      p:'The follow-up to the dual-polarity preon toy model asks the harder question: in which regions of parameter space can the framework live at all? The paper works through parameter-space constraints on the composite neutral pairs and identifies the regimes in which an emergent acoustic metric remains viable, sharpening the original proposal into something that can be confronted with observational and collider bounds.',
+      href:'https://doi.org/10.36227/techrxiv.176590637.76612181/v1', cta:'open preprint ↗'
+    },
+    'simulated-minds': {
+      k:'abstract spotlight · simulated minds',
+      h:'Whether a simulated mind counts as conscious is theory-relative',
+      p:'Examines the simulation hypothesis and claims about artificial consciousness through one observation: any verdict about whether a simulated mind is genuinely conscious depends on which theory of consciousness one assumes from the outset. The paper develops this theory-relative reading and traces what it does to familiar arguments about simulated minds — many disagreements turn out to be disagreements about theories of mind, not about the simulations themselves.',
+      href:'https://doi.org/10.36227/techrxiv.176583724.41540320/v1', cta:'open preprint ↗'
+    },
+    'preons-1': {
+      k:'abstract spotlight · dual-polarity preons',
+      h:'A two-field toy model where neutral pairs induce the metric',
+      p:'Proposes a toy model in which opposite-charge “dyads” bind into neutral pairs acting as composite bosonic excitations: a hidden U(1) interaction mediates attraction, a quartic term stabilizes bound states, and long-wavelength variations of the neutral-pair condensate generate an effective metric in the spirit of analogue-gravity programs. The construction is built to respect GW170817 multimessenger constraints and equivalence-principle tests at the 10⁻¹⁵ level, with falsifiable consequences enumerated against collider compositeness limits.',
+      href:'https://doi.org/10.47760/cognizance.2025.v05i11.009', cta:'open journal article ↗'
+    },
+    'fl-ids': {
+      k:'abstract spotlight · federated ids for iot',
+      h:'Intrusion detection that never centralizes the data',
+      p:'A lightweight federated-learning intrusion detection system for resource-constrained IoT deployments. Training stays decentralized, which removes the privacy and communication costs of central data collection, and differential privacy keeps model updates from leaking through gradients. On NSL-KDD and IoT-23, the federated model reaches nearly the same detection performance as a centralized baseline while remaining deployable on constrained nodes.',
+      href:'https://doi.org/10.36227/techrxiv.176403418.87468767/v1', cta:'open preprint ↗'
+    },
+    'org-circuits': {
+      k:'abstract spotlight · organizational decision hierarchies',
+      h:'Org charts as threshold circuits: latency vs. accuracy',
+      p:'Models organizational decision hierarchies as bounded-span monotone threshold circuits, making the tradeoffs between decision latency, accuracy, and headcount formally explicit. Aggregating n binary signals with span s requires depth at least ⌈logₛ n⌉. Simulations with 256 signals show the tension concretely: widening spans from 4 to 16 cuts latency roughly in half but drops decision accuracy from 100% to about 90% under realistic noise.',
+      href:'https://doi.org/10.21203/rs.3.rs-7948428/v1', cta:'open preprint ↗'
+    },
+    'quantum-walk': {
+      k:'abstract spotlight · quantum walk allocation',
+      h:'Borrowing quantum-walk dynamics for cloud scheduling',
+      p:'Develops a quantum walk-inspired heuristic for dynamic resource allocation in cloud computing. The spreading behavior of quantum walks is used as a template for how allocation decisions explore the space of placements, aiming at allocations that adapt to shifting load while keeping utilization — and with it the energy footprint of over-provisioning — in check, which connects the algorithmic idea to sustainable operating practice.',
+      href:'https://doi.org/10.36227/techrxiv.176316003.37717757/v1', cta:'open preprint ↗'
+    },
+    'quadralzahlen': {
+      k:'abstract spotlight · quadralzahlen',
+      h:'Digits you cannot read upside-down wrong',
+      p:'Introduces Quadralzahlen (QZ), a rotation-invariant numeral system for identifiers and state codes built to eliminate 180° misreads in rotation-rich contexts such as logistics, healthcare, and handheld UIs. QZ combines self-symmetric glyphs (0, 1, 8, X) with pairwise mappings (6–9, 3–E) plus typography and OCR guidance. In-silico evaluations show fewer upside-down confusions and flatter angle-time profiles than standard numerals, with OCR staying near ceiling at quarter turns.',
+      href:'https://doi.org/10.47760/cognizance.2025.v05i10.019', cta:'open journal article ↗'
+    }
+  };
+  if(window.matchMedia('(hover: hover) and (pointer: fine)').matches){
+    const spot = document.createElement('div');
+    spot.className = 'bib-abstract bib-spot';
+    document.body.appendChild(spot);
+    let spotShowTimer = null, spotHideTimer = null;
+    function showSpot(row){
+      const a = bibAbstracts[row.dataset.abs];
+      if(!a) return;
+      spot.innerHTML = `<div class="k">${a.k}</div><h4>${a.h}</h4><p>${a.p}</p>` +
+        `<div class="actions"><a href="${a.href}" target="_blank" rel="noopener">${a.cta}</a></div>`;
+      const r = row.getBoundingClientRect();
+      spot.style.left = Math.max(16, Math.min(r.left + 80, window.innerWidth - spot.offsetWidth - 16)) + 'px';
+      let top = r.bottom + 8;
+      if(top + spot.offsetHeight > window.innerHeight - 16){ top = r.top - spot.offsetHeight - 8; }
+      spot.style.top = Math.max(16, top) + 'px';
+      spot.classList.add('show');
+    }
+    function hideSpotSoon(){
+      clearTimeout(spotShowTimer);
+      spotHideTimer = setTimeout(()=>spot.classList.remove('show'), 160);
+    }
+    document.querySelectorAll('.bib-row[data-abs]').forEach(row=>{
+      row.addEventListener('mouseenter',()=>{
+        clearTimeout(spotHideTimer); clearTimeout(spotShowTimer);
+        spotShowTimer = setTimeout(()=>showSpot(row), 90);
+      });
+      row.addEventListener('mouseleave', hideSpotSoon);
+    });
+    spot.addEventListener('mouseenter',()=>{clearTimeout(spotHideTimer);});
+    spot.addEventListener('mouseleave', hideSpotSoon);
+    window.addEventListener('scroll',()=>{clearTimeout(spotShowTimer);spot.classList.remove('show');},{passive:true});
+  }
 
   // music switcher
   const mxCover=document.getElementById('mx-cover');
