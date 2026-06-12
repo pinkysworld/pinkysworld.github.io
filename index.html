@@ -743,8 +743,8 @@
 <nav class="nav">
   <div class="nav-inner">
     <a class="nav-tab active" href="#home"><span class="hash">~/</span>home</a>
-    <a class="nav-tab" href="#projects"><span class="hash">~/</span>projects</a>
     <a class="nav-tab" href="#papers"><span class="hash">~/</span>papers</a>
+    <a class="nav-tab" href="#projects"><span class="hash">~/</span>projects</a>
     <a class="nav-tab" href="#log"><span class="hash">~/</span>log</a>
     <a class="nav-tab" href="#music"><span class="hash">~/</span>music</a>
     <a class="nav-tab" href="#now"><span class="hash">~/</span>now</a>
@@ -765,8 +765,8 @@
     <p class="hero-nowline"><span class="k">now</span>Shipping SkeinDB 0.3.17, finishing ShieldLink proof checks, and tuning ShotSift 1.4 for App Store submission. <a href="#now">Open full now.txt →</a></p>
 
     <div class="hero-actions">
-      <a class="btn primary" href="#projects"><span class="ico">▸</span> browse projects<span class="kbd">P</span></a>
-      <a class="btn" href="#papers"><span class="ico">¶</span> read papers<span class="kbd">R</span></a>
+      <a class="btn primary" href="#papers"><span class="ico">¶</span> read papers<span class="kbd">R</span></a>
+      <a class="btn" href="#projects"><span class="ico">▸</span> browse projects<span class="kbd">P</span></a>
       <a class="btn" href="showcase/operator/skeindb.html"><span class="ico">⌘</span> open: SkeinDB</a>
       <a class="btn" href="showcase/operator/wardex.html"><span class="ico">⌘</span> open: Wardex</a>
     </div>
@@ -821,8 +821,8 @@
     </div>
   </div>
   <div class="ix">
-    <a href="#projects"><span class="num">01</span><span class="title">Projects · the work</span><span class="arr">14 →</span></a>
-    <a href="#papers"><span class="num">02</span><span class="title">Papers · bibliography</span><span class="arr">12 →</span></a>
+    <a href="#papers"><span class="num">01</span><span class="title">Papers · bibliography</span><span class="arr">12 →</span></a>
+    <a href="#projects"><span class="num">02</span><span class="title">Projects · the work</span><span class="arr">14 →</span></a>
     <a href="#log"><span class="num">03</span><span class="title">Log · writing &amp; notes</span><span class="arr">3 →</span></a>
     <a href="#music"><span class="num">04</span><span class="title">Music · releases</span><span class="arr">6 →</span></a>
     <a href="#now"><span class="num">05</span><span class="title">Now · this week</span><span class="arr">live →</span></a>
@@ -869,10 +869,116 @@
   </div>
 </section>
 
+<!-- ====== PAPERS ====== -->
+<section class="section" id="papers">
+  <div class="section-mark">
+    <div class="tag">01 / PAPERS</div>
+    <div>
+      <h2>grep -r papers<span class="punct">/</span></h2>
+      <p class="sub">Peer-reviewed work, preprints, and the occasional creative publication.</p>
+    </div>
+  </div>
+
+  <div class="filter-bar">
+    <button class="on" data-bfilter="all">all<span class="ct">12</span></button>
+    <button data-bfilter="journal">journal<span class="ct">4</span></button>
+    <button data-bfilter="preprint">preprint<span class="ct">6</span></button>
+    <button data-bfilter="other">other<span class="ct">2</span></button>
+  </div>
+
+  <div class="bib-head">
+    <span>year</span><span>title · venue</span><span>type</span><span class="col-doi">link</span>
+  </div>
+
+  <div class="bib-row is-preprint" data-abs="beyond-no">
+    <span class="yr">2026.04</span>
+    <div><div class="title">Beyond No: A Low-Interruption, Autonomy-Supportive Framework for Early Childhood Self-Directed Learning in Prepared Environments</div><span class="where"><span class="venue">ResearchGate</span> · submitted to KDU KJMS</span></div>
+    <span class="kind preprint">preprint</span>
+    <span class="doi"><a href="https://www.researchgate.net/publication/403982284" target="_blank" rel="noopener">RG ↗</a></span>
+  </div>
+
+  <div class="bib-row is-journal" data-abs="cku">
+    <span class="yr">2026.01</span>
+    <div><div class="title">Computational Knightian Uncertainty: Undecidability and the Limits of Cyber Risk Quantification in Software-Intensive Firms</div><span class="where"><span class="venue">IJRC</span> · International Journal of Research in Computing</span></div>
+    <span class="kind journal">journal</span>
+    <span class="doi"><a href="https://www.ijrcom.org/index.php/ijrc/article/view/192" target="_blank" rel="noopener">IJRC ↗</a></span>
+  </div>
+
+  <div class="bib-row is-journal" data-abs="shieldlink">
+    <span class="yr">2026</span>
+    <div><div class="title">ShieldLink: Retry-Aware Authenticated Encryption for Secure and Reliable Chiplet Interconnects</div><span class="where"><span class="venue">IJRCOM</span> · International Journal of Research in Computing · In Press</span></div>
+    <span class="kind journal">in press</span>
+    <span class="doi"><a href="https://doi.org/10.36227/techrxiv.176800047.72137558/v1" target="_blank" rel="noopener">DOI ↗</a></span>
+  </div>
+
+  <div class="bib-row is-preprint" data-abs="preons-2">
+    <span class="yr">2025</span>
+    <div><div class="title">Dual-Polarity Preons II: Parameter-Space Constraints and Viable Regimes for an Emergent Acoustic Metric</div><span class="where"><span class="venue">TechRxiv</span></span></div>
+    <span class="kind preprint">preprint</span>
+    <span class="doi"><a href="https://doi.org/10.36227/techrxiv.176590637.76612181/v1" target="_blank" rel="noopener">DOI ↗</a></span>
+  </div>
+
+  <div class="bib-row is-preprint" data-abs="simulated-minds">
+    <span class="yr">2025</span>
+    <div><div class="title">Simulated Minds, Artificial Consciousness, and the Theory-Relative Simulation Hypothesis</div><span class="where"><span class="venue">TechRxiv</span></span></div>
+    <span class="kind preprint">preprint</span>
+    <span class="doi"><a href="https://doi.org/10.36227/techrxiv.176583724.41540320/v1" target="_blank" rel="noopener">DOI ↗</a></span>
+  </div>
+
+  <div class="bib-row is-journal" data-abs="preons-1">
+    <span class="yr">2025</span>
+    <div><div class="title">Dual-Polarity Preons: A Toy Model for Composite Neutral Pairs and Emergent Gravity</div><span class="where"><span class="venue">Cognizance</span></span></div>
+    <span class="kind journal">journal</span>
+    <span class="doi"><a href="https://doi.org/10.47760/cognizance.2025.v05i11.009" target="_blank" rel="noopener">DOI ↗</a></span>
+  </div>
+
+  <div class="bib-row is-preprint" data-abs="fl-ids">
+    <span class="yr">2025</span>
+    <div><div class="title">Federated Learning-Based Intrusion Detection System for IoT Networks in Resource-Constrained Environments</div><span class="where"><span class="venue">TechRxiv</span> · rel. <a href="#projects">wardex</a></span></div>
+    <span class="kind preprint">preprint</span>
+    <span class="doi"><a href="https://doi.org/10.36227/techrxiv.176403418.87468767/v1" target="_blank" rel="noopener">DOI ↗</a></span>
+  </div>
+
+  <div class="bib-row is-preprint" data-abs="org-circuits">
+    <span class="yr">2025</span>
+    <div><div class="title">Computational Complexity of Organizational Decision Hierarchies</div><span class="where"><span class="venue">Research Square</span></span></div>
+    <span class="kind preprint">preprint</span>
+    <span class="doi"><a href="https://doi.org/10.21203/rs.3.rs-7948428/v1" target="_blank" rel="noopener">DOI ↗</a></span>
+  </div>
+
+  <div class="bib-row is-preprint" data-abs="quantum-walk">
+    <span class="yr">2025</span>
+    <div><div class="title">A Quantum Walk-Inspired Algorithm for Dynamic Resource Allocation in Cloud Computing</div><span class="where"><span class="venue">TechRxiv</span> · sustainable business practices</span></div>
+    <span class="kind preprint">preprint</span>
+    <span class="doi"><a href="https://doi.org/10.36227/techrxiv.176316003.37717757/v1" target="_blank" rel="noopener">DOI ↗</a></span>
+  </div>
+
+  <div class="bib-row is-journal" data-abs="quadralzahlen">
+    <span class="yr">2025</span>
+    <div><div class="title">Quadralzahlen: A Rotation-Invariant Numeral System That Reduces Upside-Down Misreads in Real-World Displays</div><span class="where"><span class="venue">Cognizance</span></span></div>
+    <span class="kind journal">journal</span>
+    <span class="doi"><a href="https://doi.org/10.47760/cognizance.2025.v05i10.019" target="_blank" rel="noopener">DOI ↗</a></span>
+  </div>
+
+  <div class="bib-row is-other">
+    <span class="yr">2024</span>
+    <div><div class="title">Nadia's Adventures in the New World</div><span class="where">Book · creative fiction</span></div>
+    <span class="kind other">book</span>
+    <span class="doi">—</span>
+  </div>
+
+  <div class="bib-row is-other">
+    <span class="yr">2024</span>
+    <div><div class="title">pimiTool</div><span class="where">Software copyright · registered</span></div>
+    <span class="kind other">sw</span>
+    <span class="doi">—</span>
+  </div>
+</section>
+
 <!-- ====== PROJECTS ====== -->
 <section class="section" id="projects">
   <div class="section-mark">
-    <div class="tag">01 / PROJECTS</div>
+    <div class="tag">02 / PROJECTS</div>
     <div>
       <h2>ls -la projects<span class="punct">/</span></h2>
       <p class="sub">Active builds across research engines, Python tools, iOS/macOS apps, and games. Click any row to open it.</p>
@@ -1018,112 +1124,6 @@
       <span class="status">live · v1.01</span>
       <span class="arr">→</span>
     </a>
-  </div>
-</section>
-
-<!-- ====== PAPERS ====== -->
-<section class="section" id="papers">
-  <div class="section-mark">
-    <div class="tag">02 / PAPERS</div>
-    <div>
-      <h2>grep -r papers<span class="punct">/</span></h2>
-      <p class="sub">Peer-reviewed work, preprints, and the occasional creative publication.</p>
-    </div>
-  </div>
-
-  <div class="filter-bar">
-    <button class="on" data-bfilter="all">all<span class="ct">12</span></button>
-    <button data-bfilter="journal">journal<span class="ct">4</span></button>
-    <button data-bfilter="preprint">preprint<span class="ct">6</span></button>
-    <button data-bfilter="other">other<span class="ct">2</span></button>
-  </div>
-
-  <div class="bib-head">
-    <span>year</span><span>title · venue</span><span>type</span><span class="col-doi">link</span>
-  </div>
-
-  <div class="bib-row is-preprint" data-abs="beyond-no">
-    <span class="yr">2026.04</span>
-    <div><div class="title">Beyond No: A Low-Interruption, Autonomy-Supportive Framework for Early Childhood Self-Directed Learning in Prepared Environments</div><span class="where"><span class="venue">ResearchGate</span> · submitted to KDU KJMS</span></div>
-    <span class="kind preprint">preprint</span>
-    <span class="doi"><a href="https://www.researchgate.net/publication/403982284" target="_blank" rel="noopener">RG ↗</a></span>
-  </div>
-
-  <div class="bib-row is-journal" data-abs="cku">
-    <span class="yr">2026.01</span>
-    <div><div class="title">Computational Knightian Uncertainty: Undecidability and the Limits of Cyber Risk Quantification in Software-Intensive Firms</div><span class="where"><span class="venue">IJRC</span> · International Journal of Research in Computing</span></div>
-    <span class="kind journal">journal</span>
-    <span class="doi"><a href="https://www.ijrcom.org/index.php/ijrc/article/view/192" target="_blank" rel="noopener">IJRC ↗</a></span>
-  </div>
-
-  <div class="bib-row is-journal" data-abs="shieldlink">
-    <span class="yr">2026</span>
-    <div><div class="title">ShieldLink: Retry-Aware Authenticated Encryption for Secure and Reliable Chiplet Interconnects</div><span class="where"><span class="venue">IJRCOM</span> · International Journal of Research in Computing · In Press</span></div>
-    <span class="kind journal">in press</span>
-    <span class="doi"><a href="https://doi.org/10.36227/techrxiv.176800047.72137558/v1" target="_blank" rel="noopener">DOI ↗</a></span>
-  </div>
-
-  <div class="bib-row is-preprint" data-abs="preons-2">
-    <span class="yr">2025</span>
-    <div><div class="title">Dual-Polarity Preons II: Parameter-Space Constraints and Viable Regimes for an Emergent Acoustic Metric</div><span class="where"><span class="venue">TechRxiv</span></span></div>
-    <span class="kind preprint">preprint</span>
-    <span class="doi"><a href="https://doi.org/10.36227/techrxiv.176590637.76612181/v1" target="_blank" rel="noopener">DOI ↗</a></span>
-  </div>
-
-  <div class="bib-row is-preprint" data-abs="simulated-minds">
-    <span class="yr">2025</span>
-    <div><div class="title">Simulated Minds, Artificial Consciousness, and the Theory-Relative Simulation Hypothesis</div><span class="where"><span class="venue">TechRxiv</span></span></div>
-    <span class="kind preprint">preprint</span>
-    <span class="doi"><a href="https://doi.org/10.36227/techrxiv.176583724.41540320/v1" target="_blank" rel="noopener">DOI ↗</a></span>
-  </div>
-
-  <div class="bib-row is-journal" data-abs="preons-1">
-    <span class="yr">2025</span>
-    <div><div class="title">Dual-Polarity Preons: A Toy Model for Composite Neutral Pairs and Emergent Gravity</div><span class="where"><span class="venue">Cognizance</span></span></div>
-    <span class="kind journal">journal</span>
-    <span class="doi"><a href="https://doi.org/10.47760/cognizance.2025.v05i11.009" target="_blank" rel="noopener">DOI ↗</a></span>
-  </div>
-
-  <div class="bib-row is-preprint" data-abs="fl-ids">
-    <span class="yr">2025</span>
-    <div><div class="title">Federated Learning-Based Intrusion Detection System for IoT Networks in Resource-Constrained Environments</div><span class="where"><span class="venue">TechRxiv</span> · rel. <a href="#projects">wardex</a></span></div>
-    <span class="kind preprint">preprint</span>
-    <span class="doi"><a href="https://doi.org/10.36227/techrxiv.176403418.87468767/v1" target="_blank" rel="noopener">DOI ↗</a></span>
-  </div>
-
-  <div class="bib-row is-preprint" data-abs="org-circuits">
-    <span class="yr">2025</span>
-    <div><div class="title">Computational Complexity of Organizational Decision Hierarchies</div><span class="where"><span class="venue">Research Square</span></span></div>
-    <span class="kind preprint">preprint</span>
-    <span class="doi"><a href="https://doi.org/10.21203/rs.3.rs-7948428/v1" target="_blank" rel="noopener">DOI ↗</a></span>
-  </div>
-
-  <div class="bib-row is-preprint" data-abs="quantum-walk">
-    <span class="yr">2025</span>
-    <div><div class="title">A Quantum Walk-Inspired Algorithm for Dynamic Resource Allocation in Cloud Computing</div><span class="where"><span class="venue">TechRxiv</span> · sustainable business practices</span></div>
-    <span class="kind preprint">preprint</span>
-    <span class="doi"><a href="https://doi.org/10.36227/techrxiv.176316003.37717757/v1" target="_blank" rel="noopener">DOI ↗</a></span>
-  </div>
-
-  <div class="bib-row is-journal" data-abs="quadralzahlen">
-    <span class="yr">2025</span>
-    <div><div class="title">Quadralzahlen: A Rotation-Invariant Numeral System That Reduces Upside-Down Misreads in Real-World Displays</div><span class="where"><span class="venue">Cognizance</span></span></div>
-    <span class="kind journal">journal</span>
-    <span class="doi"><a href="https://doi.org/10.47760/cognizance.2025.v05i10.019" target="_blank" rel="noopener">DOI ↗</a></span>
-  </div>
-
-  <div class="bib-row is-other">
-    <span class="yr">2024</span>
-    <div><div class="title">Nadia's Adventures in the New World</div><span class="where">Book · creative fiction</span></div>
-    <span class="kind other">book</span>
-    <span class="doi">—</span>
-  </div>
-
-  <div class="bib-row is-other">
-    <span class="yr">2024</span>
-    <div><div class="title">pimiTool</div><span class="where">Software copyright · registered</span></div>
-    <span class="kind other">sw</span>
-    <span class="doi">—</span>
   </div>
 </section>
 
@@ -1617,8 +1617,8 @@
   // command palette
   const cmdItems = [
     {label:'~/home', hint:'top', go:'#home'},
-    {label:'~/projects', hint:'14 builds', go:'#projects'},
     {label:'~/papers', hint:'bibliography', go:'#papers'},
+    {label:'~/projects', hint:'14 builds', go:'#projects'},
     {label:'~/log', hint:'writing & notes', go:'#log'},
     {label:'~/music', hint:'6 releases', go:'#music'},
     {label:'~/now', hint:'this week', go:'#now'},
@@ -1867,7 +1867,7 @@
 
   // active nav tab via scroll
   const tabs = document.querySelectorAll('.nav-tab');
-  const sections = ['home','projects','papers','log','music','now','contact'];
+  const sections = ['home','papers','projects','log','music','now','contact'];
   function syncTabs(){
     const y = window.scrollY + 200;
     let active = sections[0];
