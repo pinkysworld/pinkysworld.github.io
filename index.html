@@ -301,6 +301,8 @@
   .filter-bar button:hover{color:var(--fg);border-color:var(--mute)}
   .filter-bar button.on{color:var(--green);border-color:var(--green);background:var(--bg-3)}
   .filter-bar button .ct{color:var(--dim);margin-left:8px}
+  .filter-bar.topic{margin-top:10px}
+  .filter-bar.topic button.on{color:var(--cyan);border-color:var(--cyan)}
 
   .proj-table{display:grid}
   .ptr-head,.ptr{
@@ -355,6 +357,19 @@
   .ptr-detail.open + .ptr{border-top:1px solid var(--green)}
 
   /* ===== PAPERS / BIB ===== */
+  .paper-feature{
+    display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:14px;margin-bottom:18px;
+  }
+  .paper-card{
+    border:1px solid var(--line-2);background:var(--bg-2);padding:16px;
+    display:flex;flex-direction:column;gap:10px;min-height:168px;text-align:left;color:inherit;
+    font:inherit;cursor:pointer;transition:all .15s;
+  }
+  .paper-card:hover,.paper-card:focus-visible{border-color:var(--green);background:var(--bg-3);outline:none}
+  .paper-card .k{color:var(--green);font-size:10px;letter-spacing:0.14em;text-transform:uppercase}
+  .paper-card h3{font-family:var(--mono);font-size:17px;line-height:1.25;font-weight:600;letter-spacing:-0.01em;color:var(--fg)}
+  .paper-card p{font-family:var(--sans);font-size:13px;line-height:1.55;color:var(--mute)}
+  .paper-card .meta{margin-top:auto;color:var(--amber);font-size:10px;letter-spacing:0.1em;text-transform:uppercase}
   .bib-head{
     display:grid;grid-template-columns:80px 1fr 100px 60px;gap:24px;
     padding:12px 12px;background:var(--bg-2);
@@ -364,8 +379,9 @@
   .bib-row{
     display:grid;grid-template-columns:80px 1fr 100px 60px;gap:24px;align-items:baseline;
     padding:18px 12px;border-bottom:1px solid var(--line);transition:background .12s;
+    cursor:pointer;text-align:left;color:inherit;
   }
-  .bib-row:hover{background:var(--bg-2)}
+  .bib-row:hover,.bib-row:focus-visible{background:var(--bg-2);outline:none}
   .bib-row .yr{color:var(--mute);font-size:12px}
   .bib-row .title{color:var(--fg);font-size:14px;line-height:1.45;letter-spacing:-0.005em;font-weight:500;text-wrap:pretty;max-width:70ch}
   .bib-row .where{color:var(--mute);font-size:11px;margin-top:6px;display:block}
@@ -378,6 +394,11 @@
   .bib-row .kind.other{color:var(--cyan)}
   .bib-row .doi{font-size:10px;color:var(--dim);text-align:right}
   .bib-row .doi a:hover{color:var(--green)}
+  .paper-meta{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+  .paper-meta span{
+    color:var(--cyan);border:1px solid var(--line-2);padding:2px 6px;
+    font-size:9px;letter-spacing:0.08em;text-transform:uppercase;
+  }
   .bib-row[hidden]{display:none}
 
   /* ===== WRITING — log entries ===== */
@@ -457,6 +478,11 @@
   .note-close:hover{border-color:var(--green);color:var(--green)}
   .note-copy{padding:18px 20px 0}
   .note-copy p{color:var(--fg);font-size:14px;line-height:1.8;max-width:70ch;margin-bottom:14px}
+  .note-copy .paper-kv{display:grid;grid-template-columns:110px 1fr;gap:8px 14px;margin:0 0 16px;max-width:70ch}
+  .note-copy .paper-kv dt{color:var(--dim);font-size:10px;letter-spacing:0.12em;text-transform:uppercase}
+  .note-copy .paper-kv dd{color:var(--fg);font-size:12px;line-height:1.5}
+  .note-copy .paper-kv a{color:var(--cyan);border-bottom:1px dashed transparent}
+  .note-copy .paper-kv a:hover{border-bottom-color:var(--cyan)}
   .note-foot{
     display:flex;justify-content:space-between;gap:16px;align-items:center;flex-wrap:wrap;
     padding:18px 20px 20px;border-top:1px solid var(--line);margin-top:8px;
@@ -467,6 +493,7 @@
     border:1px solid var(--line-2);padding:4px 8px;text-transform:uppercase;
   }
   .note-links{display:flex;gap:12px;flex-wrap:wrap}
+  .note-links button.btn{font:inherit}
 
   /* ===== MUSIC ===== */
   .music-wrap{
@@ -695,6 +722,7 @@
 
   @media (max-width:980px){
     .hero,.now-grid,.contact-wrap,.music-wrap,.skills,.ft{grid-template-columns:1fr;gap:24px}
+    .paper-feature{grid-template-columns:1fr}
     .research-grid{grid-template-columns:1fr}
     .ptr-head,.ptr{grid-template-columns:24px 1fr 60px 30px;font-size:12px}
     .ptr-head .col-desc,.ptr-head .col-status,.ptr .desc,.ptr .status{display:none}
@@ -778,7 +806,7 @@
       </div>
       <div class="m">
         <div class="k">Output 2025–26</div>
-        <div class="v"><span class="em">13</span> papers · <span class="em">14</span> projects · <span class="em">6</span> releases</div>
+        <div class="v"><span class="em" data-paper-total>13</span> papers · <span class="em">14</span> projects · <span class="em">6</span> releases</div>
       </div>
       <div class="m">
         <div class="k">Status</div>
@@ -821,7 +849,7 @@
     </div>
   </div>
   <div class="ix">
-    <a href="#papers"><span class="num">01</span><span class="title">Papers · bibliography</span><span class="arr">13 →</span></a>
+    <a href="#papers"><span class="num">01</span><span class="title">Papers · bibliography</span><span class="arr"><span data-paper-total>13</span> →</span></a>
     <a href="#projects"><span class="num">02</span><span class="title">Projects · the work</span><span class="arr">14 →</span></a>
     <a href="#log"><span class="num">03</span><span class="title">Log · writing &amp; notes</span><span class="arr">3 →</span></a>
     <a href="#music"><span class="num">04</span><span class="title">Music · releases</span><span class="arr">6 →</span></a>
@@ -879,102 +907,134 @@
     </div>
   </div>
 
+  <div class="paper-feature" aria-label="Featured publications">
+    <button class="paper-card" type="button" data-paper-open="mortality-reference-class">
+      <span class="k">latest preprint</span>
+      <h3>Reference-class failure in mortality prediction</h3>
+      <p>A synthetic clinical-AI study on when sharp end-of-life risk estimates lose their reference-class basis.</p>
+      <span class="meta">Research Square · 2026</span>
+    </button>
+    <button class="paper-card" type="button" data-paper-open="cku">
+      <span class="k">cyber risk</span>
+      <h3>Computational Knightian uncertainty</h3>
+      <p>Undecidability, software opacity, and the residual uncertainty that probabilistic cyber-risk models cannot price away.</p>
+      <span class="meta">IJRC · 2026</span>
+    </button>
+    <button class="paper-card" type="button" data-paper-open="shieldlink">
+      <span class="k">systems security</span>
+      <h3>ShieldLink for chiplet interconnects</h3>
+      <p>A retry-aware authenticated-encryption design that closes the gap between link reliability and AEAD verification.</p>
+      <span class="meta">in press · 2026</span>
+    </button>
+  </div>
+
   <div class="filter-bar">
-    <button class="on" data-bfilter="all">all<span class="ct">13</span></button>
-    <button data-bfilter="journal">journal<span class="ct">4</span></button>
-    <button data-bfilter="preprint">preprint<span class="ct">7</span></button>
-    <button data-bfilter="other">other<span class="ct">2</span></button>
+    <button class="on" data-bfilter="all">all<span class="ct" data-bcount="all">13</span></button>
+    <button data-bfilter="journal">journal<span class="ct" data-bcount="journal">4</span></button>
+    <button data-bfilter="preprint">preprint<span class="ct" data-bcount="preprint">7</span></button>
+    <button data-bfilter="other">other<span class="ct" data-bcount="other">2</span></button>
+  </div>
+
+  <div class="filter-bar topic" aria-label="Filter papers by research line">
+    <button class="on" data-topic-filter="all">all topics<span class="ct" data-topic-count="all">13</span></button>
+    <button data-topic-filter="clinical-ai">clinical AI<span class="ct" data-topic-count="clinical-ai">1</span></button>
+    <button data-topic-filter="cyber-risk">cyber risk<span class="ct" data-topic-count="cyber-risk">2</span></button>
+    <button data-topic-filter="systems-security">systems/sec<span class="ct" data-topic-count="systems-security">2</span></button>
+    <button data-topic-filter="physics">physics<span class="ct" data-topic-count="physics">3</span></button>
+    <button data-topic-filter="education">education<span class="ct" data-topic-count="education">1</span></button>
+    <button data-topic-filter="org-theory">org theory<span class="ct" data-topic-count="org-theory">1</span></button>
+    <button data-topic-filter="creative">creative/sw<span class="ct" data-topic-count="creative">3</span></button>
   </div>
 
   <div class="bib-head">
     <span>year</span><span>title · venue</span><span>type</span><span class="col-doi">link</span>
   </div>
 
-  <div class="bib-row is-preprint" data-abs="mortality-reference-class">
+  <div class="bib-row is-preprint" data-abs="mortality-reference-class" data-topic="clinical-ai" tabindex="0" role="button" aria-label="Preview Reference-Class Failure in Mortality Prediction">
     <span class="yr">2026.06</span>
-    <div><div class="title">Reference-Class Failure in Mortality Prediction: A Synthetic Study of Irreducible Uncertainty in End-of-Life Prognostic Models</div><span class="where"><span class="venue">Research Square</span> · Version 1</span></div>
+    <div><div class="title">Reference-Class Failure in Mortality Prediction: A Synthetic Study of Irreducible Uncertainty in End-of-Life Prognostic Models</div><span class="where"><span class="venue">Research Square</span> · Version 1</span><div class="paper-meta"><span>clinical AI</span><span>preprint</span><span>doi</span></div></div>
     <span class="kind preprint">preprint</span>
     <span class="doi"><a href="https://doi.org/10.21203/rs.3.rs-10058406/v1" target="_blank" rel="noopener">DOI ↗</a></span>
   </div>
 
-  <div class="bib-row is-preprint" data-abs="beyond-no">
+  <div class="bib-row is-preprint" data-abs="beyond-no" data-topic="education" tabindex="0" role="button" aria-label="Preview Beyond No">
     <span class="yr">2026.04</span>
-    <div><div class="title">Beyond No: A Low-Interruption, Autonomy-Supportive Framework for Early Childhood Self-Directed Learning in Prepared Environments</div><span class="where"><span class="venue">ResearchGate</span> · submitted to KDU KJMS</span></div>
+    <div><div class="title">Beyond No: A Low-Interruption, Autonomy-Supportive Framework for Early Childhood Self-Directed Learning in Prepared Environments</div><span class="where"><span class="venue">ResearchGate</span> · submitted to KDU KJMS</span><div class="paper-meta"><span>education</span><span>submitted</span></div></div>
     <span class="kind preprint">preprint</span>
     <span class="doi"><a href="https://www.researchgate.net/publication/403982284" target="_blank" rel="noopener">RG ↗</a></span>
   </div>
 
-  <div class="bib-row is-journal" data-abs="cku">
+  <div class="bib-row is-journal" data-abs="cku" data-topic="cyber-risk" tabindex="0" role="button" aria-label="Preview Computational Knightian Uncertainty">
     <span class="yr">2026.01</span>
-    <div><div class="title">Computational Knightian Uncertainty: Undecidability and the Limits of Cyber Risk Quantification in Software-Intensive Firms</div><span class="where"><span class="venue">IJRC</span> · International Journal of Research in Computing</span></div>
+    <div><div class="title">Computational Knightian Uncertainty: Undecidability and the Limits of Cyber Risk Quantification in Software-Intensive Firms</div><span class="where"><span class="venue">IJRC</span> · International Journal of Research in Computing</span><div class="paper-meta"><span>cyber risk</span><span>journal</span></div></div>
     <span class="kind journal">journal</span>
     <span class="doi"><a href="https://www.ijrcom.org/index.php/ijrc/article/view/192" target="_blank" rel="noopener">IJRC ↗</a></span>
   </div>
 
-  <div class="bib-row is-journal" data-abs="shieldlink">
+  <div class="bib-row is-journal" data-abs="shieldlink" data-topic="systems-security" tabindex="0" role="button" aria-label="Preview ShieldLink">
     <span class="yr">2026</span>
-    <div><div class="title">ShieldLink: Retry-Aware Authenticated Encryption for Secure and Reliable Chiplet Interconnects</div><span class="where"><span class="venue">IJRCOM</span> · International Journal of Research in Computing · In Press</span></div>
+    <div><div class="title">ShieldLink: Retry-Aware Authenticated Encryption for Secure and Reliable Chiplet Interconnects</div><span class="where"><span class="venue">IJRCOM</span> · International Journal of Research in Computing · In Press</span><div class="paper-meta"><span>systems/sec</span><span>in press</span></div></div>
     <span class="kind journal">in press</span>
     <span class="doi"><a href="https://doi.org/10.36227/techrxiv.176800047.72137558/v1" target="_blank" rel="noopener">DOI ↗</a></span>
   </div>
 
-  <div class="bib-row is-preprint" data-abs="preons-2">
+  <div class="bib-row is-preprint" data-abs="preons-2" data-topic="physics" tabindex="0" role="button" aria-label="Preview Dual-Polarity Preons II">
     <span class="yr">2025</span>
-    <div><div class="title">Dual-Polarity Preons II: Parameter-Space Constraints and Viable Regimes for an Emergent Acoustic Metric</div><span class="where"><span class="venue">TechRxiv</span></span></div>
+    <div><div class="title">Dual-Polarity Preons II: Parameter-Space Constraints and Viable Regimes for an Emergent Acoustic Metric</div><span class="where"><span class="venue">TechRxiv</span></span><div class="paper-meta"><span>physics</span><span>preprint</span></div></div>
     <span class="kind preprint">preprint</span>
     <span class="doi"><a href="https://doi.org/10.36227/techrxiv.176590637.76612181/v1" target="_blank" rel="noopener">DOI ↗</a></span>
   </div>
 
-  <div class="bib-row is-preprint" data-abs="simulated-minds">
+  <div class="bib-row is-preprint" data-abs="simulated-minds" data-topic="physics" tabindex="0" role="button" aria-label="Preview Simulated Minds">
     <span class="yr">2025</span>
-    <div><div class="title">Simulated Minds, Artificial Consciousness, and the Theory-Relative Simulation Hypothesis</div><span class="where"><span class="venue">TechRxiv</span></span></div>
+    <div><div class="title">Simulated Minds, Artificial Consciousness, and the Theory-Relative Simulation Hypothesis</div><span class="where"><span class="venue">TechRxiv</span></span><div class="paper-meta"><span>philosophy</span><span>preprint</span></div></div>
     <span class="kind preprint">preprint</span>
     <span class="doi"><a href="https://doi.org/10.36227/techrxiv.176583724.41540320/v1" target="_blank" rel="noopener">DOI ↗</a></span>
   </div>
 
-  <div class="bib-row is-journal" data-abs="preons-1">
+  <div class="bib-row is-journal" data-abs="preons-1" data-topic="physics" tabindex="0" role="button" aria-label="Preview Dual-Polarity Preons">
     <span class="yr">2025</span>
-    <div><div class="title">Dual-Polarity Preons: A Toy Model for Composite Neutral Pairs and Emergent Gravity</div><span class="where"><span class="venue">Cognizance</span></span></div>
+    <div><div class="title">Dual-Polarity Preons: A Toy Model for Composite Neutral Pairs and Emergent Gravity</div><span class="where"><span class="venue">Cognizance</span></span><div class="paper-meta"><span>physics</span><span>journal</span></div></div>
     <span class="kind journal">journal</span>
     <span class="doi"><a href="https://doi.org/10.47760/cognizance.2025.v05i11.009" target="_blank" rel="noopener">DOI ↗</a></span>
   </div>
 
-  <div class="bib-row is-preprint" data-abs="fl-ids">
+  <div class="bib-row is-preprint" data-abs="fl-ids" data-topic="systems-security" tabindex="0" role="button" aria-label="Preview Federated Learning-Based Intrusion Detection System">
     <span class="yr">2025</span>
-    <div><div class="title">Federated Learning-Based Intrusion Detection System for IoT Networks in Resource-Constrained Environments</div><span class="where"><span class="venue">TechRxiv</span> · rel. <a href="#projects">wardex</a></span></div>
+    <div><div class="title">Federated Learning-Based Intrusion Detection System for IoT Networks in Resource-Constrained Environments</div><span class="where"><span class="venue">TechRxiv</span> · rel. <a href="#projects">wardex</a></span><div class="paper-meta"><span>systems/sec</span><span>preprint</span></div></div>
     <span class="kind preprint">preprint</span>
     <span class="doi"><a href="https://doi.org/10.36227/techrxiv.176403418.87468767/v1" target="_blank" rel="noopener">DOI ↗</a></span>
   </div>
 
-  <div class="bib-row is-preprint" data-abs="org-circuits">
+  <div class="bib-row is-preprint" data-abs="org-circuits" data-topic="org-theory" tabindex="0" role="button" aria-label="Preview Computational Complexity of Organizational Decision Hierarchies">
     <span class="yr">2025</span>
-    <div><div class="title">Computational Complexity of Organizational Decision Hierarchies</div><span class="where"><span class="venue">Research Square</span></span></div>
+    <div><div class="title">Computational Complexity of Organizational Decision Hierarchies</div><span class="where"><span class="venue">Research Square</span></span><div class="paper-meta"><span>org theory</span><span>preprint</span></div></div>
     <span class="kind preprint">preprint</span>
     <span class="doi"><a href="https://doi.org/10.21203/rs.3.rs-7948428/v1" target="_blank" rel="noopener">DOI ↗</a></span>
   </div>
 
-  <div class="bib-row is-preprint" data-abs="quantum-walk">
+  <div class="bib-row is-preprint" data-abs="quantum-walk" data-topic="cyber-risk" tabindex="0" role="button" aria-label="Preview Quantum Walk-Inspired Algorithm">
     <span class="yr">2025</span>
-    <div><div class="title">A Quantum Walk-Inspired Algorithm for Dynamic Resource Allocation in Cloud Computing</div><span class="where"><span class="venue">TechRxiv</span> · sustainable business practices</span></div>
+    <div><div class="title">A Quantum Walk-Inspired Algorithm for Dynamic Resource Allocation in Cloud Computing</div><span class="where"><span class="venue">TechRxiv</span> · sustainable business practices</span><div class="paper-meta"><span>cloud systems</span><span>preprint</span></div></div>
     <span class="kind preprint">preprint</span>
     <span class="doi"><a href="https://doi.org/10.36227/techrxiv.176316003.37717757/v1" target="_blank" rel="noopener">DOI ↗</a></span>
   </div>
 
-  <div class="bib-row is-journal" data-abs="quadralzahlen">
+  <div class="bib-row is-journal" data-abs="quadralzahlen" data-topic="creative" tabindex="0" role="button" aria-label="Preview Quadralzahlen">
     <span class="yr">2025</span>
-    <div><div class="title">Quadralzahlen: A Rotation-Invariant Numeral System That Reduces Upside-Down Misreads in Real-World Displays</div><span class="where"><span class="venue">Cognizance</span></span></div>
+    <div><div class="title">Quadralzahlen: A Rotation-Invariant Numeral System That Reduces Upside-Down Misreads in Real-World Displays</div><span class="where"><span class="venue">Cognizance</span></span><div class="paper-meta"><span>notation</span><span>journal</span></div></div>
     <span class="kind journal">journal</span>
     <span class="doi"><a href="https://doi.org/10.47760/cognizance.2025.v05i10.019" target="_blank" rel="noopener">DOI ↗</a></span>
   </div>
 
-  <div class="bib-row is-other">
+  <div class="bib-row is-other" data-topic="creative">
     <span class="yr">2024</span>
     <div><div class="title">Nadia's Adventures in the New World</div><span class="where">Book · creative fiction</span></div>
     <span class="kind other">book</span>
     <span class="doi">—</span>
   </div>
 
-  <div class="bib-row is-other">
+  <div class="bib-row is-other" data-topic="creative">
     <span class="yr">2024</span>
     <div><div class="title">pimiTool</div><span class="where">Software copyright · registered</span></div>
     <span class="kind other">sw</span>
@@ -1220,7 +1280,7 @@
         </div>
       </div>
       <div class="mx-embed">
-        <iframe id="mx-frame" title="Spotify preview: Da Nang Beats, Definitive Edition" src="https://open.spotify.com/embed/album/1VHWU6t5E17V8saWOHppDR?utm_source=generator&theme=0" width="100%" height="200" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <iframe id="mx-frame" title="Spotify preview: Da Nang Beats, Definitive Edition" src="https://open.spotify.com/embed/album/1VHWU6t5E17V8saWOHppDR?utm_source=generator&theme=0" width="100%" height="200" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
     </figure>
 
@@ -1537,6 +1597,23 @@
   }
   tickClock(); setInterval(tickClock, 1000);
 
+  function getPaperStats(){
+    const rows = [...document.querySelectorAll('.bib-row')];
+    const byType = type => rows.filter(row => row.classList.contains('is-'+type)).length;
+    return {
+      total: rows.length,
+      journal: byType('journal'),
+      preprint: byType('preprint'),
+      other: byType('other')
+    };
+  }
+  const paperStats = getPaperStats();
+  document.querySelectorAll('[data-paper-total]').forEach(el=>{ el.textContent = paperStats.total; });
+  document.querySelectorAll('[data-bcount]').forEach(el=>{
+    const key = el.dataset.bcount;
+    el.textContent = key === 'all' ? paperStats.total : paperStats[key];
+  });
+
   // terminal typing animation
   const lines = [
     {t:'whoami', cls:'cmd', d:300},
@@ -1552,7 +1629,7 @@
     {t:'<span class="k">research/</span> &nbsp;&nbsp;5 projects · 4 active', cls:'', d:80},
     {t:'<span class="k">apps/</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4 iOS · 2 macOS · all shipping', cls:'', d:80},
     {t:'<span class="k">games/</span> &nbsp;&nbsp;&nbsp;&nbsp;2 live', cls:'', d:80},
-    {t:'<span class="k">papers/</span> &nbsp;&nbsp;&nbsp;13 records · 4 journal/in press · 7 preprint', cls:'', d:80},
+    {t:`<span class="k">papers/</span> &nbsp;&nbsp;&nbsp;${paperStats.total} records · ${paperStats.journal} journal/in press · ${paperStats.preprint} preprint`, cls:'', d:80},
     {t:'<span class="k">music/</span> &nbsp;&nbsp;&nbsp;&nbsp;6 releases · 2025', cls:'', d:80},
     {t:'', cls:'', d:80},
     {t:'cat motd', cls:'cmd', d:500},
@@ -1743,15 +1820,38 @@
       });
     });
   });
-  // paper filter
+  // paper filters
+  let activePaperType = 'all';
+  let activePaperTopic = 'all';
+  function updateTopicCounts(){
+    const rows = [...document.querySelectorAll('.bib-row')];
+    document.querySelectorAll('[data-topic-count]').forEach(el=>{
+      const topic = el.dataset.topicCount;
+      el.textContent = topic === 'all' ? rows.length : rows.filter(row => row.dataset.topic === topic).length;
+    });
+  }
+  updateTopicCounts();
+  function applyPaperFilters(){
+    document.querySelectorAll('.bib-row').forEach(row=>{
+      const typeMatch = activePaperType === 'all' || row.classList.contains('is-'+activePaperType);
+      const topicMatch = activePaperTopic === 'all' || row.dataset.topic === activePaperTopic;
+      row.hidden = !(typeMatch && topicMatch);
+    });
+  }
   document.querySelectorAll('[data-bfilter]').forEach(btn=>{
     btn.addEventListener('click',()=>{
       document.querySelectorAll('[data-bfilter]').forEach(b=>b.classList.remove('on'));
       btn.classList.add('on');
-      const f = btn.dataset.bfilter;
-      document.querySelectorAll('.bib-row').forEach(r=>{
-        r.hidden = f!=='all' && !r.classList.contains('is-'+f);
-      });
+      activePaperType = btn.dataset.bfilter;
+      applyPaperFilters();
+    });
+  });
+  document.querySelectorAll('[data-topic-filter]').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      document.querySelectorAll('[data-topic-filter]').forEach(b=>b.classList.remove('on'));
+      btn.classList.add('on');
+      activePaperTopic = btn.dataset.topicFilter;
+      applyPaperFilters();
     });
   });
 
@@ -1824,6 +1924,109 @@
       href:'https://doi.org/10.47760/cognizance.2025.v05i10.019', cta:'open journal article ↗'
     }
   };
+  const paperRecords = {
+    'mortality-reference-class': {
+      title:'Reference-Class Failure in Mortality Prediction: A Synthetic Study of Irreducible Uncertainty in End-of-Life Prognostic Models',
+      year:'2026', venue:'Research Square', type:'Preprint', status:'Version 1', topic:'clinical AI',
+      doi:'10.21203/rs.3.rs-10058406/v1', url:'https://doi.org/10.21203/rs.3.rs-10058406/v1',
+      key:'nguyen2026referenceclass'
+    },
+    'beyond-no': {
+      title:'Beyond No: A Low-Interruption, Autonomy-Supportive Framework for Early Childhood Self-Directed Learning in Prepared Environments',
+      year:'2026', venue:'ResearchGate', type:'Preprint', status:'Submitted to KDU KJMS', topic:'education',
+      doi:'', url:'https://www.researchgate.net/publication/403982284', key:'nguyen2026beyondno'
+    },
+    'cku': {
+      title:'Computational Knightian Uncertainty: Undecidability and the Limits of Cyber Risk Quantification in Software-Intensive Firms',
+      year:'2026', venue:'International Journal of Research in Computing', type:'Journal article', status:'Published', topic:'cyber risk',
+      doi:'', url:'https://www.ijrcom.org/index.php/ijrc/article/view/192', key:'nguyen2026computational'
+    },
+    'shieldlink': {
+      title:'ShieldLink: Retry-Aware Authenticated Encryption for Secure and Reliable Chiplet Interconnects',
+      year:'2026', venue:'International Journal of Research in Computing', type:'Journal article', status:'In press', topic:'systems security',
+      doi:'10.36227/techrxiv.176800047.72137558/v1', url:'https://doi.org/10.36227/techrxiv.176800047.72137558/v1', key:'nguyen2026shieldlink'
+    },
+    'preons-2': {
+      title:'Dual-Polarity Preons II: Parameter-Space Constraints and Viable Regimes for an Emergent Acoustic Metric',
+      year:'2025', venue:'TechRxiv', type:'Preprint', status:'Version 1', topic:'physics',
+      doi:'10.36227/techrxiv.176590637.76612181/v1', url:'https://doi.org/10.36227/techrxiv.176590637.76612181/v1', key:'nguyen2025preons2'
+    },
+    'simulated-minds': {
+      title:'Simulated Minds, Artificial Consciousness, and the Theory-Relative Simulation Hypothesis',
+      year:'2025', venue:'TechRxiv', type:'Preprint', status:'Version 1', topic:'philosophy of mind',
+      doi:'10.36227/techrxiv.176583724.41540320/v1', url:'https://doi.org/10.36227/techrxiv.176583724.41540320/v1', key:'nguyen2025simulated'
+    },
+    'preons-1': {
+      title:'Dual-Polarity Preons: A Toy Model for Composite Neutral Pairs and Emergent Gravity',
+      year:'2025', venue:'Cognizance', type:'Journal article', status:'Published', topic:'physics',
+      doi:'10.47760/cognizance.2025.v05i11.009', url:'https://doi.org/10.47760/cognizance.2025.v05i11.009', key:'nguyen2025preons'
+    },
+    'fl-ids': {
+      title:'Federated Learning-Based Intrusion Detection System for IoT Networks in Resource-Constrained Environments',
+      year:'2025', venue:'TechRxiv', type:'Preprint', status:'Version 1', topic:'systems security',
+      doi:'10.36227/techrxiv.176403418.87468767/v1', url:'https://doi.org/10.36227/techrxiv.176403418.87468767/v1', key:'nguyen2025federated'
+    },
+    'org-circuits': {
+      title:'Computational Complexity of Organizational Decision Hierarchies',
+      year:'2025', venue:'Research Square', type:'Preprint', status:'Version 1', topic:'organizational theory',
+      doi:'10.21203/rs.3.rs-7948428/v1', url:'https://doi.org/10.21203/rs.3.rs-7948428/v1', key:'nguyen2025hierarchies'
+    },
+    'quantum-walk': {
+      title:'A Quantum Walk-Inspired Algorithm for Dynamic Resource Allocation in Cloud Computing',
+      year:'2025', venue:'TechRxiv', type:'Preprint', status:'Version 1', topic:'cloud systems',
+      doi:'10.36227/techrxiv.176316003.37717757/v1', url:'https://doi.org/10.36227/techrxiv.176316003.37717757/v1', key:'nguyen2025quantumwalk'
+    },
+    'quadralzahlen': {
+      title:'Quadralzahlen: A Rotation-Invariant Numeral System That Reduces Upside-Down Misreads in Real-World Displays',
+      year:'2025', venue:'Cognizance', type:'Journal article', status:'Published', topic:'notation systems',
+      doi:'10.47760/cognizance.2025.v05i10.019', url:'https://doi.org/10.47760/cognizance.2025.v05i10.019', key:'nguyen2025quadralzahlen'
+    }
+  };
+  function paperBibtex(id){
+    const rec = paperRecords[id];
+    if(!rec) return '';
+    const entryType = rec.type === 'Preprint' ? 'misc' : 'article';
+    const fields = [
+      `  author = {Nguyen, Michel}`,
+      `  title = {${rec.title}}`,
+      `  year = {${rec.year}}`,
+      rec.type === 'Preprint' ? `  howpublished = {${rec.venue}}` : `  journal = {${rec.venue}}`,
+      rec.doi ? `  doi = {${rec.doi}}` : '',
+      `  url = {${rec.url}}`
+    ].filter(Boolean).join(',\n');
+    return `@${entryType}{${rec.key},\n${fields}\n}`;
+  }
+  function injectPaperSchema(){
+    const schema = {
+      '@context':'https://schema.org',
+      '@graph': Object.keys(paperRecords).map(id=>{
+        const rec = paperRecords[id];
+        const abs = bibAbstracts[id];
+        const item = {
+          '@type':'ScholarlyArticle',
+          '@id': rec.url + '#article',
+          headline: rec.title,
+          name: rec.title,
+          author: {'@id':'https://minh.systems/#person'},
+          datePublished: rec.year,
+          isPartOf: { '@type':'Periodical', name: rec.venue },
+          about: rec.topic,
+          url: rec.url,
+          description: abs ? abs.p.replace(/<[^>]+>/g,'') : undefined
+        };
+        if(rec.doi) item.identifier = `doi:${rec.doi}`;
+        if(rec.doi) item.sameAs = `https://doi.org/${rec.doi}`;
+        if(rec.type === 'Preprint') item.creativeWorkStatus = 'Preprint';
+        return item;
+      })
+    };
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.id = 'paper-schema';
+    script.textContent = JSON.stringify(schema);
+    document.head.appendChild(script);
+  }
+  injectPaperSchema();
   if(window.matchMedia('(hover: hover) and (pointer: fine)').matches){
     const spot = document.createElement('div');
     spot.className = 'bib-abstract bib-spot';
@@ -1900,17 +2103,82 @@
   const noteTitle = document.getElementById('note-title');
   const noteCopy = document.getElementById('note-copy');
   const noteTags = document.getElementById('note-tags');
+  const noteLinks = document.querySelector('.note-links');
   const noteLink = document.getElementById('note-link');
   let noteOpener = null;
+  function resetNoteLinks(){
+    noteLinks.querySelectorAll('.paper-action').forEach(el=>el.remove());
+  }
   function openNote(id){
     const note = noteData[id];
     if(!note) return;
+    resetNoteLinks();
     noteMeta.textContent = note.meta;
     noteTitle.textContent = note.title;
     noteCopy.innerHTML = note.paragraphs.map(p => `<p>${p}</p>`).join('');
     noteTags.innerHTML = note.tags.map(t => `<span>${t}</span>`).join('');
     noteLink.href = note.href;
     noteLink.innerHTML = `<span class="ico">↗</span> ${note.cta}`;
+    noteOpener = document.activeElement;
+    noteModal.classList.add('open');
+    noteModal.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden';
+    noteModal.querySelector('.note-close').focus();
+  }
+  async function copyText(text, btn){
+    const old = btn.textContent;
+    btn.textContent = 'copied';
+    try{
+      if(navigator.clipboard && window.isSecureContext){
+        await navigator.clipboard.writeText(text);
+      }else{
+        const area = document.createElement('textarea');
+        area.value = text;
+        area.setAttribute('readonly','');
+        area.style.position = 'fixed';
+        area.style.left = '-9999px';
+        document.body.appendChild(area);
+        area.select();
+        document.execCommand('copy');
+        area.remove();
+      }
+    }catch(_err){
+      window.prompt('Copy this text:', text);
+      btn.textContent = 'ready to copy';
+    }
+    setTimeout(()=>{ btn.textContent = old; }, 1400);
+  }
+  function openPaperModal(id){
+    const rec = paperRecords[id];
+    const abs = bibAbstracts[id];
+    if(!rec || !abs) return;
+    resetNoteLinks();
+    noteMeta.textContent = `${rec.type} · ${rec.year} · ${rec.status}`;
+    noteTitle.textContent = rec.title;
+    noteCopy.innerHTML = `
+      <dl class="paper-kv">
+        <dt>venue</dt><dd>${rec.venue}</dd>
+        <dt>topic</dt><dd>${rec.topic}</dd>
+        <dt>doi</dt><dd>${rec.doi ? `<a href="https://doi.org/${rec.doi}" target="_blank" rel="noopener">${rec.doi}</a>` : 'pending / not assigned'}</dd>
+        <dt>status</dt><dd>${rec.status}</dd>
+      </dl>
+      <p>${abs.p}</p>
+    `;
+    noteTags.innerHTML = [rec.type, rec.topic, rec.status].map(t => `<span>${t}</span>`).join('');
+    noteLink.href = rec.url;
+    noteLink.innerHTML = `<span class="ico">↗</span> ${abs.cta.replace(' ↗','')}`;
+    const doiBtn = document.createElement('button');
+    doiBtn.type = 'button';
+    doiBtn.className = 'btn paper-action';
+    doiBtn.textContent = 'copy DOI';
+    doiBtn.disabled = !rec.doi;
+    doiBtn.addEventListener('click',()=>copyText(rec.doi, doiBtn));
+    const bibBtn = document.createElement('button');
+    bibBtn.type = 'button';
+    bibBtn.className = 'btn paper-action';
+    bibBtn.textContent = 'copy BibTeX';
+    bibBtn.addEventListener('click',()=>copyText(paperBibtex(id), bibBtn));
+    noteLinks.append(doiBtn, bibBtn);
     noteOpener = document.activeElement;
     noteModal.classList.add('open');
     noteModal.setAttribute('aria-hidden','false');
@@ -1927,6 +2195,24 @@
   }
   document.querySelectorAll('[data-note]').forEach(el=>{
     el.addEventListener('click',()=>openNote(el.dataset.note));
+  });
+  document.querySelectorAll('[data-paper-open]').forEach(el=>{
+    el.addEventListener('click',()=>openPaperModal(el.dataset.paperOpen));
+  });
+  document.querySelectorAll('.bib-row[data-abs]').forEach(row=>{
+    row.addEventListener('click',(e)=>{
+      if(e.target.closest('a')) return;
+      openPaperModal(row.dataset.abs);
+    });
+    row.addEventListener('keydown',(e)=>{
+      if(e.key === 'Enter' || e.key === ' '){
+        e.preventDefault();
+        openPaperModal(row.dataset.abs);
+      }
+    });
+  });
+  document.querySelectorAll('.bib-row a').forEach(link=>{
+    link.addEventListener('click',e=>e.stopPropagation());
   });
   document.querySelectorAll('[data-note-close]').forEach(el=>{
     el.addEventListener('click',closeNote);
