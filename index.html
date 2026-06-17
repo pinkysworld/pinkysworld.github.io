@@ -778,7 +778,7 @@
       </div>
       <div class="m">
         <div class="k">Output 2025–26</div>
-        <div class="v"><span class="em">10</span> papers · <span class="em">14</span> projects · <span class="em">6</span> releases</div>
+        <div class="v"><span class="em">13</span> papers · <span class="em">14</span> projects · <span class="em">6</span> releases</div>
       </div>
       <div class="m">
         <div class="k">Status</div>
@@ -821,7 +821,7 @@
     </div>
   </div>
   <div class="ix">
-    <a href="#papers"><span class="num">01</span><span class="title">Papers · bibliography</span><span class="arr">12 →</span></a>
+    <a href="#papers"><span class="num">01</span><span class="title">Papers · bibliography</span><span class="arr">13 →</span></a>
     <a href="#projects"><span class="num">02</span><span class="title">Projects · the work</span><span class="arr">14 →</span></a>
     <a href="#log"><span class="num">03</span><span class="title">Log · writing &amp; notes</span><span class="arr">3 →</span></a>
     <a href="#music"><span class="num">04</span><span class="title">Music · releases</span><span class="arr">6 →</span></a>
@@ -880,14 +880,21 @@
   </div>
 
   <div class="filter-bar">
-    <button class="on" data-bfilter="all">all<span class="ct">12</span></button>
+    <button class="on" data-bfilter="all">all<span class="ct">13</span></button>
     <button data-bfilter="journal">journal<span class="ct">4</span></button>
-    <button data-bfilter="preprint">preprint<span class="ct">6</span></button>
+    <button data-bfilter="preprint">preprint<span class="ct">7</span></button>
     <button data-bfilter="other">other<span class="ct">2</span></button>
   </div>
 
   <div class="bib-head">
     <span>year</span><span>title · venue</span><span>type</span><span class="col-doi">link</span>
+  </div>
+
+  <div class="bib-row is-preprint" data-abs="mortality-reference-class">
+    <span class="yr">2026.06</span>
+    <div><div class="title">Reference-Class Failure in Mortality Prediction: A Synthetic Study of Irreducible Uncertainty in End-of-Life Prognostic Models</div><span class="where"><span class="venue">Research Square</span> · Version 1</span></div>
+    <span class="kind preprint">preprint</span>
+    <span class="doi"><a href="https://doi.org/10.21203/rs.3.rs-10058406/v1" target="_blank" rel="noopener">DOI ↗</a></span>
   </div>
 
   <div class="bib-row is-preprint" data-abs="beyond-no">
@@ -1545,7 +1552,7 @@
     {t:'<span class="k">research/</span> &nbsp;&nbsp;5 projects · 4 active', cls:'', d:80},
     {t:'<span class="k">apps/</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4 iOS · 2 macOS · all shipping', cls:'', d:80},
     {t:'<span class="k">games/</span> &nbsp;&nbsp;&nbsp;&nbsp;2 live', cls:'', d:80},
-    {t:'<span class="k">papers/</span> &nbsp;&nbsp;&nbsp;12 records · 4 journal/in press · 6 preprint', cls:'', d:80},
+    {t:'<span class="k">papers/</span> &nbsp;&nbsp;&nbsp;13 records · 4 journal/in press · 7 preprint', cls:'', d:80},
     {t:'<span class="k">music/</span> &nbsp;&nbsp;&nbsp;&nbsp;6 releases · 2025', cls:'', d:80},
     {t:'', cls:'', d:80},
     {t:'cat motd', cls:'cmd', d:500},
@@ -1750,6 +1757,12 @@
 
   // paper abstract hover spotlights
   const bibAbstracts = {
+    'mortality-reference-class': {
+      k:'abstract spotlight · mortality prediction',
+      h:'When a precise mortality risk has no valid reference class',
+      p:'Defines reference-class failure in mortality prediction: an end-of-life case can sit outside the development population’s transportable conditional mechanism while the model still returns a sharp individual risk. In a synthetic concept-shift study, logistic regression, random forest, gradient boosting, and a neural network remain confident on novel terminal cases, but Brier error plateaus near 0.215, far above the novel regime’s 0.092 aleatoric floor. The paper proposes a diagnostic triad: absent reference class, sharp output, and data-insensitive error.',
+      href:'https://doi.org/10.21203/rs.3.rs-10058406/v1', cta:'open preprint ↗'
+    },
     'beyond-no': {
       k:'abstract spotlight · beyond no',
       h:'Guiding early learners with fewer interruptions',
