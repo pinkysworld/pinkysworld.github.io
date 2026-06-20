@@ -1,0 +1,1402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Research papers — Michél Nguyen · minh.systems</title>
+<meta name="description" content="Full bibliography for Michél Nguyen: cybersecurity, systems security, clinical AI, cloud systems, education, organization theory, physics, notation, and creative software work.">
+<meta name="author" content="Michél Nguyen">
+<meta name="theme-color" content="#0b0d0e">
+<link rel="canonical" href="https://minh.systems/research.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://minh.systems/research.html">
+<meta property="og:site_name" content="minh.systems">
+<meta property="og:title" content="Research papers — Michél Nguyen">
+<meta property="og:description" content="Full bibliography across cybersecurity, systems security, clinical AI, cloud systems, education, organization theory, physics, notation, and creative software work.">
+<meta property="og:image" content="https://minh.systems/assets/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Research papers — Michél Nguyen">
+<meta name="twitter:description" content="Full bibliography across cybersecurity, systems security, clinical AI, cloud systems, education, organization theory, physics, notation, and creative software work.">
+<meta name="twitter:image" content="https://minh.systems/assets/og-card.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"></noscript>
+<style>
+  :root{
+    --bg:#0b0d0e;
+    --bg-2:#111416;
+    --bg-3:#171b1d;
+    --line:#1f2528;
+    --line-2:#2a3236;
+    --fg:#dde3e1;
+    --mute:#7d8a86;
+    --dim:#4a5550;
+    --green:#7fd49f;
+    --amber:#e8b86b;
+    --cyan:#7cc8d6;
+    --red:#e07b6f;
+    --magenta:#d18ec1;
+    --mono:'JetBrains Mono', ui-monospace, 'SF Mono', monospace;
+    --sans:'Inter', system-ui, sans-serif;
+    --max:1320px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--bg);color:var(--fg);font-family:var(--mono);font-size:14px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  body{overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--green);color:var(--bg)}
+
+  /* scanlines */
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:60;
+    background:repeating-linear-gradient(0deg, transparent 0 2px, rgba(255,255,255,0.012) 2px 3px);
+  }
+  /* vignette */
+  body::after{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:59;
+    background:radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.45) 100%);
+  }
+
+  /* ===== TOP STATUS BAR ===== */
+  .topbar{
+    position:sticky;top:0;z-index:50;
+    background:var(--bg-2);border-bottom:1px solid var(--line);
+    display:flex;align-items:center;justify-content:space-between;
+    padding:0 24px;height:36px;
+    font-size:11px;letter-spacing:0.04em;
+  }
+  .topbar .left,.topbar .right{display:flex;align-items:center;gap:18px;color:var(--mute)}
+  .topbar .brand{color:var(--green);font-weight:600}
+  .topbar .brand::before{content:"$ ";color:var(--dim)}
+  .topbar .dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green);animation:pulse 2s ease-in-out infinite}
+  @keyframes pulse{50%{opacity:0.4}}
+  .topbar .pipe{color:var(--dim)}
+  .topbar .clock{color:var(--amber)}
+
+  /* ===== NAV ===== */
+  .nav{
+    background:var(--bg);border-bottom:1px solid var(--line);
+    position:sticky;top:36px;z-index:49;
+  }
+  .nav-inner{
+    max-width:var(--max);margin:0 auto;padding:0 24px;
+    display:flex;align-items:stretch;gap:0;height:48px;
+  }
+  .nav-tab{
+    display:flex;align-items:center;padding:0 18px;color:var(--mute);
+    border-right:1px solid var(--line);font-size:12px;
+    letter-spacing:0.04em;transition:all .15s;cursor:pointer;
+  }
+  .nav-tab:first-child{border-left:1px solid var(--line)}
+  .nav-tab:hover{color:var(--fg);background:var(--bg-2)}
+  .nav-tab.active{color:var(--green);background:var(--bg-2);box-shadow:inset 0 -2px 0 var(--green)}
+  .nav-tab .hash{color:var(--dim);margin-right:6px}
+  .nav-spacer{flex:1;border-bottom:1px solid var(--line);align-self:stretch}
+  .nav-cmd{
+    display:flex;align-items:center;padding:0 18px;color:var(--mute);
+    border-left:1px solid var(--line);border-right:1px solid var(--line);
+    font-size:11px;background:var(--bg-2);
+  }
+  .nav-cmd kbd{
+    background:var(--bg-3);border:1px solid var(--line-2);
+    padding:1px 5px;font:inherit;font-size:10px;color:var(--fg);margin-left:8px;
+  }
+
+  /* ===== LAYOUT ===== */
+  main{max-width:var(--max);margin:0 auto;padding:0 24px}
+
+  .section{
+    padding:64px 0;border-bottom:1px solid var(--line);
+    position:relative;
+  }
+  .section-mark{
+    display:grid;grid-template-columns:180px 1fr;gap:32px;
+    padding-bottom:24px;border-bottom:1px solid var(--line);margin-bottom:32px;
+  }
+  .section-mark .tag{
+    color:var(--green);font-size:11px;letter-spacing:0.12em;
+  }
+  .section-mark .tag::before{content:"// ";color:var(--dim)}
+  .section-mark h2{
+    font-family:var(--mono);font-size:clamp(28px,3.5vw,42px);font-weight:600;letter-spacing:-0.015em;line-height:1;color:var(--fg);
+  }
+  .section-mark h2 .punct{color:var(--green)}
+  .section-mark .sub{margin-top:8px;color:var(--mute);font-size:13px;max-width:60ch}
+
+  /* ===== HERO / TERMINAL ===== */
+  .hero{
+    padding:64px 0 48px;border-bottom:1px solid var(--line);
+    display:grid;grid-template-columns:1.15fr 1fr;gap:48px;align-items:stretch;
+  }
+  .hero-left{display:flex;flex-direction:column;gap:24px}
+  .hero-eyebrow{
+    color:var(--mute);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;
+    display:flex;align-items:center;gap:12px;
+  }
+  .hero-eyebrow::before{content:"";flex:0 0 28px;height:1px;background:var(--green)}
+  .hero-eyebrow .live{color:var(--green)}
+  .hero-title{
+    font-family:var(--mono);font-size:clamp(38px,5vw,68px);
+    font-weight:600;letter-spacing:-0.025em;line-height:1.02;color:var(--fg);
+  }
+  .hero-title .c1{color:var(--cyan)}
+  .hero-title .c2{color:var(--amber)}
+  .hero-title .c3{color:var(--green)}
+  .hero-title .punct{color:var(--mute)}
+  .hero-body{font-family:var(--sans);font-size:18px;line-height:1.55;color:var(--fg);max-width:54ch;text-wrap:pretty}
+  .hero-body .hl{color:var(--green)}
+  .hero-nowline{
+    margin-top:-6px;max-width:60ch;padding:14px 16px;
+    border:1px solid var(--line-2);background:var(--bg-2);
+    color:var(--mute);font-size:13px;line-height:1.55;font-family:var(--sans);
+  }
+  .hero-nowline .k{
+    color:var(--green);font-family:var(--mono);font-size:11px;
+    letter-spacing:0.14em;text-transform:uppercase;margin-right:8px;
+  }
+  .hero-nowline a{color:var(--cyan);border-bottom:1px dashed transparent}
+  .hero-nowline a:hover{color:var(--green);border-bottom-color:var(--green)}
+  .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    font-family:var(--mono);font-size:12px;letter-spacing:0.06em;
+    padding:11px 16px;border:1px solid var(--line-2);background:var(--bg-2);color:var(--fg);
+    cursor:pointer;transition:all .15s;
+  }
+  .btn:hover{border-color:var(--green);color:var(--green);background:var(--bg-3)}
+  .btn.primary{background:var(--green);color:var(--bg);border-color:var(--green)}
+  .btn.primary:hover{background:transparent;color:var(--green)}
+  .btn .ico{font-size:14px;line-height:1}
+  .btn .kbd{
+    margin-left:6px;background:rgba(0,0,0,0.25);padding:1px 5px;font-size:10px;
+    border:1px solid rgba(255,255,255,0.1);
+  }
+  .btn.primary .kbd{background:rgba(0,0,0,0.3);border-color:rgba(0,0,0,0.2)}
+
+  .hero-meta{
+    margin-top:16px;display:grid;grid-template-columns:repeat(3,1fr);gap:0;
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  }
+  .hero-meta .m{padding:14px 0;border-right:1px solid var(--line);padding-right:18px}
+  .hero-meta .m:last-child{border-right:none;padding-right:0}
+  .hero-meta .k{color:var(--dim);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:6px}
+  .hero-meta .v{color:var(--fg);font-size:13px;line-height:1.3}
+  .hero-meta .v .em{color:var(--green)}
+
+  .recruiter-snapshot{
+    margin-top:18px;background:var(--bg-2);border:1px solid var(--line-2);
+    display:grid;grid-template-columns:1.1fr 1fr;gap:0;
+  }
+  .recruiter-snapshot .rs-main,.recruiter-snapshot .rs-proof{padding:18px}
+  .recruiter-snapshot .rs-main{border-right:1px solid var(--line)}
+  .recruiter-snapshot .rs-k{
+    color:var(--green);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:10px;
+  }
+  .recruiter-snapshot .rs-k::before{content:"// "}
+  .recruiter-snapshot h3{
+    font-family:var(--mono);font-size:18px;font-weight:600;letter-spacing:-0.01em;line-height:1.25;color:var(--fg);margin-bottom:10px;
+  }
+  .recruiter-snapshot p{font-family:var(--sans);font-size:13px;line-height:1.55;color:var(--mute);max-width:64ch}
+  .recruiter-snapshot .rs-tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:14px}
+  .recruiter-snapshot .rs-tags span{
+    color:var(--cyan);border:1px solid var(--line-2);padding:3px 7px;
+    font-size:10px;letter-spacing:0.06em;
+  }
+  .recruiter-snapshot .rs-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:2px}
+  .recruiter-snapshot .rs-links a{
+    display:flex;align-items:center;justify-content:space-between;gap:10px;
+    padding:8px 10px;border:1px solid var(--line-2);background:var(--bg-3);
+    color:var(--fg);font-size:11px;letter-spacing:0.04em;transition:all .15s;
+  }
+  .recruiter-snapshot .rs-links a:hover{border-color:var(--green);color:var(--green)}
+  .recruiter-snapshot .rs-links a::after{content:"→";color:var(--dim)}
+
+  .id-row{display:flex;gap:18px;flex-wrap:wrap;font-size:11px;color:var(--mute)}
+  .id-row a{color:var(--cyan);border-bottom:1px dashed transparent;padding-bottom:1px}
+  .id-row a:hover{border-bottom-color:var(--cyan)}
+
+  /* terminal */
+  .term{
+    background:var(--bg-2);border:1px solid var(--line-2);
+    display:flex;flex-direction:column;height:100%;min-height:520px;
+    box-shadow:0 30px 60px rgba(0,0,0,0.4), 0 0 0 1px var(--line) inset;
+  }
+  .term-bar{
+    display:flex;align-items:center;gap:10px;padding:10px 14px;
+    background:var(--bg-3);border-bottom:1px solid var(--line-2);
+    font-size:11px;color:var(--mute);
+  }
+  .term-dots{display:flex;gap:6px}
+  .term-dots span{width:11px;height:11px;border-radius:50%;background:var(--dim)}
+  .term-dots span:nth-child(1){background:#e07b6f}
+  .term-dots span:nth-child(2){background:#e8b86b}
+  .term-dots span:nth-child(3){background:#7fd49f}
+  .term-title{margin-left:8px;font-family:var(--mono);font-size:11px;letter-spacing:0.04em}
+  .term-title .path{color:var(--cyan)}
+  .term-tabs{margin-left:auto;display:flex;gap:1px}
+  .term-tabs span{
+    background:var(--bg-2);padding:3px 10px;border:1px solid var(--line);
+    color:var(--mute);font-size:10px;
+  }
+  .term-tabs span.on{color:var(--green);border-color:var(--green)}
+  .term-body{
+    padding:18px 20px;flex:1;font-size:13px;line-height:1.7;
+    overflow:hidden;position:relative;
+  }
+  .term-line{display:block;white-space:pre-wrap}
+  .term-line.cmd::before{content:"› ";color:var(--green)}
+  .term-line.cmt{color:var(--dim)}
+  .term-line.warn{color:var(--amber)}
+  .term-line.err{color:var(--red)}
+  .term-line.ok{color:var(--green)}
+  .term-line .k{color:var(--cyan)}
+  .term-line .v{color:var(--amber)}
+  .term-line .s{color:var(--magenta)}
+  .term-line .mute{color:var(--mute)}
+  .term-line .dim{color:var(--dim)}
+  .term-cursor{display:inline-block;width:8px;height:14px;background:var(--green);vertical-align:-2px;animation:blink 1s steps(2) infinite}
+  @keyframes blink{50%{opacity:0}}
+  .term-foot{
+    border-top:1px solid var(--line-2);background:var(--bg-3);
+    padding:6px 14px;font-size:10px;color:var(--mute);display:flex;justify-content:space-between;letter-spacing:0.06em;
+  }
+  .term-foot .seg{display:flex;gap:14px}
+  .term-foot .seg .g{color:var(--green)}
+  .term-foot .seg .a{color:var(--amber)}
+
+  /* ===== INDEX ===== */
+  .ix{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:0 32px;
+  }
+  .ix a{
+    display:grid;grid-template-columns:60px 1fr auto;gap:16px;
+    padding:14px 16px 14px 0;border-bottom:1px dashed var(--line-2);
+    transition:padding .15s,color .15s;
+  }
+  .ix a:hover{padding-left:12px;color:var(--green);background:linear-gradient(90deg, var(--bg-2), transparent)}
+  .ix a:hover .arr{color:var(--green)}
+  .ix .num{color:var(--dim);font-size:11px}
+  .ix .title{color:var(--fg);font-size:14px}
+  .ix .arr{color:var(--mute);font-size:11px}
+  .ix a:hover .title{color:var(--green)}
+
+  /* ===== PROJECTS ===== */
+  .filter-bar{
+    display:flex;gap:8px;margin-bottom:24px;flex-wrap:wrap;
+  }
+  .filter-bar button{
+    background:var(--bg-2);border:1px solid var(--line-2);color:var(--mute);
+    padding:7px 12px;font:inherit;font-size:11px;letter-spacing:0.06em;
+    cursor:pointer;transition:all .15s;
+  }
+  .filter-bar button:hover{color:var(--fg);border-color:var(--mute)}
+  .filter-bar button.on{color:var(--green);border-color:var(--green);background:var(--bg-3)}
+  .filter-bar button .ct{color:var(--dim);margin-left:8px}
+  .filter-bar.topic{margin-top:10px}
+  .filter-bar.topic button.on{color:var(--cyan);border-color:var(--cyan)}
+
+  .proj-table{display:grid}
+  .ptr-head,.ptr{
+    display:grid;grid-template-columns:32px 1.45fr 1.15fr 90px 140px 40px;
+    gap:18px;align-items:center;padding:14px 12px;
+    border-bottom:1px solid var(--line);
+  }
+  .ptr-head{
+    background:var(--bg-2);color:var(--dim);font-size:10px;
+    letter-spacing:0.14em;text-transform:uppercase;border-bottom-color:var(--line-2);
+  }
+  .ptr{cursor:pointer;transition:background .12s;font-size:13px}
+  .ptr:hover{background:var(--bg-2)}
+  .ptr .i{color:var(--dim);font-size:11px;text-align:right}
+  .ptr .name{display:flex;flex-direction:column;gap:3px}
+  .ptr .name strong{color:var(--fg);font-weight:600;font-size:14px;letter-spacing:-0.01em}
+  .ptr .name span{color:var(--mute);font-size:11px}
+  .ptr .desc{color:var(--fg);font-size:12px;line-height:1.45;font-family:var(--sans)}
+  .ptr .kind{font-size:10px;letter-spacing:0.1em;text-transform:uppercase}
+  .ptr .kind.research{color:var(--amber)}
+  .ptr .kind.tool{color:var(--green)}
+  .ptr .kind.ios{color:var(--cyan)}
+  .ptr .kind.macos{color:var(--magenta)}
+  .ptr .kind.game{color:var(--green)}
+  .ptr .status{font-size:11px;color:var(--mute);display:flex;align-items:center;gap:6px}
+  .ptr .status::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--green)}
+  .ptr .status.beta::before{background:var(--amber)}
+  .ptr .status.proto::before{background:var(--cyan)}
+  .ptr .status.draft::before{background:var(--dim)}
+  .ptr .arr{color:var(--mute);text-align:center}
+  .ptr:hover .arr{color:var(--green)}
+  .ptr[hidden]{display:none}
+  .research-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+  .research-card{
+    display:flex;flex-direction:column;gap:12px;padding:18px;background:var(--bg-2);
+    border:1px solid var(--line-2);border-top:2px solid var(--amber);min-height:100%;
+  }
+  .research-card .k{color:var(--amber);font-size:10px;letter-spacing:0.14em;text-transform:uppercase}
+  .research-card h3{color:var(--fg);font-family:var(--mono);font-size:18px;font-weight:600;letter-spacing:-0.01em;line-height:1.2}
+  .research-card p{color:var(--mute);font-size:13px;line-height:1.6}
+  .research-card .meta{color:var(--mute);font-size:11px;line-height:1.5}
+  .research-card .meta strong{color:var(--green);font-weight:600}
+  .research-card .linkline{margin-top:auto;color:var(--green);font-size:11px;letter-spacing:0.12em;text-transform:uppercase}
+
+  /* expanded inline */
+  .ptr-detail{
+    display:none;grid-column:1/-1;
+    background:var(--bg-2);border-bottom:1px solid var(--line);
+    padding:24px 32px;
+  }
+  .ptr-detail.open{display:grid}
+  .ptr-detail.open + .ptr{border-top:1px solid var(--green)}
+
+  /* ===== PAPERS / BIB ===== */
+  .paper-feature{
+    display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:14px;margin-bottom:18px;
+  }
+  .paper-card{
+    border:1px solid var(--line-2);background:var(--bg-2);padding:16px;
+    display:flex;flex-direction:column;gap:10px;min-height:168px;text-align:left;color:inherit;
+    font:inherit;cursor:pointer;transition:all .15s;
+  }
+  .paper-card:hover,.paper-card:focus-visible{border-color:var(--green);background:var(--bg-3);outline:none}
+  .paper-card .k{color:var(--green);font-size:10px;letter-spacing:0.14em;text-transform:uppercase}
+  .paper-card h3{font-family:var(--mono);font-size:17px;line-height:1.25;font-weight:600;letter-spacing:-0.01em;color:var(--fg)}
+  .paper-card p{font-family:var(--sans);font-size:13px;line-height:1.55;color:var(--mute)}
+  .paper-card .meta{margin-top:auto;color:var(--amber);font-size:10px;letter-spacing:0.1em;text-transform:uppercase}
+  .bib-head{
+    display:grid;grid-template-columns:80px 1fr 100px 60px;gap:24px;
+    padding:12px 12px;background:var(--bg-2);
+    color:var(--dim);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;
+    border-bottom:1px solid var(--line-2);
+  }
+  .bib-row{
+    display:grid;grid-template-columns:80px 1fr 100px 60px;gap:24px;align-items:baseline;
+    padding:18px 12px;border-bottom:1px solid var(--line);transition:background .12s;
+    cursor:pointer;text-align:left;color:inherit;
+  }
+  .bib-row:hover,.bib-row:focus-visible{background:var(--bg-2);outline:none}
+  .bib-row .yr{color:var(--mute);font-size:12px}
+  .bib-row .title{color:var(--fg);font-size:14px;line-height:1.45;letter-spacing:-0.005em;font-weight:500;text-wrap:pretty;max-width:70ch}
+  .bib-row .where{color:var(--mute);font-size:11px;margin-top:6px;display:block}
+  .bib-row .where .venue{color:var(--amber)}
+  .bib-row .where a{color:var(--cyan);border-bottom:1px dashed transparent}
+  .bib-row .where a:hover{border-bottom-color:var(--cyan)}
+  .bib-row .kind{font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--mute)}
+  .bib-row .kind.journal{color:var(--green)}
+  .bib-row .kind.preprint{color:var(--amber)}
+  .bib-row .kind.other{color:var(--cyan)}
+  .bib-row .doi{font-size:10px;color:var(--dim);text-align:right}
+  .bib-row .doi a:hover{color:var(--green)}
+  .paper-meta{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+  .paper-meta span{
+    color:var(--cyan);border:1px solid var(--line-2);padding:2px 6px;
+    font-size:9px;letter-spacing:0.08em;text-transform:uppercase;
+  }
+  .bib-row[hidden]{display:none}
+
+  /* ===== WRITING — log entries ===== */
+  .log{display:flex;flex-direction:column}
+  .log-entry{
+    display:grid;grid-template-columns:140px 1fr auto;gap:32px;
+    padding:20px 12px;border-bottom:1px solid var(--line);cursor:pointer;transition:background .12s;
+    align-items:start;
+  }
+  .log-spotlight{
+    display:grid;grid-template-columns:180px 1fr auto;gap:24px;align-items:start;
+    padding:22px 18px;margin-bottom:18px;background:var(--bg-2);
+    border:1px solid var(--line-2);border-left:2px solid var(--green);
+  }
+  .log-spotlight .stamp{color:var(--green);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;line-height:1.7}
+  .log-spotlight .stamp .meta{color:var(--mute)}
+  .log-spotlight h3{color:var(--fg);font-family:var(--mono);font-size:22px;font-weight:600;letter-spacing:-0.015em;line-height:1.18;margin-bottom:10px}
+  .log-spotlight p{color:var(--mute);font-size:13px;line-height:1.7;font-family:var(--sans);max-width:66ch}
+  .spot-actions{display:flex;flex-direction:column;gap:10px;align-items:stretch;min-width:180px}
+  .spot-actions .btn{justify-content:center}
+  .log-entry-btn{
+    width:100%;border:none;background:transparent;text-align:left;padding:0;
+    font:inherit;letter-spacing:inherit;text-transform:none;
+  }
+  .log-entry:hover{background:var(--bg-2)}
+  .log-entry .ts{color:var(--mute);font-size:11px;line-height:1.4}
+  .log-entry .ts .level{color:var(--green);font-weight:600}
+  .log-entry .body h4{
+    color:var(--fg);font-size:18px;font-weight:500;letter-spacing:-0.01em;margin-bottom:6px;
+    font-family:var(--sans);
+  }
+  .log-entry .body p{color:var(--mute);font-size:13px;line-height:1.5;font-family:var(--sans);max-width:60ch}
+  .log-entry .body .tags{margin-top:8px;display:flex;gap:6px;flex-wrap:wrap}
+  .log-entry .body .tags span{
+    font-size:10px;letter-spacing:0.08em;color:var(--cyan);
+    border:1px solid var(--line-2);padding:2px 6px;
+  }
+  .log-entry .read{color:var(--green);font-size:11px;align-self:center}
+  .log-entry .read::after{content:" →"}
+  .bib-abstract{
+    margin:16px 0 0 80px;padding:18px 18px 18px 20px;
+    border:1px solid var(--line-2);border-left:2px solid var(--cyan);
+    background:var(--bg-2);
+  }
+  .bib-abstract .k{color:var(--cyan);font-size:11px;letter-spacing:0.14em;text-transform:uppercase}
+  .bib-abstract h4{color:var(--fg);font-family:var(--mono);font-size:18px;font-weight:600;letter-spacing:-0.01em;margin:10px 0 10px}
+  .bib-abstract p{color:var(--mute);font-size:13px;line-height:1.7;max-width:84ch}
+  .bib-abstract .actions{margin-top:12px;display:flex;gap:12px;flex-wrap:wrap}
+  .bib-abstract .actions a{color:var(--green);font-size:11px;letter-spacing:0.12em;text-transform:uppercase}
+  /* floating hover variant of the abstract spotlight */
+  .bib-spot{
+    position:fixed;z-index:120;margin:0;width:min(680px,calc(100vw - 32px));
+    background:rgba(17,20,22,0.72);
+    backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+    box-shadow:0 18px 44px rgba(0,0,0,0.5);
+    opacity:0;pointer-events:none;transition:opacity .15s;
+  }
+  .bib-spot.show{opacity:1;pointer-events:auto}
+  @media (hover:none){.bib-spot{display:none}}
+  .note-modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;padding:20px;z-index:240}
+  .note-modal.open{display:flex}
+  .note-backdrop{position:absolute;inset:0;background:rgba(4,11,18,.78);backdrop-filter:blur(6px)}
+  .note-panel{
+    position:relative;width:min(860px,calc(100vw - 32px));max-height:calc(100vh - 40px);overflow:auto;
+    background:var(--bg-2);border:1px solid var(--line-2);box-shadow:0 30px 70px rgba(0,0,0,.45);
+  }
+  .note-head{
+    display:flex;justify-content:space-between;gap:18px;align-items:flex-start;
+    padding:20px 20px 16px;border-bottom:1px solid var(--line);
+  }
+  .note-head .meta{color:var(--green);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;line-height:1.7}
+  .note-head h3{color:var(--fg);font-family:var(--mono);font-size:24px;font-weight:600;letter-spacing:-0.015em;line-height:1.2;margin-top:6px}
+  .note-close{
+    flex:0 0 auto;border:1px solid var(--line-2);background:var(--bg-3);color:var(--fg);
+    width:42px;height:42px;cursor:pointer;font:inherit;font-size:18px;
+  }
+  .note-close:hover{border-color:var(--green);color:var(--green)}
+  .note-copy{padding:18px 20px 0}
+  .note-copy p{color:var(--fg);font-size:14px;line-height:1.8;max-width:70ch;margin-bottom:14px}
+  .note-copy .paper-kv{display:grid;grid-template-columns:110px 1fr;gap:8px 14px;margin:0 0 16px;max-width:70ch}
+  .note-copy .paper-kv dt{color:var(--dim);font-size:10px;letter-spacing:0.12em;text-transform:uppercase}
+  .note-copy .paper-kv dd{color:var(--fg);font-size:12px;line-height:1.5}
+  .note-copy .paper-kv a{color:var(--cyan);border-bottom:1px dashed transparent}
+  .note-copy .paper-kv a:hover{border-bottom-color:var(--cyan)}
+  .note-foot{
+    display:flex;justify-content:space-between;gap:16px;align-items:center;flex-wrap:wrap;
+    padding:18px 20px 20px;border-top:1px solid var(--line);margin-top:8px;
+  }
+  .note-tags{display:flex;gap:8px;flex-wrap:wrap}
+  .note-tags span{
+    font-size:10px;letter-spacing:0.08em;color:var(--cyan);
+    border:1px solid var(--line-2);padding:4px 8px;text-transform:uppercase;
+  }
+  .note-links{display:flex;gap:12px;flex-wrap:wrap}
+  .note-links button.btn{font:inherit}
+
+  /* ===== MUSIC ===== */
+  .music-wrap{
+    display:grid;grid-template-columns:0.9fr 1fr;gap:32px;align-items:start;
+  }
+  .mx-feature{
+    background:var(--bg-2);border:1px solid var(--line-2);
+    padding:20px;display:flex;flex-direction:column;gap:18px;
+  }
+  .mx-feature .cover-wrap{
+    position:relative;aspect-ratio:1/1;background:var(--bg-3);
+    border:1px solid var(--line-2);overflow:hidden;
+  }
+  .mx-feature .cover-wrap img{width:100%;height:100%;object-fit:cover;transition:opacity .25s}
+  .mx-feature .cover-wrap::before{
+    content:"";position:absolute;inset:0;
+    background:repeating-linear-gradient(0deg,transparent 0 3px,rgba(255,255,255,0.02) 3px 4px);
+    pointer-events:none;mix-blend-mode:overlay;
+  }
+  .mx-feature .meta{display:flex;flex-direction:column;gap:6px}
+  .mx-feature .label{color:var(--green);font-size:10px;letter-spacing:0.18em;text-transform:uppercase}
+  .mx-feature h3{
+    color:var(--fg);font-size:24px;font-weight:600;letter-spacing:-0.015em;line-height:1.15;font-family:var(--mono);
+  }
+  .mx-feature .by{color:var(--mute);font-size:12px}
+  .mx-feature .by .by-name{color:var(--cyan)}
+  .mx-plats{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
+  .mx-plats a{
+    display:inline-flex;align-items:center;gap:6px;font-size:11px;
+    padding:7px 11px;border:1px solid var(--line-2);color:var(--fg);
+    background:var(--bg-3);transition:all .15s;
+  }
+  .mx-plats a:hover{border-color:var(--green);color:var(--green)}
+  .mx-plats a svg{flex:none}
+  .mx-embed{border:1px solid var(--line-2);background:#000;overflow:hidden}
+  .mx-embed iframe{display:block;border:none}
+
+  .mx-list{display:flex;flex-direction:column}
+  .mxl-head{
+    display:grid;grid-template-columns:36px 1fr 70px 50px;gap:14px;
+    padding:10px 12px;background:var(--bg-2);color:var(--dim);
+    font-size:10px;letter-spacing:0.14em;text-transform:uppercase;
+    border:1px solid var(--line-2);border-bottom:none;
+  }
+  .mx-row{
+    display:grid;grid-template-columns:36px 1fr 70px 50px;gap:14px;align-items:center;
+    padding:12px;border:1px solid var(--line-2);border-top:none;
+    background:transparent;cursor:pointer;text-align:left;color:var(--fg);
+    transition:background .12s;font:inherit;letter-spacing:inherit;text-transform:inherit;
+  }
+  .mx-row:hover{background:var(--bg-2)}
+  .mx-row.on{background:var(--bg-2);border-left:2px solid var(--green);padding-left:10px}
+  .mx-row .n{color:var(--dim);font-size:11px;text-align:center}
+  .mx-row.on .n{color:var(--green)}
+  .mx-row .t{display:flex;align-items:center;gap:12px}
+  .mx-row .t img{width:38px;height:38px;border:1px solid var(--line);object-fit:cover}
+  .mx-row .t .ti{font-size:13px;color:var(--fg);letter-spacing:-0.005em;line-height:1.2}
+  .mx-row .t .tk{font-size:10px;color:var(--mute);letter-spacing:0.08em;text-transform:uppercase;margin-top:2px;display:block}
+  .mx-row.on .t .ti{color:var(--green)}
+  .mx-row .k{font-size:10px;color:var(--mute);letter-spacing:0.12em;text-transform:uppercase}
+  .mx-row .y{color:var(--dim);font-size:11px;text-align:center}
+
+  /* ===== NOW ===== */
+  .now-grid{
+    display:grid;grid-template-columns:1.4fr 1fr;gap:32px;
+  }
+  .now-card{
+    background:var(--bg-2);border:1px solid var(--line-2);padding:24px;
+  }
+  .now-card .hd{
+    display:flex;justify-content:space-between;align-items:baseline;
+    padding-bottom:14px;border-bottom:1px solid var(--line);margin-bottom:18px;
+  }
+  .now-card .hd .lbl{color:var(--green);font-size:11px;letter-spacing:0.14em}
+  .now-card .hd .ts{color:var(--dim);font-size:11px}
+  .now-card h3{color:var(--fg);font-family:var(--mono);font-size:22px;font-weight:600;letter-spacing:-0.015em;line-height:1.2;margin-bottom:18px}
+  .now-list{display:flex;flex-direction:column;gap:12px}
+  .now-list li{
+    list-style:none;display:grid;grid-template-columns:90px 1fr;gap:14px;align-items:start;
+    padding-bottom:12px;border-bottom:1px solid var(--line);font-size:13px;font-family:var(--sans);
+  }
+  .now-list li:last-child{border-bottom:none}
+  .now-list .when{color:var(--cyan);font-family:var(--mono);font-size:11px;letter-spacing:0.06em;padding-top:2px}
+  .now-list .what{color:var(--fg);line-height:1.5}
+  .now-list .what strong{color:var(--green);font-weight:600}
+  .now-side{display:flex;flex-direction:column;gap:16px}
+  .stat{background:var(--bg-2);border:1px solid var(--line-2);padding:20px}
+  .stat .k{color:var(--mute);font-size:10px;letter-spacing:0.16em;text-transform:uppercase;margin-bottom:8px}
+  .stat .v{color:var(--fg);font-family:var(--mono);font-size:36px;font-weight:600;letter-spacing:-0.02em;line-height:1}
+  .stat .v.green{color:var(--green)}
+  .stat .v.amber{color:var(--amber)}
+  .stat .v.cyan{color:var(--cyan)}
+  .stat .s{color:var(--mute);font-size:12px;margin-top:8px;font-family:var(--sans);line-height:1.5}
+
+  /* ===== SKILLS ===== */
+  .skills{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+  .skill-col h4{
+    color:var(--green);font-size:11px;letter-spacing:0.14em;
+    padding-bottom:10px;border-bottom:1px solid var(--line);margin-bottom:14px;
+  }
+  .skill-col h4::before{content:"// "}
+  .skill-col ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+  .skill-col li{
+    display:flex;justify-content:space-between;align-items:baseline;font-size:13px;color:var(--fg);
+    padding:6px 0;border-bottom:1px dashed var(--line);
+  }
+  .skill-col li .lvl{font-size:10px;color:var(--mute);letter-spacing:0.08em;text-transform:uppercase}
+  .skill-col li .lvl.daily{color:var(--green)}
+  .skill-col li .lvl.wkly{color:var(--amber)}
+
+  /* ===== EDUCATION / TIMELINE ===== */
+  .tl{display:flex;flex-direction:column;gap:0}
+  .tl-item{
+    display:grid;grid-template-columns:170px 1fr;gap:32px;
+    padding:20px 12px;border-bottom:1px solid var(--line);
+  }
+  .tl-item .left{color:var(--mute);font-size:11px;line-height:1.5}
+  .tl-item .left .yr{color:var(--green);font-size:13px;font-weight:600;margin-bottom:4px;display:block}
+  .tl-item .left .yr.live::after{content:" ●";color:var(--green);animation:pulse 2s infinite}
+  .tl-item h4{color:var(--fg);font-family:var(--mono);font-size:17px;font-weight:600;letter-spacing:-0.01em;margin-bottom:6px}
+  .tl-item p{color:var(--mute);font-size:13px;line-height:1.55;font-family:var(--sans);max-width:65ch}
+  .tl-item ul{margin-top:10px;padding-left:0;list-style:none}
+  .tl-item ul li{font-size:12px;color:var(--mute);padding:3px 0;font-family:var(--sans)}
+  .tl-item ul li::before{content:"› ";color:var(--green)}
+
+  /* ===== CONTACT ===== */
+  .contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
+  .ct-term{
+    background:var(--bg-2);border:1px solid var(--line-2);
+  }
+  .ct-term .term-body{padding:24px}
+  .ct-list{margin-top:18px;display:flex;flex-direction:column}
+  .ct-list a{
+    display:grid;grid-template-columns:90px 1fr auto;gap:18px;align-items:baseline;
+    padding:12px 0;border-bottom:1px dashed var(--line);transition:padding .15s;
+  }
+  .ct-list a:hover{padding-left:8px}
+  .ct-list .ch{color:var(--mute);font-size:11px;letter-spacing:0.12em;text-transform:uppercase}
+  .ct-list .v{color:var(--fg);font-size:13px}
+  .ct-list .v .cyan{color:var(--cyan)}
+  .ct-list a:hover .v{color:var(--green)}
+  .ct-list .arr{color:var(--mute)}
+  .ct-list a:hover .arr{color:var(--green)}
+
+  .ct-form{background:var(--bg-2);border:1px solid var(--line-2);padding:24px}
+  .ct-form .hd{color:var(--green);font-size:11px;letter-spacing:0.14em;margin-bottom:18px}
+  .ct-form .hd::before{content:"// "}
+  .field{margin-bottom:14px}
+  .field label{display:block;color:var(--mute);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:6px}
+  .field input,.field textarea{
+    width:100%;background:var(--bg-3);border:1px solid var(--line-2);
+    padding:10px 12px;font:inherit;font-family:var(--mono);font-size:13px;color:var(--fg);
+  }
+  .field input:focus,.field textarea:focus{outline:none;border-color:var(--green)}
+  .field textarea{resize:vertical;min-height:120px}
+  .send{
+    margin-top:8px;width:100%;background:var(--green);color:var(--bg);
+    border:none;padding:13px;font-family:var(--mono);font-size:12px;
+    font-weight:600;letter-spacing:0.08em;cursor:pointer;transition:all .15s;
+  }
+  .send:hover{background:transparent;color:var(--green);box-shadow:inset 0 0 0 1px var(--green)}
+
+  /* ===== FOOTER ===== */
+  footer{
+    margin-top:64px;padding:48px 0 24px;border-top:1px solid var(--line);
+  }
+  .ft{max-width:var(--max);margin:0 auto;padding:0 24px;display:grid;grid-template-columns:2fr repeat(3,1fr);gap:32px}
+  .ft-brand{font-family:var(--mono);font-size:18px;color:var(--green);font-weight:600}
+  .ft-brand::before{content:"$ ";color:var(--dim)}
+  .ft-tag{color:var(--mute);font-size:12px;margin-top:12px;max-width:36ch;line-height:1.55}
+  .ft-col h5{color:var(--dim);font-size:10px;letter-spacing:0.14em;margin-bottom:12px}
+  .ft-col h5::before{content:"// "}
+  .ft-col ul{list-style:none;display:flex;flex-direction:column;gap:6px;font-size:12px}
+  .ft-col a{color:var(--mute)}
+  .ft-col a:hover{color:var(--green)}
+  .ft-base{
+    max-width:var(--max);margin:32px auto 0;padding:18px 24px 0;border-top:1px solid var(--line);
+    display:flex;justify-content:space-between;color:var(--dim);font-size:11px;letter-spacing:0.04em;
+  }
+
+  /* ===== COMMAND PALETTE ===== */
+  .cmdk{position:fixed;inset:0;display:none;align-items:flex-start;justify-content:center;padding:12vh 20px 20px;z-index:260}
+  .cmdk.open{display:flex}
+  .cmdk-backdrop{position:absolute;inset:0;background:rgba(0,0,0,0.65);backdrop-filter:blur(2px)}
+  .cmdk-panel{
+    position:relative;width:100%;max-width:560px;
+    background:var(--bg-2);border:1px solid var(--line-2);
+    box-shadow:0 30px 60px rgba(0,0,0,0.5);
+    display:flex;flex-direction:column;max-height:60vh;
+  }
+  .cmdk-bar{display:flex;align-items:center;gap:10px;padding:12px 14px;border-bottom:1px solid var(--line)}
+  .cmdk-prompt{color:var(--green);font-size:12px;white-space:nowrap}
+  .cmdk-bar input{
+    flex:1;background:transparent;border:none;outline:none;
+    font:inherit;font-size:13px;color:var(--fg);min-width:0;
+  }
+  .cmdk-bar kbd{background:var(--bg-3);border:1px solid var(--line-2);padding:1px 6px;font:inherit;font-size:10px;color:var(--mute)}
+  .cmdk-list{overflow-y:auto;padding:6px}
+  .cmdk-item{
+    display:flex;align-items:center;justify-content:space-between;gap:16px;width:100%;
+    background:transparent;border:none;text-align:left;cursor:pointer;
+    font:inherit;font-size:12px;color:var(--mute);padding:9px 10px;
+  }
+  .cmdk-item .lbl{color:var(--fg)}
+  .cmdk-item .hint{font-size:10px;color:var(--dim);letter-spacing:0.06em;white-space:nowrap}
+  .cmdk-item.sel{background:var(--bg-3);box-shadow:inset 2px 0 0 var(--green)}
+  .cmdk-item.sel .lbl{color:var(--green)}
+  .cmdk-empty{padding:18px 12px;color:var(--dim);font-size:12px}
+  .cmdk-foot{
+    display:flex;gap:18px;padding:8px 14px;border-top:1px solid var(--line);
+    color:var(--dim);font-size:10px;letter-spacing:0.06em;
+  }
+  .nav-cmd{cursor:pointer}
+  .nav-cmd:hover{color:var(--fg)}
+  .ct-form-hint{margin-top:10px;color:var(--dim);font-size:11px;line-height:1.5}
+
+  /* ===== UTIL ===== */
+  .reveal{opacity:0;transform:translateY(8px);transition:opacity .6s, transform .6s}
+  .reveal.in{opacity:1;transform:none}
+
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important}
+    .reveal{opacity:1;transform:none}
+    html{scroll-behavior:auto}
+  }
+
+  @media (max-width:980px){
+    .hero,.now-grid,.contact-wrap,.music-wrap,.skills,.ft{grid-template-columns:1fr;gap:24px}
+    .recruiter-snapshot{grid-template-columns:1fr}
+    .recruiter-snapshot .rs-main{border-right:none;border-bottom:1px solid var(--line)}
+    .recruiter-snapshot .rs-links{grid-template-columns:1fr}
+    .paper-feature{grid-template-columns:1fr}
+    .research-grid{grid-template-columns:1fr}
+    .ptr-head,.ptr{grid-template-columns:24px 1fr 60px 30px;font-size:12px}
+    .ptr-head .col-desc,.ptr-head .col-status,.ptr .desc,.ptr .status{display:none}
+    .bib-head,.bib-row{grid-template-columns:50px 1fr 60px}
+    .bib-head .col-doi,.bib-row .doi{display:none}
+    .tl-item{grid-template-columns:1fr;gap:8px}
+    .log-spotlight,.log-entry{grid-template-columns:1fr;gap:8px}
+    .spot-actions{min-width:0}
+    .log-entry .read{display:none}
+    .ct-list a{grid-template-columns:70px 1fr 20px;gap:10px}
+    .ix{grid-template-columns:1fr}
+    .ix a{grid-template-columns:36px 1fr auto;gap:10px}
+    .topbar{padding:0 12px;font-size:10px;gap:8px}
+    .topbar .hide-sm{display:none}
+    .nav-inner{padding:0 12px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+    .nav-inner::-webkit-scrollbar{display:none}
+    .nav-tab{padding:0 12px;font-size:11px;white-space:nowrap;flex:0 0 auto}
+    .nav-cmd{display:none}
+    main,.ft,.ft-base{padding-left:16px;padding-right:16px}
+    .section-mark{grid-template-columns:1fr;gap:12px}
+  }
+
+  @media (max-width:560px){
+    html,body{font-size:13px}
+    .topbar{height:34px}
+    .nav{top:34px}
+    .nav-inner{height:46px}
+    .hero{padding:32px 0 28px;gap:16px}
+    .hero-left{gap:14px}
+    .hero-eyebrow{font-size:10px;line-height:1.5;letter-spacing:0.12em}
+    .hero-eyebrow::before{flex-basis:32px}
+    .hero-title{font-size:clamp(32px,9vw,40px);line-height:1;letter-spacing:0}
+    .hero-body{font-size:15px;line-height:1.46}
+    .hero-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:0}
+    .hero-actions .btn{justify-content:center;width:100%;padding:10px;font-size:11px;text-align:center}
+    .hero-actions .btn.primary{grid-column:1/-1}
+    .term{display:none}
+    .section{padding:44px 0}
+    .section-mark h2{font-size:28px;line-height:1.08}
+    .paper-card{min-height:0}
+    .note-panel{width:calc(100vw - 20px)}
+    .note-head{padding:16px}
+    .note-head h3{font-size:18px}
+    .note-copy{padding:16px 16px 0}
+    .note-foot{padding:16px;align-items:stretch}
+    .note-links{width:100%}
+    .note-links .btn{flex:1 1 100%;justify-content:center}
+  }
+</style>
+</head>
+<body data-screen-label="Research — Papers">
+<div class="topbar">
+  <div class="left">
+    <a class="brand" href="index.html">minh@systems</a>
+    <span class="pipe">~</span>
+    <span class="dot" aria-hidden="true"></span>
+    <span>research index · <span data-paper-total>13</span> records</span>
+    <span class="pipe hide-sm">|</span>
+    <span class="hide-sm">Thuringia, Germany / Remote</span>
+  </div>
+  <div class="right">
+    <span class="hide-sm">papers · DOI · BibTeX</span>
+    <span class="pipe hide-sm">|</span>
+    <span class="clock" id="clock">--:--:-- UTC</span>
+  </div>
+</div>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-tab" href="index.html#home"><span class="hash">~/</span>home</a>
+    <a class="nav-tab active" href="#papers"><span class="hash">~/</span>research</a>
+    <a class="nav-tab" href="index.html#projects"><span class="hash">~/</span>projects</a>
+    <a class="nav-tab" href="index.html#recruiter"><span class="hash">~/</span>recruiter</a>
+    <a class="nav-tab" href="index.html#contact"><span class="hash">~/</span>contact</a>
+    <div class="nav-spacer"></div>
+    <a class="nav-cmd" href="https://scholar.google.com/citations?user=6HheUI4AAAAJ" target="_blank" rel="noopener">Google Scholar ↗</a>
+  </div>
+</nav>
+<main id="home">
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow"><span class="live">●</span> Full bibliography · research engineering signal</div>
+    <h1 class="hero-title">research<span class="punct">.</span><br><span class="c1">papers</span><span class="punct">,</span> <span class="c2">preprints</span><span class="punct">,</span><br><span class="c3">artifacts</span><span class="punct">.</span></h1>
+    <p class="hero-body">A focused archive of published and preprint work across cybersecurity, systems security, clinical AI, cloud systems, education, organization theory, physics, notation, and software artifacts.</p>
+    <div class="hero-actions">
+      <a class="btn primary" href="#papers"><span class="ico">¶</span> browse bibliography</a>
+      <a class="btn" href="index.html#recruiter"><span class="ico">▸</span> recruiter snapshot</a>
+      <a class="btn" href="https://orcid.org/0000-0001-6834-4422" target="_blank" rel="noopener"><span class="ico">↗</span> ORCID</a>
+      <a class="btn" href="index.html"><span class="ico">←</span> home</a>
+    </div>
+  </div>
+  <aside class="term" aria-label="Research summary terminal">
+    <div class="term-bar">
+      <div class="term-dots"><span></span><span></span><span></span></div>
+      <div class="term-title">— minh@systems: <span class="path">~/research</span></div>
+    </div>
+    <div class="term-body">
+      <span class="term-line cmd">wc -l bibliography.json</span>
+      <span class="term-line"><span class="k" data-paper-total>13</span> records · journal / preprint / other</span>
+      <span class="term-line cmd">cat focus.txt</span>
+      <span class="term-line">systems security · cyber risk · clinical AI · cloud systems</span>
+      <span class="term-line">education · organization theory · physics · notation</span>
+      <span class="term-line cmd">open proofs</span>
+      <span class="term-line ok">✓ DOI links, previews, and BibTeX copy actions available</span>
+    </div>
+  </aside>
+</section>
+<!-- ====== PAPERS ====== -->
+<section class="section" id="papers">
+  <div class="section-mark">
+    <div class="tag">01 / PAPERS</div>
+    <div>
+      <h2>grep -r papers<span class="punct">/</span></h2>
+      <p class="sub">Peer-reviewed work, preprints, and the occasional creative publication.</p>
+    </div>
+  </div>
+
+  <div class="paper-feature" aria-label="Featured publications">
+    <button class="paper-card" type="button" data-paper-open="mortality-reference-class">
+      <span class="k">latest preprint</span>
+      <h3>Reference-class failure in mortality prediction</h3>
+      <p>A synthetic clinical-AI study on when sharp end-of-life risk estimates lose their reference-class basis.</p>
+      <span class="meta">Research Square · 2026</span>
+    </button>
+    <button class="paper-card" type="button" data-paper-open="cku">
+      <span class="k">cyber risk</span>
+      <h3>Computational Knightian uncertainty</h3>
+      <p>Undecidability, software opacity, and the residual uncertainty that probabilistic cyber-risk models cannot price away.</p>
+      <span class="meta">IJRC · 2026</span>
+    </button>
+    <button class="paper-card" type="button" data-paper-open="shieldlink">
+      <span class="k">systems security</span>
+      <h3>ShieldLink for chiplet interconnects</h3>
+      <p>A retry-aware authenticated-encryption design that closes the gap between link reliability and AEAD verification.</p>
+      <span class="meta">in press · 2026</span>
+    </button>
+  </div>
+
+  <div class="filter-bar">
+    <button class="on" data-bfilter="all">all<span class="ct" data-bcount="all">13</span></button>
+    <button data-bfilter="journal">journal<span class="ct" data-bcount="journal">4</span></button>
+    <button data-bfilter="preprint">preprint<span class="ct" data-bcount="preprint">7</span></button>
+    <button data-bfilter="other">other<span class="ct" data-bcount="other">2</span></button>
+  </div>
+
+  <div class="filter-bar topic" aria-label="Filter papers by research line">
+    <button class="on" data-topic-filter="all">all topics<span class="ct" data-topic-count="all">13</span></button>
+    <button data-topic-filter="clinical-ai">clinical AI<span class="ct" data-topic-count="clinical-ai">1</span></button>
+    <button data-topic-filter="cyber-risk">cyber risk<span class="ct" data-topic-count="cyber-risk">2</span></button>
+    <button data-topic-filter="systems-security">systems/sec<span class="ct" data-topic-count="systems-security">2</span></button>
+    <button data-topic-filter="physics">physics<span class="ct" data-topic-count="physics">3</span></button>
+    <button data-topic-filter="education">education<span class="ct" data-topic-count="education">1</span></button>
+    <button data-topic-filter="org-theory">org theory<span class="ct" data-topic-count="org-theory">1</span></button>
+    <button data-topic-filter="creative">creative/sw<span class="ct" data-topic-count="creative">3</span></button>
+  </div>
+
+  <div class="bib-head">
+    <span>year</span><span>title · venue</span><span>type</span><span class="col-doi">link</span>
+  </div>
+
+  <div class="bib-row is-preprint" data-abs="mortality-reference-class" data-topic="clinical-ai" tabindex="0" role="button" aria-label="Preview Reference-Class Failure in Mortality Prediction">
+    <span class="yr">2026.06</span>
+    <div><div class="title">Reference-Class Failure in Mortality Prediction: A Synthetic Study of Irreducible Uncertainty in End-of-Life Prognostic Models</div><span class="where"><span class="venue">Research Square</span> · Version 1</span><div class="paper-meta"><span>clinical AI</span><span>preprint</span><span>doi</span></div></div>
+    <span class="kind preprint">preprint</span>
+    <span class="doi"><a href="https://doi.org/10.21203/rs.3.rs-10058406/v1" target="_blank" rel="noopener">DOI ↗</a></span>
+  </div>
+
+  <div class="bib-row is-preprint" data-abs="beyond-no" data-topic="education" tabindex="0" role="button" aria-label="Preview Beyond No">
+    <span class="yr">2026.04</span>
+    <div><div class="title">Beyond No: A Low-Interruption, Autonomy-Supportive Framework for Early Childhood Self-Directed Learning in Prepared Environments</div><span class="where"><span class="venue">ResearchGate</span> · submitted to KDU KJMS</span><div class="paper-meta"><span>education</span><span>submitted</span></div></div>
+    <span class="kind preprint">preprint</span>
+    <span class="doi"><a href="https://www.researchgate.net/publication/403982284" target="_blank" rel="noopener">RG ↗</a></span>
+  </div>
+
+  <div class="bib-row is-journal" data-abs="cku" data-topic="cyber-risk" tabindex="0" role="button" aria-label="Preview Computational Knightian Uncertainty">
+    <span class="yr">2026.01</span>
+    <div><div class="title">Computational Knightian Uncertainty: Undecidability and the Limits of Cyber Risk Quantification in Software-Intensive Firms</div><span class="where"><span class="venue">IJRC</span> · International Journal of Research in Computing</span><div class="paper-meta"><span>cyber risk</span><span>journal</span></div></div>
+    <span class="kind journal">journal</span>
+    <span class="doi"><a href="https://www.ijrcom.org/index.php/ijrc/article/view/192" target="_blank" rel="noopener">IJRC ↗</a></span>
+  </div>
+
+  <div class="bib-row is-journal" data-abs="shieldlink" data-topic="systems-security" tabindex="0" role="button" aria-label="Preview ShieldLink">
+    <span class="yr">2026</span>
+    <div><div class="title">ShieldLink: Retry-Aware Authenticated Encryption for Secure and Reliable Chiplet Interconnects</div><span class="where"><span class="venue">IJRCOM</span> · International Journal of Research in Computing · In Press</span><div class="paper-meta"><span>systems/sec</span><span>in press</span></div></div>
+    <span class="kind journal">in press</span>
+    <span class="doi"><a href="https://doi.org/10.36227/techrxiv.176800047.72137558/v1" target="_blank" rel="noopener">DOI ↗</a></span>
+  </div>
+
+  <div class="bib-row is-preprint" data-abs="preons-2" data-topic="physics" tabindex="0" role="button" aria-label="Preview Dual-Polarity Preons II">
+    <span class="yr">2025</span>
+    <div><div class="title">Dual-Polarity Preons II: Parameter-Space Constraints and Viable Regimes for an Emergent Acoustic Metric</div><span class="where"><span class="venue">TechRxiv</span></span><div class="paper-meta"><span>physics</span><span>preprint</span></div></div>
+    <span class="kind preprint">preprint</span>
+    <span class="doi"><a href="https://doi.org/10.36227/techrxiv.176590637.76612181/v1" target="_blank" rel="noopener">DOI ↗</a></span>
+  </div>
+
+  <div class="bib-row is-preprint" data-abs="simulated-minds" data-topic="physics" tabindex="0" role="button" aria-label="Preview Simulated Minds">
+    <span class="yr">2025</span>
+    <div><div class="title">Simulated Minds, Artificial Consciousness, and the Theory-Relative Simulation Hypothesis</div><span class="where"><span class="venue">TechRxiv</span></span><div class="paper-meta"><span>philosophy</span><span>preprint</span></div></div>
+    <span class="kind preprint">preprint</span>
+    <span class="doi"><a href="https://doi.org/10.36227/techrxiv.176583724.41540320/v1" target="_blank" rel="noopener">DOI ↗</a></span>
+  </div>
+
+  <div class="bib-row is-journal" data-abs="preons-1" data-topic="physics" tabindex="0" role="button" aria-label="Preview Dual-Polarity Preons">
+    <span class="yr">2025</span>
+    <div><div class="title">Dual-Polarity Preons: A Toy Model for Composite Neutral Pairs and Emergent Gravity</div><span class="where"><span class="venue">Cognizance</span></span><div class="paper-meta"><span>physics</span><span>journal</span></div></div>
+    <span class="kind journal">journal</span>
+    <span class="doi"><a href="https://doi.org/10.47760/cognizance.2025.v05i11.009" target="_blank" rel="noopener">DOI ↗</a></span>
+  </div>
+
+  <div class="bib-row is-preprint" data-abs="fl-ids" data-topic="systems-security" tabindex="0" role="button" aria-label="Preview Federated Learning-Based Intrusion Detection System">
+    <span class="yr">2025</span>
+    <div><div class="title">Federated Learning-Based Intrusion Detection System for IoT Networks in Resource-Constrained Environments</div><span class="where"><span class="venue">TechRxiv</span> · rel. <a href="#projects">wardex</a></span><div class="paper-meta"><span>systems/sec</span><span>preprint</span></div></div>
+    <span class="kind preprint">preprint</span>
+    <span class="doi"><a href="https://doi.org/10.36227/techrxiv.176403418.87468767/v1" target="_blank" rel="noopener">DOI ↗</a></span>
+  </div>
+
+  <div class="bib-row is-preprint" data-abs="org-circuits" data-topic="org-theory" tabindex="0" role="button" aria-label="Preview Computational Complexity of Organizational Decision Hierarchies">
+    <span class="yr">2025</span>
+    <div><div class="title">Computational Complexity of Organizational Decision Hierarchies</div><span class="where"><span class="venue">Research Square</span></span><div class="paper-meta"><span>org theory</span><span>preprint</span></div></div>
+    <span class="kind preprint">preprint</span>
+    <span class="doi"><a href="https://doi.org/10.21203/rs.3.rs-7948428/v1" target="_blank" rel="noopener">DOI ↗</a></span>
+  </div>
+
+  <div class="bib-row is-preprint" data-abs="quantum-walk" data-topic="cyber-risk" tabindex="0" role="button" aria-label="Preview Quantum Walk-Inspired Algorithm">
+    <span class="yr">2025</span>
+    <div><div class="title">A Quantum Walk-Inspired Algorithm for Dynamic Resource Allocation in Cloud Computing</div><span class="where"><span class="venue">TechRxiv</span> · sustainable business practices</span><div class="paper-meta"><span>cloud systems</span><span>preprint</span></div></div>
+    <span class="kind preprint">preprint</span>
+    <span class="doi"><a href="https://doi.org/10.36227/techrxiv.176316003.37717757/v1" target="_blank" rel="noopener">DOI ↗</a></span>
+  </div>
+
+  <div class="bib-row is-journal" data-abs="quadralzahlen" data-topic="creative" tabindex="0" role="button" aria-label="Preview Quadralzahlen">
+    <span class="yr">2025</span>
+    <div><div class="title">Quadralzahlen: A Rotation-Invariant Numeral System That Reduces Upside-Down Misreads in Real-World Displays</div><span class="where"><span class="venue">Cognizance</span></span><div class="paper-meta"><span>notation</span><span>journal</span></div></div>
+    <span class="kind journal">journal</span>
+    <span class="doi"><a href="https://doi.org/10.47760/cognizance.2025.v05i10.019" target="_blank" rel="noopener">DOI ↗</a></span>
+  </div>
+
+  <div class="bib-row is-other" data-topic="creative">
+    <span class="yr">2024</span>
+    <div><div class="title">Nadia's Adventures in the New World</div><span class="where">Book · creative fiction</span></div>
+    <span class="kind other">book</span>
+    <span class="doi">—</span>
+  </div>
+
+  <div class="bib-row is-other" data-topic="creative">
+    <span class="yr">2024</span>
+    <div><div class="title">pimiTool</div><span class="where">Software copyright · registered</span></div>
+    <span class="kind other">sw</span>
+    <span class="doi">—</span>
+  </div>
+</section>
+
+
+</main>
+<footer>
+  <div class="ft">
+    <div>
+      <div class="ft-brand">minh@systems</div>
+      <div class="ft-tag">Research index for systems, security, AI, and adjacent technical work.</div>
+    </div>
+    <div class="ft-col"><h5>sections</h5><ul><li><a href="index.html#recruiter">recruiter</a></li><li><a href="index.html#projects">projects</a></li><li><a href="index.html#contact">contact</a></li></ul></div>
+    <div class="ft-col"><h5>elsewhere</h5><ul><li><a href="https://github.com/pinkysworld" target="_blank" rel="noopener">github</a></li><li><a href="https://scholar.google.com/citations?user=6HheUI4AAAAJ" target="_blank" rel="noopener">scholar</a></li><li><a href="https://orcid.org/0000-0001-6834-4422" target="_blank" rel="noopener">orcid</a></li><li><a href="https://www.linkedin.com/in/michelnguyengermany/" target="_blank" rel="noopener">linkedin</a></li></ul></div>
+    <div class="ft-col"><h5>home</h5><ul><li><a href="index.html">minh.systems</a></li><li><a href="index.html#papers">selected research</a></li><li><a href="index.html#now">now</a></li></ul></div>
+  </div>
+  <div class="ft-base"><span>&copy; 2026 michél nguyen · all rights reserved</span><span>built with HTML, CSS &amp; no frameworks · JetBrains Mono · Germany</span></div>
+</footer>
+<div class="note-modal" id="note-modal" aria-hidden="true">
+  <div class="note-backdrop" data-note-close></div>
+  <article class="note-panel" role="dialog" aria-modal="true" aria-labelledby="note-title">
+    <div class="note-head">
+      <div>
+        <div class="meta" id="note-meta"></div>
+        <h3 id="note-title"></h3>
+      </div>
+      <button class="note-close" type="button" aria-label="Close note" data-note-close>×</button>
+    </div>
+    <div class="note-copy" id="note-copy"></div>
+    <div class="note-foot">
+      <div class="note-tags" id="note-tags"></div>
+      <div class="note-links">
+        <a class="btn primary" id="note-link" href="#" target="_blank" rel="noopener"><span class="ico">↗</span> open related site</a>
+      </div>
+    </div>
+  </article>
+</div>
+
+
+<script>
+  function tickClock(){
+    const el = document.getElementById('clock');
+    if(!el) return;
+    const d = new Date();
+    const pad = n => String(n).padStart(2,'0');
+    el.textContent = `${pad(d.getUTCHours())}:${pad(d.getUTCMinutes())}:${pad(d.getUTCSeconds())} UTC`;
+  }
+  tickClock(); setInterval(tickClock, 1000);
+
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const scrollBehavior = reducedMotion ? 'auto' : 'smooth';
+  function getPaperStats(){
+    const rows = [...document.querySelectorAll('.bib-row')];
+    const byType = type => rows.filter(row => row.classList.contains('is-'+type)).length;
+    return { total: rows.length, journal: byType('journal'), preprint: byType('preprint'), other: byType('other') };
+  }
+  const paperStats = getPaperStats();
+  document.querySelectorAll('[data-paper-total]').forEach(el=>{ el.textContent = paperStats.total; });
+  document.querySelectorAll('[data-bcount]').forEach(el=>{
+    const key = el.dataset.bcount;
+    el.textContent = key === 'all' ? paperStats.total : paperStats[key];
+  });
+  // paper filters
+  let activePaperType = 'all';
+  let activePaperTopic = 'all';
+  function updateTopicCounts(){
+    const rows = [...document.querySelectorAll('.bib-row')];
+    document.querySelectorAll('[data-topic-count]').forEach(el=>{
+      const topic = el.dataset.topicCount;
+      el.textContent = topic === 'all' ? rows.length : rows.filter(row => row.dataset.topic === topic).length;
+    });
+  }
+  updateTopicCounts();
+  function applyPaperFilters(){
+    document.querySelectorAll('.bib-row').forEach(row=>{
+      const typeMatch = activePaperType === 'all' || row.classList.contains('is-'+activePaperType);
+      const topicMatch = activePaperTopic === 'all' || row.dataset.topic === activePaperTopic;
+      row.hidden = !(typeMatch && topicMatch);
+    });
+  }
+  document.querySelectorAll('[data-bfilter]').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      document.querySelectorAll('[data-bfilter]').forEach(b=>b.classList.remove('on'));
+      btn.classList.add('on');
+      activePaperType = btn.dataset.bfilter;
+      applyPaperFilters();
+    });
+  });
+  document.querySelectorAll('[data-topic-filter]').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      document.querySelectorAll('[data-topic-filter]').forEach(b=>b.classList.remove('on'));
+      btn.classList.add('on');
+      activePaperTopic = btn.dataset.topicFilter;
+      applyPaperFilters();
+    });
+  });
+
+  // paper abstract hover spotlights
+  const bibAbstracts = {
+    'mortality-reference-class': {
+      k:'abstract spotlight · mortality prediction',
+      h:'When a precise mortality risk has no valid reference class',
+      p:'Defines reference-class failure in mortality prediction: an end-of-life case can sit outside the development population’s transportable conditional mechanism while the model still returns a sharp individual risk. In a synthetic concept-shift study, logistic regression, random forest, gradient boosting, and a neural network remain confident on novel terminal cases, but Brier error plateaus near 0.215, far above the novel regime’s 0.092 aleatoric floor. The paper proposes a diagnostic triad: absent reference class, sharp output, and data-insensitive error.',
+      href:'https://doi.org/10.21203/rs.3.rs-10058406/v1', cta:'open preprint ↗'
+    },
+    'beyond-no': {
+      k:'abstract spotlight · beyond no',
+      h:'Guiding early learners with fewer interruptions',
+      p:'Proposes a low-interruption, autonomy-supportive framework for adults accompanying self-directed learning in early childhood. Instead of steering children through constant verbal correction, the framework leans on prepared environments and minimal, well-timed interventions, so that the child’s own activity — not the adult’s narration of it — stays at the center of the learning episode.',
+      href:'https://www.researchgate.net/publication/403982284', cta:'open preprint ↗'
+    },
+    'cku': {
+      k:'abstract spotlight · computational knightian uncertainty',
+      h:'Why some cyber risk in software-intensive firms cannot be priced away',
+      p:'The paper argues that software creates a residual class of uncertainty that does not collapse neatly into ordinary probabilistic risk. Because many security, safety, and compliance questions are undecidable in the general case, even perfect code visibility and abundant classical computation cannot eliminate all uncertainty. The article names that remainder <strong>computational Knightian uncertainty (CKU)</strong>, then connects it to structural opacity in codebases and to practical downstream effects such as incident severity, cyber insurance outcomes, and M&amp;A discounting.',
+      href:'https://www.ijrcom.org/index.php/ijrc/article/view/192', cta:'open journal article ↗'
+    },
+    'shieldlink': {
+      k:'abstract spotlight · shieldlink',
+      h:'Closing the retry window between link reliability and encryption',
+      p:'Chiplet die-to-die links such as UCIe/CXL handle reliability with link-layer retries while confidentiality lives in higher-layer authenticated encryption. Composed naively, the receiver can acknowledge a frame on a fast CRC check before the slower AEAD verification finishes — a time-of-check/time-of-use window that can desynchronize state or enable denial-of-service. ShieldLink enforces one deliverability invariant: the receive window only advances on successful AEAD verification of exactly the bits that will be delivered.',
+      href:'https://doi.org/10.36227/techrxiv.176800047.72137558/v1', cta:'open preprint ↗'
+    },
+    'preons-2': {
+      k:'abstract spotlight · dual-polarity preons ii',
+      h:'Mapping where the dyad model actually survives',
+      p:'The follow-up to the dual-polarity preon toy model asks the harder question: in which regions of parameter space can the framework live at all? The paper works through parameter-space constraints on the composite neutral pairs and identifies the regimes in which an emergent acoustic metric remains viable, sharpening the original proposal into something that can be confronted with observational and collider bounds.',
+      href:'https://doi.org/10.36227/techrxiv.176590637.76612181/v1', cta:'open preprint ↗'
+    },
+    'simulated-minds': {
+      k:'abstract spotlight · simulated minds',
+      h:'Whether a simulated mind counts as conscious is theory-relative',
+      p:'Examines the simulation hypothesis and claims about artificial consciousness through one observation: any verdict about whether a simulated mind is genuinely conscious depends on which theory of consciousness one assumes from the outset. The paper develops this theory-relative reading and traces what it does to familiar arguments about simulated minds — many disagreements turn out to be disagreements about theories of mind, not about the simulations themselves.',
+      href:'https://doi.org/10.36227/techrxiv.176583724.41540320/v1', cta:'open preprint ↗'
+    },
+    'preons-1': {
+      k:'abstract spotlight · dual-polarity preons',
+      h:'A two-field toy model where neutral pairs induce the metric',
+      p:'Proposes a toy model in which opposite-charge “dyads” bind into neutral pairs acting as composite bosonic excitations: a hidden U(1) interaction mediates attraction, a quartic term stabilizes bound states, and long-wavelength variations of the neutral-pair condensate generate an effective metric in the spirit of analogue-gravity programs. The construction is built to respect GW170817 multimessenger constraints and equivalence-principle tests at the 10⁻¹⁵ level, with falsifiable consequences enumerated against collider compositeness limits.',
+      href:'https://doi.org/10.47760/cognizance.2025.v05i11.009', cta:'open journal article ↗'
+    },
+    'fl-ids': {
+      k:'abstract spotlight · federated ids for iot',
+      h:'Intrusion detection that never centralizes the data',
+      p:'A lightweight federated-learning intrusion detection system for resource-constrained IoT deployments. Training stays decentralized, which removes the privacy and communication costs of central data collection, and differential privacy keeps model updates from leaking through gradients. On NSL-KDD and IoT-23, the federated model reaches nearly the same detection performance as a centralized baseline while remaining deployable on constrained nodes.',
+      href:'https://doi.org/10.36227/techrxiv.176403418.87468767/v1', cta:'open preprint ↗'
+    },
+    'org-circuits': {
+      k:'abstract spotlight · organizational decision hierarchies',
+      h:'Org charts as threshold circuits: latency vs. accuracy',
+      p:'Models organizational decision hierarchies as bounded-span monotone threshold circuits, making the tradeoffs between decision latency, accuracy, and headcount formally explicit. Aggregating n binary signals with span s requires depth at least ⌈logₛ n⌉. Simulations with 256 signals show the tension concretely: widening spans from 4 to 16 cuts latency roughly in half but drops decision accuracy from 100% to about 90% under realistic noise.',
+      href:'https://doi.org/10.21203/rs.3.rs-7948428/v1', cta:'open preprint ↗'
+    },
+    'quantum-walk': {
+      k:'abstract spotlight · quantum walk allocation',
+      h:'Borrowing quantum-walk dynamics for cloud scheduling',
+      p:'Develops a quantum walk-inspired heuristic for dynamic resource allocation in cloud computing. The spreading behavior of quantum walks is used as a template for how allocation decisions explore the space of placements, aiming at allocations that adapt to shifting load while keeping utilization — and with it the energy footprint of over-provisioning — in check, which connects the algorithmic idea to sustainable operating practice.',
+      href:'https://doi.org/10.36227/techrxiv.176316003.37717757/v1', cta:'open preprint ↗'
+    },
+    'quadralzahlen': {
+      k:'abstract spotlight · quadralzahlen',
+      h:'Digits you cannot read upside-down wrong',
+      p:'Introduces Quadralzahlen (QZ), a rotation-invariant numeral system for identifiers and state codes built to eliminate 180° misreads in rotation-rich contexts such as logistics, healthcare, and handheld UIs. QZ combines self-symmetric glyphs (0, 1, 8, X) with pairwise mappings (6–9, 3–E) plus typography and OCR guidance. In-silico evaluations show fewer upside-down confusions and flatter angle-time profiles than standard numerals, with OCR staying near ceiling at quarter turns.',
+      href:'https://doi.org/10.47760/cognizance.2025.v05i10.019', cta:'open journal article ↗'
+    }
+  };
+  const paperRecords = {
+    'mortality-reference-class': {
+      title:'Reference-Class Failure in Mortality Prediction: A Synthetic Study of Irreducible Uncertainty in End-of-Life Prognostic Models',
+      year:'2026', venue:'Research Square', type:'Preprint', status:'Version 1', topic:'clinical AI',
+      doi:'10.21203/rs.3.rs-10058406/v1', url:'https://doi.org/10.21203/rs.3.rs-10058406/v1',
+      key:'nguyen2026referenceclass'
+    },
+    'beyond-no': {
+      title:'Beyond No: A Low-Interruption, Autonomy-Supportive Framework for Early Childhood Self-Directed Learning in Prepared Environments',
+      year:'2026', venue:'ResearchGate', type:'Preprint', status:'Submitted to KDU KJMS', topic:'education',
+      doi:'', url:'https://www.researchgate.net/publication/403982284', key:'nguyen2026beyondno'
+    },
+    'cku': {
+      title:'Computational Knightian Uncertainty: Undecidability and the Limits of Cyber Risk Quantification in Software-Intensive Firms',
+      year:'2026', venue:'International Journal of Research in Computing', type:'Journal article', status:'Published', topic:'cyber risk',
+      doi:'', url:'https://www.ijrcom.org/index.php/ijrc/article/view/192', key:'nguyen2026computational'
+    },
+    'shieldlink': {
+      title:'ShieldLink: Retry-Aware Authenticated Encryption for Secure and Reliable Chiplet Interconnects',
+      year:'2026', venue:'International Journal of Research in Computing', type:'Journal article', status:'In press', topic:'systems security',
+      doi:'10.36227/techrxiv.176800047.72137558/v1', url:'https://doi.org/10.36227/techrxiv.176800047.72137558/v1', key:'nguyen2026shieldlink'
+    },
+    'preons-2': {
+      title:'Dual-Polarity Preons II: Parameter-Space Constraints and Viable Regimes for an Emergent Acoustic Metric',
+      year:'2025', venue:'TechRxiv', type:'Preprint', status:'Version 1', topic:'physics',
+      doi:'10.36227/techrxiv.176590637.76612181/v1', url:'https://doi.org/10.36227/techrxiv.176590637.76612181/v1', key:'nguyen2025preons2'
+    },
+    'simulated-minds': {
+      title:'Simulated Minds, Artificial Consciousness, and the Theory-Relative Simulation Hypothesis',
+      year:'2025', venue:'TechRxiv', type:'Preprint', status:'Version 1', topic:'philosophy of mind',
+      doi:'10.36227/techrxiv.176583724.41540320/v1', url:'https://doi.org/10.36227/techrxiv.176583724.41540320/v1', key:'nguyen2025simulated'
+    },
+    'preons-1': {
+      title:'Dual-Polarity Preons: A Toy Model for Composite Neutral Pairs and Emergent Gravity',
+      year:'2025', venue:'Cognizance', type:'Journal article', status:'Published', topic:'physics',
+      doi:'10.47760/cognizance.2025.v05i11.009', url:'https://doi.org/10.47760/cognizance.2025.v05i11.009', key:'nguyen2025preons'
+    },
+    'fl-ids': {
+      title:'Federated Learning-Based Intrusion Detection System for IoT Networks in Resource-Constrained Environments',
+      year:'2025', venue:'TechRxiv', type:'Preprint', status:'Version 1', topic:'systems security',
+      doi:'10.36227/techrxiv.176403418.87468767/v1', url:'https://doi.org/10.36227/techrxiv.176403418.87468767/v1', key:'nguyen2025federated'
+    },
+    'org-circuits': {
+      title:'Computational Complexity of Organizational Decision Hierarchies',
+      year:'2025', venue:'Research Square', type:'Preprint', status:'Version 1', topic:'organizational theory',
+      doi:'10.21203/rs.3.rs-7948428/v1', url:'https://doi.org/10.21203/rs.3.rs-7948428/v1', key:'nguyen2025hierarchies'
+    },
+    'quantum-walk': {
+      title:'A Quantum Walk-Inspired Algorithm for Dynamic Resource Allocation in Cloud Computing',
+      year:'2025', venue:'TechRxiv', type:'Preprint', status:'Version 1', topic:'cloud systems',
+      doi:'10.36227/techrxiv.176316003.37717757/v1', url:'https://doi.org/10.36227/techrxiv.176316003.37717757/v1', key:'nguyen2025quantumwalk'
+    },
+    'quadralzahlen': {
+      title:'Quadralzahlen: A Rotation-Invariant Numeral System That Reduces Upside-Down Misreads in Real-World Displays',
+      year:'2025', venue:'Cognizance', type:'Journal article', status:'Published', topic:'notation systems',
+      doi:'10.47760/cognizance.2025.v05i10.019', url:'https://doi.org/10.47760/cognizance.2025.v05i10.019', key:'nguyen2025quadralzahlen'
+    }
+  };
+  function paperBibtex(id){
+    const rec = paperRecords[id];
+    if(!rec) return '';
+    const entryType = rec.type === 'Preprint' ? 'misc' : 'article';
+    const fields = [
+      `  author = {Nguyen, Michel}`,
+      `  title = {${rec.title}}`,
+      `  year = {${rec.year}}`,
+      rec.type === 'Preprint' ? `  howpublished = {${rec.venue}}` : `  journal = {${rec.venue}}`,
+      rec.doi ? `  doi = {${rec.doi}}` : '',
+      `  url = {${rec.url}}`
+    ].filter(Boolean).join(',\n');
+    return `@${entryType}{${rec.key},\n${fields}\n}`;
+  }
+  function injectPaperSchema(){
+    const schema = {
+      '@context':'https://schema.org',
+      '@graph': Object.keys(paperRecords).map(id=>{
+        const rec = paperRecords[id];
+        const abs = bibAbstracts[id];
+        const item = {
+          '@type':'ScholarlyArticle',
+          '@id': rec.url + '#article',
+          headline: rec.title,
+          name: rec.title,
+          author: {'@id':'https://minh.systems/#person'},
+          datePublished: rec.year,
+          isPartOf: { '@type':'Periodical', name: rec.venue },
+          about: rec.topic,
+          url: rec.url,
+          description: abs ? abs.p.replace(/<[^>]+>/g,'') : undefined
+        };
+        if(rec.doi) item.identifier = `doi:${rec.doi}`;
+        if(rec.doi) item.sameAs = `https://doi.org/${rec.doi}`;
+        if(rec.type === 'Preprint') item.creativeWorkStatus = 'Preprint';
+        return item;
+      })
+    };
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.id = 'paper-schema';
+    script.textContent = JSON.stringify(schema);
+    document.head.appendChild(script);
+  }
+  injectPaperSchema();
+  if(window.matchMedia('(hover: hover) and (pointer: fine)').matches){
+    const spot = document.createElement('div');
+    spot.className = 'bib-abstract bib-spot';
+    document.body.appendChild(spot);
+    let spotShowTimer = null, spotHideTimer = null;
+    function showSpot(row){
+      const a = bibAbstracts[row.dataset.abs];
+      if(!a) return;
+      spot.innerHTML = `<div class="k">${a.k}</div><h4>${a.h}</h4><p>${a.p}</p>` +
+        `<div class="actions"><a href="${a.href}" target="_blank" rel="noopener">${a.cta}</a></div>`;
+      const r = row.getBoundingClientRect();
+      spot.style.left = Math.max(16, Math.min(r.left + 80, window.innerWidth - spot.offsetWidth - 16)) + 'px';
+      let top = r.bottom + 8;
+      if(top + spot.offsetHeight > window.innerHeight - 16){ top = r.top - spot.offsetHeight - 8; }
+      spot.style.top = Math.max(16, top) + 'px';
+      spot.classList.add('show');
+    }
+    function hideSpotSoon(){
+      clearTimeout(spotShowTimer);
+      spotHideTimer = setTimeout(()=>spot.classList.remove('show'), 160);
+    }
+    document.querySelectorAll('.bib-row[data-abs]').forEach(row=>{
+      row.addEventListener('mouseenter',()=>{
+        clearTimeout(spotHideTimer); clearTimeout(spotShowTimer);
+        spotShowTimer = setTimeout(()=>showSpot(row), 90);
+      });
+      row.addEventListener('mouseleave', hideSpotSoon);
+    });
+    spot.addEventListener('mouseenter',()=>{clearTimeout(spotHideTimer);});
+    spot.addEventListener('mouseleave', hideSpotSoon);
+    window.addEventListener('scroll',()=>{clearTimeout(spotShowTimer);spot.classList.remove('show');},{passive:true});
+  }
+
+
+  const noteModal = document.getElementById('note-modal');
+  const noteMeta = document.getElementById('note-meta');
+  const noteTitle = document.getElementById('note-title');
+  const noteCopy = document.getElementById('note-copy');
+  const noteTags = document.getElementById('note-tags');
+  const noteLinks = document.querySelector('.note-links');
+  const noteLink = document.getElementById('note-link');
+  let noteOpener = null;
+  function resetNoteLinks(){
+    noteLinks.querySelectorAll('.paper-action').forEach(el=>el.remove());
+  }
+  function openNote(id){
+    const note = noteData[id];
+    if(!note) return;
+    resetNoteLinks();
+    noteMeta.textContent = note.meta;
+    noteTitle.textContent = note.title;
+    noteCopy.innerHTML = note.paragraphs.map(p => `<p>${p}</p>`).join('');
+    noteTags.innerHTML = note.tags.map(t => `<span>${t}</span>`).join('');
+    noteLink.href = note.href;
+    noteLink.innerHTML = `<span class="ico">↗</span> ${note.cta}`;
+    noteOpener = document.activeElement;
+    noteModal.classList.add('open');
+    noteModal.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden';
+    noteModal.querySelector('.note-close').focus();
+  }
+  async function copyText(text, btn){
+    const old = btn.textContent;
+    btn.textContent = 'copied';
+    try{
+      if(navigator.clipboard && window.isSecureContext){
+        await navigator.clipboard.writeText(text);
+      }else{
+        const area = document.createElement('textarea');
+        area.value = text;
+        area.setAttribute('readonly','');
+        area.style.position = 'fixed';
+        area.style.left = '-9999px';
+        document.body.appendChild(area);
+        area.select();
+        document.execCommand('copy');
+        area.remove();
+      }
+    }catch(_err){
+      window.prompt('Copy this text:', text);
+      btn.textContent = 'ready to copy';
+    }
+    setTimeout(()=>{ btn.textContent = old; }, 1400);
+  }
+  function openPaperModal(id){
+    const rec = paperRecords[id];
+    const abs = bibAbstracts[id];
+    if(!rec || !abs) return;
+    resetNoteLinks();
+    noteMeta.textContent = `${rec.type} · ${rec.year} · ${rec.status}`;
+    noteTitle.textContent = rec.title;
+    noteCopy.innerHTML = `
+      <dl class="paper-kv">
+        <dt>venue</dt><dd>${rec.venue}</dd>
+        <dt>topic</dt><dd>${rec.topic}</dd>
+        <dt>doi</dt><dd>${rec.doi ? `<a href="https://doi.org/${rec.doi}" target="_blank" rel="noopener">${rec.doi}</a>` : 'pending / not assigned'}</dd>
+        <dt>status</dt><dd>${rec.status}</dd>
+      </dl>
+      <p>${abs.p}</p>
+    `;
+    noteTags.innerHTML = [rec.type, rec.topic, rec.status].map(t => `<span>${t}</span>`).join('');
+    noteLink.href = rec.url;
+    noteLink.innerHTML = `<span class="ico">↗</span> ${abs.cta.replace(' ↗','')}`;
+    const doiBtn = document.createElement('button');
+    doiBtn.type = 'button';
+    doiBtn.className = 'btn paper-action';
+    doiBtn.textContent = 'copy DOI';
+    doiBtn.disabled = !rec.doi;
+    doiBtn.addEventListener('click',()=>copyText(rec.doi, doiBtn));
+    const bibBtn = document.createElement('button');
+    bibBtn.type = 'button';
+    bibBtn.className = 'btn paper-action';
+    bibBtn.textContent = 'copy BibTeX';
+    bibBtn.addEventListener('click',()=>copyText(paperBibtex(id), bibBtn));
+    noteLinks.append(doiBtn, bibBtn);
+    noteOpener = document.activeElement;
+    noteModal.classList.add('open');
+    noteModal.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden';
+    noteModal.querySelector('.note-close').focus();
+  }
+  function closeNote(){
+    if(!noteModal.classList.contains('open')) return;
+    noteModal.classList.remove('open');
+    noteModal.setAttribute('aria-hidden','true');
+    document.body.style.overflow = '';
+    if(noteOpener && document.contains(noteOpener)){ noteOpener.focus(); }
+    noteOpener = null;
+  }
+
+  document.addEventListener('keydown',(e)=>{
+    if(e.key === 'Escape') closeNote();
+    if(e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    if(e.key === 'h' || e.key === 'H') window.location.href = 'index.html';
+  });
+  document.querySelectorAll('[data-paper-open]').forEach(el=>{
+    el.addEventListener('click',()=>openPaperModal(el.dataset.paperOpen));
+  });
+  document.querySelectorAll('.bib-row[data-abs]').forEach(row=>{
+    row.addEventListener('click',(e)=>{
+      if(e.target.closest('a')) return;
+      openPaperModal(row.dataset.abs);
+    });
+    row.addEventListener('keydown',(e)=>{
+      if(e.key === 'Enter' || e.key === ' '){
+        e.preventDefault();
+        openPaperModal(row.dataset.abs);
+      }
+    });
+  });
+  document.querySelectorAll('.bib-row a').forEach(link=>{
+    link.addEventListener('click',e=>e.stopPropagation());
+  });
+  document.querySelectorAll('[data-note-close]').forEach(el=>{
+    el.addEventListener('click',closeNote);
+  });
+
+
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+  },{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

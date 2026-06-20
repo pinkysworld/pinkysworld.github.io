@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Michél Nguyen — researcher, engineer, operator · minh.systems</title>
-<meta name="description" content="Independent researcher and engineer in Berlin. Building database engines (SkeinDB), security platforms (Wardex), iOS & macOS apps, published cybersecurity research, and music — all from one workstation.">
+<meta name="description" content="Independent researcher and engineer in Germany. Building database engines (SkeinDB), security platforms (Wardex), iOS & macOS apps, published cybersecurity research, and music — all from one workstation.">
 <meta name="author" content="Michél Nguyen">
 <meta name="theme-color" content="#0b0d0e">
 <link rel="canonical" href="https://minh.systems/">
@@ -12,14 +12,14 @@
 <meta property="og:url" content="https://minh.systems/">
 <meta property="og:site_name" content="minh.systems">
 <meta property="og:title" content="Michél Nguyen — researcher, engineer, operator">
-<meta property="og:description" content="Database engines, security platforms, iOS & macOS apps, cybersecurity research, and music — built end-to-end from one workstation in Berlin.">
+<meta property="og:description" content="Database engines, security platforms, iOS & macOS apps, cybersecurity research, and music — built end-to-end from one workstation in Germany.">
 <meta property="og:image" content="https://minh.systems/assets/og-card.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="minh.systems — terminal-style portfolio of Michél Nguyen">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Michél Nguyen — researcher, engineer, operator">
-<meta name="twitter:description" content="Database engines, security platforms, iOS & macOS apps, cybersecurity research, and music — built end-to-end from one workstation in Berlin.">
+<meta name="twitter:description" content="Database engines, security platforms, iOS & macOS apps, cybersecurity research, and music — built end-to-end from one workstation in Germany.">
 <meta name="twitter:image" content="https://minh.systems/assets/og-card.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,7 +35,7 @@
       "url": "https://minh.systems/",
       "email": "mailto:minhmichel@outlook.de",
       "jobTitle": "Independent Researcher & Engineer",
-      "address": {"@type": "PostalAddress", "addressLocality": "Berlin", "addressCountry": "DE"},
+      "address": {"@type": "PostalAddress", "addressRegion": "Thuringia", "addressCountry": "DE"},
       "knowsAbout": ["database systems", "cybersecurity", "iOS development", "macOS development", "distributed systems", "music production"],
       "sameAs": [
         "https://github.com/pinkysworld",
@@ -57,7 +57,8 @@
   ]
 }
 </script>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"></noscript>
 <style>
   :root{
     --bg:#0b0d0e;
@@ -219,6 +220,34 @@
   .hero-meta .k{color:var(--dim);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:6px}
   .hero-meta .v{color:var(--fg);font-size:13px;line-height:1.3}
   .hero-meta .v .em{color:var(--green)}
+
+  .recruiter-snapshot{
+    margin-top:18px;background:var(--bg-2);border:1px solid var(--line-2);
+    display:grid;grid-template-columns:1.1fr 1fr;gap:0;
+  }
+  .recruiter-snapshot .rs-main,.recruiter-snapshot .rs-proof{padding:18px}
+  .recruiter-snapshot .rs-main{border-right:1px solid var(--line)}
+  .recruiter-snapshot .rs-k{
+    color:var(--green);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:10px;
+  }
+  .recruiter-snapshot .rs-k::before{content:"// "}
+  .recruiter-snapshot h3{
+    font-family:var(--mono);font-size:18px;font-weight:600;letter-spacing:-0.01em;line-height:1.25;color:var(--fg);margin-bottom:10px;
+  }
+  .recruiter-snapshot p{font-family:var(--sans);font-size:13px;line-height:1.55;color:var(--mute);max-width:64ch}
+  .recruiter-snapshot .rs-tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:14px}
+  .recruiter-snapshot .rs-tags span{
+    color:var(--cyan);border:1px solid var(--line-2);padding:3px 7px;
+    font-size:10px;letter-spacing:0.06em;
+  }
+  .recruiter-snapshot .rs-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:2px}
+  .recruiter-snapshot .rs-links a{
+    display:flex;align-items:center;justify-content:space-between;gap:10px;
+    padding:8px 10px;border:1px solid var(--line-2);background:var(--bg-3);
+    color:var(--fg);font-size:11px;letter-spacing:0.04em;transition:all .15s;
+  }
+  .recruiter-snapshot .rs-links a:hover{border-color:var(--green);color:var(--green)}
+  .recruiter-snapshot .rs-links a::after{content:"→";color:var(--dim)}
 
   .id-row{display:flex;gap:18px;flex-wrap:wrap;font-size:11px;color:var(--mute)}
   .id-row a{color:var(--cyan);border-bottom:1px dashed transparent;padding-bottom:1px}
@@ -722,6 +751,9 @@
 
   @media (max-width:980px){
     .hero,.now-grid,.contact-wrap,.music-wrap,.skills,.ft{grid-template-columns:1fr;gap:24px}
+    .recruiter-snapshot{grid-template-columns:1fr}
+    .recruiter-snapshot .rs-main{border-right:none;border-bottom:1px solid var(--line)}
+    .recruiter-snapshot .rs-links{grid-template-columns:1fr}
     .paper-feature{grid-template-columns:1fr}
     .research-grid{grid-template-columns:1fr}
     .ptr-head,.ptr{grid-template-columns:24px 1fr 60px 30px;font-size:12px}
@@ -743,6 +775,36 @@
     .nav-cmd{display:none}
     main,.ft,.ft-base{padding-left:16px;padding-right:16px}
     .section-mark{grid-template-columns:1fr;gap:12px}
+  }
+
+  @media (max-width:560px){
+    html,body{font-size:13px}
+    .topbar{height:34px}
+    .nav{top:34px}
+    .nav-inner{height:46px}
+    .hero{padding:32px 0 28px;gap:16px}
+    .hero-left{gap:14px}
+    .hero-eyebrow{font-size:10px;line-height:1.5;letter-spacing:0.12em}
+    .hero-eyebrow::before{flex-basis:32px}
+    .hero-title{font-size:clamp(32px,9vw,40px);line-height:1;letter-spacing:0}
+    .hero-body{font-size:15px;line-height:1.46}
+    .hero-nowline{padding:10px 12px;font-size:12px;line-height:1.4}
+    .hero-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:0}
+    .hero-actions .btn{justify-content:center;width:100%;padding:10px 10px;font-size:11px;text-align:center}
+    .hero-actions .btn.primary{grid-column:1/-1}
+    .hero-actions .btn .kbd{display:none}
+    .recruiter-snapshot{margin-top:6px}
+    .recruiter-snapshot .rs-main,.recruiter-snapshot .rs-proof{padding:14px}
+    .recruiter-snapshot h3{font-size:15px;line-height:1.25}
+    .recruiter-snapshot p{font-size:12px;line-height:1.5}
+    .recruiter-snapshot .rs-tags span{font-size:9px;padding:3px 6px}
+    .hero-meta{grid-template-columns:1fr;margin-top:0}
+    .hero-meta .m{border-right:none;border-bottom:1px solid var(--line);padding:12px 0}
+    .hero-meta .m:last-child{border-bottom:none}
+    .term{display:none}
+    .section{padding:44px 0}
+    .section-mark h2{font-size:28px;line-height:1.08}
+    .paper-card{min-height:0}
   }
 </style>
 </head>
@@ -771,7 +833,7 @@
 <nav class="nav">
   <div class="nav-inner">
     <a class="nav-tab active" href="#home"><span class="hash">~/</span>home</a>
-    <a class="nav-tab" href="#papers"><span class="hash">~/</span>papers</a>
+    <a class="nav-tab" href="#papers"><span class="hash">~/</span>research</a>
     <a class="nav-tab" href="#projects"><span class="hash">~/</span>projects</a>
     <a class="nav-tab" href="#log"><span class="hash">~/</span>log</a>
     <a class="nav-tab" href="#music"><span class="hash">~/</span>music</a>
@@ -787,16 +849,38 @@
 <!-- ====== HERO ====== -->
 <section class="hero">
   <div class="hero-left">
-    <div class="hero-eyebrow"><span class="live">●</span> Online · Berlin / Remote · Available Q3 2026</div>
+    <div class="hero-eyebrow"><span class="live">●</span> Online · Thuringia, Germany / Remote · Available Q3 2026</div>
     <h1 class="hero-title">Michél&nbsp;Nguyen<span class="punct">.</span><br><span class="c1">researcher</span><span class="punct">,</span> <span class="c2">engineer</span><span class="punct">,</span><br><span class="c3">operator</span><span class="punct">.</span></h1>
-    <p class="hero-body">I build <span class="hl">database engines</span>, ship <span class="hl">iOS &amp; macOS apps</span>, publish <span class="hl">cybersecurity research</span>, and release <span class="hl">music</span> from a single workstation in Berlin. I built most of what is listed below end-to-end.</p>
+    <p class="hero-body">I build, operate, document, and support <span class="hl">systems</span> across infrastructure, security, Apple platforms, and research engineering. I ship end-to-end work, coordinate delivery, write clearly, and keep technical projects moving from idea to usable service.</p>
     <p class="hero-nowline"><span class="k">now</span>Shipping SkeinDB 0.3.17, finishing ShieldLink proof checks, and tuning ShotSift 1.4 for App Store submission. <a href="#now">Open full now.txt →</a></p>
 
     <div class="hero-actions">
-      <a class="btn primary" href="#papers"><span class="ico">¶</span> read papers<span class="kbd">R</span></a>
+      <a class="btn primary" href="#recruiter"><span class="ico">▸</span> recruiter snapshot</a>
       <a class="btn" href="#projects"><span class="ico">▸</span> browse projects<span class="kbd">P</span></a>
+      <a class="btn" href="research.html"><span class="ico">¶</span> view research<span class="kbd">R</span></a>
       <a class="btn" href="showcase/operator/skeindb.html"><span class="ico">⌘</span> open: SkeinDB</a>
-      <a class="btn" href="showcase/operator/wardex.html"><span class="ico">⌘</span> open: Wardex</a>
+    </div>
+
+    <div class="recruiter-snapshot" id="recruiter">
+      <div class="rs-main">
+        <div class="rs-k">recruiter snapshot</div>
+        <h3>Systems, service delivery, customer success, agile project work, and research engineering.</h3>
+        <p>Targeting roles where technical depth meets reliable delivery: systems engineering, system administration, service delivery, customer success, agile project management, technical project management, solutions engineering, implementation management, technical account work, and research engineering.</p>
+        <div class="rs-tags" aria-label="Core strengths">
+          <span>systems</span><span>infrastructure</span><span>service delivery</span><span>stakeholders</span><span>documentation</span><span>security</span><span>research-backed problem solving</span>
+        </div>
+      </div>
+      <div class="rs-proof">
+        <div class="rs-k">proof links</div>
+        <div class="rs-links">
+          <a href="https://github.com/pinkysworld" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.linkedin.com/in/michelnguyengermany/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="mailto:minhmichel@outlook.de">Email</a>
+          <a href="showcase/operator/skeindb.html">SkeinDB</a>
+          <a href="showcase/operator/wardex.html">Wardex</a>
+          <a href="showcase/operator/nexusfs.html">NexusFS</a>
+        </div>
+      </div>
     </div>
 
     <div class="hero-meta">
@@ -849,7 +933,7 @@
     </div>
   </div>
   <div class="ix">
-    <a href="#papers"><span class="num">01</span><span class="title">Papers · bibliography</span><span class="arr"><span data-paper-total>13</span> →</span></a>
+    <a href="research.html"><span class="num">01</span><span class="title">Research · full bibliography</span><span class="arr"><span data-paper-total>13</span> →</span></a>
     <a href="#projects"><span class="num">02</span><span class="title">Projects · the work</span><span class="arr">14 →</span></a>
     <a href="#log"><span class="num">03</span><span class="title">Log · writing &amp; notes</span><span class="arr">3 →</span></a>
     <a href="#music"><span class="num">04</span><span class="title">Music · releases</span><span class="arr">6 →</span></a>
@@ -900,16 +984,16 @@
 <!-- ====== PAPERS ====== -->
 <section class="section" id="papers">
   <div class="section-mark">
-    <div class="tag">01 / PAPERS</div>
+    <div class="tag">01 / RESEARCH</div>
     <div>
-      <h2>grep -r papers<span class="punct">/</span></h2>
-      <p class="sub">Peer-reviewed work, preprints, and the occasional creative publication.</p>
+      <h2>selected research<span class="punct">/</span></h2>
+      <p class="sub">Three representative papers for recruiters and collaborators. The full bibliography now lives on a dedicated research page.</p>
     </div>
   </div>
 
   <div class="paper-feature" aria-label="Featured publications">
     <button class="paper-card" type="button" data-paper-open="mortality-reference-class">
-      <span class="k">latest preprint</span>
+      <span class="k">clinical AI</span>
       <h3>Reference-class failure in mortality prediction</h3>
       <p>A synthetic clinical-AI study on when sharp end-of-life risk estimates lose their reference-class basis.</p>
       <span class="meta">Research Square · 2026</span>
@@ -927,118 +1011,10 @@
       <span class="meta">in press · 2026</span>
     </button>
   </div>
-
-  <div class="filter-bar">
-    <button class="on" data-bfilter="all">all<span class="ct" data-bcount="all">13</span></button>
-    <button data-bfilter="journal">journal<span class="ct" data-bcount="journal">4</span></button>
-    <button data-bfilter="preprint">preprint<span class="ct" data-bcount="preprint">7</span></button>
-    <button data-bfilter="other">other<span class="ct" data-bcount="other">2</span></button>
-  </div>
-
-  <div class="filter-bar topic" aria-label="Filter papers by research line">
-    <button class="on" data-topic-filter="all">all topics<span class="ct" data-topic-count="all">13</span></button>
-    <button data-topic-filter="clinical-ai">clinical AI<span class="ct" data-topic-count="clinical-ai">1</span></button>
-    <button data-topic-filter="cyber-risk">cyber risk<span class="ct" data-topic-count="cyber-risk">2</span></button>
-    <button data-topic-filter="systems-security">systems/sec<span class="ct" data-topic-count="systems-security">2</span></button>
-    <button data-topic-filter="physics">physics<span class="ct" data-topic-count="physics">3</span></button>
-    <button data-topic-filter="education">education<span class="ct" data-topic-count="education">1</span></button>
-    <button data-topic-filter="org-theory">org theory<span class="ct" data-topic-count="org-theory">1</span></button>
-    <button data-topic-filter="creative">creative/sw<span class="ct" data-topic-count="creative">3</span></button>
-  </div>
-
-  <div class="bib-head">
-    <span>year</span><span>title · venue</span><span>type</span><span class="col-doi">link</span>
-  </div>
-
-  <div class="bib-row is-preprint" data-abs="mortality-reference-class" data-topic="clinical-ai" tabindex="0" role="button" aria-label="Preview Reference-Class Failure in Mortality Prediction">
-    <span class="yr">2026.06</span>
-    <div><div class="title">Reference-Class Failure in Mortality Prediction: A Synthetic Study of Irreducible Uncertainty in End-of-Life Prognostic Models</div><span class="where"><span class="venue">Research Square</span> · Version 1</span><div class="paper-meta"><span>clinical AI</span><span>preprint</span><span>doi</span></div></div>
-    <span class="kind preprint">preprint</span>
-    <span class="doi"><a href="https://doi.org/10.21203/rs.3.rs-10058406/v1" target="_blank" rel="noopener">DOI ↗</a></span>
-  </div>
-
-  <div class="bib-row is-preprint" data-abs="beyond-no" data-topic="education" tabindex="0" role="button" aria-label="Preview Beyond No">
-    <span class="yr">2026.04</span>
-    <div><div class="title">Beyond No: A Low-Interruption, Autonomy-Supportive Framework for Early Childhood Self-Directed Learning in Prepared Environments</div><span class="where"><span class="venue">ResearchGate</span> · submitted to KDU KJMS</span><div class="paper-meta"><span>education</span><span>submitted</span></div></div>
-    <span class="kind preprint">preprint</span>
-    <span class="doi"><a href="https://www.researchgate.net/publication/403982284" target="_blank" rel="noopener">RG ↗</a></span>
-  </div>
-
-  <div class="bib-row is-journal" data-abs="cku" data-topic="cyber-risk" tabindex="0" role="button" aria-label="Preview Computational Knightian Uncertainty">
-    <span class="yr">2026.01</span>
-    <div><div class="title">Computational Knightian Uncertainty: Undecidability and the Limits of Cyber Risk Quantification in Software-Intensive Firms</div><span class="where"><span class="venue">IJRC</span> · International Journal of Research in Computing</span><div class="paper-meta"><span>cyber risk</span><span>journal</span></div></div>
-    <span class="kind journal">journal</span>
-    <span class="doi"><a href="https://www.ijrcom.org/index.php/ijrc/article/view/192" target="_blank" rel="noopener">IJRC ↗</a></span>
-  </div>
-
-  <div class="bib-row is-journal" data-abs="shieldlink" data-topic="systems-security" tabindex="0" role="button" aria-label="Preview ShieldLink">
-    <span class="yr">2026</span>
-    <div><div class="title">ShieldLink: Retry-Aware Authenticated Encryption for Secure and Reliable Chiplet Interconnects</div><span class="where"><span class="venue">IJRCOM</span> · International Journal of Research in Computing · In Press</span><div class="paper-meta"><span>systems/sec</span><span>in press</span></div></div>
-    <span class="kind journal">in press</span>
-    <span class="doi"><a href="https://doi.org/10.36227/techrxiv.176800047.72137558/v1" target="_blank" rel="noopener">DOI ↗</a></span>
-  </div>
-
-  <div class="bib-row is-preprint" data-abs="preons-2" data-topic="physics" tabindex="0" role="button" aria-label="Preview Dual-Polarity Preons II">
-    <span class="yr">2025</span>
-    <div><div class="title">Dual-Polarity Preons II: Parameter-Space Constraints and Viable Regimes for an Emergent Acoustic Metric</div><span class="where"><span class="venue">TechRxiv</span></span><div class="paper-meta"><span>physics</span><span>preprint</span></div></div>
-    <span class="kind preprint">preprint</span>
-    <span class="doi"><a href="https://doi.org/10.36227/techrxiv.176590637.76612181/v1" target="_blank" rel="noopener">DOI ↗</a></span>
-  </div>
-
-  <div class="bib-row is-preprint" data-abs="simulated-minds" data-topic="physics" tabindex="0" role="button" aria-label="Preview Simulated Minds">
-    <span class="yr">2025</span>
-    <div><div class="title">Simulated Minds, Artificial Consciousness, and the Theory-Relative Simulation Hypothesis</div><span class="where"><span class="venue">TechRxiv</span></span><div class="paper-meta"><span>philosophy</span><span>preprint</span></div></div>
-    <span class="kind preprint">preprint</span>
-    <span class="doi"><a href="https://doi.org/10.36227/techrxiv.176583724.41540320/v1" target="_blank" rel="noopener">DOI ↗</a></span>
-  </div>
-
-  <div class="bib-row is-journal" data-abs="preons-1" data-topic="physics" tabindex="0" role="button" aria-label="Preview Dual-Polarity Preons">
-    <span class="yr">2025</span>
-    <div><div class="title">Dual-Polarity Preons: A Toy Model for Composite Neutral Pairs and Emergent Gravity</div><span class="where"><span class="venue">Cognizance</span></span><div class="paper-meta"><span>physics</span><span>journal</span></div></div>
-    <span class="kind journal">journal</span>
-    <span class="doi"><a href="https://doi.org/10.47760/cognizance.2025.v05i11.009" target="_blank" rel="noopener">DOI ↗</a></span>
-  </div>
-
-  <div class="bib-row is-preprint" data-abs="fl-ids" data-topic="systems-security" tabindex="0" role="button" aria-label="Preview Federated Learning-Based Intrusion Detection System">
-    <span class="yr">2025</span>
-    <div><div class="title">Federated Learning-Based Intrusion Detection System for IoT Networks in Resource-Constrained Environments</div><span class="where"><span class="venue">TechRxiv</span> · rel. <a href="#projects">wardex</a></span><div class="paper-meta"><span>systems/sec</span><span>preprint</span></div></div>
-    <span class="kind preprint">preprint</span>
-    <span class="doi"><a href="https://doi.org/10.36227/techrxiv.176403418.87468767/v1" target="_blank" rel="noopener">DOI ↗</a></span>
-  </div>
-
-  <div class="bib-row is-preprint" data-abs="org-circuits" data-topic="org-theory" tabindex="0" role="button" aria-label="Preview Computational Complexity of Organizational Decision Hierarchies">
-    <span class="yr">2025</span>
-    <div><div class="title">Computational Complexity of Organizational Decision Hierarchies</div><span class="where"><span class="venue">Research Square</span></span><div class="paper-meta"><span>org theory</span><span>preprint</span></div></div>
-    <span class="kind preprint">preprint</span>
-    <span class="doi"><a href="https://doi.org/10.21203/rs.3.rs-7948428/v1" target="_blank" rel="noopener">DOI ↗</a></span>
-  </div>
-
-  <div class="bib-row is-preprint" data-abs="quantum-walk" data-topic="cyber-risk" tabindex="0" role="button" aria-label="Preview Quantum Walk-Inspired Algorithm">
-    <span class="yr">2025</span>
-    <div><div class="title">A Quantum Walk-Inspired Algorithm for Dynamic Resource Allocation in Cloud Computing</div><span class="where"><span class="venue">TechRxiv</span> · sustainable business practices</span><div class="paper-meta"><span>cloud systems</span><span>preprint</span></div></div>
-    <span class="kind preprint">preprint</span>
-    <span class="doi"><a href="https://doi.org/10.36227/techrxiv.176316003.37717757/v1" target="_blank" rel="noopener">DOI ↗</a></span>
-  </div>
-
-  <div class="bib-row is-journal" data-abs="quadralzahlen" data-topic="creative" tabindex="0" role="button" aria-label="Preview Quadralzahlen">
-    <span class="yr">2025</span>
-    <div><div class="title">Quadralzahlen: A Rotation-Invariant Numeral System That Reduces Upside-Down Misreads in Real-World Displays</div><span class="where"><span class="venue">Cognizance</span></span><div class="paper-meta"><span>notation</span><span>journal</span></div></div>
-    <span class="kind journal">journal</span>
-    <span class="doi"><a href="https://doi.org/10.47760/cognizance.2025.v05i10.019" target="_blank" rel="noopener">DOI ↗</a></span>
-  </div>
-
-  <div class="bib-row is-other" data-topic="creative">
-    <span class="yr">2024</span>
-    <div><div class="title">Nadia's Adventures in the New World</div><span class="where">Book · creative fiction</span></div>
-    <span class="kind other">book</span>
-    <span class="doi">—</span>
-  </div>
-
-  <div class="bib-row is-other" data-topic="creative">
-    <span class="yr">2024</span>
-    <div><div class="title">pimiTool</div><span class="where">Software copyright · registered</span></div>
-    <span class="kind other">sw</span>
-    <span class="doi">—</span>
+  <div class="hero-actions" style="margin-top:18px">
+    <a class="btn primary" href="research.html"><span class="ico">¶</span> view all research papers</a>
+    <a class="btn" href="https://scholar.google.com/citations?user=6HheUI4AAAAJ" target="_blank" rel="noopener"><span class="ico">↗</span> Google Scholar</a>
+    <a class="btn" href="https://orcid.org/0000-0001-6834-4422" target="_blank" rel="noopener"><span class="ico">↗</span> ORCID</a>
   </div>
 </section>
 
@@ -1258,7 +1234,7 @@
   <div class="music-wrap">
     <figure class="mx-feature">
       <div class="cover-wrap">
-        <img id="mx-cover" src="https://i.scdn.co/image/ab67616d00001e02f6fd54ee7897f35ab5608934" alt="Da Nang Beats, Definitive Edition cover">
+        <img id="mx-cover" loading="lazy" decoding="async" src="https://i.scdn.co/image/ab67616d00001e02f6fd54ee7897f35ab5608934" alt="Da Nang Beats, Definitive Edition cover">
       </div>
       <div class="meta">
         <span class="label" id="mx-label">album · 2025</span>
@@ -1288,32 +1264,32 @@
       <div class="mxl-head"><span>#</span><span>release</span><span>format</span><span>yr</span></div>
       <button class="mx-row on" type="button" data-id="1VHWU6t5E17V8saWOHppDR" data-img="https://i.scdn.co/image/ab67616d00001e02f6fd54ee7897f35ab5608934" data-title="Da Nang Beats, Definitive Edition" data-kind="album">
         <span class="n">01</span>
-        <span class="t"><img src="https://i.scdn.co/image/ab67616d00001e02f6fd54ee7897f35ab5608934" alt=""><span><span class="ti">Da Nang Beats, Definitive Edition</span><span class="tk">beats · field</span></span></span>
+        <span class="t"><img loading="lazy" decoding="async" src="https://i.scdn.co/image/ab67616d00001e02f6fd54ee7897f35ab5608934" alt=""><span><span class="ti">Da Nang Beats, Definitive Edition</span><span class="tk">beats · field</span></span></span>
         <span class="k">album</span><span class="y">25</span>
       </button>
       <button class="mx-row" type="button" data-id="5ZZ3nDT8mGdktBIK1oxMvn" data-img="https://i.scdn.co/image/ab67616d00001e02b402f866548a99fb18dd7111" data-title="Da Lat Beats" data-kind="album">
         <span class="n">02</span>
-        <span class="t"><img src="https://i.scdn.co/image/ab67616d00001e02b402f866548a99fb18dd7111" alt=""><span><span class="ti">Da Lat Beats</span><span class="tk">beats · highland</span></span></span>
+        <span class="t"><img loading="lazy" decoding="async" src="https://i.scdn.co/image/ab67616d00001e02b402f866548a99fb18dd7111" alt=""><span><span class="ti">Da Lat Beats</span><span class="tk">beats · highland</span></span></span>
         <span class="k">album</span><span class="y">25</span>
       </button>
       <button class="mx-row" type="button" data-id="42vP0L9ji6txfn3nzv4Gyz" data-img="https://i.scdn.co/image/ab67616d00001e02f8b39eef496fa7660328854c" data-title="From Drum to Bass DnB" data-kind="album">
         <span class="n">03</span>
-        <span class="t"><img src="https://i.scdn.co/image/ab67616d00001e02f8b39eef496fa7660328854c" alt=""><span><span class="ti">From Drum to Bass DnB</span><span class="tk">dnb · 174bpm</span></span></span>
+        <span class="t"><img loading="lazy" decoding="async" src="https://i.scdn.co/image/ab67616d00001e02f8b39eef496fa7660328854c" alt=""><span><span class="ti">From Drum to Bass DnB</span><span class="tk">dnb · 174bpm</span></span></span>
         <span class="k">album</span><span class="y">25</span>
       </button>
       <button class="mx-row" type="button" data-id="08UUoE07XUQiMIIqHL46K8" data-img="https://i.scdn.co/image/ab67616d00001e0214b58ca814949956c7dae6c5" data-title="Dream Pulse Minh DnB One" data-kind="EP">
         <span class="n">04</span>
-        <span class="t"><img src="https://i.scdn.co/image/ab67616d00001e0214b58ca814949956c7dae6c5" alt=""><span><span class="ti">Dream Pulse Minh DnB One</span><span class="tk">dnb · dream</span></span></span>
+        <span class="t"><img loading="lazy" decoding="async" src="https://i.scdn.co/image/ab67616d00001e0214b58ca814949956c7dae6c5" alt=""><span><span class="ti">Dream Pulse Minh DnB One</span><span class="tk">dnb · dream</span></span></span>
         <span class="k">EP</span><span class="y">25</span>
       </button>
       <button class="mx-row" type="button" data-id="4RrerGDPnuoJ3dg1U9gPDF" data-img="https://i.scdn.co/image/ab67616d00001e024f45e3912ecc9f3215a062d8" data-title="Adventures in Playland" data-kind="album">
         <span class="n">05</span>
-        <span class="t"><img src="https://i.scdn.co/image/ab67616d00001e024f45e3912ecc9f3215a062d8" alt=""><span><span class="ti">Adventures in Playland</span><span class="tk">lo-fi · ambient</span></span></span>
+        <span class="t"><img loading="lazy" decoding="async" src="https://i.scdn.co/image/ab67616d00001e024f45e3912ecc9f3215a062d8" alt=""><span><span class="ti">Adventures in Playland</span><span class="tk">lo-fi · ambient</span></span></span>
         <span class="k">album</span><span class="y">25</span>
       </button>
       <button class="mx-row" type="button" data-id="7aYJ4Kdgh3KoleATUUImUg" data-img="https://i.scdn.co/image/ab67616d00001e02ae59bb2edf147cc276adc348" data-title="Chuyến Phiêu Lưu Của Miyu" data-kind="single">
         <span class="n">06</span>
-        <span class="t"><img src="https://i.scdn.co/image/ab67616d00001e02ae59bb2edf147cc276adc348" alt=""><span><span class="ti">Chuyến Phiêu Lưu Của Miyu</span><span class="tk">single · vocal</span></span></span>
+        <span class="t"><img loading="lazy" decoding="async" src="https://i.scdn.co/image/ab67616d00001e02ae59bb2edf147cc276adc348" alt=""><span><span class="ti">Chuyến Phiêu Lưu Của Miyu</span><span class="tk">single · vocal</span></span></span>
         <span class="k">single</span><span class="y">25</span>
       </button>
     </div>
@@ -1484,7 +1460,7 @@
         <span class="term-line cmt"># preferred: email or GitHub. response time &lt; 72h.</span>
         <span class="term-line"><span class="k">EMAIL</span>=<span class="s">"minhmichel@outlook.de"</span></span>
         <span class="term-line"><span class="k">PGP</span>=<span class="s">"available on request"</span></span>
-        <span class="term-line"><span class="k">TIMEZONE</span>=<span class="s">"Europe/Berlin"</span></span>
+        <span class="term-line"><span class="k">TIMEZONE</span>=<span class="s">"CET/CEST"</span></span>
         <span class="term-line"><span class="k">REPLY_WINDOW</span>=<span class="v">"&lt;72h"</span> <span class="mute"># email or GitHub preferred</span></span>
         <span class="term-line ok">✓ all channels open</span>
         <div class="ct-list">
@@ -1518,13 +1494,13 @@
   <div class="ft">
     <div>
       <div class="ft-brand">minh@systems</div>
-      <div class="ft-tag">Independent research workstation. Building databases, apps, papers, and music from Berlin.</div>
+      <div class="ft-tag">Independent research workstation. Building databases, apps, papers, and music from Germany.</div>
     </div>
     <div class="ft-col">
       <h5>sections</h5>
       <ul>
         <li><a href="#projects">projects</a></li>
-        <li><a href="#papers">papers</a></li>
+        <li><a href="research.html">research</a></li>
         <li><a href="#log">log</a></li>
         <li><a href="#music">music</a></li>
         <li><a href="#now">now</a></li>
@@ -1550,7 +1526,7 @@
   </div>
   <div class="ft-base">
     <span>&copy; 2026 michél nguyen · all rights reserved</span>
-    <span>built with HTML, CSS &amp; no frameworks · JetBrains Mono · Berlin</span>
+    <span>built with HTML, CSS &amp; no frameworks · JetBrains Mono · Germany</span>
   </div>
 </footer>
 
@@ -1599,6 +1575,7 @@
 
   function getPaperStats(){
     const rows = [...document.querySelectorAll('.bib-row')];
+    if(!rows.length) return PAPER_STATS;
     const byType = type => rows.filter(row => row.classList.contains('is-'+type)).length;
     return {
       total: rows.length,
@@ -1607,6 +1584,7 @@
       other: byType('other')
     };
   }
+  const PAPER_STATS = {total:13,journal:4,preprint:7,other:2};
   const paperStats = getPaperStats();
   document.querySelectorAll('[data-paper-total]').forEach(el=>{ el.textContent = paperStats.total; });
   document.querySelectorAll('[data-bcount]').forEach(el=>{
@@ -1635,7 +1613,7 @@
     {t:'cat motd', cls:'cmd', d:500},
     {t:'<span class="warn">→</span> building systems, apps, and research that ship.', cls:'', d:80},
     {t:'<span class="warn">→</span> current focus: systems work, cyber-risk research, shipped Apple apps.', cls:'', d:80},
-    {t:'<span class="warn">→</span> press P to browse projects, R for papers.', cls:'', d:80},
+    {t:'<span class="warn">→</span> press P to browse projects, R for research.', cls:'', d:80},
     {t:'', cls:'', d:60},
     {t:'_', cls:'cmd cursor', d:0},
   ];
@@ -1701,7 +1679,7 @@
   // command palette
   const cmdItems = [
     {label:'~/home', hint:'top', go:'#home'},
-    {label:'~/papers', hint:'bibliography', go:'#papers'},
+    {label:'~/research', hint:'full bibliography', go:'research.html'},
     {label:'~/projects', hint:'14 builds', go:'#projects'},
     {label:'~/log', hint:'writing & notes', go:'#log'},
     {label:'~/music', hint:'6 releases', go:'#music'},
@@ -1787,7 +1765,7 @@
     if(e.metaKey || e.ctrlKey || e.altKey) return;
     if(e.key === '/'){ e.preventDefault(); openCmdk(); }
     if(e.key === 'p' || e.key === 'P'){ jump('projects'); }
-    if(e.key === 'r' || e.key === 'R'){ jump('papers'); }
+    if(e.key === 'r' || e.key === 'R'){ window.location.href = 'research.html'; }
     if(e.key === 'm' || e.key === 'M'){ jump('music'); }
     if(e.key === 'n' || e.key === 'N'){ jump('now'); }
     if(e.key === 'h' || e.key === 'H'){ jump('home'); }
@@ -1820,121 +1798,26 @@
       });
     });
   });
-  // paper filters
-  let activePaperType = 'all';
-  let activePaperTopic = 'all';
-  function updateTopicCounts(){
-    const rows = [...document.querySelectorAll('.bib-row')];
-    document.querySelectorAll('[data-topic-count]').forEach(el=>{
-      const topic = el.dataset.topicCount;
-      el.textContent = topic === 'all' ? rows.length : rows.filter(row => row.dataset.topic === topic).length;
-    });
-  }
-  updateTopicCounts();
-  function applyPaperFilters(){
-    document.querySelectorAll('.bib-row').forEach(row=>{
-      const typeMatch = activePaperType === 'all' || row.classList.contains('is-'+activePaperType);
-      const topicMatch = activePaperTopic === 'all' || row.dataset.topic === activePaperTopic;
-      row.hidden = !(typeMatch && topicMatch);
-    });
-  }
-  document.querySelectorAll('[data-bfilter]').forEach(btn=>{
-    btn.addEventListener('click',()=>{
-      document.querySelectorAll('[data-bfilter]').forEach(b=>b.classList.remove('on'));
-      btn.classList.add('on');
-      activePaperType = btn.dataset.bfilter;
-      applyPaperFilters();
-    });
-  });
-  document.querySelectorAll('[data-topic-filter]').forEach(btn=>{
-    btn.addEventListener('click',()=>{
-      document.querySelectorAll('[data-topic-filter]').forEach(b=>b.classList.remove('on'));
-      btn.classList.add('on');
-      activePaperTopic = btn.dataset.topicFilter;
-      applyPaperFilters();
-    });
-  });
-
-  // paper abstract hover spotlights
+  // Featured paper modal data. The full bibliography and paper schema live on research.html.
   const bibAbstracts = {
     'mortality-reference-class': {
-      k:'abstract spotlight · mortality prediction',
-      h:'When a precise mortality risk has no valid reference class',
-      p:'Defines reference-class failure in mortality prediction: an end-of-life case can sit outside the development population’s transportable conditional mechanism while the model still returns a sharp individual risk. In a synthetic concept-shift study, logistic regression, random forest, gradient boosting, and a neural network remain confident on novel terminal cases, but Brier error plateaus near 0.215, far above the novel regime’s 0.092 aleatoric floor. The paper proposes a diagnostic triad: absent reference class, sharp output, and data-insensitive error.',
+      p:'Defines reference-class failure in mortality prediction: an end-of-life case can sit outside the development population’s transportable conditional mechanism while the model still returns a sharp individual risk. In a synthetic concept-shift study, logistic regression, random forest, gradient boosting, and a neural network remain confident on novel terminal cases, but Brier error plateaus near 0.215, far above the novel regime’s 0.092 aleatoric floor.',
       href:'https://doi.org/10.21203/rs.3.rs-10058406/v1', cta:'open preprint ↗'
     },
-    'beyond-no': {
-      k:'abstract spotlight · beyond no',
-      h:'Guiding early learners with fewer interruptions',
-      p:'Proposes a low-interruption, autonomy-supportive framework for adults accompanying self-directed learning in early childhood. Instead of steering children through constant verbal correction, the framework leans on prepared environments and minimal, well-timed interventions, so that the child’s own activity — not the adult’s narration of it — stays at the center of the learning episode.',
-      href:'https://www.researchgate.net/publication/403982284', cta:'open preprint ↗'
-    },
     'cku': {
-      k:'abstract spotlight · computational knightian uncertainty',
-      h:'Why some cyber risk in software-intensive firms cannot be priced away',
-      p:'The paper argues that software creates a residual class of uncertainty that does not collapse neatly into ordinary probabilistic risk. Because many security, safety, and compliance questions are undecidable in the general case, even perfect code visibility and abundant classical computation cannot eliminate all uncertainty. The article names that remainder <strong>computational Knightian uncertainty (CKU)</strong>, then connects it to structural opacity in codebases and to practical downstream effects such as incident severity, cyber insurance outcomes, and M&amp;A discounting.',
+      p:'The paper argues that software creates a residual class of uncertainty that does not collapse neatly into ordinary probabilistic risk. Because many security, safety, and compliance questions are undecidable in the general case, even perfect code visibility and abundant classical computation cannot eliminate all uncertainty. The article names that remainder <strong>computational Knightian uncertainty (CKU)</strong>, then connects it to structural opacity in codebases and practical downstream effects.',
       href:'https://www.ijrcom.org/index.php/ijrc/article/view/192', cta:'open journal article ↗'
     },
     'shieldlink': {
-      k:'abstract spotlight · shieldlink',
-      h:'Closing the retry window between link reliability and encryption',
-      p:'Chiplet die-to-die links such as UCIe/CXL handle reliability with link-layer retries while confidentiality lives in higher-layer authenticated encryption. Composed naively, the receiver can acknowledge a frame on a fast CRC check before the slower AEAD verification finishes — a time-of-check/time-of-use window that can desynchronize state or enable denial-of-service. ShieldLink enforces one deliverability invariant: the receive window only advances on successful AEAD verification of exactly the bits that will be delivered.',
+      p:'Chiplet die-to-die links such as UCIe/CXL handle reliability with link-layer retries while confidentiality lives in higher-layer authenticated encryption. ShieldLink enforces one deliverability invariant: the receive window only advances on successful AEAD verification of exactly the bits that will be delivered.',
       href:'https://doi.org/10.36227/techrxiv.176800047.72137558/v1', cta:'open preprint ↗'
-    },
-    'preons-2': {
-      k:'abstract spotlight · dual-polarity preons ii',
-      h:'Mapping where the dyad model actually survives',
-      p:'The follow-up to the dual-polarity preon toy model asks the harder question: in which regions of parameter space can the framework live at all? The paper works through parameter-space constraints on the composite neutral pairs and identifies the regimes in which an emergent acoustic metric remains viable, sharpening the original proposal into something that can be confronted with observational and collider bounds.',
-      href:'https://doi.org/10.36227/techrxiv.176590637.76612181/v1', cta:'open preprint ↗'
-    },
-    'simulated-minds': {
-      k:'abstract spotlight · simulated minds',
-      h:'Whether a simulated mind counts as conscious is theory-relative',
-      p:'Examines the simulation hypothesis and claims about artificial consciousness through one observation: any verdict about whether a simulated mind is genuinely conscious depends on which theory of consciousness one assumes from the outset. The paper develops this theory-relative reading and traces what it does to familiar arguments about simulated minds — many disagreements turn out to be disagreements about theories of mind, not about the simulations themselves.',
-      href:'https://doi.org/10.36227/techrxiv.176583724.41540320/v1', cta:'open preprint ↗'
-    },
-    'preons-1': {
-      k:'abstract spotlight · dual-polarity preons',
-      h:'A two-field toy model where neutral pairs induce the metric',
-      p:'Proposes a toy model in which opposite-charge “dyads” bind into neutral pairs acting as composite bosonic excitations: a hidden U(1) interaction mediates attraction, a quartic term stabilizes bound states, and long-wavelength variations of the neutral-pair condensate generate an effective metric in the spirit of analogue-gravity programs. The construction is built to respect GW170817 multimessenger constraints and equivalence-principle tests at the 10⁻¹⁵ level, with falsifiable consequences enumerated against collider compositeness limits.',
-      href:'https://doi.org/10.47760/cognizance.2025.v05i11.009', cta:'open journal article ↗'
-    },
-    'fl-ids': {
-      k:'abstract spotlight · federated ids for iot',
-      h:'Intrusion detection that never centralizes the data',
-      p:'A lightweight federated-learning intrusion detection system for resource-constrained IoT deployments. Training stays decentralized, which removes the privacy and communication costs of central data collection, and differential privacy keeps model updates from leaking through gradients. On NSL-KDD and IoT-23, the federated model reaches nearly the same detection performance as a centralized baseline while remaining deployable on constrained nodes.',
-      href:'https://doi.org/10.36227/techrxiv.176403418.87468767/v1', cta:'open preprint ↗'
-    },
-    'org-circuits': {
-      k:'abstract spotlight · organizational decision hierarchies',
-      h:'Org charts as threshold circuits: latency vs. accuracy',
-      p:'Models organizational decision hierarchies as bounded-span monotone threshold circuits, making the tradeoffs between decision latency, accuracy, and headcount formally explicit. Aggregating n binary signals with span s requires depth at least ⌈logₛ n⌉. Simulations with 256 signals show the tension concretely: widening spans from 4 to 16 cuts latency roughly in half but drops decision accuracy from 100% to about 90% under realistic noise.',
-      href:'https://doi.org/10.21203/rs.3.rs-7948428/v1', cta:'open preprint ↗'
-    },
-    'quantum-walk': {
-      k:'abstract spotlight · quantum walk allocation',
-      h:'Borrowing quantum-walk dynamics for cloud scheduling',
-      p:'Develops a quantum walk-inspired heuristic for dynamic resource allocation in cloud computing. The spreading behavior of quantum walks is used as a template for how allocation decisions explore the space of placements, aiming at allocations that adapt to shifting load while keeping utilization — and with it the energy footprint of over-provisioning — in check, which connects the algorithmic idea to sustainable operating practice.',
-      href:'https://doi.org/10.36227/techrxiv.176316003.37717757/v1', cta:'open preprint ↗'
-    },
-    'quadralzahlen': {
-      k:'abstract spotlight · quadralzahlen',
-      h:'Digits you cannot read upside-down wrong',
-      p:'Introduces Quadralzahlen (QZ), a rotation-invariant numeral system for identifiers and state codes built to eliminate 180° misreads in rotation-rich contexts such as logistics, healthcare, and handheld UIs. QZ combines self-symmetric glyphs (0, 1, 8, X) with pairwise mappings (6–9, 3–E) plus typography and OCR guidance. In-silico evaluations show fewer upside-down confusions and flatter angle-time profiles than standard numerals, with OCR staying near ceiling at quarter turns.',
-      href:'https://doi.org/10.47760/cognizance.2025.v05i10.019', cta:'open journal article ↗'
     }
   };
   const paperRecords = {
     'mortality-reference-class': {
       title:'Reference-Class Failure in Mortality Prediction: A Synthetic Study of Irreducible Uncertainty in End-of-Life Prognostic Models',
       year:'2026', venue:'Research Square', type:'Preprint', status:'Version 1', topic:'clinical AI',
-      doi:'10.21203/rs.3.rs-10058406/v1', url:'https://doi.org/10.21203/rs.3.rs-10058406/v1',
-      key:'nguyen2026referenceclass'
-    },
-    'beyond-no': {
-      title:'Beyond No: A Low-Interruption, Autonomy-Supportive Framework for Early Childhood Self-Directed Learning in Prepared Environments',
-      year:'2026', venue:'ResearchGate', type:'Preprint', status:'Submitted to KDU KJMS', topic:'education',
-      doi:'', url:'https://www.researchgate.net/publication/403982284', key:'nguyen2026beyondno'
+      doi:'10.21203/rs.3.rs-10058406/v1', url:'https://doi.org/10.21203/rs.3.rs-10058406/v1', key:'nguyen2026referenceclass'
     },
     'cku': {
       title:'Computational Knightian Uncertainty: Undecidability and the Limits of Cyber Risk Quantification in Software-Intensive Firms',
@@ -1945,41 +1828,6 @@
       title:'ShieldLink: Retry-Aware Authenticated Encryption for Secure and Reliable Chiplet Interconnects',
       year:'2026', venue:'International Journal of Research in Computing', type:'Journal article', status:'In press', topic:'systems security',
       doi:'10.36227/techrxiv.176800047.72137558/v1', url:'https://doi.org/10.36227/techrxiv.176800047.72137558/v1', key:'nguyen2026shieldlink'
-    },
-    'preons-2': {
-      title:'Dual-Polarity Preons II: Parameter-Space Constraints and Viable Regimes for an Emergent Acoustic Metric',
-      year:'2025', venue:'TechRxiv', type:'Preprint', status:'Version 1', topic:'physics',
-      doi:'10.36227/techrxiv.176590637.76612181/v1', url:'https://doi.org/10.36227/techrxiv.176590637.76612181/v1', key:'nguyen2025preons2'
-    },
-    'simulated-minds': {
-      title:'Simulated Minds, Artificial Consciousness, and the Theory-Relative Simulation Hypothesis',
-      year:'2025', venue:'TechRxiv', type:'Preprint', status:'Version 1', topic:'philosophy of mind',
-      doi:'10.36227/techrxiv.176583724.41540320/v1', url:'https://doi.org/10.36227/techrxiv.176583724.41540320/v1', key:'nguyen2025simulated'
-    },
-    'preons-1': {
-      title:'Dual-Polarity Preons: A Toy Model for Composite Neutral Pairs and Emergent Gravity',
-      year:'2025', venue:'Cognizance', type:'Journal article', status:'Published', topic:'physics',
-      doi:'10.47760/cognizance.2025.v05i11.009', url:'https://doi.org/10.47760/cognizance.2025.v05i11.009', key:'nguyen2025preons'
-    },
-    'fl-ids': {
-      title:'Federated Learning-Based Intrusion Detection System for IoT Networks in Resource-Constrained Environments',
-      year:'2025', venue:'TechRxiv', type:'Preprint', status:'Version 1', topic:'systems security',
-      doi:'10.36227/techrxiv.176403418.87468767/v1', url:'https://doi.org/10.36227/techrxiv.176403418.87468767/v1', key:'nguyen2025federated'
-    },
-    'org-circuits': {
-      title:'Computational Complexity of Organizational Decision Hierarchies',
-      year:'2025', venue:'Research Square', type:'Preprint', status:'Version 1', topic:'organizational theory',
-      doi:'10.21203/rs.3.rs-7948428/v1', url:'https://doi.org/10.21203/rs.3.rs-7948428/v1', key:'nguyen2025hierarchies'
-    },
-    'quantum-walk': {
-      title:'A Quantum Walk-Inspired Algorithm for Dynamic Resource Allocation in Cloud Computing',
-      year:'2025', venue:'TechRxiv', type:'Preprint', status:'Version 1', topic:'cloud systems',
-      doi:'10.36227/techrxiv.176316003.37717757/v1', url:'https://doi.org/10.36227/techrxiv.176316003.37717757/v1', key:'nguyen2025quantumwalk'
-    },
-    'quadralzahlen': {
-      title:'Quadralzahlen: A Rotation-Invariant Numeral System That Reduces Upside-Down Misreads in Real-World Displays',
-      year:'2025', venue:'Cognizance', type:'Journal article', status:'Published', topic:'notation systems',
-      doi:'10.47760/cognizance.2025.v05i10.019', url:'https://doi.org/10.47760/cognizance.2025.v05i10.019', key:'nguyen2025quadralzahlen'
     }
   };
   function paperBibtex(id){
@@ -1995,69 +1843,6 @@
       `  url = {${rec.url}}`
     ].filter(Boolean).join(',\n');
     return `@${entryType}{${rec.key},\n${fields}\n}`;
-  }
-  function injectPaperSchema(){
-    const schema = {
-      '@context':'https://schema.org',
-      '@graph': Object.keys(paperRecords).map(id=>{
-        const rec = paperRecords[id];
-        const abs = bibAbstracts[id];
-        const item = {
-          '@type':'ScholarlyArticle',
-          '@id': rec.url + '#article',
-          headline: rec.title,
-          name: rec.title,
-          author: {'@id':'https://minh.systems/#person'},
-          datePublished: rec.year,
-          isPartOf: { '@type':'Periodical', name: rec.venue },
-          about: rec.topic,
-          url: rec.url,
-          description: abs ? abs.p.replace(/<[^>]+>/g,'') : undefined
-        };
-        if(rec.doi) item.identifier = `doi:${rec.doi}`;
-        if(rec.doi) item.sameAs = `https://doi.org/${rec.doi}`;
-        if(rec.type === 'Preprint') item.creativeWorkStatus = 'Preprint';
-        return item;
-      })
-    };
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = 'paper-schema';
-    script.textContent = JSON.stringify(schema);
-    document.head.appendChild(script);
-  }
-  injectPaperSchema();
-  if(window.matchMedia('(hover: hover) and (pointer: fine)').matches){
-    const spot = document.createElement('div');
-    spot.className = 'bib-abstract bib-spot';
-    document.body.appendChild(spot);
-    let spotShowTimer = null, spotHideTimer = null;
-    function showSpot(row){
-      const a = bibAbstracts[row.dataset.abs];
-      if(!a) return;
-      spot.innerHTML = `<div class="k">${a.k}</div><h4>${a.h}</h4><p>${a.p}</p>` +
-        `<div class="actions"><a href="${a.href}" target="_blank" rel="noopener">${a.cta}</a></div>`;
-      const r = row.getBoundingClientRect();
-      spot.style.left = Math.max(16, Math.min(r.left + 80, window.innerWidth - spot.offsetWidth - 16)) + 'px';
-      let top = r.bottom + 8;
-      if(top + spot.offsetHeight > window.innerHeight - 16){ top = r.top - spot.offsetHeight - 8; }
-      spot.style.top = Math.max(16, top) + 'px';
-      spot.classList.add('show');
-    }
-    function hideSpotSoon(){
-      clearTimeout(spotShowTimer);
-      spotHideTimer = setTimeout(()=>spot.classList.remove('show'), 160);
-    }
-    document.querySelectorAll('.bib-row[data-abs]').forEach(row=>{
-      row.addEventListener('mouseenter',()=>{
-        clearTimeout(spotHideTimer); clearTimeout(spotShowTimer);
-        spotShowTimer = setTimeout(()=>showSpot(row), 90);
-      });
-      row.addEventListener('mouseleave', hideSpotSoon);
-    });
-    spot.addEventListener('mouseenter',()=>{clearTimeout(spotHideTimer);});
-    spot.addEventListener('mouseleave', hideSpotSoon);
-    window.addEventListener('scroll',()=>{clearTimeout(spotShowTimer);spot.classList.remove('show');},{passive:true});
   }
 
   // music switcher
