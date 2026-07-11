@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://minh.systems/</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -24,5 +24,6 @@
   <url><loc>https://shelterfall.minh.systems/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://minh.systems/NomadKitchenTycoon/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://minh.systems/SafeDrop/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://minh.systems/Focusledger-Pro/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://minh.systems/Focusledger-Pro/</loc><lastmod>2026-07-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://minh.systems/DiskLoom/</loc><lastmod>2026-07-11</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>
