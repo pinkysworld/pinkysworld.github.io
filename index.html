@@ -1002,13 +1002,13 @@
       <span class="k">cyber risk</span>
       <h3>Computational Knightian uncertainty</h3>
       <p>Undecidability, software opacity, and the residual uncertainty that probabilistic cyber-risk models cannot price away.</p>
-      <span class="meta">IJRC · 2026</span>
+      <span class="meta">IJRC · 2026 · DOI</span>
     </button>
     <button class="paper-card" type="button" data-paper-open="shieldlink">
       <span class="k">systems security</span>
       <h3>ShieldLink for chiplet interconnects</h3>
       <p>A retry-aware authenticated-encryption design that closes the gap between link reliability and AEAD verification.</p>
-      <span class="meta">in press · 2026</span>
+      <span class="meta">IJRC · published 2026 · DOI</span>
     </button>
   </div>
   <div class="hero-actions" style="margin-top:18px">
@@ -1320,7 +1320,7 @@
       <h3>This week's bench</h3>
       <ul class="now-list">
         <li><span class="when">mon</span><span class="what"><strong>skeindb 0.3.25</strong> — finishing the MVCC reclamation pass + writing the engine-handbook chapter on it.</span></li>
-        <li><span class="when">tue–wed</span><span class="what"><strong>shieldlink</strong> in press at IJRCOM — final metadata and proof checks.</span></li>
+        <li><span class="when">tue–wed</span><span class="what"><strong>shieldlink</strong> published in IJRC — DOI and journal metadata now live.</span></li>
         <li><span class="when">thu</span><span class="what"><strong>pre-doctoral</strong> — drafting malware classification lit review, drift under adversarial relabeling.</span></li>
         <li><span class="when">fri</span><span class="what"><strong>shotsift 1.4</strong> — burst-grouping perf regression on iPhone 12 mini, then App Store submission.</span></li>
         <li><span class="when">weekend</span><span class="what">Mixing a new DnB track. Reading <em>Designing Data-Intensive Applications</em> again.</span></li>
@@ -1616,7 +1616,7 @@
     {t:'<span class="k">research/</span> &nbsp;&nbsp;5 projects · 4 active', cls:'', d:80},
     {t:'<span class="k">apps/</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4 iOS · 2 macOS · all shipping', cls:'', d:80},
     {t:'<span class="k">games/</span> &nbsp;&nbsp;&nbsp;&nbsp;2 live', cls:'', d:80},
-    {t:`<span class="k">papers/</span> &nbsp;&nbsp;&nbsp;${paperStats.total} records · ${paperStats.journal} journal/in press · ${paperStats.preprint} preprint`, cls:'', d:80},
+    {t:`<span class="k">papers/</span> &nbsp;&nbsp;&nbsp;${paperStats.total} records · ${paperStats.journal} journal · ${paperStats.preprint} preprint`, cls:'', d:80},
     {t:'<span class="k">music/</span> &nbsp;&nbsp;&nbsp;&nbsp;6 releases · 2025', cls:'', d:80},
     {t:'', cls:'', d:80},
     {t:'cat motd', cls:'cmd', d:500},
@@ -1815,11 +1815,11 @@
     },
     'cku': {
       p:'The paper argues that software creates a residual class of uncertainty that does not collapse neatly into ordinary probabilistic risk. Because many security, safety, and compliance questions are undecidable in the general case, even perfect code visibility and abundant classical computation cannot eliminate all uncertainty. The article names that remainder <strong>computational Knightian uncertainty (CKU)</strong>, then connects it to structural opacity in codebases and practical downstream effects.',
-      href:'https://www.ijrcom.org/index.php/ijrc/article/view/192', cta:'open journal article ↗'
+      href:'https://doi.org/10.64701/ijrc/345/9117', cta:'open DOI ↗'
     },
     'shieldlink': {
       p:'Chiplet die-to-die links such as UCIe/CXL handle reliability with link-layer retries while confidentiality lives in higher-layer authenticated encryption. ShieldLink enforces one deliverability invariant: the receive window only advances on successful AEAD verification of exactly the bits that will be delivered.',
-      href:'https://doi.org/10.36227/techrxiv.176800047.72137558/v1', cta:'open preprint ↗'
+      href:'https://doi.org/10.64701/ijrc/345/9121', cta:'open journal article DOI ↗'
     }
   };
   const paperRecords = {
@@ -1831,12 +1831,12 @@
     'cku': {
       title:'Computational Knightian Uncertainty: Undecidability and the Limits of Cyber Risk Quantification in Software-Intensive Firms',
       year:'2026', venue:'International Journal of Research in Computing', type:'Journal article', status:'Published', topic:'cyber risk',
-      doi:'', url:'https://www.ijrcom.org/index.php/ijrc/article/view/192', key:'nguyen2026computational'
+      doi:'10.64701/ijrc/345/9117', url:'https://doi.org/10.64701/ijrc/345/9117', key:'nguyen2026computational'
     },
     'shieldlink': {
       title:'ShieldLink: Retry-Aware Authenticated Encryption for Secure and Reliable Chiplet Interconnects',
-      year:'2026', venue:'International Journal of Research in Computing', type:'Journal article', status:'In press', topic:'systems security',
-      doi:'10.36227/techrxiv.176800047.72137558/v1', url:'https://doi.org/10.36227/techrxiv.176800047.72137558/v1', key:'nguyen2026shieldlink'
+      year:'2026', venue:'International Journal of Research in Computing', type:'Journal article', status:'Published', topic:'systems security',
+      doi:'10.64701/ijrc/345/9121', url:'https://doi.org/10.64701/ijrc/345/9121', key:'nguyen2026shieldlink'
     }
   };
   function paperBibtex(id){
