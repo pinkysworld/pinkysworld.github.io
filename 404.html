@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 — not found · minh.systems</title>
+<meta name="description" content="That path does not exist on minh.systems.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0b0d0e">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap"></noscript>
+<script defer data-domain="minh.systems" src="https://plausible.io/js/script.outbound-links.js"></script>
+<style>
+  :root{
+    --bg:#0b0d0e;
+    --bg-2:#111416;
+    --line:#1f2528;
+    --fg:#dde3e1;
+    --mute:#7d8a86;
+    --dim:#4a5550;
+    --green:#7fd49f;
+    --amber:#e8b86b;
+    --red:#e07b6f;
+    --mono:'JetBrains Mono', ui-monospace, 'SF Mono', monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--bg);color:var(--fg);font-family:var(--mono);font-size:14px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  body{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:1.5rem}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--green);color:var(--bg)}
+  .win{width:100%;max-width:720px;border:1px solid var(--line);background:var(--bg-2);border-radius:6px;overflow:hidden}
+  .bar{display:flex;align-items:center;gap:.6rem;padding:.55rem .85rem;border-bottom:1px solid var(--line);color:var(--mute);font-size:12px}
+  .dot{width:9px;height:9px;border-radius:50%;background:var(--red);flex:none}
+  .body{padding:1.5rem 1.25rem 1.75rem}
+  .line{white-space:pre-wrap;word-break:break-word}
+  .prompt{color:var(--green)}
+  .err{color:var(--red);margin:.9rem 0 .2rem;font-size:clamp(1.6rem,6vw,2.4rem);font-weight:700;letter-spacing:-.02em}
+  .msg{color:var(--mute);margin-bottom:1.4rem}
+  .path{color:var(--amber);word-break:break-all}
+  .links{display:flex;flex-wrap:wrap;gap:.5rem}
+  .links a{border:1px solid var(--line);padding:.45rem .8rem;border-radius:4px;color:var(--fg);font-size:13px;transition:border-color .15s ease,color .15s ease}
+  .links a:hover,.links a:focus-visible{border-color:var(--green);color:var(--green)}
+  .links a:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+  .cursor{display:inline-block;width:.55em;height:1em;background:var(--green);vertical-align:-.15em;animation:blink 1.1s steps(2,start) infinite}
+  @keyframes blink{to{visibility:hidden}}
+  @media (prefers-reduced-motion: reduce){.cursor{animation:none}}
+</style>
+</head>
+<body>
+<main class="win">
+  <div class="bar"><span class="dot"></span><span>minh@systems — error</span></div>
+  <div class="body">
+    <p class="line"><span class="prompt">$</span> cat <span class="path" id="path">/</span></p>
+    <p class="err">404 — not found</p>
+    <p class="msg">No such file or directory. The page may have moved, or the link may be wrong.<span class="cursor" aria-hidden="true"></span></p>
+    <nav class="links" aria-label="Suggested pages">
+      <a href="/">~/ home</a>
+      <a href="/#papers">~/ research</a>
+      <a href="/#projects">~/ projects</a>
+      <a href="/#contact">~/ contact</a>
+    </nav>
+  </div>
+</main>
+<script>
+  // Echo the path the visitor actually requested. textContent, never innerHTML.
+  document.getElementById('path').textContent = location.pathname + location.search;
+</script>
+</body>
+</html>

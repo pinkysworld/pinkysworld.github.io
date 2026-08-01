@@ -559,6 +559,14 @@
   .mx-plats a svg{flex:none}
   .mx-embed{border:1px solid var(--line-2);background:#000;overflow:hidden}
   .mx-embed iframe{display:block;border:none}
+  .mx-facade{display:flex;align-items:center;gap:14px;width:100%;height:200px;padding:0 20px;background:linear-gradient(160deg,#101b16,#000);border:none;color:var(--fg);font-family:var(--mono);text-align:left;cursor:pointer;transition:background .18s ease}
+  .mx-facade:hover{background:linear-gradient(160deg,#14251d,#000)}
+  .mx-facade:focus-visible{outline:2px solid var(--green);outline-offset:-4px}
+  .mxf-play{display:flex;align-items:center;justify-content:center;width:42px;height:42px;flex:none;border:1px solid var(--line-2);border-radius:50%;color:var(--green);transition:border-color .18s ease}
+  .mx-facade:hover .mxf-play{border-color:var(--green)}
+  .mxf-copy{display:flex;flex-direction:column;gap:3px}
+  .mxf-title{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--fg)}
+  .mxf-note{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
 
   .mx-list{display:flex;flex-direction:column}
   .mxl-head{
@@ -807,6 +815,8 @@
     .paper-card{min-height:0}
   }
 </style>
+<!-- Privacy-friendly analytics: cookieless, no personal data, no consent banner required. -->
+<script defer data-domain="minh.systems" src="https://plausible.io/js/script.outbound-links.js"></script>
 </head>
 <body data-screen-label="Direction B — Operator">
 
@@ -1283,7 +1293,15 @@
         </div>
       </div>
       <div class="mx-embed">
-        <iframe id="mx-frame" title="Spotify preview: Da Nang Beats, Definitive Edition" src="https://open.spotify.com/embed/album/1VHWU6t5E17V8saWOHppDR?utm_source=generator&theme=0" width="100%" height="200" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <button class="mx-facade" id="mx-facade" type="button" data-id="1VHWU6t5E17V8saWOHppDR" data-title="Da Nang Beats, Definitive Edition">
+          <span class="mxf-play" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </span>
+          <span class="mxf-copy">
+            <span class="mxf-title">load spotify player</span>
+            <span class="mxf-note">connects to open.spotify.com</span>
+          </span>
+        </button>
       </div>
     </figure>
 
@@ -1877,7 +1895,36 @@
   const mxTitle=document.getElementById('mx-title');
   const mxLabel=document.getElementById('mx-label');
   const mxSp=document.getElementById('mx-sp');
-  const mxFrame=document.getElementById('mx-frame');
+  // Spotify is loaded on demand: the embed sets third-party cookies, so it stays
+  // behind a facade until the visitor asks for it. Before activation, selecting a
+  // row just re-points the facade; after, it swaps the live iframe's src.
+  const mxEmbed=document.querySelector('.mx-embed');
+  const mxFacade=document.getElementById('mx-facade');
+  let mxFrame=null;
+
+  function mxEmbedSrc(id){return 'https://open.spotify.com/embed/album/'+id+'?utm_source=generator&theme=0';}
+
+  function mxLoadPlayer(id,title){
+    if(!mxFrame){
+      mxFrame=document.createElement('iframe');
+      mxFrame.id='mx-frame';
+      mxFrame.width='100%';
+      mxFrame.height='200';
+      mxFrame.frameBorder='0';
+      mxFrame.allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture';
+      mxEmbed.innerHTML='';
+      mxEmbed.appendChild(mxFrame);
+    }
+    mxFrame.src=mxEmbedSrc(id);
+    mxFrame.title='Spotify preview: '+title;
+  }
+
+  if(mxFacade){
+    mxFacade.addEventListener('click',()=>{
+      mxLoadPlayer(mxFacade.dataset.id,mxFacade.dataset.title);
+    });
+  }
+
   document.querySelectorAll('.mx-row').forEach(row=>{
     row.addEventListener('click',()=>{
       document.querySelectorAll('.mx-row').forEach(r=>r.classList.remove('on'));
@@ -1888,8 +1935,12 @@
       mxTitle.textContent=row.dataset.title;
       mxLabel.textContent=row.dataset.kind.toLowerCase()+' · 2025';
       mxSp.href='https://open.spotify.com/album/'+id;
-      mxFrame.src='https://open.spotify.com/embed/album/'+id+'?utm_source=generator&theme=0';
-      mxFrame.title='Spotify preview: '+row.dataset.title;
+      if(mxFrame){
+        mxLoadPlayer(id,row.dataset.title);
+      }else if(mxFacade){
+        mxFacade.dataset.id=id;
+        mxFacade.dataset.title=row.dataset.title;
+      }
     });
   });
 
