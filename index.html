@@ -1832,10 +1832,10 @@
   });
 
   // contact form → prefilled email
-  // Set this to a Formspree/Basin/Web3Forms URL to deliver messages directly.
-  // While empty the form falls back to mailto: — which silently does nothing for
-  // webmail users, so the fallback panel always offers a manual copy path.
-  const CONTACT_ENDPOINT = '';
+  // Formspree endpoint — delivers to the linked address on the Formspree account.
+  // If it ever fails, the manual copy panel is surfaced with the message intact,
+  // so a submission is never silently lost.
+  const CONTACT_ENDPOINT = 'https://formspree.io/f/xpqvglgq';
   const CONTACT_ADDR = 'minhmichel@outlook.de';
 
   const ctForm = document.getElementById('contact-form');
