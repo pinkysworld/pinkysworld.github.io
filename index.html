@@ -746,6 +746,13 @@
   .nav-cmd{cursor:pointer}
   .nav-cmd:hover{color:var(--fg)}
   .ct-form-hint{margin-top:10px;color:var(--dim);font-size:11px;line-height:1.5}
+  .ct-fallback{margin-top:14px;padding:12px 14px;border:1px solid var(--line-2);background:var(--bg-3)}
+  .ct-fb-lead{color:var(--amber);font-size:11px;letter-spacing:.06em;text-transform:uppercase}
+  .ct-fb-addr{margin-top:6px;color:var(--cyan);font-size:12px;word-break:break-all;-webkit-user-select:all;user-select:all}
+  .ct-fb-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+  .ct-copy{background:transparent;border:1px solid var(--line-2);color:var(--fg);font-family:var(--mono);font-size:11px;letter-spacing:.05em;padding:6px 10px;cursor:pointer;transition:border-color .15s ease,color .15s ease}
+  .ct-copy:hover{border-color:var(--green);color:var(--green)}
+  .ct-copy:focus-visible{outline:2px solid var(--green);outline-offset:2px}
 
   /* ===== UTIL ===== */
   .reveal{opacity:0;transform:translateY(8px);transition:opacity .6s, transform .6s}
@@ -1528,7 +1535,15 @@
       <div class="field"><label for="cf-sub">subject</label><input id="cf-sub" type="text" placeholder="research / app / speaking / …"></div>
       <div class="field"><label for="cf-msg">body</label><textarea id="cf-msg" placeholder="the more concrete, the better." required></textarea></div>
       <button class="send" type="submit">› send message</button>
-      <p class="ct-form-hint">opens your mail client with the message prefilled — nothing is stored here.</p>
+      <p class="ct-form-hint" id="cf-hint">opens your mail client with the message prefilled — nothing is stored here.</p>
+      <div class="ct-fallback" id="cf-fallback" role="status" hidden>
+        <p class="ct-fb-lead">no mail client? send it manually:</p>
+        <p class="ct-fb-addr" id="cf-addr"></p>
+        <div class="ct-fb-row">
+          <button class="ct-copy" type="button" data-copy="addr">copy address</button>
+          <button class="ct-copy" type="button" data-copy="msg">copy message</button>
+        </div>
+      </div>
     </form>
   </div>
 </section>
@@ -1817,7 +1832,23 @@
   });
 
   // contact form → prefilled email
+  // Set this to a Formspree/Basin/Web3Forms URL to deliver messages directly.
+  // While empty the form falls back to mailto: — which silently does nothing for
+  // webmail users, so the fallback panel always offers a manual copy path.
+  const CONTACT_ENDPOINT = '';
+  const CONTACT_ADDR = 'minhmichel@outlook.de';
+
   const ctForm = document.getElementById('contact-form');
+  const ctSend = ctForm.querySelector('.send');
+  const ctHint = document.getElementById('cf-hint');
+  const ctFallback = document.getElementById('cf-fallback');
+  const ctAddr = document.getElementById('cf-addr');
+  let ctLastMessage = '';
+
+  if(ctHint && !CONTACT_ENDPOINT){
+    ctHint.textContent = 'opens your mail client with the message prefilled — nothing is stored here. no mail client? use the copy buttons that appear after sending.';
+  }
+
   ctForm.addEventListener('submit',(e)=>{
     e.preventDefault();
     const name = document.getElementById('cf-name').value.trim();
@@ -1825,11 +1856,54 @@
     const sub = document.getElementById('cf-sub').value.trim() || 'hello from minh.systems';
     const msg = document.getElementById('cf-msg').value.trim();
     const bodyText = `${msg}\n\n—\nfrom: ${name}\nreply-to: ${email}`;
-    window.location.href = 'mailto:minhmichel@outlook.de?subject=' +
+    ctLastMessage = `to: ${CONTACT_ADDR}\nsubject: ${sub}\n\n${bodyText}`;
+
+    if(CONTACT_ENDPOINT){
+      ctSend.disabled = true;
+      ctSend.textContent = '› sending…';
+      fetch(CONTACT_ENDPOINT,{
+        method:'POST',
+        headers:{'Accept':'application/json','Content-Type':'application/json'},
+        body:JSON.stringify({name:name,email:email,subject:sub,message:msg})
+      }).then(r=>{
+        ctSend.disabled = false;
+        if(r.ok){
+          ctSend.textContent = '› sent ✓';
+          ctForm.reset();
+          if(ctFallback) ctFallback.hidden = true;
+        }else{
+          ctSend.textContent = '› send failed — copy below';
+          showFallback();
+        }
+        setTimeout(()=>{ ctSend.textContent = '› send message'; }, 5000);
+      }).catch(()=>{
+        ctSend.disabled = false;
+        ctSend.textContent = '› send failed — copy below';
+        showFallback();
+        setTimeout(()=>{ ctSend.textContent = '› send message'; }, 5000);
+      });
+      return;
+    }
+
+    // mailto: cannot report success — never claim it worked.
+    window.location.href = 'mailto:' + CONTACT_ADDR + '?subject=' +
       encodeURIComponent(sub) + '&body=' + encodeURIComponent(bodyText);
-    const send = ctForm.querySelector('.send');
-    send.textContent = '› opened in your mail client ✓';
-    setTimeout(()=>{ send.textContent = '› send message'; }, 4000);
+    ctSend.textContent = '› handed to your mail client';
+    showFallback();
+    setTimeout(()=>{ ctSend.textContent = '› send message'; }, 5000);
+  });
+
+  function showFallback(){
+    if(!ctFallback) return;
+    if(ctAddr) ctAddr.textContent = CONTACT_ADDR;
+    ctFallback.hidden = false;
+  }
+
+  // Reuses the page's existing copyText(text, btn) helper defined below.
+  document.querySelectorAll('.ct-copy').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      copyText(btn.dataset.copy === 'addr' ? CONTACT_ADDR : ctLastMessage, btn);
+    });
   });
 
   // project filter
