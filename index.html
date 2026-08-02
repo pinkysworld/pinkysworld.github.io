@@ -33,7 +33,7 @@
       "@id": "https://minh.systems/#person",
       "name": "Michél Nguyen",
       "url": "https://minh.systems/",
-      "email": "mailto:minhmichel@outlook.de",
+      "email": "mailto:mip@gmx.biz",
       "jobTitle": "Independent Researcher & Engineer",
       "address": {"@type": "PostalAddress", "addressRegion": "Thuringia", "addressCountry": "DE"},
       "knowsAbout": ["database systems", "cybersecurity", "iOS development", "macOS development", "distributed systems", "music production"],
@@ -746,6 +746,7 @@
   .nav-cmd{cursor:pointer}
   .nav-cmd:hover{color:var(--fg)}
   .ct-form-hint{margin-top:10px;color:var(--dim);font-size:11px;line-height:1.5}
+  .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
   .ct-fallback{margin-top:14px;padding:12px 14px;border:1px solid var(--line-2);background:var(--bg-3)}
   .ct-fb-lead{color:var(--amber);font-size:11px;letter-spacing:.06em;text-transform:uppercase}
   .ct-fb-addr{margin-top:6px;color:var(--cyan);font-size:12px;word-break:break-all;-webkit-user-select:all;user-select:all}
@@ -892,7 +893,7 @@
         <div class="rs-links">
           <a href="https://github.com/pinkysworld" target="_blank" rel="noopener">GitHub</a>
           <a href="https://www.linkedin.com/in/michelnguyengermany/" target="_blank" rel="noopener">LinkedIn</a>
-          <a href="mailto:minhmichel@outlook.de">Email</a>
+          <a href="mailto:mip@gmx.biz">Email</a>
           <a href="showcase/operator/skeindb.html">SkeinDB</a>
           <a href="showcase/operator/wardex.html">Wardex</a>
           <a href="showcase/operator/nexusfs.html">NexusFS</a>
@@ -1510,13 +1511,13 @@
       <div class="term-body">
         <span class="term-line cmd">cat /etc/contact.conf</span>
         <span class="term-line cmt"># preferred: email or GitHub. response time &lt; 72h.</span>
-        <span class="term-line"><span class="k">EMAIL</span>=<span class="s">"minhmichel@outlook.de"</span></span>
+        <span class="term-line"><span class="k">EMAIL</span>=<span class="s">"mip@gmx.biz"</span></span>
         <span class="term-line"><span class="k">PGP</span>=<span class="s">"available on request"</span></span>
         <span class="term-line"><span class="k">TIMEZONE</span>=<span class="s">"CET/CEST"</span></span>
         <span class="term-line"><span class="k">REPLY_WINDOW</span>=<span class="v">"&lt;72h"</span> <span class="mute"># email or GitHub preferred</span></span>
         <span class="term-line ok">✓ all channels open</span>
         <div class="ct-list">
-          <a href="mailto:minhmichel@outlook.de"><span class="ch">email</span><span class="v cyan">minhmichel@outlook.de</span><span class="arr">→</span></a>
+          <a href="mailto:mip@gmx.biz"><span class="ch">email</span><span class="v cyan">mip@gmx.biz</span><span class="arr">→</span></a>
           <a href="https://github.com/pinkysworld" target="_blank" rel="noopener"><span class="ch">github</span><span class="v cyan">pinkysworld</span><span class="arr">→</span></a>
           <a href="https://orcid.org/0000-0001-6834-4422" target="_blank" rel="noopener"><span class="ch">orcid</span><span class="v cyan">0000-0001-6834-4422</span><span class="arr">→</span></a>
           <a href="https://scholar.google.com/citations?user=6HheUI4AAAAJ" target="_blank" rel="noopener"><span class="ch">scholar</span><span class="v cyan">google scholar</span><span class="arr">→</span></a>
@@ -1534,6 +1535,13 @@
       <div class="field"><label for="cf-email">reply-to</label><input id="cf-email" type="email" placeholder="you@example.com" required></div>
       <div class="field"><label for="cf-sub">subject</label><input id="cf-sub" type="text" placeholder="research / app / speaking / …"></div>
       <div class="field"><label for="cf-msg">body</label><textarea id="cf-msg" placeholder="the more concrete, the better." required></textarea></div>
+      <!-- Honeypot: positioned off-screen rather than display:none, which many
+           bots skip. Humans never see or tab to it; scripts fill it and get
+           dropped, both here and by Formspree's own _gotcha handling. -->
+      <div class="hp" aria-hidden="true">
+        <label for="cf-hp">leave this field empty</label>
+        <input type="text" id="cf-hp" name="_gotcha" tabindex="-1" autocomplete="off">
+      </div>
       <button class="send" type="submit">› send message</button>
       <p class="ct-form-hint" id="cf-hint">opens your mail client with the message prefilled — nothing is stored here.</p>
       <div class="ct-fallback" id="cf-fallback" role="status" hidden>
@@ -1755,7 +1763,7 @@
     {label:'orcid: 0000-0001-6834-4422', hint:'external ↗', go:'https://orcid.org/0000-0001-6834-4422', ext:true},
     {label:'linkedin: michelnguyengermany', hint:'external ↗', go:'https://www.linkedin.com/in/michelnguyengermany/', ext:true},
     {label:'spotify: minh ng', hint:'external ↗', go:'https://open.spotify.com/artist/6kO0YIwxOV1NvHwDRkq9F0', ext:true},
-    {label:'mailto: minhmichel@outlook.de', hint:'email', go:'mailto:minhmichel@outlook.de', ext:true},
+    {label:'mailto: mip@gmx.biz', hint:'email', go:'mailto:mip@gmx.biz', ext:true},
   ];
   const cmdk = document.getElementById('cmdk');
   const cmdkInput = document.getElementById('cmdk-input');
@@ -1836,7 +1844,7 @@
   // If it ever fails, the manual copy panel is surfaced with the message intact,
   // so a submission is never silently lost.
   const CONTACT_ENDPOINT = 'https://formspree.io/f/xpqvglgq';
-  const CONTACT_ADDR = 'minhmichel@outlook.de';
+  const CONTACT_ADDR = 'mip@gmx.biz';
 
   const ctForm = document.getElementById('contact-form');
   const ctSend = ctForm.querySelector('.send');
@@ -1856,6 +1864,16 @@
     const sub = document.getElementById('cf-sub').value.trim() || 'hello from minh.systems';
     const msg = document.getElementById('cf-msg').value.trim();
     const bodyText = `${msg}\n\n—\nfrom: ${name}\nreply-to: ${email}`;
+    const trap = document.getElementById('cf-hp');
+
+    // A filled honeypot means a bot. Show the normal success state and drop it —
+    // telling the script it was rejected only teaches it to try again.
+    if(trap && trap.value){
+      ctSend.textContent = '› sent ✓';
+      ctForm.reset();
+      setTimeout(()=>{ ctSend.textContent = '› send message'; }, 5000);
+      return;
+    }
     ctLastMessage = `to: ${CONTACT_ADDR}\nsubject: ${sub}\n\n${bodyText}`;
 
     if(CONTACT_ENDPOINT){
@@ -1864,7 +1882,7 @@
       fetch(CONTACT_ENDPOINT,{
         method:'POST',
         headers:{'Accept':'application/json','Content-Type':'application/json'},
-        body:JSON.stringify({name:name,email:email,subject:sub,message:msg})
+        body:JSON.stringify({name:name,email:email,subject:sub,message:msg,_gotcha:''})
       }).then(r=>{
         ctSend.disabled = false;
         if(r.ok){
