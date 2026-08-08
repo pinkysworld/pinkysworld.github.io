@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Michél Nguyen — researcher, engineer, operator · minh.systems</title>
-<meta name="description" content="Independent researcher and engineer in Germany. Building database engines (SkeinDB), security platforms (Wardex), iOS & macOS apps, published cybersecurity research, and music — all from one workstation.">
+<meta name="description" content="Independent researcher and engineer in Germany. Building database engines (SkeinDB), security platforms (Wardex), iOS & macOS apps, and published cybersecurity research from one workstation.">
 <meta name="author" content="Michél Nguyen">
 <meta name="theme-color" content="#0b0d0e">
 <link rel="canonical" href="https://minh.systems/">
@@ -12,14 +12,14 @@
 <meta property="og:url" content="https://minh.systems/">
 <meta property="og:site_name" content="minh.systems">
 <meta property="og:title" content="Michél Nguyen — researcher, engineer, operator">
-<meta property="og:description" content="Database engines, security platforms, iOS & macOS apps, cybersecurity research, and music — built end-to-end from one workstation in Germany.">
+<meta property="og:description" content="Database engines, security platforms, iOS & macOS apps, and cybersecurity research — built end-to-end from one workstation in Germany.">
 <meta property="og:image" content="https://minh.systems/assets/og-card.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="minh.systems — terminal-style portfolio of Michél Nguyen">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Michél Nguyen — researcher, engineer, operator">
-<meta name="twitter:description" content="Database engines, security platforms, iOS & macOS apps, cybersecurity research, and music — built end-to-end from one workstation in Germany.">
+<meta name="twitter:description" content="Database engines, security platforms, iOS & macOS apps, and cybersecurity research — built end-to-end from one workstation in Germany.">
 <meta name="twitter:image" content="https://minh.systems/assets/og-card.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,15 +36,12 @@
       "email": "mailto:mip@gmx.biz",
       "jobTitle": "Independent Researcher & Engineer",
       "address": {"@type": "PostalAddress", "addressRegion": "Thuringia", "addressCountry": "DE"},
-      "knowsAbout": ["database systems", "cybersecurity", "iOS development", "macOS development", "distributed systems", "music production"],
+      "knowsAbout": ["database systems", "cybersecurity", "iOS development", "macOS development", "distributed systems"],
       "sameAs": [
         "https://github.com/pinkysworld",
         "https://orcid.org/0000-0001-6834-4422",
         "https://scholar.google.com/citations?user=6HheUI4AAAAJ",
-        "https://www.linkedin.com/in/michelnguyengermany/",
-        "https://open.spotify.com/artist/6kO0YIwxOV1NvHwDRkq9F0",
-        "https://music.apple.com/be/artist/minh-ng/1788092762",
-        "https://music.youtube.com/@minh_ng"
+        "https://www.linkedin.com/in/michelnguyengermany/"
       ]
     },
     {
@@ -524,75 +521,6 @@
   .note-links{display:flex;gap:12px;flex-wrap:wrap}
   .note-links button.btn{font:inherit}
 
-  /* ===== MUSIC ===== */
-  .music-wrap{
-    display:grid;grid-template-columns:0.9fr 1fr;gap:32px;align-items:start;
-  }
-  .mx-feature{
-    background:var(--bg-2);border:1px solid var(--line-2);
-    padding:20px;display:flex;flex-direction:column;gap:18px;
-  }
-  .mx-feature .cover-wrap{
-    position:relative;aspect-ratio:1/1;background:var(--bg-3);
-    border:1px solid var(--line-2);overflow:hidden;
-  }
-  .mx-feature .cover-wrap img{width:100%;height:100%;object-fit:cover;transition:opacity .25s}
-  .mx-feature .cover-wrap::before{
-    content:"";position:absolute;inset:0;
-    background:repeating-linear-gradient(0deg,transparent 0 3px,rgba(255,255,255,0.02) 3px 4px);
-    pointer-events:none;mix-blend-mode:overlay;
-  }
-  .mx-feature .meta{display:flex;flex-direction:column;gap:6px}
-  .mx-feature .label{color:var(--green);font-size:10px;letter-spacing:0.18em;text-transform:uppercase}
-  .mx-feature h3{
-    color:var(--fg);font-size:24px;font-weight:600;letter-spacing:-0.015em;line-height:1.15;font-family:var(--mono);
-  }
-  .mx-feature .by{color:var(--mute);font-size:12px}
-  .mx-feature .by .by-name{color:var(--cyan)}
-  .mx-plats{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
-  .mx-plats a{
-    display:inline-flex;align-items:center;gap:6px;font-size:11px;
-    padding:7px 11px;border:1px solid var(--line-2);color:var(--fg);
-    background:var(--bg-3);transition:all .15s;
-  }
-  .mx-plats a:hover{border-color:var(--green);color:var(--green)}
-  .mx-plats a svg{flex:none}
-  .mx-embed{border:1px solid var(--line-2);background:#000;overflow:hidden}
-  .mx-embed iframe{display:block;border:none}
-  .mx-facade{display:flex;align-items:center;gap:14px;width:100%;height:200px;padding:0 20px;background:linear-gradient(160deg,#101b16,#000);border:none;color:var(--fg);font-family:var(--mono);text-align:left;cursor:pointer;transition:background .18s ease}
-  .mx-facade:hover{background:linear-gradient(160deg,#14251d,#000)}
-  .mx-facade:focus-visible{outline:2px solid var(--green);outline-offset:-4px}
-  .mxf-play{display:flex;align-items:center;justify-content:center;width:42px;height:42px;flex:none;border:1px solid var(--line-2);border-radius:50%;color:var(--green);transition:border-color .18s ease}
-  .mx-facade:hover .mxf-play{border-color:var(--green)}
-  .mxf-copy{display:flex;flex-direction:column;gap:3px}
-  .mxf-title{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--fg)}
-  .mxf-note{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
-
-  .mx-list{display:flex;flex-direction:column}
-  .mxl-head{
-    display:grid;grid-template-columns:36px 1fr 70px 50px;gap:14px;
-    padding:10px 12px;background:var(--bg-2);color:var(--dim);
-    font-size:10px;letter-spacing:0.14em;text-transform:uppercase;
-    border:1px solid var(--line-2);border-bottom:none;
-  }
-  .mx-row{
-    display:grid;grid-template-columns:36px 1fr 70px 50px;gap:14px;align-items:center;
-    padding:12px;border:1px solid var(--line-2);border-top:none;
-    background:transparent;cursor:pointer;text-align:left;color:var(--fg);
-    transition:background .12s;font:inherit;letter-spacing:inherit;text-transform:inherit;
-  }
-  .mx-row:hover{background:var(--bg-2)}
-  .mx-row.on{background:var(--bg-2);border-left:2px solid var(--green);padding-left:10px}
-  .mx-row .n{color:var(--dim);font-size:11px;text-align:center}
-  .mx-row.on .n{color:var(--green)}
-  .mx-row .t{display:flex;align-items:center;gap:12px}
-  .mx-row .t img{width:38px;height:38px;border:1px solid var(--line);object-fit:cover}
-  .mx-row .t .ti{font-size:13px;color:var(--fg);letter-spacing:-0.005em;line-height:1.2}
-  .mx-row .t .tk{font-size:10px;color:var(--mute);letter-spacing:0.08em;text-transform:uppercase;margin-top:2px;display:block}
-  .mx-row.on .t .ti{color:var(--green)}
-  .mx-row .k{font-size:10px;color:var(--mute);letter-spacing:0.12em;text-transform:uppercase}
-  .mx-row .y{color:var(--dim);font-size:11px;text-align:center}
-
   /* ===== NOW ===== */
   .now-grid{
     display:grid;grid-template-columns:1.4fr 1fr;gap:32px;
@@ -766,7 +694,7 @@
   }
 
   @media (max-width:980px){
-    .hero,.now-grid,.contact-wrap,.music-wrap,.skills,.ft{grid-template-columns:1fr;gap:24px}
+    .hero,.now-grid,.contact-wrap,.skills,.ft{grid-template-columns:1fr;gap:24px}
     .recruiter-snapshot{grid-template-columns:1fr}
     .recruiter-snapshot .rs-main{border-right:none;border-bottom:1px solid var(--line)}
     .recruiter-snapshot .rs-links{grid-template-columns:1fr}
@@ -856,7 +784,6 @@
     <a class="nav-tab" href="#papers"><span class="hash">~/</span>research</a>
     <a class="nav-tab" href="#projects"><span class="hash">~/</span>projects</a>
     <a class="nav-tab" href="#log"><span class="hash">~/</span>log</a>
-    <a class="nav-tab" href="#music"><span class="hash">~/</span>music</a>
     <a class="nav-tab" href="#now"><span class="hash">~/</span>now</a>
     <a class="nav-tab" href="#contact"><span class="hash">~/</span>contact</a>
     <div class="nav-spacer"></div>
@@ -910,7 +837,7 @@
       </div>
       <div class="m">
         <div class="k">Output 2025–26</div>
-        <div class="v"><span class="em" data-paper-total>13</span> papers · <span class="em">17</span> projects · <span class="em">6</span> releases</div>
+        <div class="v"><span class="em" data-paper-total>13</span> papers · <span class="em">18</span> projects</div>
       </div>
       <div class="m">
         <div class="k">Status</div>
@@ -954,13 +881,12 @@
   </div>
   <div class="ix">
     <a href="research.html"><span class="num">01</span><span class="title">Research · full bibliography</span><span class="arr"><span data-paper-total>13</span> →</span></a>
-    <a href="#projects"><span class="num">02</span><span class="title">Projects · the work</span><span class="arr">17 →</span></a>
+    <a href="#projects"><span class="num">02</span><span class="title">Projects · the work</span><span class="arr">18 →</span></a>
     <a href="#log"><span class="num">03</span><span class="title">Log · writing &amp; notes</span><span class="arr">3 →</span></a>
-    <a href="#music"><span class="num">04</span><span class="title">Music · releases</span><span class="arr">6 →</span></a>
-    <a href="#now"><span class="num">05</span><span class="title">Now · this week</span><span class="arr">live →</span></a>
-    <a href="#skills"><span class="num">06</span><span class="title">Toolkit · stack</span><span class="arr">→</span></a>
-    <a href="#education"><span class="num">07</span><span class="title">Record · education</span><span class="arr">→</span></a>
-    <a href="#contact"><span class="num">08</span><span class="title">Contact · channels</span><span class="arr">→</span></a>
+    <a href="#now"><span class="num">04</span><span class="title">Now · this week</span><span class="arr">live →</span></a>
+    <a href="#skills"><span class="num">05</span><span class="title">Toolkit · stack</span><span class="arr">→</span></a>
+    <a href="#education"><span class="num">06</span><span class="title">Record · education</span><span class="arr">→</span></a>
+    <a href="#contact"><span class="num">07</span><span class="title">Contact · channels</span><span class="arr">→</span></a>
     <a href="showcase/operator/skeindb.html"><span class="num">⊕</span><span class="title">SkeinDB deep dive</span><span class="arr">open →</span></a>
     <a href="showcase/operator/wardex.html"><span class="num">⊕</span><span class="title">Wardex deep dive</span><span class="arr">open →</span></a>
     <a href="showcase/operator/nexusfs.html"><span class="num">⊕</span><span class="title">NexusFS deep dive</span><span class="arr">open →</span></a>
@@ -1049,8 +975,8 @@
   </div>
 
   <div class="filter-bar">
-    <button class="on" data-pfilter="all">all<span class="ct">17</span></button>
-    <button data-pfilter="research">research<span class="ct">5</span></button>
+    <button class="on" data-pfilter="all">all<span class="ct">18</span></button>
+    <button data-pfilter="research">research<span class="ct">6</span></button>
     <button data-pfilter="tool">tools<span class="ct">2</span></button>
     <button data-pfilter="ios">iOS<span class="ct">4</span></button>
     <button data-pfilter="macos">macOS<span class="ct">3</span></button>
@@ -1107,8 +1033,17 @@
       <span class="arr">→</span>
     </a>
 
-    <a class="ptr" data-kind="tool" href="https://github.com/pinkysworld/Revolut-Stocks-Trade-Scanner" target="_blank" rel="noopener">
+    <a class="ptr" data-kind="research" href="https://pinkysworld.github.io/Patch/" target="_blank" rel="noopener">
       <span class="i">06</span>
+      <div class="name"><strong>patch</strong><span>javascript · lean 4 · pwa</span></div>
+      <div class="desc">Change-oriented programming language and browser IDE: explicit semantic state changes, inferred contracts, provenance, and Lean-checked evidence.</div>
+      <span class="kind research">research</span>
+      <span class="status beta">live · v0.2.0-beta.7 · MIT</span>
+      <span class="arr">→</span>
+    </a>
+
+    <a class="ptr" data-kind="tool" href="https://github.com/pinkysworld/Revolut-Stocks-Trade-Scanner" target="_blank" rel="noopener">
+      <span class="i">07</span>
       <div class="name"><strong>revolut-scanner</strong><span>python · yfinance · risk</span></div>
       <div class="desc">Local Revolut trading scanner with OOS-gated recommendations, risk sizing, live TP/SL tracking, and an HTML dashboard.</div>
       <span class="kind tool">tool</span>
@@ -1117,7 +1052,7 @@
     </a>
 
     <a class="ptr" data-kind="tool" href="https://minh.systems/Violinen-Stimmer/" target="_blank" rel="noopener">
-      <span class="i">07</span>
+      <span class="i">08</span>
       <div class="name"><strong>violinen-stimmer</strong><span>javascript · web audio · yin</span></div>
       <div class="desc">German-language violin tuner with A=442 Hz, pure-fifth checks, reference tones, and private on-device microphone analysis.</div>
       <span class="kind tool">tool</span>
@@ -1126,7 +1061,7 @@
     </a>
 
     <a class="ptr" data-kind="ios" href="https://minh.systems/ShotSift/" target="_blank" rel="noopener">
-      <span class="i">08</span>
+      <span class="i">09</span>
       <div class="name"><strong>shotsift</strong><span>swift · vision · on-device</span></div>
       <div class="desc">Private photo decluttering for iPhone. Duplicates, screenshots, bursts — all on-device.</div>
       <span class="kind ios">iOS</span>
@@ -1135,7 +1070,7 @@
     </a>
 
     <a class="ptr" data-kind="ios" href="https://minh.systems/Rootling/" target="_blank" rel="noopener">
-      <span class="i">09</span>
+      <span class="i">10</span>
       <div class="name"><strong>rootling</strong><span>swift · cloudkit</span></div>
       <div class="desc">Plant propagation tracker. Visual journals, weather context, reminders, export.</div>
       <span class="kind ios">iOS</span>
@@ -1144,7 +1079,7 @@
     </a>
 
     <a class="ptr" data-kind="ios" href="https://mushbloom.minh.systems/" target="_blank" rel="noopener">
-      <span class="i">10</span>
+      <span class="i">11</span>
       <div class="name"><strong>mushbloom</strong><span>swift · coreml · icloud</span></div>
       <div class="desc">Mushroom cultivation companion. Strain guides, grow journals, AI contam scans, PDF export.</div>
       <span class="kind ios">iOS</span>
@@ -1153,7 +1088,7 @@
     </a>
 
     <a class="ptr" data-kind="ios" href="https://minh.systems/RidgeFocus/" target="_blank" rel="noopener">
-      <span class="i">11</span>
+      <span class="i">12</span>
       <div class="name"><strong>ridgefocus</strong><span>swift · widgetkit</span></div>
       <div class="desc">Pomodoro &amp; deep-work. Streak systems, widgets, lightweight productivity insights.</div>
       <span class="kind ios">iOS</span>
@@ -1162,7 +1097,7 @@
     </a>
 
     <a class="ptr" data-kind="macos" href="https://minh.systems/AppSweep/" target="_blank" rel="noopener">
-      <span class="i">12</span>
+      <span class="i">13</span>
       <div class="name"><strong>appsweep</strong><span>swift · sparkle · gh-api</span></div>
       <div class="desc">Universal macOS updater. Sparkle, GitHub, Mac App Store sources unified into one flow.</div>
       <span class="kind macos">macOS</span>
@@ -1171,7 +1106,7 @@
     </a>
 
     <a class="ptr" data-kind="macos" href="https://minh.systems/Focusledger-Pro/" target="_blank" rel="noopener">
-      <span class="i">13</span>
+      <span class="i">14</span>
       <div class="name"><strong>focusledger</strong><span>swift · screencapture</span></div>
       <div class="desc">Private macOS productivity tracker. Lite focus tools plus Pro automatic timelines and analytics.</div>
       <span class="kind macos">macOS</span>
@@ -1180,7 +1115,7 @@
     </a>
 
     <a class="ptr" data-kind="macos" href="https://minh.systems/DiskLoom/" target="_blank" rel="noopener">
-      <span class="i">14</span>
+      <span class="i">15</span>
       <div class="name"><strong>diskloom</strong><span>swift · nvme · sqlite</span></div>
       <div class="desc">Native macOS drive-health monitoring with local history, trend analysis, and transparent compatibility reporting.</div>
       <span class="kind macos">macOS</span>
@@ -1189,7 +1124,7 @@
     </a>
 
     <a class="ptr" data-kind="game" href="https://shelterfall.minh.systems/" target="_blank" rel="noopener">
-      <span class="i">15</span>
+      <span class="i">16</span>
       <div class="name"><strong>shelter-fall</strong><span>swift · spritekit</span></div>
       <div class="desc">Post-apocalyptic strategy. Progression, dynamic events, escalating survival pressure.</div>
       <span class="kind game">game</span>
@@ -1198,7 +1133,7 @@
     </a>
 
     <a class="ptr" data-kind="game" href="https://minh.systems/NomadKitchenTycoon/" target="_blank" rel="noopener">
-      <span class="i">16</span>
+      <span class="i">17</span>
       <div class="name"><strong>nomad-kitchen-tycoon</strong><span>swift · spritekit</span></div>
       <div class="desc">Food truck management sim. Rush gameplay, district strategy, truck/staff upgrades.</div>
       <span class="kind game">game</span>
@@ -1207,7 +1142,7 @@
     </a>
 
     <a class="ptr" data-kind="game" href="LancetLinen/">
-      <span class="i">17</span>
+      <span class="i">18</span>
       <div class="name"><strong>lancet-linen</strong><span>typescript · phaser · vite</span></div>
       <div class="desc">Medieval barber-surgeon life sim: care, trade, travel, household, staff, and civic ambition in 1382.</div>
       <span class="kind game">game</span>
@@ -1268,93 +1203,10 @@
   </div>
 </section>
 
-<!-- ====== MUSIC ====== -->
-<section class="section" id="music">
-  <div class="section-mark">
-    <div class="tag">04 / MUSIC</div>
-    <div>
-      <h2>play music<span class="punct">/</span></h2>
-      <p class="sub">Six releases out in 2025. Lo-fi, DnB, and field beats from Da Nang and Da Lat. Click a row to preview.</p>
-    </div>
-  </div>
-
-  <div class="music-wrap">
-    <figure class="mx-feature">
-      <div class="cover-wrap">
-        <img id="mx-cover" loading="lazy" decoding="async" src="https://i.scdn.co/image/ab67616d00001e02f6fd54ee7897f35ab5608934" alt="Da Nang Beats, Definitive Edition cover">
-      </div>
-      <div class="meta">
-        <span class="label" id="mx-label">album · 2025</span>
-        <h3 id="mx-title">Da Nang Beats, Definitive Edition</h3>
-        <p class="by">artist <span class="by-name">minh ng</span></p>
-        <div class="mx-plats">
-          <a id="mx-sp" href="https://open.spotify.com/album/1VHWU6t5E17V8saWOHppDR" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 10.2c2.9-.8 5.7-.5 8.2.9"/><path d="M8.7 13c2.1-.5 4.2-.3 6.1.7"/></svg>
-            <span>spotify</span>
-          </a>
-          <a href="https://music.apple.com/be/artist/minh-ng/1788092762" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
-            <span>apple</span>
-          </a>
-          <a href="https://music.youtube.com/@minh_ng" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M10 9l5 3-5 3z" fill="currentColor"/></svg>
-            <span>youtube</span>
-          </a>
-        </div>
-      </div>
-      <div class="mx-embed">
-        <button class="mx-facade" id="mx-facade" type="button" data-id="1VHWU6t5E17V8saWOHppDR" data-title="Da Nang Beats, Definitive Edition">
-          <span class="mxf-play" aria-hidden="true">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-          </span>
-          <span class="mxf-copy">
-            <span class="mxf-title">load spotify player</span>
-            <span class="mxf-note">connects to open.spotify.com</span>
-          </span>
-        </button>
-      </div>
-    </figure>
-
-    <div class="mx-list">
-      <div class="mxl-head"><span>#</span><span>release</span><span>format</span><span>yr</span></div>
-      <button class="mx-row on" type="button" data-id="1VHWU6t5E17V8saWOHppDR" data-img="https://i.scdn.co/image/ab67616d00001e02f6fd54ee7897f35ab5608934" data-title="Da Nang Beats, Definitive Edition" data-kind="album">
-        <span class="n">01</span>
-        <span class="t"><img loading="lazy" decoding="async" src="https://i.scdn.co/image/ab67616d00001e02f6fd54ee7897f35ab5608934" alt=""><span><span class="ti">Da Nang Beats, Definitive Edition</span><span class="tk">beats · field</span></span></span>
-        <span class="k">album</span><span class="y">25</span>
-      </button>
-      <button class="mx-row" type="button" data-id="5ZZ3nDT8mGdktBIK1oxMvn" data-img="https://i.scdn.co/image/ab67616d00001e02b402f866548a99fb18dd7111" data-title="Da Lat Beats" data-kind="album">
-        <span class="n">02</span>
-        <span class="t"><img loading="lazy" decoding="async" src="https://i.scdn.co/image/ab67616d00001e02b402f866548a99fb18dd7111" alt=""><span><span class="ti">Da Lat Beats</span><span class="tk">beats · highland</span></span></span>
-        <span class="k">album</span><span class="y">25</span>
-      </button>
-      <button class="mx-row" type="button" data-id="42vP0L9ji6txfn3nzv4Gyz" data-img="https://i.scdn.co/image/ab67616d00001e02f8b39eef496fa7660328854c" data-title="From Drum to Bass DnB" data-kind="album">
-        <span class="n">03</span>
-        <span class="t"><img loading="lazy" decoding="async" src="https://i.scdn.co/image/ab67616d00001e02f8b39eef496fa7660328854c" alt=""><span><span class="ti">From Drum to Bass DnB</span><span class="tk">dnb · 174bpm</span></span></span>
-        <span class="k">album</span><span class="y">25</span>
-      </button>
-      <button class="mx-row" type="button" data-id="08UUoE07XUQiMIIqHL46K8" data-img="https://i.scdn.co/image/ab67616d00001e0214b58ca814949956c7dae6c5" data-title="Dream Pulse Minh DnB One" data-kind="EP">
-        <span class="n">04</span>
-        <span class="t"><img loading="lazy" decoding="async" src="https://i.scdn.co/image/ab67616d00001e0214b58ca814949956c7dae6c5" alt=""><span><span class="ti">Dream Pulse Minh DnB One</span><span class="tk">dnb · dream</span></span></span>
-        <span class="k">EP</span><span class="y">25</span>
-      </button>
-      <button class="mx-row" type="button" data-id="4RrerGDPnuoJ3dg1U9gPDF" data-img="https://i.scdn.co/image/ab67616d00001e024f45e3912ecc9f3215a062d8" data-title="Adventures in Playland" data-kind="album">
-        <span class="n">05</span>
-        <span class="t"><img loading="lazy" decoding="async" src="https://i.scdn.co/image/ab67616d00001e024f45e3912ecc9f3215a062d8" alt=""><span><span class="ti">Adventures in Playland</span><span class="tk">lo-fi · ambient</span></span></span>
-        <span class="k">album</span><span class="y">25</span>
-      </button>
-      <button class="mx-row" type="button" data-id="7aYJ4Kdgh3KoleATUUImUg" data-img="https://i.scdn.co/image/ab67616d00001e02ae59bb2edf147cc276adc348" data-title="Chuyến Phiêu Lưu Của Miyu" data-kind="single">
-        <span class="n">06</span>
-        <span class="t"><img loading="lazy" decoding="async" src="https://i.scdn.co/image/ab67616d00001e02ae59bb2edf147cc276adc348" alt=""><span><span class="ti">Chuyến Phiêu Lưu Của Miyu</span><span class="tk">single · vocal</span></span></span>
-        <span class="k">single</span><span class="y">25</span>
-      </button>
-    </div>
-  </div>
-</section>
-
 <!-- ====== NOW ====== -->
 <section class="section" id="now">
   <div class="section-mark">
-    <div class="tag">05 / NOW</div>
+    <div class="tag">04 / NOW</div>
     <div>
       <h2>cat now<span class="punct">.txt</span></h2>
       <p class="sub">What I'm actively working on. Updated weekly.</p>
@@ -1383,11 +1235,6 @@
         <div class="v amber">14d</div>
         <div class="s">VeriLog 0.3 — signed checkpoint export + proof verifier CLI.</div>
       </div>
-      <div class="stat">
-        <div class="k">// listening</div>
-        <div class="v cyan">↺ 06</div>
-        <div class="s">Cycling all six 2025 releases while writing. See <a href="#music" style="color:var(--green);border-bottom:1px dashed">music ↓</a>.</div>
-      </div>
     </div>
   </div>
 </section>
@@ -1395,7 +1242,7 @@
 <!-- ====== SKILLS ====== -->
 <section class="section" id="skills">
   <div class="section-mark">
-    <div class="tag">06 / TOOLKIT</div>
+    <div class="tag">05 / TOOLKIT</div>
     <div>
       <h2>which tools<span class="punct">/</span></h2>
       <p class="sub">What I reach for weekly. Not exhaustive.</p>
@@ -1452,7 +1299,7 @@
 <!-- ====== EDUCATION ====== -->
 <section class="section" id="education">
   <div class="section-mark">
-    <div class="tag">07 / RECORD</div>
+    <div class="tag">06 / RECORD</div>
     <div>
       <h2>history -e<span class="punct">/</span></h2>
       <p class="sub">Formal study, peer-review work, ongoing pre-doctoral preparation.</p>
@@ -1498,7 +1345,7 @@
 <!-- ====== CONTACT ====== -->
 <section class="section" id="contact" style="border-bottom:none">
   <div class="section-mark">
-    <div class="tag">08 / CONTACT</div>
+    <div class="tag">07 / CONTACT</div>
     <div>
       <h2>ping minh<span class="punct">/</span></h2>
       <p class="sub">Research, partnerships, app questions, or speaking: pick a channel.</p>
@@ -1524,9 +1371,6 @@
           <a href="https://orcid.org/0000-0001-6834-4422" target="_blank" rel="noopener"><span class="ch">orcid</span><span class="v cyan">0000-0001-6834-4422</span><span class="arr">→</span></a>
           <a href="https://scholar.google.com/citations?user=6HheUI4AAAAJ" target="_blank" rel="noopener"><span class="ch">scholar</span><span class="v cyan">google scholar</span><span class="arr">→</span></a>
           <a href="https://www.linkedin.com/in/michelnguyengermany/" target="_blank" rel="noopener"><span class="ch">linkedin</span><span class="v cyan">michelnguyengermany</span><span class="arr">→</span></a>
-          <a href="https://open.spotify.com/artist/6kO0YIwxOV1NvHwDRkq9F0" target="_blank" rel="noopener"><span class="ch">spotify</span><span class="v cyan">minh ng</span><span class="arr">→</span></a>
-          <a href="https://music.apple.com/be/artist/minh-ng/1788092762" target="_blank" rel="noopener"><span class="ch">apple</span><span class="v cyan">minh ng</span><span class="arr">→</span></a>
-          <a href="https://music.youtube.com/@minh_ng" target="_blank" rel="noopener"><span class="ch">youtube</span><span class="v cyan">@minh_ng</span><span class="arr">→</span></a>
         </div>
       </div>
     </div>
@@ -1564,7 +1408,7 @@
   <div class="ft">
     <div>
       <div class="ft-brand">minh@systems</div>
-      <div class="ft-tag">Independent research workstation. Building databases, apps, papers, and music from Germany.</div>
+      <div class="ft-tag">Independent research workstation. Building databases, apps, and papers from Germany.</div>
     </div>
     <div class="ft-col">
       <h5>sections</h5>
@@ -1572,7 +1416,6 @@
         <li><a href="#projects">projects</a></li>
         <li><a href="research.html">research</a></li>
         <li><a href="#log">log</a></li>
-        <li><a href="#music">music</a></li>
         <li><a href="#now">now</a></li>
       </ul>
     </div>
@@ -1583,14 +1426,6 @@
         <li><a href="https://scholar.google.com/citations?user=6HheUI4AAAAJ" target="_blank" rel="noopener">scholar</a></li>
         <li><a href="https://orcid.org/0000-0001-6834-4422" target="_blank" rel="noopener">orcid</a></li>
         <li><a href="https://www.linkedin.com/in/michelnguyengermany/" target="_blank" rel="noopener">linkedin</a></li>
-      </ul>
-    </div>
-    <div class="ft-col">
-      <h5>listen</h5>
-      <ul>
-        <li><a href="https://open.spotify.com/artist/6kO0YIwxOV1NvHwDRkq9F0" target="_blank" rel="noopener">spotify</a></li>
-        <li><a href="https://music.apple.com/be/artist/minh-ng/1788092762" target="_blank" rel="noopener">apple music</a></li>
-        <li><a href="https://music.youtube.com/@minh_ng" target="_blank" rel="noopener">youtube music</a></li>
       </ul>
     </div>
   </div>
@@ -1678,7 +1513,6 @@
     {t:'<span class="k">apps/</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4 iOS · 2 macOS · all shipping', cls:'', d:80},
     {t:'<span class="k">games/</span> &nbsp;&nbsp;&nbsp;&nbsp;2 live', cls:'', d:80},
     {t:`<span class="k">papers/</span> &nbsp;&nbsp;&nbsp;${paperStats.total} records · ${paperStats.journal} journal · ${paperStats.preprint} preprint`, cls:'', d:80},
-    {t:'<span class="k">music/</span> &nbsp;&nbsp;&nbsp;&nbsp;6 releases · 2025', cls:'', d:80},
     {t:'', cls:'', d:80},
     {t:'cat motd', cls:'cmd', d:500},
     {t:'<span class="warn">→</span> building systems, apps, and research that ship.', cls:'', d:80},
@@ -1750,9 +1584,8 @@
   const cmdItems = [
     {label:'~/home', hint:'top', go:'#home'},
     {label:'~/research', hint:'full bibliography', go:'research.html'},
-    {label:'~/projects', hint:'17 builds', go:'#projects'},
+    {label:'~/projects', hint:'18 builds', go:'#projects'},
     {label:'~/log', hint:'writing & notes', go:'#log'},
-    {label:'~/music', hint:'6 releases', go:'#music'},
     {label:'~/now', hint:'this week', go:'#now'},
     {label:'~/toolkit', hint:'stack', go:'#skills'},
     {label:'~/record', hint:'education', go:'#education'},
@@ -1836,7 +1669,6 @@
     if(e.key === '/'){ e.preventDefault(); openCmdk(); }
     if(e.key === 'p' || e.key === 'P'){ jump('projects'); }
     if(e.key === 'r' || e.key === 'R'){ window.location.href = 'research.html'; }
-    if(e.key === 'm' || e.key === 'M'){ jump('music'); }
     if(e.key === 'n' || e.key === 'N'){ jump('now'); }
     if(e.key === 'h' || e.key === 'H'){ jump('home'); }
   });
@@ -1984,63 +1816,9 @@
     return `@${entryType}{${rec.key},\n${fields}\n}`;
   }
 
-  // music switcher
-  const mxCover=document.getElementById('mx-cover');
-  const mxTitle=document.getElementById('mx-title');
-  const mxLabel=document.getElementById('mx-label');
-  const mxSp=document.getElementById('mx-sp');
-  // Spotify is loaded on demand: the embed sets third-party cookies, so it stays
-  // behind a facade until the visitor asks for it. Before activation, selecting a
-  // row just re-points the facade; after, it swaps the live iframe's src.
-  const mxEmbed=document.querySelector('.mx-embed');
-  const mxFacade=document.getElementById('mx-facade');
-  let mxFrame=null;
-
-  function mxEmbedSrc(id){return 'https://open.spotify.com/embed/album/'+id+'?utm_source=generator&theme=0';}
-
-  function mxLoadPlayer(id,title){
-    if(!mxFrame){
-      mxFrame=document.createElement('iframe');
-      mxFrame.id='mx-frame';
-      mxFrame.width='100%';
-      mxFrame.height='200';
-      mxFrame.frameBorder='0';
-      mxFrame.allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture';
-      mxEmbed.innerHTML='';
-      mxEmbed.appendChild(mxFrame);
-    }
-    mxFrame.src=mxEmbedSrc(id);
-    mxFrame.title='Spotify preview: '+title;
-  }
-
-  if(mxFacade){
-    mxFacade.addEventListener('click',()=>{
-      mxLoadPlayer(mxFacade.dataset.id,mxFacade.dataset.title);
-    });
-  }
-
-  document.querySelectorAll('.mx-row').forEach(row=>{
-    row.addEventListener('click',()=>{
-      document.querySelectorAll('.mx-row').forEach(r=>r.classList.remove('on'));
-      row.classList.add('on');
-      const id=row.dataset.id;
-      mxCover.style.opacity='0.2';
-      setTimeout(()=>{mxCover.src=row.dataset.img;mxCover.alt=row.dataset.title+' cover';mxCover.style.opacity='1';},180);
-      mxTitle.textContent=row.dataset.title;
-      mxLabel.textContent=row.dataset.kind.toLowerCase()+' · 2025';
-      mxSp.href='https://open.spotify.com/album/'+id;
-      if(mxFrame){
-        mxLoadPlayer(id,row.dataset.title);
-      }else if(mxFacade){
-        mxFacade.dataset.id=id;
-        mxFacade.dataset.title=row.dataset.title;
-      }
-    });
-  });
-
   // active nav tab via scroll
   const tabs = document.querySelectorAll('.nav-tab');
-  const sections = ['home','papers','projects','log','music','now','contact'];
+  const sections = ['home','papers','projects','log','now','contact'];
   function syncTabs(){
     const y = window.scrollY + 200;
     let active = sections[0];
