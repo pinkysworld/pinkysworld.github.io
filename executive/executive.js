@@ -2,26 +2,88 @@
   try { localStorage.setItem('minh.systems:view', 'executive'); } catch (_error) {}
 
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const loader = document.getElementById('ex-page-loader');
+
+  /* ------------------------------------------------------------ loader */
+  /* The loader dismisses itself via a CSS animation, so it clears even with
+     JavaScript disabled or broken. This is the belt to that CSS braces: it
+     also clears when the animation clock never advances (throttled or
+     backgrounded tab, animations disabled). The loader never scroll-locks. */
+  const loader = document.querySelector('.ex-page-loader');
   if (loader) {
-    document.body.classList.add('is-loading');
-    window.setTimeout(() => {
+    const clearLoader = () => {
       loader.classList.add('is-done');
-      document.body.classList.remove('is-loading');
-    }, reduceMotion ? 60 : 650);
+      // Final state must not depend on a transition finishing: if the animation
+      // clock is frozen the fade never completes, so take it out of rendering.
+      window.setTimeout(() => { loader.hidden = true; }, reduceMotion ? 0 : 400);
+    };
+    const schedule = () => window.setTimeout(clearLoader, reduceMotion ? 0 : 700);
+    if (document.readyState === 'complete') schedule();
+    else window.addEventListener('load', schedule);
+    // Never let a restored bfcache page come back with the loader showing.
+    window.addEventListener('pageshow', clearLoader);
   }
 
+  /* ---------------------------------------------------------------- nav */
   const nav = document.querySelector('.ex-nav');
   const menuButton = document.querySelector('.ex-menu-toggle');
+  const scrim = document.querySelector('.ex-scrim');
+  const mobileQuery = window.matchMedia('(max-width: 1080px)');
+
   if (nav && menuButton) {
-    menuButton.addEventListener('click', () => {
-      const open = nav.classList.toggle('is-open');
+    const focusablesIn = el => [...el.querySelectorAll('a[href], button:not([disabled])')]
+      .filter(node => node.offsetParent !== null);
+
+    const setNav = open => {
+      nav.classList.toggle('is-open', open);
+      document.body.classList.toggle('nav-open', open);
       menuButton.setAttribute('aria-expanded', String(open));
+      if (open) {
+        const first = focusablesIn(nav)[0];
+        if (first) first.focus();
+      }
+    };
+
+    const closeNav = ({ restoreFocus = false } = {}) => {
+      if (!nav.classList.contains('is-open')) return;
+      setNav(false);
+      if (restoreFocus) menuButton.focus();
+    };
+
+    menuButton.addEventListener('click', () => setNav(!nav.classList.contains('is-open')));
+    if (scrim) scrim.addEventListener('click', () => closeNav());
+    nav.querySelectorAll('.ex-nav-links a, .ex-nav-cta').forEach(link => {
+      link.addEventListener('click', () => closeNav());
     });
-    nav.querySelectorAll('.ex-nav-links a').forEach(link => link.addEventListener('click', () => {
-      nav.classList.remove('is-open');
-      menuButton.setAttribute('aria-expanded', 'false');
-    }));
+
+    document.addEventListener('keydown', event => {
+      if (!nav.classList.contains('is-open')) return;
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        closeNav({ restoreFocus: true });
+        return;
+      }
+      if (event.key !== 'Tab') return;
+      // Keep keyboard focus inside the drawer while it covers the page.
+      const items = focusablesIn(nav);
+      if (!items.length) return;
+      const first = items[0];
+      const last = items[items.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      } else if (!nav.contains(document.activeElement)) {
+        event.preventDefault();
+        first.focus();
+      }
+    });
+
+    // Leaving the mobile breakpoint must not strand the page in "open" state.
+    const syncBreakpoint = () => { if (!mobileQuery.matches) closeNav(); };
+    if (mobileQuery.addEventListener) mobileQuery.addEventListener('change', syncBreakpoint);
+    else mobileQuery.addListener(syncBreakpoint);
   }
 
   document.querySelectorAll('[data-operator-view]').forEach(link => {
@@ -30,6 +92,47 @@
     });
   });
 
+  /* Headline metrics are deliberately NOT animated: counting them up from
+     zero renders wrong figures (e.g. "€1M+" on the way to "€40M+") for the
+     first frames, which is the last thing a credential band should do. */
+
+  /* Translate a runtime-generated string via the i18n dictionary, if loaded. */
+  const t = text => {
+    const i18n = window.EX_I18N;
+    if (!i18n || i18n.current() !== 'de') return text;
+    return i18n.dict[text] || text;
+  };
+
+  /* ---------------------------------------------------- project filters */
+  const projectFilters = [...document.querySelectorAll('[data-project-filter]')];
+  const projectCards = [...document.querySelectorAll('[data-project-category]')];
+  const projectCount = document.querySelector('[data-project-count]');
+  if (projectFilters.length && projectCards.length) {
+    let activeCategory = 'all';
+    const applyProjectFilter = category => {
+      activeCategory = category;
+      let shown = 0;
+      projectFilters.forEach(button => {
+        button.setAttribute('aria-pressed', String(button.dataset.projectFilter === category));
+      });
+      projectCards.forEach(card => {
+        const match = category === 'all' || card.dataset.projectCategory === category;
+        card.hidden = !match;
+        if (match) shown += 1;
+      });
+      if (projectCount) {
+        projectCount.textContent = `${shown} ${t(shown === 1 ? 'project' : 'projects')}`;
+      }
+    };
+    projectFilters.forEach(button => {
+      button.addEventListener('click', () => applyProjectFilter(button.dataset.projectFilter));
+    });
+    applyProjectFilter('all');
+    // The count is generated here, so i18n cannot translate it in the DOM pass.
+    document.addEventListener('ex:languagechange', () => applyProjectFilter(activeCategory));
+  }
+
+  /* ------------------------------------------------ publication filters */
   const publicationFilters = [...document.querySelectorAll('[data-publication-filter]')];
   const publicationRows = [...document.querySelectorAll('[data-publication-kind]')];
   if (publicationFilters.length && publicationRows.length) {
@@ -78,7 +181,7 @@
     shieldlink: {
       kicker: 'Journal article · July 2026 · Systems security',
       title: 'ShieldLink: Retry-Aware Authenticated Encryption for Secure and Reliable Chiplet Interconnects',
-      venue: 'International Journal of Research in Computing', topic: 'Systems security', status: 'Published',
+      venue: 'International Journal of Research in Computing', topic: 'Systems security', status: 'Published · Lead article',
       abstract: 'Chiplet die-to-die links such as UCIe and CXL handle reliability with link-layer retries while confidentiality lives in higher-layer authenticated encryption. Composed naively, the receiver can acknowledge a frame on a fast CRC check before the slower AEAD verification finishes — a time-of-check/time-of-use window that can desynchronize state or enable denial-of-service. ShieldLink enforces one deliverability invariant: the receive window only advances on successful AEAD verification of exactly the bits that will be delivered.',
       primaryUrl: 'https://doi.org/10.64701/ijrc/345/9121', primaryLabel: 'Open DOI', secondaryUrl: '../papers/shieldlink.html', secondaryLabel: 'Open record',
       versionNote: 'The earlier public version remains available as a TechRxiv preprint.', versionUrl: 'https://doi.org/10.36227/techrxiv.176800047.72137558/v1', versionLabel: 'Open original preprint'
@@ -200,6 +303,7 @@
     });
   }
 
+  /* ------------------------------------------------------- contact form */
   const form = document.getElementById('executive-contact-form');
   if (!form) return;
 
@@ -224,7 +328,7 @@
     };
 
     button.disabled = true;
-    button.textContent = 'Sending…';
+    button.textContent = t('Sending…');
     fallback.hidden = true;
 
     fetch('https://formspree.io/f/xpqvglgq', {
@@ -234,16 +338,16 @@
     }).then(response => {
       if (!response.ok) throw new Error('contact request failed');
       form.reset();
-      button.textContent = 'Message sent';
-      note.textContent = 'Thank you. The message was accepted for delivery.';
+      button.textContent = t('Message sent');
+      note.textContent = t('Thank you. The message was accepted for delivery.');
     }).catch(() => {
-      button.textContent = 'Try again';
+      button.textContent = t('Try again');
       fallback.hidden = false;
-      note.textContent = 'Your message is still in the form.';
+      note.textContent = t('Your message is still in the form.');
     }).finally(() => {
       button.disabled = false;
       window.setTimeout(() => {
-        if (button.textContent === 'Message sent') button.textContent = 'Send message';
+        if (button.textContent === t('Message sent')) button.textContent = t('Send message');
       }, 5000);
     });
   });

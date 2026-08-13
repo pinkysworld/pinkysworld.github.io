@@ -792,28 +792,47 @@
   html[data-view="operator"] .view-loader-kicker{color:var(--mute);font-family:var(--mono)}
   @keyframes infinity-flow{to{stroke-dashoffset:-400}}
 
-  .executive-site{--ex-ink:#17211f;--ex-deep:#193f37;--ex-soft:#53615d;--ex-line:#d7d5ce;--ex-paper:#faf9f6;--ex-bg:#f4f2ed;--ex-accent:#b98746;min-height:100vh;padding-left:78px;background:var(--ex-bg);color:var(--ex-ink);font-family:var(--sans)}
-  .ex-shell{width:min(1040px,calc(100% - 56px));margin:0 auto}
-  .ex-nav{position:fixed;inset:0 auto 0 0;width:78px;z-index:130;overflow:hidden;border-right:1px solid rgba(23,33,31,.13);background:rgba(250,249,246,.97);box-shadow:0 0 0 rgba(23,33,31,0);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);transition:width .24s ease,box-shadow .24s ease}
-  .ex-nav:hover,.ex-nav:focus-within,.ex-nav.is-open{width:232px;box-shadow:18px 0 44px rgba(23,33,31,.11)}
-  .ex-nav-inner{width:232px;height:100%;padding:30px 24px;display:flex;flex-direction:column;align-items:stretch;gap:0}
-  .ex-wordmark{display:flex;align-items:center;gap:12px;white-space:nowrap;font:600 14px/1 var(--sans);letter-spacing:.02em}
-  .ex-wordmark > span:last-child{opacity:0;transform:translateX(-6px);transition:opacity .18s ease,transform .18s ease}
-  .ex-monogram{width:34px;height:34px;flex:0 0 34px;border-radius:50%;display:grid;place-items:center;background:var(--ex-deep);color:#fff;font:600 11px/1 var(--sans);letter-spacing:.02em}
-  .ex-nav-role{margin:20px 0 0;opacity:0;white-space:nowrap;font-size:11px;line-height:1.55;color:var(--ex-soft);transition:opacity .18s ease}
-  .ex-nav-links{display:grid;gap:0;margin-top:56px;border-top:1px solid var(--ex-line)}
-  .ex-nav-links a{display:grid;grid-template-columns:26px 1fr;gap:8px;padding:13px 0;border-bottom:1px solid var(--ex-line);white-space:nowrap;font-size:0;font-weight:600;letter-spacing:.04em;color:var(--ex-soft)}
-  .ex-nav-links a span{font-size:9px;color:#9a9f9d}
-  .ex-nav-links a:hover,.ex-nav-links a.active{color:var(--ex-deep)}
-  .ex-nav-links a.active{font-weight:700}
-  .ex-menu-toggle{display:none;appearance:none;border:1px solid var(--ex-deep);border-radius:999px;background:transparent;padding:9px 13px;color:var(--ex-deep);font:700 10px/1 var(--sans);letter-spacing:.09em;text-transform:uppercase;cursor:pointer}
-  .ex-nav-foot{margin-top:auto;padding-top:24px;border-top:1px solid var(--ex-line);display:grid;gap:9px;opacity:0;white-space:nowrap;transition:opacity .18s ease}
-  .ex-nav-foot a{font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ex-soft)}
+  .executive-site{--ex-ink:#17211f;--ex-deep:#193f37;--ex-soft:#53615d;--ex-line:#dcd9d1;--ex-line-soft:#e7e4dc;--ex-paper:#faf9f6;--ex-bg:#f4f2ed;--ex-accent:#b98746;--ex-faint:#858d89;--ex-nav-w:264px;--ex-topbar-h:60px;min-height:100vh;padding-left:var(--ex-nav-w);background:var(--ex-bg);color:var(--ex-ink);font-family:var(--sans)}
+  .ex-shell{width:min(1010px,calc(100% - 64px));margin:0 auto}
+  .ex-skip{position:fixed;top:10px;left:10px;z-index:300;padding:11px 16px;transform:translateY(-160%);border:1px solid var(--ex-deep);background:var(--ex-deep);color:#fff;font:750 10px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;transition:transform .2s ease}
+  .ex-skip:focus{transform:none}
+  .ex-topbar{display:none;position:fixed;top:0;left:0;right:0;z-index:120;align-items:center;justify-content:space-between;gap:14px;height:var(--ex-topbar-h);padding:0 14px;border-bottom:1px solid var(--ex-line);background:rgba(250,249,246,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+  .ex-nav{position:fixed;top:0;left:0;bottom:0;z-index:130;display:flex;flex-direction:column;width:var(--ex-nav-w);overflow-y:auto;overscroll-behavior:contain;border-right:1px solid var(--ex-line);background:var(--ex-paper)}
+  .ex-nav-inner{display:flex;flex-direction:column;width:100%;min-height:100%;padding:30px 26px}
+  .ex-wordmark{display:flex;align-items:center;gap:12px;font:650 14px/1 var(--sans);letter-spacing:.01em;color:var(--ex-ink)}
+  .ex-monogram{width:34px;height:34px;flex:0 0 34px;border-radius:50%;display:grid;place-items:center;background:var(--ex-deep);color:#fff;font:700 11px/1 var(--sans);letter-spacing:.02em}
+  .ex-nav-role{margin:18px 0 0;font-size:11px;line-height:1.55;color:var(--ex-soft)}
+  .ex-nav-links{display:grid;gap:0;margin-top:30px;border-top:1px solid var(--ex-line)}
+  .ex-nav-links a{position:relative;display:grid;grid-template-columns:26px 1fr;align-items:baseline;gap:10px;padding:12px 10px 12px 0;border-bottom:1px solid var(--ex-line-soft);font-size:12.5px;font-weight:600;color:var(--ex-soft);transition:color .18s ease,padding-left .18s ease,background .18s ease}
+  .ex-nav-links a .n{font-size:9px;font-weight:700;letter-spacing:.1em;color:#a4aaa7;transition:color .18s ease}
+  .ex-nav-links a:hover{padding-left:8px;background:rgba(25,63,55,.045);color:var(--ex-deep)}
+  .ex-nav-links a:hover .n{color:var(--ex-accent)}
+  .ex-nav-links a[aria-current="page"]{color:var(--ex-deep);font-weight:750}
+  .ex-nav-links a[aria-current="page"]::before{content:"";position:absolute;left:-26px;top:0;bottom:0;width:3px;background:var(--ex-accent)}
+  .ex-nav-links a[aria-current="page"] .n{color:var(--ex-accent)}
+  .ex-nav-cta{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:22px;padding:12px;border:1px solid var(--ex-deep);background:var(--ex-deep);color:#fff;font:750 10px/1 var(--sans);letter-spacing:.09em;text-transform:uppercase;transition:background .2s ease}
+  .ex-nav-cta:hover{background:#235448}
+  .ex-menu-toggle{display:inline-flex;align-items:center;gap:9px;appearance:none;border:1px solid var(--ex-deep);border-radius:999px;background:transparent;padding:9px 14px;color:var(--ex-deep);font:750 10px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
+  .ex-menu-toggle:hover{background:var(--ex-deep);color:#fff}
+  .ex-menu-bars{position:relative;width:13px;height:9px;flex:0 0 13px}
+  .ex-menu-bars::before,.ex-menu-bars::after{content:"";position:absolute;left:0;width:100%;height:1.5px;background:currentColor;transition:transform .22s ease,top .22s ease}
+  .ex-menu-bars::before{top:0}.ex-menu-bars::after{top:7.5px}
+  .ex-menu-toggle[aria-expanded="true"] .ex-menu-bars::before{top:3.75px;transform:rotate(45deg)}
+  .ex-menu-toggle[aria-expanded="true"] .ex-menu-bars::after{top:3.75px;transform:rotate(-45deg)}
+  .ex-nav-foot{margin-top:auto;padding-top:24px;display:grid;gap:9px}
+  .ex-nav-foot .lbl{padding-bottom:4px;border-bottom:1px solid var(--ex-line);font:750 9px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--ex-faint)}
+  .ex-nav-foot a{font-size:10px;font-weight:650;letter-spacing:.06em;text-transform:uppercase;color:var(--ex-soft)}
   .ex-nav-foot a:hover{color:var(--ex-deep)}
-  .ex-nav-foot p{margin-top:10px;font-size:10px;line-height:1.5;color:#8a918e}
-  .ex-nav:hover .ex-wordmark > span:last-child,.ex-nav:focus-within .ex-wordmark > span:last-child,.ex-nav.is-open .ex-wordmark > span:last-child{opacity:1;transform:none}
-  .ex-nav:hover .ex-nav-role,.ex-nav:focus-within .ex-nav-role,.ex-nav.is-open .ex-nav-role,.ex-nav:hover .ex-nav-foot,.ex-nav:focus-within .ex-nav-foot,.ex-nav.is-open .ex-nav-foot{opacity:1}
-  .ex-nav:hover .ex-nav-links a,.ex-nav:focus-within .ex-nav-links a,.ex-nav.is-open .ex-nav-links a{font-size:11px}
+  .ex-nav-foot p{margin-top:8px;font-size:10px;line-height:1.5;color:var(--ex-faint)}
+  .ex-scrim{position:fixed;inset:0;z-index:110;background:rgba(17,31,28,.42);backdrop-filter:blur(2px);opacity:0;pointer-events:none;transition:opacity .26s ease}
+  body.ex-nav-open .ex-scrim{opacity:1;pointer-events:auto}
+
+  .ex-metrics{border-top:1px solid var(--ex-line);border-bottom:1px solid var(--ex-line);background:var(--ex-paper)}
+  .ex-metrics-inner{display:grid;grid-template-columns:repeat(6,1fr);border-left:1px solid var(--ex-line)}
+  .ex-metric{min-height:126px;padding:20px 16px;display:flex;flex-direction:column;justify-content:center;border-right:1px solid var(--ex-line)}
+  .ex-metric b{display:block;font:600 clamp(22px,2.4vw,30px)/1 var(--sans);letter-spacing:-.035em;color:var(--ex-deep)}
+  .ex-metric > span{display:block;margin-top:9px;font-size:9.5px;font-weight:700;line-height:1.4;letter-spacing:.1em;text-transform:uppercase;color:var(--ex-soft)}
+  .ex-metric small{display:block;margin-top:5px;font-size:10.5px;line-height:1.45;color:var(--ex-faint)}
 
   .ex-hero{min-height:660px;display:grid;grid-template-columns:minmax(0,1.18fr) minmax(300px,.82fr);gap:58px;align-items:center;padding:68px 0}
   .ex-eyebrow{display:flex;align-items:center;gap:12px;color:var(--ex-deep);font-size:10px;font-weight:750;letter-spacing:.2em;text-transform:uppercase}
@@ -907,16 +926,22 @@
   .ex-home-contact strong{display:block;font:600 16px/1.35 var(--sans)}
   .ex-home-contact span{display:block;margin-top:6px;color:var(--ex-soft);font-size:12px}
 
+  @media(max-width:1080px){
+    .executive-site{padding-left:0;padding-top:var(--ex-topbar-h)}
+    .ex-topbar{display:flex}
+    .ex-nav{width:min(310px,86vw);transform:translateX(-100%);visibility:hidden;box-shadow:22px 0 60px rgba(17,31,28,0);transition:transform .28s ease,box-shadow .28s ease,visibility .28s}
+    .ex-nav.is-open{transform:none;visibility:visible;box-shadow:22px 0 60px rgba(17,31,28,.16)}
+    body.ex-nav-open{overflow:hidden}
+    .ex-metrics-inner{grid-template-columns:repeat(3,1fr)}
+  }
   @media(max-width:900px){
-    .executive-site{padding-left:58px}.ex-nav{width:58px}.ex-nav:hover,.ex-nav:focus-within,.ex-nav.is-open{width:220px}
-    .ex-nav-inner{width:220px;padding:20px 12px}.ex-wordmark > span:last-child{font-size:13px}.ex-menu-toggle{position:absolute;top:70px;left:12px;width:34px;height:34px;display:grid;place-items:center;padding:0;font-size:0}
-    .ex-menu-toggle::before{content:"☰";font-size:14px}.ex-nav.is-open .ex-menu-toggle::before{content:"×";font-size:18px}.ex-nav-role{margin-top:70px}.ex-nav-links{margin-top:32px}.ex-nav-links a{padding:12px 0}
     .ex-hero{grid-template-columns:1fr;gap:40px;min-height:auto;padding:72px 0}.ex-profile-card{min-height:520px}
     .ex-trust-grid{grid-template-columns:1fr 1fr}.ex-trust-grid > *{border-bottom:1px solid var(--ex-line)}.ex-capability-grid{grid-template-columns:1fr 1fr}
     .ex-evidence,.ex-contact-grid{grid-template-columns:1fr;gap:48px}.ex-route-grid{grid-template-columns:1fr 1fr}.ex-route-card:last-child{grid-column:1/-1;min-height:190px}
   }
   @media(max-width:640px){
-    .ex-shell{width:min(100% - 28px,1180px)}.ex-nav-cta{display:none}
+    .ex-shell{width:min(100% - 32px,1180px)}
+    .ex-metrics-inner{grid-template-columns:1fr 1fr}.ex-metric{min-height:110px;padding:16px 14px}
     .ex-hero{padding:52px 0 58px}.ex-hero h1{font-size:38px;line-height:1.08}.ex-lead{font-size:16px}.ex-actions{display:grid}.ex-button{width:100%}
     .ex-profile-card{padding:24px;min-height:auto}.ex-card-title{margin-top:52px}.ex-card-proof{grid-template-columns:1fr}.ex-trust-grid{grid-template-columns:1fr 1fr}
     .ex-trust-grid > *{padding:18px;min-height:100px}.ex-section{padding:68px 0}.ex-section-head{grid-template-columns:1fr;gap:15px;margin-bottom:36px}.ex-section-head h2{font-size:32px}
@@ -931,6 +956,7 @@
      no consent banner required under TTDSG. -->
 <script data-goatcounter="https://minhsystems.goatcounter.com/count"
         async src="https://gc.zgo.at/count.js"></script>
+<script defer src="executive/i18n.js"></script>
 </head>
 <body data-screen-label="Direction B — Operator">
 
@@ -946,74 +972,101 @@
   </div>
 </div>
 
-<div class="view-switcher" role="group" aria-label="Choose portfolio view">
+<div class="view-switcher" role="group" aria-label="Choose portfolio view" data-i18n-skip>
   <button type="button" data-view-target="executive" aria-pressed="true">Executive</button>
   <button type="button" data-view-target="operator" aria-pressed="false">Operator</button>
 </div>
 
 <div class="executive-site" id="executive-view">
-  <nav class="ex-nav" aria-label="Executive portfolio navigation">
-    <div class="ex-shell ex-nav-inner">
+  <a class="ex-skip" href="#ex-home">Skip to content</a>
+
+  <header class="ex-topbar">
+    <a class="ex-wordmark" href="#ex-home"><span class="ex-monogram" aria-hidden="true">MN</span><span>Michél Nguyen</span></a>
+    <div class="ex-lang" role="group" aria-label="Language / Sprache" data-i18n-skip><button type="button" data-lang="en" aria-pressed="true">EN</button><button type="button" data-lang="de" aria-pressed="false">DE</button></div>
+    <button class="ex-menu-toggle" type="button" aria-expanded="false" aria-controls="executive-navigation"><span class="ex-menu-bars" aria-hidden="true"></span>Menu</button>
+  </header>
+
+  <aside class="ex-nav" id="executive-navigation" aria-label="Executive portfolio navigation">
+    <div class="ex-nav-inner">
       <a class="ex-wordmark" href="#ex-home" aria-label="Michél Nguyen, executive profile home">
         <span class="ex-monogram" aria-hidden="true">MN</span>
         <span>Michél Nguyen</span>
       </a>
-      <button class="ex-menu-toggle" type="button" aria-expanded="false" aria-controls="executive-navigation">Menu</button>
-      <p class="ex-nav-role">Independent researcher<br>and systems engineer</p>
-      <div class="ex-nav-links" id="executive-navigation">
-        <a class="active" href="#ex-home"><span>01</span>Home</a>
-        <a href="executive/profile.html"><span>02</span>Profile</a>
-        <a href="executive/projects.html"><span>03</span>Projects</a>
-        <a href="executive/academic.html"><span>04</span>Academic</a>
-        <a href="executive/publications.html"><span>05</span>Publications</a>
-        <a href="executive/contact.html"><span>06</span>Contact</a>
-      </div>
+      <p class="ex-nav-role">Service delivery &amp; project management<br>Applied computer-science research</p>
+      <div class="ex-lang" role="group" aria-label="Language / Sprache" data-i18n-skip><button type="button" data-lang="en" aria-pressed="true">EN</button><button type="button" data-lang="de" aria-pressed="false">DE</button></div>
+      <nav class="ex-nav-links" aria-label="Executive portfolio pages">
+        <a href="#ex-home" aria-current="page"><span class="n">01</span><span>Home</span></a>
+        <a href="executive/profile.html"><span class="n">02</span><span>Profile</span></a>
+        <a href="executive/experience.html"><span class="n">03</span><span>Experience</span></a>
+        <a href="executive/projects.html"><span class="n">04</span><span>Projects</span></a>
+        <a href="executive/academic.html"><span class="n">05</span><span>Academic</span></a>
+        <a href="executive/publications.html"><span class="n">06</span><span>Publications</span></a>
+        <a href="executive/contact.html"><span class="n">07</span><span>Contact</span></a>
+      </nav>
+      <a class="ex-nav-cta" href="executive/contact.html">Start a conversation</a>
       <div class="ex-nav-foot">
+        <div class="lbl">Public record</div>
         <a href="https://orcid.org/0000-0001-6834-4422" target="_blank" rel="noopener">ORCID ↗</a>
-        <a href="https://github.com/pinkysworld" target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="https://scholar.google.com/citations?user=6HheUI4AAAAJ" target="_blank" rel="noopener">Scholar ↗</a>
         <a href="https://www.linkedin.com/in/michelnguyengermany/" target="_blank" rel="noopener">LinkedIn ↗</a>
-        <p>Thuringia, Germany<br>Remote · CET/CEST</p>
+        <a href="https://github.com/pinkysworld" target="_blank" rel="noopener">GitHub ↗</a>
+        <p>Thuringia, Germany<br>Remote · CET/CEST · DE / EN</p>
       </div>
     </div>
-  </nav>
+  </aside>
+  <div class="ex-scrim"></div>
 
   <header class="ex-shell ex-hero" id="ex-home">
     <div>
-      <div class="ex-eyebrow">Systems · security · applied research</div>
-      <h1>Researcher and systems engineer.</h1>
-      <p class="ex-lead">I work on database systems, security infrastructure, distributed storage, and Apple-platform software. My projects combine implementation, technical documentation, and research.</p>
+      <div class="ex-eyebrow">Service delivery · project management · applied research</div>
+      <h1>Enterprise delivery, <em>carried through to evidence.</em></h1>
+      <p class="ex-lead">Fifteen years turning enterprise IT requirements into services that actually run — presales architecture, managed-service accounts, and DACH field-service teams — now combined with peer-reviewed computer-science research and eighteen systems I design, build, and ship myself.</p>
       <div class="ex-actions">
-        <a class="ex-button primary" href="executive/projects.html">Selected projects <span aria-hidden="true">↗</span></a>
-        <a class="ex-button" href="executive/publications.html">Publications <span aria-hidden="true">↗</span></a>
+        <a class="ex-button primary" href="executive/experience.html">Career record <span aria-hidden="true">↗</span></a>
+        <a class="ex-button" href="executive/projects.html">Projects <span aria-hidden="true">↗</span></a>
+        <a class="ex-button ghost" href="assets/docs/michel-nguyen-one-pager-de.pdf" target="_blank" rel="noopener">One-pager (PDF)</a>
       </div>
-      <div class="ex-availability"><i aria-hidden="true"></i> Open to systems engineering, technical delivery, and research roles · Q3 2026</div>
+      <div class="ex-availability"><i aria-hidden="true"></i> Open to service delivery, technical project management, and systems/security engineering roles</div>
     </div>
 
     <aside class="ex-profile-card" aria-label="Professional profile at a glance">
       <div>
-        <div class="ex-card-label">Current work · August 2026</div>
-        <div class="ex-card-title">Systems work carried from design and implementation through documentation and release.</div>
+        <div class="ex-card-label">Current work · 2026</div>
+        <div class="ex-card-title">Delivery ownership and systems work, carried from design through documentation to release.</div>
         <ul class="ex-card-list">
-          <li><b>01</b><span>SkeinDB database engine and compatibility work</span></li>
-          <li><b>02</b><span>Wardex private-cloud XDR and SIEM platform</span></li>
-          <li><b>03</b><span>Cybersecurity research and formal proof work</span></li>
+          <li><b>01</b><span>3rd-level application support and release operations, nursIT Institute</span></li>
+          <li><b>02</b><span>SkeinDB database engine and Wardex XDR platform</span></li>
+          <li><b>03</b><span>Cybersecurity research on an MPhil track, alongside the B.Sc.</span></li>
         </ul>
       </div>
       <div class="ex-card-proof" aria-label="Portfolio summary">
         <div><strong data-paper-total>12</strong><span>research papers</span></div>
         <div><strong>18</strong><span>public projects</span></div>
-        <div><strong>3</strong><span>flagship systems</span></div>
+        <div><strong>15+</strong><span>years in IT</span></div>
       </div>
     </aside>
   </header>
+
+  <section class="ex-metrics" aria-label="Record at a glance">
+    <div class="ex-shell">
+      <div class="ex-metrics-inner">
+        <div class="ex-metric"><b>€40M+</b><span>Deal volume won</span><small>Enterprise solutions as Lead Deal Architect</small></div>
+        <div class="ex-metric"><b>+15%</b><span>Profit increase</span><small>On a managed-service account portfolio</small></div>
+        <div class="ex-metric"><b>16</b><span>Specialists led</span><small>Field service across DE, AT, CH</small></div>
+        <div class="ex-metric"><b>12</b><span>Publications</span><small>4 journal articles · 8 preprints</small></div>
+        <div class="ex-metric"><b>3.96</b><span>GPA / 4.0</span><small>B.Sc. Computer Science, in progress</small></div>
+        <div class="ex-metric"><b>6×</b><span>President&rsquo;s List</span><small>University of the People</small></div>
+      </div>
+    </div>
+  </section>
 
   <section class="ex-trust" aria-label="Professional identifiers and current work">
     <div class="ex-shell ex-trust-grid">
       <div class="ex-trust-label">Selected credentials &amp; current focus</div>
       <a class="ex-trust-item" href="https://orcid.org/0000-0001-6834-4422" target="_blank" rel="noopener"><strong>ORCID</strong><span>0000-0001-6834-4422 ↗</span></a>
       <a class="ex-trust-item" href="https://scholar.google.com/citations?user=6HheUI4AAAAJ" target="_blank" rel="noopener"><strong>Google Scholar</strong><span>Publication record ↗</span></a>
-      <div class="ex-trust-item"><strong>B.Sc. Computer Science</strong><span>University of the People · active</span></div>
-      <div class="ex-trust-item"><strong>Cybersecurity research</strong><span>Pre-doctoral preparation · active</span></div>
+      <div class="ex-trust-item"><strong>PRINCE2 7 · ITIL 4 · Scrum</strong><span>14 certifications held</span></div>
+      <div class="ex-trust-item"><strong>B.Sc. Computer Science</strong><span>GPA 3.96 · 6× President&rsquo;s List</span></div>
     </div>
   </section>
 
@@ -1022,13 +1075,16 @@
       <div class="ex-section-no">Portfolio</div>
       <div>
         <h2 id="ex-sections-title">Choose a section</h2>
-        <p>Professional profile, project work, and academic record are separated into focused pages for faster review.</p>
+        <p>Profile, career record, project work, and the academic record are separated into focused pages for faster review.</p>
       </div>
     </div>
     <div class="ex-route-grid">
-      <a class="ex-route-card" href="executive/profile.html"><span class="n">01</span><h3>Professional profile</h3><p>Working focus, core strengths, current role direction, and delivery approach.</p><span class="arrow" aria-hidden="true">→</span></a>
-      <a class="ex-route-card" href="executive/projects.html"><span class="n">02</span><h3>Projects</h3><p>Six systems and research projects, each with a dedicated technical profile.</p><span class="arrow" aria-hidden="true">→</span></a>
-      <a class="ex-route-card" href="executive/academic.html"><span class="n">03</span><h3>Academic record</h3><p>Education, research preparation, academic service, publications, and identifiers.</p><span class="arrow" aria-hidden="true">→</span></a>
+      <a class="ex-route-card" href="executive/profile.html"><span class="n">01</span><h3>Professional profile</h3><p>Positioning, core strengths, measured outcomes, and current role direction.</p><span class="arrow" aria-hidden="true">→</span></a>
+      <a class="ex-route-card" href="executive/experience.html"><span class="n">02</span><h3>Career record</h3><p>Fifteen years of delivery, presales architecture, team leadership, and infrastructure work.</p><span class="arrow" aria-hidden="true">→</span></a>
+      <a class="ex-route-card" href="executive/projects.html"><span class="n">03</span><h3>Projects</h3><p>Eighteen public projects across research systems, Apple platforms, tools, and games.</p><span class="arrow" aria-hidden="true">→</span></a>
+      <a class="ex-route-card" href="executive/academic.html"><span class="n">04</span><h3>Academic &amp; certifications</h3><p>Degrees, GPA and honours, research preparation, peer review, and 14 certifications.</p><span class="arrow" aria-hidden="true">→</span></a>
+      <a class="ex-route-card" href="executive/publications.html"><span class="n">05</span><h3>Publications</h3><p>Twelve public records with abstracts, venues, and direct DOI links.</p><span class="arrow" aria-hidden="true">→</span></a>
+      <a class="ex-route-card" href="executive/contact.html"><span class="n">06</span><h3>Contact</h3><p>Direct channels for roles, collaboration, and research enquiries.</p><span class="arrow" aria-hidden="true">→</span></a>
     </div>
     <div class="ex-home-contact">
       <div><strong>Recruiting, research, or technical collaboration</strong><span>Email is the most direct route. Typical response time is within 72 hours.</span></div>
@@ -1042,7 +1098,7 @@
 </div>
 
 <!-- TOP STATUS BAR -->
-<div class="topbar">
+<div class="topbar" data-i18n-skip>
   <div class="left">
     <span class="brand">minh@systems</span>
     <span class="pipe">~</span>
@@ -1061,7 +1117,7 @@
 </div>
 
 <!-- NAV -->
-<nav class="nav">
+<nav class="nav" data-i18n-skip>
   <div class="nav-inner">
     <a class="nav-tab active" href="#home"><span class="hash">~/</span>home</a>
     <a class="nav-tab" href="#papers"><span class="hash">~/</span>research</a>
@@ -1074,12 +1130,12 @@
   </div>
 </nav>
 
-<main id="home">
+<main id="home" data-i18n-skip>
 
 <!-- ====== HERO ====== -->
 <section class="hero">
   <div class="hero-left">
-    <div class="hero-eyebrow"><span class="live">●</span> Online · Thuringia, Germany / Remote · Available Q3 2026</div>
+    <div class="hero-eyebrow"><span class="live">●</span> Online · Thuringia, Germany / Remote · Open to new roles</div>
     <h1 class="hero-title">Michél&nbsp;Nguyen<span class="punct">.</span><br><span class="c1">researcher</span><span class="punct">,</span> <span class="c2">engineer</span><span class="punct">,</span><br><span class="c3">operator</span><span class="punct">.</span></h1>
     <p class="hero-body">I build, operate, document, and support <span class="hl">systems</span> across infrastructure, security, Apple platforms, and research engineering. I ship end-to-end work, coordinate delivery, write clearly, and keep technical projects moving from idea to usable service.</p>
     <p class="hero-nowline"><span class="k">now</span>Shipping SkeinDB 0.3.25, finishing ShieldLink proof checks, and tuning ShotSift 1.4 for App Store submission. <a href="#now">Open full now.txt →</a></p>
@@ -1687,7 +1743,7 @@
 
 </main>
 
-<footer>
+<footer data-i18n-skip>
   <div class="ft">
     <div>
       <div class="ft-brand">minh@systems</div>
@@ -1807,30 +1863,48 @@
 
   const executiveNav = document.querySelector('.ex-nav');
   const executiveMenuButton = document.querySelector('.ex-menu-toggle');
+  const executiveScrim = document.querySelector('.ex-scrim');
   if(executiveNav && executiveMenuButton){
-    executiveMenuButton.addEventListener('click',()=>{
-      const open = executiveNav.classList.toggle('is-open');
-      executiveMenuButton.setAttribute('aria-expanded',String(open));
+    const executiveMobile = window.matchMedia('(max-width: 1080px)');
+    const executiveFocusables = () => [...executiveNav.querySelectorAll('a[href], button:not([disabled])')]
+      .filter(node => node.offsetParent !== null);
+
+    const setExecutiveNav = open => {
+      executiveNav.classList.toggle('is-open', open);
+      document.body.classList.toggle('ex-nav-open', open);
+      executiveMenuButton.setAttribute('aria-expanded', String(open));
+      if(open){ const first = executiveFocusables()[0]; if(first) first.focus(); }
+    };
+    const closeExecutiveNav = (restoreFocus) => {
+      if(!executiveNav.classList.contains('is-open')) return;
+      setExecutiveNav(false);
+      if(restoreFocus) executiveMenuButton.focus();
+    };
+
+    executiveMenuButton.addEventListener('click',()=>setExecutiveNav(!executiveNav.classList.contains('is-open')));
+    if(executiveScrim) executiveScrim.addEventListener('click',()=>closeExecutiveNav(false));
+    executiveNav.querySelectorAll('.ex-nav-links a, .ex-nav-cta').forEach(link=>{
+      link.addEventListener('click',()=>closeExecutiveNav(false));
     });
-    executiveNav.querySelectorAll('.ex-nav-links a').forEach(link=>link.addEventListener('click',()=>{
-      executiveNav.classList.remove('is-open');
-      executiveMenuButton.setAttribute('aria-expanded','false');
-    }));
+    document.addEventListener('keydown',(event)=>{
+      if(!executiveNav.classList.contains('is-open')) return;
+      if(event.key === 'Escape'){ event.preventDefault(); closeExecutiveNav(true); return; }
+      if(event.key !== 'Tab') return;
+      const items = executiveFocusables();
+      if(!items.length) return;
+      const first = items[0], last = items[items.length-1];
+      if(event.shiftKey && document.activeElement === first){ event.preventDefault(); last.focus(); }
+      else if(!event.shiftKey && document.activeElement === last){ event.preventDefault(); first.focus(); }
+      else if(!executiveNav.contains(document.activeElement)){ event.preventDefault(); first.focus(); }
+    });
+    const syncExecutiveBreakpoint = () => { if(!executiveMobile.matches) closeExecutiveNav(false); };
+    if(executiveMobile.addEventListener) executiveMobile.addEventListener('change',syncExecutiveBreakpoint);
+    else executiveMobile.addListener(syncExecutiveBreakpoint);
   }
 
-  const executiveNavLinks = [...document.querySelectorAll('.ex-nav-links a[href^="#"]')];
-  function syncExecutiveNav(){
-    if(document.documentElement.dataset.view !== 'executive') return;
-    const y = window.scrollY + 180;
-    let activeId = 'ex-home';
-    executiveNavLinks.forEach(link=>{
-      const section = document.querySelector(link.getAttribute('href'));
-      if(section && section.offsetTop <= y) activeId = section.id;
-    });
-    executiveNavLinks.forEach(link=>link.classList.toggle('active', link.getAttribute('href') === '#'+activeId));
-  }
-  window.addEventListener('scroll',syncExecutiveNav,{passive:true});
-  syncExecutiveNav();
+  /* Headline metrics are deliberately NOT animated: counting them up from
+     zero renders wrong figures (e.g. "€1M+" on the way to "€40M+") for the
+     first frames, which is the last thing a credential band should do. */
 
   const executiveContactForm = document.getElementById('ex-contact-form');
   if(executiveContactForm){

@@ -3,40 +3,256 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Systems and research projects — Michél Nguyen</title>
-<meta name="description" content="Six systems and research projects by Michél Nguyen across databases, security operations, distributed storage, edge evidence, secure delivery, and programming languages.">
+<title>Projects — Michél Nguyen</title>
+<meta name="description" content="Eighteen shipped projects by Michél Nguyen: research systems in Rust (database engine, XDR platform, distributed storage, edge evidence), iOS and macOS applications, developer tools, and games.">
 <link rel="canonical" href="https://minh.systems/executive/projects.html">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap">
-<link rel="stylesheet" href="executive.css"><script defer src="executive.js"></script>
+<link rel="stylesheet" href="executive.css">
+<script defer src="i18n.js"></script>
+<script defer src="executive.js"></script>
 </head>
-<body class="is-loading">
-<div class="ex-page-loader" id="ex-page-loader" role="status" aria-live="polite"><div class="ex-page-loader-card"><svg viewBox="0 0 160 100" aria-hidden="true"><defs><linearGradient id="page-infinity-gradient" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#193f37"></stop><stop offset="1" stop-color="#b98746"></stop></linearGradient></defs><path class="infinity-base" d="M80 50 C66 27 55 22 44 22 C28.5 22 16 34.5 16 50 C16 65.5 28.5 78 44 78 C55 78 66 73 80 50 C94 27 105 22 116 22 C131.5 22 144 34.5 144 50 C144 65.5 131.5 78 116 78 C105 78 94 73 80 50 Z" pathLength="400"></path><path class="infinity-progress" d="M80 50 C66 27 55 22 44 22 C28.5 22 16 34.5 16 50 C16 65.5 28.5 78 44 78 C55 78 66 73 80 50 C94 27 105 22 116 22 C131.5 22 144 34.5 144 50 C144 65.5 131.5 78 116 78 C105 78 94 73 80 50 Z" pathLength="400"></path></svg><div class="ex-page-loader-kicker">minh.systems</div><div class="ex-page-loader-title">Opening project portfolio</div></div></div>
+<body>
+<a class="ex-skip" href="#ex-main">Skip to content</a>
 
-<aside class="ex-nav" aria-label="Executive portfolio navigation"><div class="ex-nav-inner">
-  <a class="ex-wordmark" href="../index.html"><span class="ex-monogram" aria-hidden="true">MN</span><span>Michél Nguyen</span></a><button class="ex-menu-toggle" type="button" aria-expanded="false" aria-controls="executive-navigation">Menu</button><p class="ex-nav-role">Independent researcher<br>and systems engineer</p>
-  <nav class="ex-nav-links" id="executive-navigation"><a href="../index.html"><span>01</span>Home</a><a href="profile.html"><span>02</span>Profile</a><a class="active" href="projects.html"><span>03</span>Projects</a><a href="academic.html"><span>04</span>Academic</a><a href="publications.html"><span>05</span>Publications</a><a href="contact.html"><span>06</span>Contact</a></nav>
-  <div class="ex-nav-foot"><a href="https://orcid.org/0000-0001-6834-4422" target="_blank" rel="noopener">ORCID ↗</a><a href="https://github.com/pinkysworld" target="_blank" rel="noopener">GitHub ↗</a><a href="https://www.linkedin.com/in/michelnguyengermany/" target="_blank" rel="noopener">LinkedIn ↗</a><p>Thuringia, Germany<br>Remote · CET/CEST</p></div>
-</div></aside>
+<div class="ex-page-loader" role="status" aria-live="polite">
+  <div class="ex-page-loader-card">
+    <svg viewBox="0 0 160 100" aria-hidden="true"><defs><linearGradient id="page-infinity-gradient" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#193f37"></stop><stop offset="1" stop-color="#b98746"></stop></linearGradient></defs><path class="infinity-base" d="M80 50 C66 27 55 22 44 22 C28.5 22 16 34.5 16 50 C16 65.5 28.5 78 44 78 C55 78 66 73 80 50 C94 27 105 22 116 22 C131.5 22 144 34.5 144 50 C144 65.5 131.5 78 116 78 C105 78 94 73 80 50 Z" pathLength="400"></path><path class="infinity-progress" d="M80 50 C66 27 55 22 44 22 C28.5 22 16 34.5 16 50 C16 65.5 28.5 78 44 78 C55 78 66 73 80 50 C94 27 105 22 116 22 C131.5 22 144 34.5 144 50 C144 65.5 131.5 78 116 78 C105 78 94 73 80 50 Z" pathLength="400"></path></svg>
+    <div class="ex-page-loader-kicker">minh.systems</div>
+    <div class="ex-page-loader-title" data-i18n-skip>Loading</div>
+  </div>
+</div>
 
-<main class="ex-subpage">
-  <header class="ex-shell ex-page-hero"><div class="ex-kicker">Systems and research</div><h1>Projects with their own evidence.</h1><p class="ex-page-lead">Six projects across database systems, security operations, distributed storage, edge evidence, secure file delivery, and programming-language design. Each profile separates implemented work from research direction and current limits.</p><div class="ex-page-actions"><a class="ex-button primary" href="publications.html">View publications <span aria-hidden="true">→</span></a><a class="ex-button" href="contact.html">Discuss a project</a></div><div class="ex-facts"><div class="ex-fact"><span>Projects</span><strong>6 selected profiles</strong></div><div class="ex-fact"><span>Primary stack</span><strong>Rust · Swift · Lean</strong></div><div class="ex-fact"><span>Focus</span><strong>Systems · security</strong></div><div class="ex-fact"><span>Evidence</span><strong>Code · papers · tests</strong></div></div></header>
+<header class="ex-topbar">
+  <a class="ex-wordmark" href="../index.html"><span class="ex-monogram" aria-hidden="true">MN</span><span>Michél Nguyen</span></a>
+  <div class="ex-lang" role="group" aria-label="Language / Sprache" data-i18n-skip>
+    <button type="button" data-lang="en" aria-pressed="true">EN</button>
+    <button type="button" data-lang="de" aria-pressed="false">DE</button>
+  </div>
+  <button class="ex-menu-toggle" type="button" aria-expanded="false" aria-controls="executive-navigation"><span class="ex-menu-bars" aria-hidden="true"></span>Menu</button>
+</header>
+
+<aside class="ex-nav" id="executive-navigation" aria-label="Executive portfolio navigation">
+  <div class="ex-nav-inner">
+    <a class="ex-wordmark" href="../index.html"><span class="ex-monogram" aria-hidden="true">MN</span><span>Michél Nguyen</span></a>
+    <p class="ex-nav-role">Service delivery &amp; project management<br>Applied computer-science research</p>
+    <div class="ex-lang" role="group" aria-label="Language / Sprache" data-i18n-skip>
+      <button type="button" data-lang="en" aria-pressed="true">EN</button>
+      <button type="button" data-lang="de" aria-pressed="false">DE</button>
+    </div>
+    <nav class="ex-nav-links" aria-label="Executive portfolio pages">
+      <a href="../index.html"><span class="n">01</span><span>Home</span></a>
+      <a href="profile.html"><span class="n">02</span><span>Profile</span></a>
+      <a href="experience.html"><span class="n">03</span><span>Experience</span></a>
+      <a href="projects.html" aria-current="page"><span class="n">04</span><span>Projects</span></a>
+      <a href="academic.html"><span class="n">05</span><span>Academic</span></a>
+      <a href="publications.html"><span class="n">06</span><span>Publications</span></a>
+      <a href="contact.html"><span class="n">07</span><span>Contact</span></a>
+    </nav>
+    <a class="ex-nav-cta" href="contact.html">Start a conversation</a>
+    <div class="ex-nav-foot">
+      <div class="lbl">Public record</div>
+      <a href="https://orcid.org/0000-0001-6834-4422" target="_blank" rel="noopener">ORCID ↗</a>
+      <a href="https://scholar.google.com/citations?user=6HheUI4AAAAJ" target="_blank" rel="noopener">Scholar ↗</a>
+      <a href="https://www.linkedin.com/in/michelnguyengermany/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a href="https://github.com/pinkysworld" target="_blank" rel="noopener">GitHub ↗</a>
+      <p>Thuringia, Germany<br>Remote · CET/CEST · DE / EN</p>
+    </div>
+  </div>
+</aside>
+<div class="ex-scrim"></div>
+
+<main class="ex-subpage" id="ex-main">
+  <header class="ex-shell ex-page-hero">
+    <div class="ex-kicker">Project portfolio</div>
+    <h1>Eighteen projects, shipped and inspectable.</h1>
+    <p class="ex-page-lead">Six research systems in Rust — a database engine, an XDR platform, distributed storage, an evidence engine, secure delivery, and a programming language — plus seven Apple-platform applications, two developer tools, and three games. Each one is public, versioned, and open to inspection.</p>
+    <div class="ex-page-actions">
+      <a class="ex-button primary" href="publications.html">Publications behind the work <span aria-hidden="true">→</span></a>
+      <a class="ex-button" href="experience.html">Career record</a>
+      <a class="ex-button ghost" href="contact.html">Discuss a project</a>
+    </div>
+    <div class="ex-facts">
+      <div class="ex-fact"><span>Projects</span><strong>18 public</strong></div>
+      <div class="ex-fact"><span>Primary stack</span><strong>Rust · Swift · TypeScript</strong></div>
+      <div class="ex-fact"><span>Backed by papers</span><strong>4 systems</strong></div>
+      <div class="ex-fact"><span>Evidence</span><strong>Code · papers · tests</strong></div>
+    </div>
+  </header>
 
   <section class="ex-shell ex-page-section">
-    <div class="ex-section-head"><div class="ex-section-no">01 · Portfolio</div><div><h2>Selected project work</h2><p>Open any project for its professional research profile, scope, architecture, and evidence boundary.</p></div></div>
+    <div class="ex-section-head">
+      <div class="ex-section-no">01 · Portfolio</div>
+      <div><h2>Selected project work</h2><p>Filter by category. Research systems open a professional profile covering scope, architecture and the evidence boundary; products open their public release page.</p></div>
+    </div>
+
+    <div class="ex-filterbar">
+      <div class="ex-filters" role="group" aria-label="Filter projects by category">
+        <button type="button" data-project-filter="all" aria-pressed="true">All · 18</button>
+        <button type="button" data-project-filter="research" aria-pressed="false">Research systems · 6</button>
+        <button type="button" data-project-filter="apple" aria-pressed="false">iOS &amp; macOS · 7</button>
+        <button type="button" data-project-filter="tool" aria-pressed="false">Tools · 2</button>
+        <button type="button" data-project-filter="game" aria-pressed="false">Games · 3</button>
+      </div>
+      <p class="ex-filter-count" data-project-count aria-live="polite">18 projects</p>
+    </div>
+
     <div class="ex-project-grid">
-      <a class="ex-project-card" href="../showcase/research/skeindb.html"><div class="ex-project-meta"><span>Database systems</span><span>v0.3.25</span></div><h2>SkeinDB</h2><p>A single-binary database engine with cell-interned MVCC, MySQL compatibility, partial PostgreSQL support, and twenty research tracks.</p><span class="arrow" aria-hidden="true">→</span></a>
-      <a class="ex-project-card" href="../showcase/research/wardex.html"><div class="ex-project-meta"><span>Security operations</span><span>v1.0.30</span></div><h2>Wardex</h2><p>A Rust-built XDR and SIEM platform for detections, fleet operations, incident response, and threat hunting.</p><span class="arrow" aria-hidden="true">→</span></a>
-      <a class="ex-project-card" href="../showcase/research/nexusfs.html"><div class="ex-project-meta"><span>Distributed systems</span><span>v0.1.0</span></div><h2>NexusFS</h2><p>An offline-first distributed filesystem with signed operations, deterministic replication, and proof-ready storage semantics.</p><span class="arrow" aria-hidden="true">→</span></a>
-      <a class="ex-project-card" href="../showcase/research/verilog.html"><div class="ex-project-meta"><span>Edge evidence</span><span>v0.1.0</span></div><h2>VeriLog</h2><p>An edge-native evidence engine that turns device telemetry into tamper-evident logs with signed checkpoints.</p><span class="arrow" aria-hidden="true">→</span></a>
-      <a class="ex-project-card" href="../showcase/research/safedrop.html"><div class="ex-project-meta"><span>Secure file delivery</span><span>v0.1.0</span></div><h2>SafeDrop</h2><p>A home-hosted secure file drop with content-addressed storage, delivery receipts, and path-aware reachability evidence.</p><span class="arrow" aria-hidden="true">→</span></a>
-      <a class="ex-project-card" href="../showcase/research/patch.html"><div class="ex-project-meta"><span>Programming languages</span><span>v0.2.0-beta.7</span></div><h2>Patch</h2><p>A change-oriented programming language and browser IDE with inferred contracts, provenance, and selected Lean-checked evidence.</p><span class="arrow" aria-hidden="true">→</span></a>
+      <a class="ex-project-card" data-project-category="research" href="../showcase/research/skeindb.html">
+        <div class="ex-project-meta"><span>Database systems</span><span>v0.3.25</span></div>
+        <h3>SkeinDB</h3>
+        <p>A single-binary database engine with cell-interned MVCC, MySQL compatibility, partial PostgreSQL support, and twenty research tracks.</p>
+        <div class="ex-project-stack"><span>Rust</span><span>MVCC</span><span>MySQL wire</span><span>Wasm UDFs</span></div>
+        <p class="ex-project-paper">Paper · TechRxiv 2026</p>
+        <span class="arrow" aria-hidden="true">→</span>
+      </a>
+      <a class="ex-project-card" data-project-category="research" href="../showcase/research/wardex.html">
+        <div class="ex-project-meta"><span>Security operations</span><span>v1.0.30</span></div>
+        <h3>Wardex</h3>
+        <p>A Rust-built XDR and SIEM platform for detections, fleet operations, incident response, and threat hunting.</p>
+        <div class="ex-project-stack"><span>Rust</span><span>XDR / SIEM</span><span>Policy engine</span><span>TLA+ export</span></div>
+        <p class="ex-project-paper">Paper · Federated IDS, TechRxiv 2025</p>
+        <span class="arrow" aria-hidden="true">→</span>
+      </a>
+      <a class="ex-project-card" data-project-category="research" href="../showcase/research/nexusfs.html">
+        <div class="ex-project-meta"><span>Distributed systems</span><span>v0.1.0</span></div>
+        <h3>NexusFS</h3>
+        <p>An offline-first distributed filesystem with signed operations, deterministic replication, and proof-ready storage semantics.</p>
+        <div class="ex-project-stack"><span>Rust</span><span>QUIC</span><span>CRDT</span><span>Content-addressed</span></div>
+        <span class="arrow" aria-hidden="true">→</span>
+      </a>
+      <a class="ex-project-card" data-project-category="research" href="../showcase/research/verilog.html">
+        <div class="ex-project-meta"><span>Edge evidence</span><span>v0.1.0</span></div>
+        <h3>VeriLog</h3>
+        <p>An edge-native evidence engine that turns device telemetry into tamper-evident logs with signed checkpoints.</p>
+        <div class="ex-project-stack"><span>Rust</span><span>Ed25519</span><span>Merkle frontier</span><span>Differential privacy</span></div>
+        <span class="arrow" aria-hidden="true">→</span>
+      </a>
+      <a class="ex-project-card" data-project-category="research" href="../showcase/research/safedrop.html">
+        <div class="ex-project-meta"><span>Secure file delivery</span><span>v0.1.0</span></div>
+        <h3>SafeDrop</h3>
+        <p>A home-hosted secure file drop with content-addressed storage, delivery receipts, and path-aware reachability evidence.</p>
+        <div class="ex-project-stack"><span>Rust</span><span>Signed receipts</span><span>Append-only audit</span><span>Single binary</span></div>
+        <span class="arrow" aria-hidden="true">→</span>
+      </a>
+      <a class="ex-project-card" data-project-category="research" href="../showcase/research/patch.html">
+        <div class="ex-project-meta"><span>Programming languages</span><span>v0.2.0-beta.7</span></div>
+        <h3>Patch</h3>
+        <p>A change-oriented programming language and browser IDE with inferred contracts, provenance, and selected Lean-checked evidence.</p>
+        <div class="ex-project-stack"><span>JavaScript</span><span>Lean 4</span><span>PWA</span><span>MIT</span></div>
+        <span class="arrow" aria-hidden="true">→</span>
+      </a>
+
+      <a class="ex-project-card" data-project-category="apple" href="https://minh.systems/ShotSift/" target="_blank" rel="noopener">
+        <div class="ex-project-meta"><span>iOS application</span><span>v1.2</span></div>
+        <h3>ShotSift</h3>
+        <p>Private photo decluttering for iPhone. Duplicates, screenshots and bursts are detected entirely on-device.</p>
+        <div class="ex-project-stack"><span>Swift</span><span>Vision</span><span>On-device AI</span></div>
+        <span class="arrow" aria-hidden="true">↗</span>
+      </a>
+      <a class="ex-project-card" data-project-category="apple" href="https://mushbloom.minh.systems/" target="_blank" rel="noopener">
+        <div class="ex-project-meta"><span>iOS application</span><span>App Store · v1.1</span></div>
+        <h3>MushBloom</h3>
+        <p>Mushroom cultivation companion with strain guides, grow journals, AI contamination scans and PDF export.</p>
+        <div class="ex-project-stack"><span>Swift</span><span>Core ML</span><span>iCloud</span></div>
+        <span class="arrow" aria-hidden="true">↗</span>
+      </a>
+      <a class="ex-project-card" data-project-category="apple" href="https://minh.systems/Rootling/" target="_blank" rel="noopener">
+        <div class="ex-project-meta"><span>iOS application</span><span>v1.1</span></div>
+        <h3>Rootling</h3>
+        <p>Plant propagation tracker with visual journals, weather context, reminders and exportable records.</p>
+        <div class="ex-project-stack"><span>Swift</span><span>CloudKit</span><span>PDF / CSV export</span></div>
+        <span class="arrow" aria-hidden="true">↗</span>
+      </a>
+      <a class="ex-project-card" data-project-category="apple" href="https://minh.systems/RidgeFocus/" target="_blank" rel="noopener">
+        <div class="ex-project-meta"><span>iOS application</span><span>v1.11</span></div>
+        <h3>RidgeFocus</h3>
+        <p>Pomodoro and deep-work timer with streak systems, widgets and lightweight productivity insights.</p>
+        <div class="ex-project-stack"><span>Swift</span><span>WidgetKit</span><span>iCloud</span></div>
+        <span class="arrow" aria-hidden="true">↗</span>
+      </a>
+      <a class="ex-project-card" data-project-category="apple" href="https://minh.systems/AppSweep/" target="_blank" rel="noopener">
+        <div class="ex-project-meta"><span>macOS application</span><span>v1.0.0</span></div>
+        <h3>AppSweep</h3>
+        <p>Universal macOS updater that unifies Sparkle, GitHub Releases and Mac App Store sources into one flow.</p>
+        <div class="ex-project-stack"><span>Swift</span><span>Sparkle</span><span>GitHub API</span></div>
+        <span class="arrow" aria-hidden="true">↗</span>
+      </a>
+      <a class="ex-project-card" data-project-category="apple" href="https://minh.systems/Focusledger-Pro/" target="_blank" rel="noopener">
+        <div class="ex-project-meta"><span>macOS application</span><span>v1.0</span></div>
+        <h3>Focusledger Pro</h3>
+        <p>Private macOS productivity tracker with local focus tools plus automatic timelines and analytics in Pro.</p>
+        <div class="ex-project-stack"><span>Swift</span><span>ScreenCaptureKit</span><span>Local-only</span></div>
+        <span class="arrow" aria-hidden="true">↗</span>
+      </a>
+      <a class="ex-project-card" data-project-category="apple" href="https://minh.systems/DiskLoom/" target="_blank" rel="noopener">
+        <div class="ex-project-meta"><span>macOS application</span><span>Pre-launch</span></div>
+        <h3>DiskLoom</h3>
+        <p>Native macOS drive-health monitoring with local history, trend analysis and transparent compatibility reporting.</p>
+        <div class="ex-project-stack"><span>Swift</span><span>NVMe</span><span>SQLite</span></div>
+        <span class="arrow" aria-hidden="true">↗</span>
+      </a>
+
+      <a class="ex-project-card" data-project-category="tool" href="https://minh.systems/Violinen-Stimmer/" target="_blank" rel="noopener">
+        <div class="ex-project-meta"><span>Web tool</span><span>MIT</span></div>
+        <h3>Violinen-Stimmer</h3>
+        <p>German-language violin tuner with A=442 Hz, pure-fifth checks, reference tones and on-device microphone analysis.</p>
+        <div class="ex-project-stack"><span>JavaScript</span><span>Web Audio</span><span>YIN</span></div>
+        <span class="arrow" aria-hidden="true">↗</span>
+      </a>
+      <a class="ex-project-card" data-project-category="tool" href="https://github.com/pinkysworld/Revolut-Stocks-Trade-Scanner" target="_blank" rel="noopener">
+        <div class="ex-project-meta"><span>Analysis tool</span><span>MIT</span></div>
+        <h3>Revolut Trade Scanner</h3>
+        <p>Local trading scanner with out-of-sample-gated recommendations, risk sizing, live TP/SL tracking and an HTML dashboard.</p>
+        <div class="ex-project-stack"><span>Python</span><span>yfinance</span><span>Risk models</span></div>
+        <span class="arrow" aria-hidden="true">↗</span>
+      </a>
+
+      <a class="ex-project-card" data-project-category="game" href="https://shelterfall.minh.systems/" target="_blank" rel="noopener">
+        <div class="ex-project-meta"><span>Game · iOS</span><span>v1.14</span></div>
+        <h3>Shelter Fall</h3>
+        <p>Post-apocalyptic survival strategy with progression systems, dynamic events and escalating pressure.</p>
+        <div class="ex-project-stack"><span>Swift</span><span>SpriteKit</span></div>
+        <span class="arrow" aria-hidden="true">↗</span>
+      </a>
+      <a class="ex-project-card" data-project-category="game" href="https://minh.systems/NomadKitchenTycoon/" target="_blank" rel="noopener">
+        <div class="ex-project-meta"><span>Game · iOS</span><span>v1.01</span></div>
+        <h3>Nomad Kitchen Tycoon</h3>
+        <p>Food truck management sim with rush gameplay, district strategy, and truck and staff upgrade systems.</p>
+        <div class="ex-project-stack"><span>Swift</span><span>SpriteKit</span></div>
+        <span class="arrow" aria-hidden="true">↗</span>
+      </a>
+      <a class="ex-project-card" data-project-category="game" href="../LancetLinen/">
+        <div class="ex-project-meta"><span>Game · Web</span><span>v1.3.1</span></div>
+        <h3>Lancet Linen</h3>
+        <p>Medieval barber-surgeon life sim: care, trade, travel, household, staff and civic ambition in 1382.</p>
+        <div class="ex-project-stack"><span>TypeScript</span><span>Phaser</span><span>Vite</span></div>
+        <span class="arrow" aria-hidden="true">→</span>
+      </a>
     </div>
   </section>
 
-  <section class="ex-shell ex-page-section"><div class="ex-section-head"><div class="ex-section-no">02 · Context</div><div><h2>Two levels of detail</h2><p>The executive profiles stay concise. Three flagship systems also have operator-oriented technical deep dives.</p></div></div><div class="ex-note"><h3>Need implementation detail?</h3><p>The operator pages cover architecture and operating surfaces for SkeinDB, Wardex, and NexusFS. The full Operator view contains the broader portfolio.</p><div class="ex-note-links"><a href="../showcase/operator/skeindb.html">SkeinDB deep dive ↗</a><a href="../showcase/operator/wardex.html">Wardex deep dive ↗</a><a href="../showcase/operator/nexusfs.html">NexusFS deep dive ↗</a><a href="../index.html#home" data-operator-view>Full operator view ↗</a></div></div></section>
-  <footer class="ex-page-footer"><div class="ex-shell"><span>© 2026 Michél Nguyen</span><span>Systems and research projects</span></div></footer>
+  <section class="ex-shell ex-page-section">
+    <div class="ex-section-head">
+      <div class="ex-section-no">02 · Context</div>
+      <div><h2>Two levels of detail</h2><p>The executive profiles stay concise. Three flagship systems also carry operator-oriented technical deep dives.</p></div>
+    </div>
+    <div class="ex-note">
+      <h3>Need implementation detail?</h3>
+      <p>The operator pages cover architecture, operating surfaces and benchmark evidence for SkeinDB, Wardex and NexusFS. The full Operator view contains the broader technical portfolio.</p>
+      <div class="ex-note-links">
+        <a href="../showcase/operator/skeindb.html">SkeinDB deep dive ↗</a>
+        <a href="../showcase/operator/wardex.html">Wardex deep dive ↗</a>
+        <a href="../showcase/operator/nexusfs.html">NexusFS deep dive ↗</a>
+        <a href="../index.html#home" data-operator-view>Full operator view ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="ex-page-footer"><div class="ex-shell"><span>© 2026 Michél Nguyen</span><span>Project portfolio</span></div></footer>
 </main>
 <a class="ex-operator-link" href="../index.html#home" data-operator-view>Operator view →</a>
-</body></html>
+</body>
+</html>
