@@ -136,42 +136,30 @@
 
     /* ---- profile page ---- */
     'Professional profile': 'Berufsprofil',
-    'Enterprise delivery, carried through to evidence.': 'Enterprise-Delivery, konsequent bis zum Nachweis.',
-    'Fifteen years turning enterprise IT requirements into services that actually run — presales architecture, managed-service accounts, and DACH field-service teams — now combined with peer-reviewed computer-science research and systems I design, build, and ship myself.':
-      'Fünfzehn Jahre, in denen ich Enterprise-IT-Anforderungen in Services überführt habe, die im Betrieb tragen — Presales-Architektur, Managed-Service-Kunden und DACH-Field-Service-Teams. Ergänzt um peer-reviewte Informatikforschung und Systeme, die ich selbst entwerfe, baue und ausliefere.',
+    'Enterprise IT delivery and applied research.': 'Enterprise-IT-Delivery und angewandte Forschung.',
+    'I have spent fifteen years in enterprise IT delivery: presales architecture, managed-service accounts, and field-service teams across Germany, Austria and Switzerland. Alongside that I publish computer-science research and build the systems it comes out of.': 'Ich arbeite seit fünfzehn Jahren in der Enterprise-IT-Delivery: Presales-Architektur, Managed-Service-Kunden und Field-Service-Teams in Deutschland, Österreich und der Schweiz. Daneben veröffentliche ich Informatikforschung und baue die Systeme, aus denen sie hervorgeht.',
     'Open to service delivery, technical project management, and systems/security engineering roles':
       'Offen für Rollen in Service Delivery, technischem Projektmanagement sowie Systems- und Security-Engineering',
-    'Two tracks, one method': 'Zwei Spuren, eine Methode',
-    'Commercial delivery and academic research are not separate careers here — each one supplies what the other tends to lack.':
-      'Kommerzielle Delivery und akademische Forschung sind hier keine getrennten Laufbahnen — jede liefert, was der anderen typischerweise fehlt.',
+    'Two kinds of work': 'Zwei Arten von Arbeit',
+    'How the delivery work and the research fit together.': 'Wie die Delivery-Arbeit und die Forschung zusammenpassen.',
     'Delivery and account ownership': 'Delivery- und Kundenverantwortung',
-    'I have carried enterprise services end to end: SLAs and escalations for a global investment bank, two international telecommunications carriers and a large IT services provider; solution design and bid architecture for a global automotive manufacturer, a multinational chemicals group, a German insurance group and a European bank; and infrastructure projects for a European retail group, industrial and automotive corporations and a global insurance broker.':
-      'Ich habe Enterprise-Services durchgängig verantwortet: SLAs und Eskalationen für eine global tätige Investmentbank, zwei internationale Telekommunikationsanbieter und einen großen IT-Dienstleister; Solution Design und Angebotsarchitektur für einen globalen Automobilhersteller, einen multinationalen Chemiekonzern, einen deutschen Versicherer und eine europäische Bank; Infrastrukturprojekte für eine europäische Handelsgruppe, Industrie- und Automotive-Konzerne sowie einen global tätigen Versicherungsmakler.',
-    'That work is measured commercially — profitability, billing volume, escalation rates, transition quality — not by how interesting the architecture is. It taught me to make a technical position legible to people who sign contracts.':
-      'Diese Arbeit wird kommerziell gemessen — Profitabilität, Abrechnungsvolumen, Eskalationsquoten, Übergabequalität — nicht daran, wie interessant die Architektur ist. Sie hat mich gelehrt, eine technische Position für Menschen verständlich zu machen, die Verträge unterschreiben.',
+    'I have run enterprise services end to end. That meant SLAs and escalations for a global investment bank, two international telecoms carriers and a large IT services provider. On the presales side I built solution designs and bids for a global car maker, a multinational chemicals group, a German insurer and a European bank, plus infrastructure projects for a European retail group and a global insurance broker.': 'Ich habe Enterprise-Services vollständig verantwortet. Dazu gehörten SLAs und Eskalationen für eine global tätige Investmentbank, zwei internationale Telekommunikationsanbieter und einen großen IT-Dienstleister. Im Presales habe ich Solution Designs und Angebote für einen globalen Automobilhersteller, einen multinationalen Chemiekonzern, einen deutschen Versicherer und eine europäische Bank erstellt, dazu Infrastrukturprojekte für eine europäische Handelsgruppe und einen global tätigen Versicherungsmakler.',
+    'That kind of work gets judged on profitability, billing volume, escalation rates and transition quality, not on how interesting the architecture is. It is where I learned to explain a technical position to the people who sign the contract.': 'Solche Arbeit wird an Profitabilität, Abrechnungsvolumen, Eskalationsquoten und Übergabequalität gemessen, nicht daran, wie interessant die Architektur ist. Dort habe ich gelernt, eine technische Position den Menschen zu erklären, die den Vertrag unterschreiben.',
     'Research and engineering': 'Forschung und Engineering',
-    'In parallel I publish peer-reviewed work in cyber risk, systems security, and database systems, and build the systems that go with it: a database engine, an XDR platform, a verifiable evidence engine, plus shipped iOS and macOS products.':
-      'Parallel veröffentliche ich peer-reviewte Arbeiten zu Cyber-Risiko, Systemsicherheit und Datenbanksystemen — und baue die passenden Systeme dazu: eine Datenbank-Engine, eine XDR-Plattform, eine verifizierbare Evidence-Engine sowie ausgelieferte iOS- und macOS-Produkte.',
-    'Research forces the discipline delivery sometimes skips: stating exactly what has been demonstrated, and where the evidence stops.':
-      'Forschung erzwingt die Disziplin, die Delivery gelegentlich überspringt: exakt zu benennen, was gezeigt wurde — und wo die Evidenz endet.',
-    'Clarify the actual problem': 'Das eigentliche Problem klären',
-    'Separate the requirement, the assumption, and the evidence before committing to a solution or a price.':
-      'Anforderung, Annahme und Evidenz trennen, bevor man sich auf eine Lösung oder einen Preis festlegt.',
-    'Design for the operating reality': 'Für die Betriebsrealität entwerfen',
-    'Architecture that survives contact with support queues, escalation paths, and the people who run it at 2am.':
-      'Architektur, die den Kontakt mit Support-Queues, Eskalationswegen und den Menschen übersteht, die sie um 2 Uhr nachts betreiben.',
-    'Document decisions': 'Entscheidungen dokumentieren',
-    'Write for the next engineer, the customer, the reviewer, and the auditor — not only for the current sprint.':
-      'Für den nächsten Engineer schreiben, für den Kunden, den Reviewer und den Auditor — nicht nur für den aktuellen Sprint.',
-    'Finish the delivery': 'Die Lieferung abschließen',
-    'Verify the real release surface and the handover, not a green local build.':
-      'Die reale Release-Oberfläche und die Übergabe verifizieren, nicht einen grünen lokalen Build.',
-    'State the evidence boundary': 'Die Evidenzgrenze benennen',
-    'Be explicit about what is proven, what is prototyped, and what is still a proposal.':
-      'Klar benennen, was bewiesen ist, was prototypisch vorliegt und was noch Vorschlag ist.',
-    'Where I contribute': 'Wo ich beitrage',
-    'The strongest overlap across delivery roles, engineering work, and the academic record.':
-      'Die größte Schnittmenge aus Delivery-Rollen, Engineering-Arbeit und akademischem Nachweis.',
+    'I also publish peer-reviewed work on cyber risk, systems security and database systems, and I build the systems behind it: a database engine, an XDR platform, an evidence engine for edge telemetry, and a set of shipped iOS and macOS apps.': 'Außerdem veröffentliche ich peer-reviewte Arbeiten zu Cyber-Risiko, Systemsicherheit und Datenbanksystemen und baue die Systeme dahinter: eine Datenbank-Engine, eine XDR-Plattform, eine Evidence-Engine für Edge-Telemetrie und eine Reihe ausgelieferter iOS- und macOS-Apps.',
+    'Writing papers has made me stricter about saying what a result actually shows and what it does not.': 'Das Schreiben von Papern hat mich strenger darin gemacht, zu sagen, was ein Ergebnis wirklich zeigt und was nicht.',
+    'Understand the problem first': 'Zuerst das Problem verstehen',
+    'Work out which parts are requirements and which are assumptions, before quoting a solution or a price.': 'Klären, welche Teile Anforderung sind und welche Annahme, bevor man Lösung oder Preis zusagt.',
+    'Design for how it will be run': 'Für den Betrieb entwerfen',
+    'The people on the support rota have to be able to operate it, so their constraints belong in the design.': 'Die Kolleginnen und Kollegen in der Rufbereitschaft müssen es betreiben können, also gehören ihre Randbedingungen in den Entwurf.',
+    'Write decisions down': 'Entscheidungen aufschreiben',
+    'The next engineer, the customer and the auditor all end up reading it. Sprint notes are not enough.': 'Der nächste Engineer, der Kunde und der Auditor lesen es am Ende alle. Sprint-Notizen reichen dafür nicht.',
+    'Finish the handover': 'Die Übergabe abschließen',
+    'A green local build is not a delivery. I check the release that customers actually get.': 'Ein grüner lokaler Build ist keine Lieferung. Ich prüfe das Release, das beim Kunden ankommt.',
+    'Say what is not proven': 'Sagen, was nicht belegt ist',
+    'A prototype, a tested result and a proposal are different things, and I label them as such.': 'Ein Prototyp, ein geprüftes Ergebnis und ein Vorschlag sind verschiedene Dinge, und ich benenne sie auch so.',
+    'What I work on': 'Woran ich arbeite',
+    'The areas where the delivery roles, the engineering and the research actually overlap.': 'Die Bereiche, in denen sich Delivery-Rollen, Engineering und Forschung tatsächlich überschneiden.',
     'Delivery': 'Delivery',
     'Service delivery & ITSM': 'Service Delivery & ITSM',
     'ITIL-based service ownership, SLAs and KPIs, service reviews, escalation management, and transition into steady-state operations.':
@@ -194,24 +182,20 @@
     'Research engineering': 'Research Engineering',
     'Literature synthesis, experimental design, academic writing, peer review, and explicit limits on what a prototype proves.':
       'Literatursynthese, Versuchsdesign, wissenschaftliches Schreiben, Peer Review und die explizite Grenze dessen, was ein Prototyp belegt.',
-    'Results that were measured': 'Ergebnisse, die gemessen wurden',
-    'Each figure comes from a role where somebody else owned the number.':
-      'Jede Zahl stammt aus einer Rolle, in der jemand anderes für die Kennzahl verantwortlich war.',
+    'Numbers from the job': 'Zahlen aus der Arbeit',
+    'Each of these was tracked by the business, not compiled for this page.': 'Jede dieser Zahlen wurde im Unternehmen erfasst, nicht für diese Seite zusammengestellt.',
     'Won enterprise solution deals': 'Gewonnene Enterprise-Abschlüsse',
-    'Lead Deal Architect and presales project manager at Getronics Germany — architecture, cost, risk and governance concepts for DAX-listed and international corporate accounts.':
-      'Lead Deal Architect und Presales-Projektmanager bei Getronics Germany — Architektur-, Kosten-, Risiko- und Governance-Konzepte für DAX-notierte und internationale Konzernkunden.',
+    'Lead Deal Architect and presales project manager at Getronics Germany. I wrote the architecture, cost, risk and governance concepts for DAX-listed and international corporate accounts.': 'Lead Deal Architect und Presales-Projektmanager bei Getronics Germany. Ich habe die Architektur-, Kosten-, Risiko- und Governance-Konzepte für DAX-notierte und internationale Konzernkunden erstellt.',
     'Profit on a service portfolio': 'Profit auf einem Serviceportfolio',
     'Account & Service Delivery Manager at NSC Global, alongside +€600K additional monthly billing volume and a £3M monthly revenue account base.':
       'Account & Service Delivery Manager bei NSC Global, zusätzlich +600 Tsd. € monatliches Abrechnungsvolumen und ein Kundenstamm mit 3 Mio. £ Monatsumsatz.',
     'Specialists in a D-A-CH team': 'Spezialisten in einem D-A-CH-Team',
-    'Manager GIS D-A-CH — resource planning, escalations, process improvement, and a training framework for stable service transitions.':
-      'Manager GIS D-A-CH — Ressourcenplanung, Eskalationen, Prozessverbesserung und ein Schulungsrahmen für stabile Service-Übergänge.',
+    'Manager GIS D-A-CH. Resource planning, escalations, process improvement, and a training framework for stable service transitions.': 'Manager GIS D-A-CH. Ressourcenplanung, Eskalationen, Prozessverbesserung und ein Schulungsrahmen für stabile Service-Übergänge.',
     'Servers and clients, four countries': 'Server und Clients, vier Länder',
     'Sole administrator of the complete IT infrastructure at ALTEC Solartechnik, including 3rd-level support and rollout planning.':
       'Alleinverantwortlicher Administrator der gesamten IT-Infrastruktur bei ALTEC Solartechnik, inklusive 3rd-Level-Support und Rollout-Planung.',
-    'Relevant roles': 'Passende Rollen',
-    'Positions where commercial ownership and technical depth have to coexist.':
-      'Positionen, in denen kommerzielle Verantwortung und technische Tiefe zusammenkommen müssen.',
+    'Roles that fit': 'Passende Rollen',
+    'Positions that need both commercial ownership and technical depth.': 'Positionen, die kommerzielle Verantwortung und technische Tiefe zugleich brauchen.',
     'Service delivery management': 'Service Delivery Management',
     'Account & service management': 'Account & Service Management',
     'Technical project management': 'Technisches Projektmanagement',
@@ -222,14 +206,12 @@
     'Implementation management': 'Implementierungsmanagement',
     '3rd-level support lead': '3rd-Level-Support-Leitung',
     'Working languages and model': 'Arbeitssprachen und Arbeitsmodell',
-    'German is my native language and I work in English at C2 level; the enterprise accounts above were run bilingually across Germany, Austria, Switzerland and the UK. Remote-first from Thuringia in CET/CEST, with travel available for delivery and transition phases.':
-      'Deutsch ist meine Muttersprache, Englisch beherrsche ich auf C2-Niveau; die genannten Enterprise-Kunden wurden zweisprachig über Deutschland, Österreich, die Schweiz und Großbritannien betreut. Remote-first aus Thüringen in MEZ/MESZ, Reisebereitschaft für Delivery- und Transitionsphasen.',
+    'German is my first language and I work in English at C2. The accounts above ran bilingually across Germany, Austria, Switzerland and the UK. I work remote-first from Thuringia and travel for delivery and transition phases.': 'Deutsch ist meine Erstsprache, Englisch spreche ich auf C2-Niveau. Die genannten Kunden wurden zweisprachig über Deutschland, Österreich, die Schweiz und Großbritannien betreut. Ich arbeite remote-first aus Thüringen und reise für Delivery- und Transitionsphasen.',
     'Positioning': 'Positionierung',
 
     /* ---- experience page ---- */
     'Fifteen years of services that had to run.': 'Fünfzehn Jahre Services, die laufen mussten.',
-    'Service delivery and account ownership, presales solution architecture, D-A-CH team leadership, project management, and hands-on 3rd-level infrastructure work — for banks, telcos, manufacturers, insurers and healthcare software vendors.':
-      'Service Delivery und Kundenverantwortung, Presales-Solution-Architektur, Teamleitung in D-A-CH, Projektmanagement und praktische 3rd-Level-Infrastrukturarbeit — für Banken, Telkos, Industrieunternehmen, Versicherer und Healthcare-Softwarehäuser.',
+    'Service delivery and account ownership, presales solution architecture, team leadership in D-A-CH, project management and hands-on 3rd-level infrastructure work. The clients came from banking, telecoms, manufacturing, insurance and healthcare software.': 'Service Delivery und Kundenverantwortung, Presales-Solution-Architektur, Teamleitung in D-A-CH, Projektmanagement und praktische 3rd-Level-Infrastrukturarbeit. Die Kunden kamen aus Banking, Telekommunikation, Industrie, Versicherung und Healthcare-Software.',
     'Largest account base': 'Größter Kundenstamm',
     '£3M monthly revenue': '3 Mio. £ Monatsumsatz',
     'Team leadership': 'Teamführung',
@@ -237,8 +219,7 @@
     'Current role': 'Aktuelle Rolle',
     'IT Administrator, nursIT': 'IT-Administrator, nursIT',
     'Current work': 'Aktuelle Tätigkeit',
-    'Healthcare software operations alongside an active research track.':
-      'Healthcare-Softwarebetrieb parallel zu einer aktiven Forschungsspur.',
+    'Healthcare software operations, with the research running alongside.': 'Healthcare-Softwarebetrieb, die Forschung läuft parallel dazu.',
     'IT Administrator': 'IT-Administrator',
     'Healthcare software, Germany': 'Healthcare-Software, Deutschland',
     '3rd-level application support and DevOps-adjacent release and operations topics.':
@@ -352,8 +333,7 @@
     'Customer Service Professional': 'Customer Service Professional',
     'Sorter / Coder': 'Sortierer / Codierer',
     'Apprenticeship — Office Communications Clerk (IHK)': 'Ausbildung — Kaufmann für Bürokommunikation (IHK)',
-    'Education, honours and the full certification list sit on the academic page; the systems and products built alongside these roles are on the projects page.':
-      'Ausbildung, Auszeichnungen und die vollständige Zertifikatsliste finden sich auf der Seite Studium; die parallel entstandenen Systeme und Produkte auf der Projektseite.',
+    'Education, honours and the full certification list are on the academic page. The systems and products I built alongside these roles are on the projects page.': 'Ausbildung, Auszeichnungen und die vollständige Zertifikatsliste stehen auf der Seite Studium. Die Systeme und Produkte, die parallel zu diesen Rollen entstanden sind, finden sich auf der Projektseite.',
     'Permanent': 'Festanstellung',
     'Contract': 'Projektvertrag',
     'Development': 'Weiterbildung',
@@ -363,9 +343,8 @@
 
     /* ---- academic page ---- */
     'Academic record & certifications': 'Studium & Zertifizierungen',
-    'Study, research, service, and formal qualification.': 'Studium, Forschung, akademischer Dienst und formale Qualifikation.',
-    'Computer-science study at a 3.96 GPA with six President’s List awards, a prior First Class business degree, cybersecurity research preparation on an MPhil track, peer-review service, and fourteen professional certifications across delivery, agile and security.':
-      'Informatikstudium mit einem GPA von 3,96 und sechs President’s-List-Auszeichnungen, ein vorangegangener Wirtschaftsabschluss mit First Class, Forschungsvorbereitung in Cybersecurity auf MPhil-Spur, Peer-Review-Tätigkeit sowie vierzehn Zertifizierungen aus Delivery, Agile und Security.',
+    'Degrees, research and certifications.': 'Abschlüsse, Forschung und Zertifizierungen.',
+    'A computer-science degree in progress at a 3.96 GPA, with six President’s List awards and an earlier First Class business degree. Alongside it: cybersecurity research on an MPhil track, peer-review work, and fourteen professional certifications.': 'Ein laufendes Informatikstudium mit einem GPA von 3,96, sechs President’s-List-Auszeichnungen und ein früherer Wirtschaftsabschluss mit First Class. Dazu Cybersecurity-Forschung auf MPhil-Spur, Peer-Review-Arbeit und vierzehn berufliche Zertifizierungen.',
     'Current degree': 'Aktueller Abschluss',
     'B.Sc. Computer Science': 'B.Sc. Informatik',
     'Standing': 'Leistungsstand',
@@ -393,14 +372,12 @@
       'IHK (Industrie- und Handelskammer) · duale Ausbildung.',
     'Academic distinctions': 'Akademische Auszeichnungen',
     'Awards recorded by the awarding institution.': 'Von der vergebenden Institution dokumentierte Auszeichnungen.',
-    'University of the People — November 2024, January 2025, September 2025, November 2025, January 2026 and March 2026.':
-      'University of the People — November 2024, Januar 2025, September 2025, November 2025, Januar 2026 und März 2026.',
+    'University of the People. Awarded in November 2024, January 2025, September 2025, November 2025, January 2026 and March 2026.': 'University of the People. Verliehen im November 2024, Januar 2025, September 2025, November 2025, Januar 2026 und März 2026.',
     'Grade point average': 'Notendurchschnitt',
     'Out of 4.0 in the ongoing B.Sc. Computer Science programme; the preceding A.S. was completed with High Honors.':
       'Von 4,0 im laufenden B.Sc.-Informatikstudium; der vorangegangene A.S. wurde mit High Honors abgeschlossen.',
     'Class honours': 'Class-Auszeichnung',
-    'B.A. Business Administration, University of Hertfordshire — the highest UK undergraduate classification.':
-      'B.A. Betriebswirtschaft, University of Hertfordshire — die höchste britische Bachelor-Einstufung.',
+    'B.A. Business Administration at the University of Hertfordshire. First Class is the highest UK undergraduate classification.': 'B.A. Betriebswirtschaft an der University of Hertfordshire. First Class ist die höchste britische Bachelor-Einstufung.',
     'Article of the issue': 'Artikel der Ausgabe',
     'ShieldLink opened issue 5(2) of the International Journal of Research in Computing as the lead article.':
       'ShieldLink eröffnete Ausgabe 5(2) des International Journal of Research in Computing als Leitartikel.',
@@ -409,8 +386,7 @@
       'Vierzehn Zertifizierungen aus Service Delivery, Projekt- und agilen Methoden, Security und Cloud.',
     'AWS Solutions Architect — course completion': 'AWS Solutions Architect — Kursabschluss',
     'Applied competencies': 'Angewandte Kompetenzen',
-    'What the degrees, certifications and delivery roles add up to in practice.':
-      'Was Abschlüsse, Zertifizierungen und Delivery-Rollen in der Praxis ergeben.',
+    'Where the training actually gets used.': 'Wo die Ausbildung tatsächlich zum Einsatz kommt.',
     'Project & product methods': 'Projekt- & Produktmethoden',
     'Systems & operations': 'Systeme & Betrieb',
     'SLA / KPI management': 'SLA-/KPI-Management',
@@ -436,11 +412,9 @@
     'Peer review': 'Peer Review',
     'Reviewer for the 6th Student Symposium of the Faculty of Computing at General Sir John Kotelawala Defence University in 2025.':
       'Reviewer für das 6. Student Symposium der Faculty of Computing an der General Sir John Kotelawala Defence University im Jahr 2025.',
-    'Research work is documented with explicit distinctions between implemented artifacts, experimental results, prototypes, and proposed directions — the same evidence boundary applied on the project pages.':
-      'Forschungsarbeit wird mit klarer Trennung zwischen implementierten Artefakten, experimentellen Ergebnissen, Prototypen und vorgeschlagenen Richtungen dokumentiert — dieselbe Evidenzgrenze wie auf den Projektseiten.',
+    'In write-ups I keep implemented work, experimental results, prototypes and proposed directions clearly apart, the same way the project pages do.': 'In Ausarbeitungen trenne ich implementierte Arbeit, experimentelle Ergebnisse, Prototypen und vorgeschlagene Richtungen klar voneinander, genau wie auf den Projektseiten.',
     'Research themes': 'Forschungsthemen',
-    'Cybersecurity and detection, database and storage systems, formal methods where they materially strengthen a claim, and questions at the boundary of computation, explanation and epistemology.':
-      'Cybersecurity und Detection, Datenbank- und Storage-Systeme, formale Methoden dort, wo sie eine Aussage substanziell stärken, sowie Fragen an der Grenze von Berechnung, Erklärung und Erkenntnistheorie.',
+    'Cybersecurity and detection, database and storage systems, and formal methods where they genuinely strengthen a claim. Some of the work sits closer to philosophy of computation than to engineering.': 'Cybersecurity und Detection, Datenbank- und Storage-Systeme sowie formale Methoden dort, wo sie eine Aussage wirklich stärken. Ein Teil der Arbeit liegt näher an der Philosophie der Berechnung als am Engineering.',
     'Research identifiers': 'Forschungs-Identifikatoren',
     'Public identifiers are the cleanest route to the authorship record; the publication page mirrors ORCID and links every DOI directly.':
       'Öffentliche Identifikatoren sind der direkteste Weg zum Autorenschaftsnachweis; die Publikationsseite spiegelt ORCID und verlinkt jede DOI unmittelbar.',
@@ -455,9 +429,8 @@
 
     /* ---- projects page ---- */
     'Project portfolio': 'Projektportfolio',
-    'Eighteen projects, shipped and inspectable.': 'Achtzehn Projekte, ausgeliefert und nachprüfbar.',
-    'Six research systems in Rust — a database engine, an XDR platform, distributed storage, an evidence engine, secure delivery, and a programming language — plus seven Apple-platform applications, two developer tools, and three games. Each one is public, versioned, and open to inspection.':
-      'Sechs Forschungssysteme in Rust — eine Datenbank-Engine, eine XDR-Plattform, verteilter Speicher, eine Evidence-Engine, sichere Dateizustellung und eine Programmiersprache — dazu sieben Apple-Anwendungen, zwei Entwickler-Tools und drei Spiele. Alle öffentlich, versioniert und nachprüfbar.',
+    'Eighteen projects, all public.': 'Achtzehn Projekte, alle öffentlich.',
+    'Six research systems written in Rust: a database engine, an XDR platform, distributed storage, an evidence engine, secure file delivery and a programming language. Then seven Apple-platform apps, two developer tools and three games. All of them are public and versioned, and the code or the release is there to look at.': 'Sechs Forschungssysteme in Rust: eine Datenbank-Engine, eine XDR-Plattform, verteilter Speicher, eine Evidence-Engine, sichere Dateizustellung und eine Programmiersprache. Dazu sieben Apple-Anwendungen, zwei Entwickler-Tools und drei Spiele. Alle sind öffentlich und versioniert, Code oder Release lassen sich ansehen.',
     'Publications behind the work': 'Publikationen dahinter',
     'Discuss a project': 'Projekt besprechen',
     '18 public': '18 öffentlich',
@@ -467,8 +440,7 @@
     'Evidence': 'Nachweis',
     'Code · papers · tests': 'Code · Paper · Tests',
     'Selected project work': 'Ausgewählte Projektarbeit',
-    'Filter by category. Research systems open a professional profile covering scope, architecture and the evidence boundary; products open their public release page.':
-      'Nach Kategorie filtern. Forschungssysteme öffnen ein Profil zu Umfang, Architektur und Evidenzgrenze; Produkte öffnen ihre öffentliche Release-Seite.',
+    'Filter by category. The research systems link to a profile with scope, architecture and what the work does and does not show. The products link to their release page.': 'Nach Kategorie filtern. Die Forschungssysteme führen zu einem Profil mit Umfang, Architektur und dem, was die Arbeit zeigt und was nicht. Die Produkte führen zu ihrer Release-Seite.',
     'All · 18': 'Alle · 18',
     'Research systems · 6': 'Forschungssysteme · 6',
     'iOS & macOS · 7': 'iOS & macOS · 7',
@@ -525,11 +497,9 @@
     'Medieval barber-surgeon life sim: care, trade, travel, household, staff and civic ambition in 1382.':
       'Mittelalterliche Bader-Chirurg-Lebenssimulation: Heilkunst, Handel, Reisen, Haushalt, Personal und städtischer Aufstieg im Jahr 1382.',
     'Two levels of detail': 'Zwei Detailtiefen',
-    'The executive profiles stay concise. Three flagship systems also carry operator-oriented technical deep dives.':
-      'Die Executive-Profile bleiben kompakt. Drei Flaggschiff-Systeme haben zusätzlich technische Deep Dives für Operator.',
+    'These profiles stay short. Three of the systems also have a longer technical write-up.': 'Diese Profile bleiben kurz. Drei der Systeme haben zusätzlich eine ausführlichere technische Beschreibung.',
     'Need implementation detail?': 'Mehr Implementierungsdetails nötig?',
-    'The operator pages cover architecture, operating surfaces and benchmark evidence for SkeinDB, Wardex and NexusFS. The full Operator view contains the broader technical portfolio.':
-      'Die Operator-Seiten behandeln Architektur, Betriebsoberflächen und Benchmark-Evidenz für SkeinDB, Wardex und NexusFS. Die vollständige Operator-Ansicht enthält das breitere technische Portfolio.',
+    'The operator pages cover architecture, operating surfaces and benchmark numbers for SkeinDB, Wardex and NexusFS. The full operator view has the rest of the technical portfolio.': 'Die Operator-Seiten behandeln Architektur, Betriebsoberflächen und Benchmark-Zahlen für SkeinDB, Wardex und NexusFS. Die vollständige Operator-Ansicht enthält das übrige technische Portfolio.',
     'Portfolio': 'Portfolio',
     'Context': 'Kontext',
     'Pre-launch': 'Vor dem Launch',
@@ -568,8 +538,7 @@
     'Choose the route that fits.': 'Wählen Sie den passenden Weg.',
     'Email works best for role details, a project brief, or a specific technical question. LinkedIn is useful for an initial professional introduction.':
       'E-Mail eignet sich am besten für Rollendetails, ein Projektbriefing oder eine konkrete technische Frage. LinkedIn passt für eine erste berufliche Kontaktaufnahme.',
-    'For a role, the fastest useful message names the position, the working model, and the delivery context. A full CV is available on request.':
-      'Für eine Rolle hilft eine Nachricht am schnellsten weiter, wenn sie Position, Arbeitsmodell und Delivery-Kontext nennt. Ein vollständiger Lebenslauf ist auf Anfrage erhältlich.',
+    'For a role, it helps if the first message names the position and the working model. A full CV is available on request.': 'Bei einer Rolle hilft es, wenn die erste Nachricht Position und Arbeitsmodell nennt. Ein vollständiger Lebenslauf ist auf Anfrage erhältlich.',
     'Inspect work ↗': 'Arbeit ansehen ↗',
     'Connect ↗': 'Vernetzen ↗',
     'Send a message': 'Nachricht senden',
