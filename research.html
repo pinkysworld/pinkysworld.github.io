@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Research papers — Michél Nguyen · minh.systems</title>
-<meta name="description" content="Full bibliography for Michél Nguyen: cybersecurity, systems security, clinical AI, cloud systems, education, organization theory, physics, notation, and creative software work.">
+<meta name="description" content="Full bibliography for Michél Nguyen: database systems, cybersecurity, systems security, clinical AI, cloud systems, education, organization theory, physics, and notation.">
 <meta name="author" content="Michél Nguyen">
 <meta name="theme-color" content="#0b0d0e">
 <link rel="canonical" href="https://minh.systems/research.html">
@@ -12,11 +12,11 @@
 <meta property="og:url" content="https://minh.systems/research.html">
 <meta property="og:site_name" content="minh.systems">
 <meta property="og:title" content="Research papers — Michél Nguyen">
-<meta property="og:description" content="Full bibliography across cybersecurity, systems security, clinical AI, cloud systems, education, organization theory, physics, notation, and creative software work.">
+<meta property="og:description" content="Full bibliography across database systems, cybersecurity, systems security, clinical AI, cloud systems, education, organization theory, physics, and notation.">
 <meta property="og:image" content="https://minh.systems/assets/og-card.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Research papers — Michél Nguyen">
-<meta name="twitter:description" content="Full bibliography across cybersecurity, systems security, clinical AI, cloud systems, education, organization theory, physics, notation, and creative software work.">
+<meta name="twitter:description" content="Full bibliography across database systems, cybersecurity, systems security, clinical AI, cloud systems, education, organization theory, physics, and notation.">
 <meta name="twitter:image" content="https://minh.systems/assets/og-card.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -383,6 +383,7 @@
   .bib-row .where .venue{color:var(--amber)}
   .bib-row .where a{color:var(--cyan);border-bottom:1px dashed transparent}
   .bib-row .where a:hover{border-bottom-color:var(--cyan)}
+  .bib-row .paper-summary{max-width:70ch;margin:7px 0 0;color:var(--dim);font-size:11px;line-height:1.5;text-wrap:pretty}
   .bib-row .kind{font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--mute)}
   .bib-row .kind.journal{color:var(--green)}
   .bib-row .kind.preprint{color:var(--amber)}
@@ -781,7 +782,7 @@
     <a class="brand" href="index.html">minh@systems</a>
     <span class="pipe">~</span>
     <span class="dot" aria-hidden="true"></span>
-    <span>research index · <span data-paper-total>13</span> records</span>
+    <span>research index · <span data-paper-total>12</span> records</span>
     <span class="pipe hide-sm">|</span>
     <span class="hide-sm">Thuringia, Germany / Remote</span>
   </div>
@@ -807,7 +808,7 @@
   <div class="hero-left">
     <div class="hero-eyebrow"><span class="live">●</span> Full bibliography · research engineering signal</div>
     <h1 class="hero-title">research<span class="punct">.</span><br><span class="c1">papers</span><span class="punct">,</span> <span class="c2">preprints</span><span class="punct">,</span><br><span class="c3">artifacts</span><span class="punct">.</span></h1>
-    <p class="hero-body">A focused archive of published and preprint work across cybersecurity, systems security, clinical AI, cloud systems, education, organization theory, physics, notation, and software artifacts.</p>
+    <p class="hero-body">A focused archive of published and preprint work across database systems, cybersecurity, systems security, clinical AI, cloud systems, education, organization theory, physics, and notation.</p>
     <div class="hero-actions">
       <a class="btn primary" href="#papers"><span class="ico">¶</span> browse bibliography</a>
       <a class="btn" href="index.html#recruiter"><span class="ico">▸</span> recruiter snapshot</a>
@@ -822,9 +823,9 @@
     </div>
     <div class="term-body">
       <span class="term-line cmd">wc -l bibliography.json</span>
-      <span class="term-line"><span class="k" data-paper-total>13</span> records · journal / preprint / other</span>
+      <span class="term-line"><span class="k" data-paper-total>12</span> records · journal / preprint</span>
       <span class="term-line cmd">cat focus.txt</span>
-      <span class="term-line">systems security · cyber risk · clinical AI · cloud systems</span>
+      <span class="term-line">database systems · systems security · cyber risk · clinical AI</span>
       <span class="term-line">education · organization theory · physics · notation</span>
       <span class="term-line cmd">open proofs</span>
       <span class="term-line ok">✓ DOI links, previews, and BibTeX copy actions available</span>
@@ -837,7 +838,7 @@
     <div class="tag">01 / PAPERS</div>
     <div>
       <h2>grep -r papers<span class="punct">/</span></h2>
-      <p class="sub">Peer-reviewed work, preprints, and the occasional creative publication.</p>
+      <p class="sub">Journal articles and public preprints, reconciled with the current public ORCID record.</p>
     </div>
   </div>
 
@@ -863,21 +864,22 @@
   </div>
 
   <div class="filter-bar">
-    <button class="on" data-bfilter="all">all<span class="ct" data-bcount="all">13</span></button>
+    <button class="on" data-bfilter="all">all<span class="ct" data-bcount="all">12</span></button>
     <button data-bfilter="journal">journal<span class="ct" data-bcount="journal">4</span></button>
-    <button data-bfilter="preprint">preprint<span class="ct" data-bcount="preprint">7</span></button>
-    <button data-bfilter="other">other<span class="ct" data-bcount="other">2</span></button>
+    <button data-bfilter="preprint">preprint<span class="ct" data-bcount="preprint">8</span></button>
   </div>
 
   <div class="filter-bar topic" aria-label="Filter papers by research line">
-    <button class="on" data-topic-filter="all">all topics<span class="ct" data-topic-count="all">13</span></button>
+    <button class="on" data-topic-filter="all">all topics<span class="ct" data-topic-count="all">12</span></button>
     <button data-topic-filter="clinical-ai">clinical AI<span class="ct" data-topic-count="clinical-ai">1</span></button>
+    <button data-topic-filter="database-systems">database systems<span class="ct" data-topic-count="database-systems">1</span></button>
     <button data-topic-filter="cyber-risk">cyber risk<span class="ct" data-topic-count="cyber-risk">2</span></button>
     <button data-topic-filter="systems-security">systems/sec<span class="ct" data-topic-count="systems-security">2</span></button>
     <button data-topic-filter="physics">physics<span class="ct" data-topic-count="physics">3</span></button>
     <button data-topic-filter="education">education<span class="ct" data-topic-count="education">1</span></button>
     <button data-topic-filter="org-theory">org theory<span class="ct" data-topic-count="org-theory">1</span></button>
-    <button data-topic-filter="creative">creative/sw<span class="ct" data-topic-count="creative">3</span></button>
+    <button data-topic-filter="cloud-systems">cloud systems<span class="ct" data-topic-count="cloud-systems">1</span></button>
+    <button data-topic-filter="notation-systems">notation<span class="ct" data-topic-count="notation-systems">1</span></button>
   </div>
 
   <div class="bib-head">
@@ -886,94 +888,88 @@
 
   <div class="bib-row is-preprint" data-abs="mortality-reference-class" data-topic="clinical-ai" tabindex="0" role="button" aria-label="Preview Reference-Class Failure in Mortality Prediction">
     <span class="yr">2026.06</span>
-    <div><div class="title">Reference-Class Failure in Mortality Prediction: A Synthetic Study of Irreducible Uncertainty in End-of-Life Prognostic Models</div><span class="where"><span class="venue">Research Square</span> · Version 1</span><div class="paper-meta"><span>clinical AI</span><span>preprint</span><span>doi</span></div></div>
+    <div><div class="title">Reference-Class Failure in Mortality Prediction: A Synthetic Study of Irreducible Uncertainty in End-of-Life Prognostic Models</div><span class="where"><span class="venue">Research Square</span> · Version 1</span><p class="paper-summary">Tests why sharply confident mortality predictions can remain invalid when a case has no transportable reference class.</p><div class="paper-meta"><span>clinical AI</span><span>preprint</span><span>doi</span></div></div>
     <span class="kind preprint">preprint</span>
     <span class="doi"><a href="https://doi.org/10.21203/rs.3.rs-10058406/v1" target="_blank" rel="noopener">DOI ↗</a><a class="paper-perma" href="papers/mortality-reference-class.html">page ↗</a></span>
   </div>
 
   <div class="bib-row is-preprint" data-abs="beyond-no" data-topic="education" tabindex="0" role="button" aria-label="Preview Beyond No">
     <span class="yr">2026.04</span>
-    <div><div class="title">Beyond No: A Low-Interruption, Autonomy-Supportive Framework for Early Childhood Self-Directed Learning in Prepared Environments</div><span class="where"><span class="venue">ResearchGate</span> · submitted to KDU KJMS</span><div class="paper-meta"><span>education</span><span>submitted</span></div></div>
+    <div><div class="title">Beyond No: A Low-Interruption, Autonomy-Supportive Framework for Early Childhood Self-Directed Learning in Prepared Environments</div><span class="where"><span class="venue">ResearchGate</span> · submitted to KDU KJMS</span><p class="paper-summary">Sets out a low-interruption framework that keeps a young child’s self-directed activity at the centre of prepared environments.</p><div class="paper-meta"><span>education</span><span>submitted</span></div></div>
     <span class="kind preprint">preprint</span>
     <span class="doi"><a href="https://www.researchgate.net/publication/403982284" target="_blank" rel="noopener">RG ↗</a><a class="paper-perma" href="papers/beyond-no.html">page ↗</a></span>
   </div>
 
+  <div class="bib-row is-preprint" data-abs="skeindb" data-topic="database-systems" tabindex="0" role="button" aria-label="Preview SkeinDB">
+    <span class="yr">2026.03</span>
+    <div><div class="title">SkeinDB: Cell-Interned MVCC and Query-Scoped Delta Responses for HTTP-Native Database Caching</div><span class="where"><span class="venue">TechRxiv</span> · Version 1</span><p class="paper-summary">Treats HTTP caching as a database primitive with cell-interned MVCC, dependency-derived ETags, and query-scoped deltas.</p><div class="paper-meta"><span>database systems</span><span>preprint</span><span>doi</span></div></div>
+    <span class="kind preprint">preprint</span>
+    <span class="doi"><a href="https://doi.org/10.36227/techrxiv.177282490.07608916/v1" target="_blank" rel="noopener">DOI ↗</a><a class="paper-perma" href="showcase/research/skeindb.html">project ↗</a></span>
+  </div>
+
   <div class="bib-row is-journal" data-abs="cku" data-topic="cyber-risk" tabindex="0" role="button" aria-label="Preview Computational Knightian Uncertainty">
-    <span class="yr">2026.07</span>
-    <div><div class="title">Computational Knightian Uncertainty: Undecidability and the Limits of Cyber Risk Quantification in Software-Intensive Firms</div><span class="where"><span class="venue">IJRC</span> · International Journal of Research in Computing</span><div class="paper-meta"><span>cyber risk</span><span>journal</span><span>doi</span></div></div>
+    <span class="yr">2026.01</span>
+    <div><div class="title">Computational Knightian Uncertainty: Undecidability and the Limits of Cyber Risk Quantification in Software-Intensive Firms</div><span class="where"><span class="venue">IJRC</span> · International Journal of Research in Computing</span><p class="paper-summary">Explains why undecidability leaves a residual class of cyber-risk uncertainty beyond ordinary probabilistic estimates.</p><div class="paper-meta"><span>cyber risk</span><span>journal</span><span>doi</span></div></div>
     <span class="kind journal">journal</span>
     <span class="doi"><a href="https://doi.org/10.64701/ijrc/345/9117" target="_blank" rel="noopener">DOI ↗</a><a class="paper-perma" href="papers/cku.html">page ↗</a></span>
   </div>
 
   <div class="bib-row is-journal" data-abs="shieldlink" data-topic="systems-security" tabindex="0" role="button" aria-label="Preview ShieldLink">
     <span class="yr">2026.07</span>
-    <div><div class="title">ShieldLink: Retry-Aware Authenticated Encryption for Secure and Reliable Chiplet Interconnects</div><span class="where"><span class="venue">IJRC</span> · International Journal of Research in Computing · Vol. 5, No. 2 · pp. 1–16</span><div class="paper-meta"><span>systems/sec</span><span>journal</span><span>doi</span></div></div>
+    <div><div class="title">ShieldLink: Retry-Aware Authenticated Encryption for Secure and Reliable Chiplet Interconnects</div><span class="where"><span class="venue">IJRC</span> · International Journal of Research in Computing · Vol. 5, No. 2 · pp. 1–16</span><p class="paper-summary">Aligns retry handling and authenticated encryption so chiplet receive state advances only after verified delivery.</p><div class="paper-meta"><span>systems/sec</span><span>journal</span><span>doi</span></div></div>
     <span class="kind journal">journal</span>
     <span class="doi"><a href="https://doi.org/10.64701/ijrc/345/9121" target="_blank" rel="noopener">DOI ↗</a><a class="paper-perma" href="papers/shieldlink.html">page ↗</a></span>
   </div>
 
   <div class="bib-row is-preprint" data-abs="preons-2" data-topic="physics" tabindex="0" role="button" aria-label="Preview Dual-Polarity Preons II">
     <span class="yr">2025</span>
-    <div><div class="title">Dual-Polarity Preons II: Parameter-Space Constraints and Viable Regimes for an Emergent Acoustic Metric</div><span class="where"><span class="venue">TechRxiv</span></span><div class="paper-meta"><span>physics</span><span>preprint</span></div></div>
+    <div><div class="title">Dual-Polarity Preons II: Parameter-Space Constraints and Viable Regimes for an Emergent Acoustic Metric</div><span class="where"><span class="venue">TechRxiv</span></span><p class="paper-summary">Maps the parameter regimes in which the dual-polarity preon model can sustain an emergent acoustic metric.</p><div class="paper-meta"><span>physics</span><span>preprint</span></div></div>
     <span class="kind preprint">preprint</span>
     <span class="doi"><a href="https://doi.org/10.36227/techrxiv.176590637.76612181/v1" target="_blank" rel="noopener">DOI ↗</a><a class="paper-perma" href="papers/preons-2.html">page ↗</a></span>
   </div>
 
   <div class="bib-row is-preprint" data-abs="simulated-minds" data-topic="physics" tabindex="0" role="button" aria-label="Preview Simulated Minds">
     <span class="yr">2025</span>
-    <div><div class="title">Simulated Minds, Artificial Consciousness, and the Theory-Relative Simulation Hypothesis</div><span class="where"><span class="venue">TechRxiv</span></span><div class="paper-meta"><span>philosophy</span><span>preprint</span></div></div>
+    <div><div class="title">Simulated Minds, Artificial Consciousness, and the Theory-Relative Simulation Hypothesis</div><span class="where"><span class="venue">TechRxiv</span></span><p class="paper-summary">Shows how claims about simulated consciousness depend on the theory of mind used to evaluate the simulation.</p><div class="paper-meta"><span>philosophy</span><span>preprint</span></div></div>
     <span class="kind preprint">preprint</span>
     <span class="doi"><a href="https://doi.org/10.36227/techrxiv.176583724.41540320/v1" target="_blank" rel="noopener">DOI ↗</a><a class="paper-perma" href="papers/simulated-minds.html">page ↗</a></span>
   </div>
 
   <div class="bib-row is-journal" data-abs="preons-1" data-topic="physics" tabindex="0" role="button" aria-label="Preview Dual-Polarity Preons">
     <span class="yr">2025</span>
-    <div><div class="title">Dual-Polarity Preons: A Toy Model for Composite Neutral Pairs and Emergent Gravity</div><span class="where"><span class="venue">Cognizance</span></span><div class="paper-meta"><span>physics</span><span>journal</span></div></div>
+    <div><div class="title">Dual-Polarity Preons: A Toy Model for Composite Neutral Pairs and Emergent Gravity</div><span class="where"><span class="venue">Cognizance</span></span><p class="paper-summary">Proposes composite neutral pairs whose long-wavelength dynamics yield an effective metric in a toy model.</p><div class="paper-meta"><span>physics</span><span>journal</span></div></div>
     <span class="kind journal">journal</span>
     <span class="doi"><a href="https://doi.org/10.47760/cognizance.2025.v05i11.009" target="_blank" rel="noopener">DOI ↗</a><a class="paper-perma" href="papers/preons-1.html">page ↗</a></span>
   </div>
 
   <div class="bib-row is-preprint" data-abs="fl-ids" data-topic="systems-security" tabindex="0" role="button" aria-label="Preview Federated Learning-Based Intrusion Detection System">
     <span class="yr">2025</span>
-    <div><div class="title">Federated Learning-Based Intrusion Detection System for IoT Networks in Resource-Constrained Environments</div><span class="where"><span class="venue">TechRxiv</span> · rel. <a href="#projects">wardex</a></span><div class="paper-meta"><span>systems/sec</span><span>preprint</span></div></div>
+    <div><div class="title">Federated Learning-Based Intrusion Detection System for IoT Networks in Resource-Constrained Environments</div><span class="where"><span class="venue">TechRxiv</span> · rel. <a href="#projects">wardex</a></span><p class="paper-summary">Develops a privacy-preserving federated intrusion-detection approach for resource-constrained IoT networks.</p><div class="paper-meta"><span>systems/sec</span><span>preprint</span></div></div>
     <span class="kind preprint">preprint</span>
     <span class="doi"><a href="https://doi.org/10.36227/techrxiv.176403418.87468767/v1" target="_blank" rel="noopener">DOI ↗</a><a class="paper-perma" href="papers/fl-ids.html">page ↗</a></span>
   </div>
 
   <div class="bib-row is-preprint" data-abs="org-circuits" data-topic="org-theory" tabindex="0" role="button" aria-label="Preview Computational Complexity of Organizational Decision Hierarchies">
     <span class="yr">2025</span>
-    <div><div class="title">Computational Complexity of Organizational Decision Hierarchies</div><span class="where"><span class="venue">Research Square</span></span><div class="paper-meta"><span>org theory</span><span>preprint</span></div></div>
+    <div><div class="title">Computational Complexity of Organizational Decision Hierarchies</div><span class="where"><span class="venue">Research Square</span></span><p class="paper-summary">Models organizational hierarchies as threshold circuits to make latency, accuracy, and headcount trade-offs explicit.</p><div class="paper-meta"><span>org theory</span><span>preprint</span></div></div>
     <span class="kind preprint">preprint</span>
     <span class="doi"><a href="https://doi.org/10.21203/rs.3.rs-7948428/v1" target="_blank" rel="noopener">DOI ↗</a><a class="paper-perma" href="papers/org-circuits.html">page ↗</a></span>
   </div>
 
-  <div class="bib-row is-preprint" data-abs="quantum-walk" data-topic="cyber-risk" tabindex="0" role="button" aria-label="Preview Quantum Walk-Inspired Algorithm">
+  <div class="bib-row is-preprint" data-abs="quantum-walk" data-topic="cloud-systems" tabindex="0" role="button" aria-label="Preview Quantum Walk-Inspired Algorithm">
     <span class="yr">2025</span>
-    <div><div class="title">A Quantum Walk-Inspired Algorithm for Dynamic Resource Allocation in Cloud Computing</div><span class="where"><span class="venue">TechRxiv</span> · sustainable business practices</span><div class="paper-meta"><span>cloud systems</span><span>preprint</span></div></div>
+    <div><div class="title">A Quantum Walk-Inspired Algorithm for Dynamic Resource Allocation in Cloud Computing: Implications for Sustainable Business Practices</div><span class="where"><span class="venue">TechRxiv</span> · sustainable business practices</span><p class="paper-summary">Uses quantum-walk dynamics as a heuristic for adaptive cloud allocation with utilisation and energy efficiency in view.</p><div class="paper-meta"><span>cloud systems</span><span>preprint</span></div></div>
     <span class="kind preprint">preprint</span>
     <span class="doi"><a href="https://doi.org/10.36227/techrxiv.176316003.37717757/v1" target="_blank" rel="noopener">DOI ↗</a><a class="paper-perma" href="papers/quantum-walk.html">page ↗</a></span>
   </div>
 
-  <div class="bib-row is-journal" data-abs="quadralzahlen" data-topic="creative" tabindex="0" role="button" aria-label="Preview Quadralzahlen">
+  <div class="bib-row is-journal" data-abs="quadralzahlen" data-topic="notation-systems" tabindex="0" role="button" aria-label="Preview Quadralzahlen">
     <span class="yr">2025</span>
-    <div><div class="title">Quadralzahlen: A Rotation-Invariant Numeral System That Reduces Upside-Down Misreads in Real-World Displays</div><span class="where"><span class="venue">Cognizance</span></span><div class="paper-meta"><span>notation</span><span>journal</span></div></div>
+    <div><div class="title">Quadralzahlen: A Rotation-Invariant Numeral System That Reduces Upside-Down Misreads in Real-World Displays</div><span class="where"><span class="venue">Cognizance</span></span><p class="paper-summary">Introduces a rotation-invariant numeral system designed to reduce upside-down misreads in identifiers and displays.</p><div class="paper-meta"><span>notation</span><span>journal</span></div></div>
     <span class="kind journal">journal</span>
     <span class="doi"><a href="https://doi.org/10.47760/cognizance.2025.v05i10.019" target="_blank" rel="noopener">DOI ↗</a><a class="paper-perma" href="papers/quadralzahlen.html">page ↗</a></span>
   </div>
 
-  <div class="bib-row is-other" data-topic="creative">
-    <span class="yr">2024</span>
-    <div><div class="title">Nadia's Adventures in the New World</div><span class="where">Book · creative fiction</span></div>
-    <span class="kind other">book</span>
-    <span class="doi">—</span>
-  </div>
-
-  <div class="bib-row is-other" data-topic="creative">
-    <span class="yr">2024</span>
-    <div><div class="title">pimiTool</div><span class="where">Software copyright · registered</span></div>
-    <span class="kind other">sw</span>
-    <span class="doi">—</span>
-  </div>
 </section>
 
 
@@ -1083,6 +1079,12 @@
       p:'Proposes a low-interruption, autonomy-supportive framework for adults accompanying self-directed learning in early childhood. Instead of steering children through constant verbal correction, the framework leans on prepared environments and minimal, well-timed interventions, so that the child’s own activity — not the adult’s narration of it — stays at the center of the learning episode.',
       href:'https://www.researchgate.net/publication/403982284', cta:'open preprint ↗'
     },
+    'skeindb': {
+      k:'abstract spotlight · skeindb',
+      h:'Database-native caching for query results',
+      p:'Modern web applications such as dashboards, SaaS admin consoles, and multi-tenant portals often rely on aggressive polling of list queries. SkeinDB makes HTTP cache semantics first-class database primitives through cell-interned MVCC, dependency-derived ETags for sound conditional reads, and QueryPatch delta responses for a previously seen result window. Across six datasets, cell interning provides 0–82% storage savings, while QueryPatch reduces response bytes by 23–99.9% depending on change rate and window size.',
+      href:'https://doi.org/10.36227/techrxiv.177282490.07608916/v1', cta:'open preprint ↗'
+    },
     'cku': {
       k:'abstract spotlight · computational knightian uncertainty',
       h:'Why some cyber risk in software-intensive firms cannot be priced away',
@@ -1150,6 +1152,11 @@
       year:'2026', venue:'ResearchGate', type:'Preprint', status:'Submitted to KDU KJMS', topic:'education',
       doi:'', url:'https://www.researchgate.net/publication/403982284', key:'nguyen2026beyondno'
     },
+    'skeindb': {
+      title:'SkeinDB: Cell-Interned MVCC and Query-Scoped Delta Responses for HTTP-Native Database Caching',
+      year:'2026', venue:'TechRxiv', type:'Preprint', status:'Version 1', topic:'database systems',
+      doi:'10.36227/techrxiv.177282490.07608916/v1', url:'https://doi.org/10.36227/techrxiv.177282490.07608916/v1', key:'nguyen2026skeindb'
+    },
     'cku': {
       title:'Computational Knightian Uncertainty: Undecidability and the Limits of Cyber Risk Quantification in Software-Intensive Firms',
       year:'2026', venue:'International Journal of Research in Computing', type:'Journal article', status:'Published', topic:'cyber risk',
@@ -1158,7 +1165,8 @@
     'shieldlink': {
       title:'ShieldLink: Retry-Aware Authenticated Encryption for Secure and Reliable Chiplet Interconnects',
       year:'2026', venue:'International Journal of Research in Computing', type:'Journal article', status:'Published', topic:'systems security',
-      doi:'10.64701/ijrc/345/9121', url:'https://doi.org/10.64701/ijrc/345/9121', key:'nguyen2026shieldlink'
+      doi:'10.64701/ijrc/345/9121', url:'https://doi.org/10.64701/ijrc/345/9121', key:'nguyen2026shieldlink',
+      versionUrl:'https://doi.org/10.36227/techrxiv.176800047.72137558/v1', versionLabel:'original TechRxiv preprint ↗'
     },
     'preons-2': {
       title:'Dual-Polarity Preons II: Parameter-Space Constraints and Viable Regimes for an Emergent Acoustic Metric',
@@ -1186,7 +1194,7 @@
       doi:'10.21203/rs.3.rs-7948428/v1', url:'https://doi.org/10.21203/rs.3.rs-7948428/v1', key:'nguyen2025hierarchies'
     },
     'quantum-walk': {
-      title:'A Quantum Walk-Inspired Algorithm for Dynamic Resource Allocation in Cloud Computing',
+      title:'A Quantum Walk-Inspired Algorithm for Dynamic Resource Allocation in Cloud Computing: Implications for Sustainable Business Practices',
       year:'2025', venue:'TechRxiv', type:'Preprint', status:'Version 1', topic:'cloud systems',
       doi:'10.36227/techrxiv.176316003.37717757/v1', url:'https://doi.org/10.36227/techrxiv.176316003.37717757/v1', key:'nguyen2025quantumwalk'
     },
@@ -1356,6 +1364,15 @@
     bibBtn.textContent = 'copy BibTeX';
     bibBtn.addEventListener('click',()=>copyText(paperBibtex(id), bibBtn));
     noteLinks.append(doiBtn, bibBtn);
+    if(rec.versionUrl){
+      const versionLink = document.createElement('a');
+      versionLink.className = 'btn paper-action';
+      versionLink.href = rec.versionUrl;
+      versionLink.target = '_blank';
+      versionLink.rel = 'noopener';
+      versionLink.textContent = rec.versionLabel;
+      noteLinks.append(versionLink);
+    }
     noteOpener = document.activeElement;
     noteModal.classList.add('open');
     noteModal.setAttribute('aria-hidden','false');
