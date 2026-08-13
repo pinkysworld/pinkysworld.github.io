@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-view="executive">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,6 +21,12 @@
 <meta name="twitter:title" content="Michél Nguyen — researcher, engineer, operator">
 <meta name="twitter:description" content="Database engines, security platforms, iOS & macOS apps, and cybersecurity research — built end-to-end from one workstation in Germany.">
 <meta name="twitter:image" content="https://minh.systems/assets/og-card.png">
+<script>
+  try {
+    const savedView = localStorage.getItem('minh.systems:view');
+    if(savedView === 'executive' || savedView === 'operator') document.documentElement.dataset.view = savedView;
+  } catch(_err) {}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
@@ -750,6 +756,176 @@
     .section-mark h2{font-size:28px;line-height:1.08}
     .paper-card{min-height:0}
   }
+
+  /* ===== DUAL VIEW: EXECUTIVE / OPERATOR ===== */
+  html[data-view="executive"] body{background:#f4f2ed;color:#17211f;font-family:var(--sans)}
+  html[data-view="executive"] body::before,html[data-view="executive"] body::after{opacity:0}
+  html[data-view="executive"] body > .topbar,
+  html[data-view="executive"] body > .nav,
+  html[data-view="executive"] body > main#home,
+  html[data-view="executive"] body > footer,
+  html[data-view="executive"] body > .note-modal,
+  html[data-view="executive"] body > .cmdk{display:none!important}
+  html[data-view="operator"] .executive-site{display:none}
+
+  .view-switcher{position:fixed;right:18px;bottom:18px;z-index:120;display:grid;grid-template-columns:1fr 1fr;gap:3px;padding:4px;border:1px solid rgba(40,53,50,.18);border-radius:999px;background:rgba(250,249,246,.9);box-shadow:0 12px 38px rgba(17,31,28,.14);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+  .view-switcher button{appearance:none;border:0;border-radius:999px;background:transparent;color:#66706d;padding:9px 13px;font:600 10px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:background .2s,color .2s,box-shadow .2s}
+  html[data-view="executive"] .view-switcher [data-view-target="executive"]{background:#193f37;color:#fff;box-shadow:0 5px 14px rgba(25,63,55,.2)}
+  html[data-view="operator"] .view-switcher{border-color:var(--line-2);background:rgba(17,20,22,.9);box-shadow:0 12px 38px rgba(0,0,0,.35)}
+  html[data-view="operator"] .view-switcher button{color:var(--mute);font-family:var(--mono)}
+  html[data-view="operator"] .view-switcher [data-view-target="operator"]{background:var(--green);color:var(--bg)}
+  .view-switcher button:focus-visible{outline:3px solid #d69c50;outline-offset:2px}
+
+  .view-loader{position:fixed;inset:0;z-index:200;display:grid;place-items:center;background:#f4f2ed;color:#193f37;transition:opacity .45s ease,visibility .45s ease}
+  .view-loader.is-done{opacity:0;visibility:hidden;pointer-events:none}
+  .view-loader-card{width:min(520px,calc(100vw - 48px));text-align:center}
+  .view-loader-infinity{display:block;width:min(260px,66vw);height:auto;margin:0 auto 28px;overflow:visible}
+  .view-loader-infinity .infinity-base{fill:none;stroke:rgba(25,63,55,.13);stroke-width:5;stroke-linecap:round;stroke-linejoin:round}
+  .view-loader-infinity .infinity-progress{fill:none;stroke:url(#infinity-gradient);stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:82 318;filter:drop-shadow(0 0 5px rgba(25,63,55,.22));animation:infinity-flow 1.45s linear infinite}
+  .view-loader-infinity .infinity-stop-a{stop-color:#193f37}.view-loader-infinity .infinity-stop-b{stop-color:#b98746}
+  .view-loader-kicker{font-size:10px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:#78817e}
+  .view-loader-title{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  html[data-view="operator"] .view-loader{background:#0b0d0e;color:var(--green)}
+  html[data-view="operator"] .view-loader-infinity .infinity-base{stroke:rgba(127,212,159,.13)}
+  html[data-view="operator"] .view-loader-infinity .infinity-progress{filter:drop-shadow(0 0 5px rgba(127,212,159,.24))}
+  html[data-view="operator"] .view-loader-infinity .infinity-stop-a{stop-color:var(--green)}html[data-view="operator"] .view-loader-infinity .infinity-stop-b{stop-color:var(--cyan)}
+  html[data-view="operator"] .view-loader-kicker{color:var(--mute);font-family:var(--mono)}
+  @keyframes infinity-flow{to{stroke-dashoffset:-400}}
+
+  .executive-site{--ex-ink:#17211f;--ex-deep:#193f37;--ex-soft:#53615d;--ex-line:#d7d5ce;--ex-paper:#faf9f6;--ex-bg:#f4f2ed;--ex-accent:#b98746;min-height:100vh;padding-left:78px;background:var(--ex-bg);color:var(--ex-ink);font-family:var(--sans)}
+  .ex-shell{width:min(1040px,calc(100% - 56px));margin:0 auto}
+  .ex-nav{position:fixed;inset:0 auto 0 0;width:78px;z-index:130;overflow:hidden;border-right:1px solid rgba(23,33,31,.13);background:rgba(250,249,246,.97);box-shadow:0 0 0 rgba(23,33,31,0);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);transition:width .24s ease,box-shadow .24s ease}
+  .ex-nav:hover,.ex-nav:focus-within,.ex-nav.is-open{width:232px;box-shadow:18px 0 44px rgba(23,33,31,.11)}
+  .ex-nav-inner{width:232px;height:100%;padding:30px 24px;display:flex;flex-direction:column;align-items:stretch;gap:0}
+  .ex-wordmark{display:flex;align-items:center;gap:12px;white-space:nowrap;font:600 14px/1 var(--sans);letter-spacing:.02em}
+  .ex-wordmark > span:last-child{opacity:0;transform:translateX(-6px);transition:opacity .18s ease,transform .18s ease}
+  .ex-monogram{width:34px;height:34px;flex:0 0 34px;border-radius:50%;display:grid;place-items:center;background:var(--ex-deep);color:#fff;font:600 11px/1 var(--sans);letter-spacing:.02em}
+  .ex-nav-role{margin:20px 0 0;opacity:0;white-space:nowrap;font-size:11px;line-height:1.55;color:var(--ex-soft);transition:opacity .18s ease}
+  .ex-nav-links{display:grid;gap:0;margin-top:56px;border-top:1px solid var(--ex-line)}
+  .ex-nav-links a{display:grid;grid-template-columns:26px 1fr;gap:8px;padding:13px 0;border-bottom:1px solid var(--ex-line);white-space:nowrap;font-size:0;font-weight:600;letter-spacing:.04em;color:var(--ex-soft)}
+  .ex-nav-links a span{font-size:9px;color:#9a9f9d}
+  .ex-nav-links a:hover,.ex-nav-links a.active{color:var(--ex-deep)}
+  .ex-nav-links a.active{font-weight:700}
+  .ex-menu-toggle{display:none;appearance:none;border:1px solid var(--ex-deep);border-radius:999px;background:transparent;padding:9px 13px;color:var(--ex-deep);font:700 10px/1 var(--sans);letter-spacing:.09em;text-transform:uppercase;cursor:pointer}
+  .ex-nav-foot{margin-top:auto;padding-top:24px;border-top:1px solid var(--ex-line);display:grid;gap:9px;opacity:0;white-space:nowrap;transition:opacity .18s ease}
+  .ex-nav-foot a{font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ex-soft)}
+  .ex-nav-foot a:hover{color:var(--ex-deep)}
+  .ex-nav-foot p{margin-top:10px;font-size:10px;line-height:1.5;color:#8a918e}
+  .ex-nav:hover .ex-wordmark > span:last-child,.ex-nav:focus-within .ex-wordmark > span:last-child,.ex-nav.is-open .ex-wordmark > span:last-child{opacity:1;transform:none}
+  .ex-nav:hover .ex-nav-role,.ex-nav:focus-within .ex-nav-role,.ex-nav.is-open .ex-nav-role,.ex-nav:hover .ex-nav-foot,.ex-nav:focus-within .ex-nav-foot,.ex-nav.is-open .ex-nav-foot{opacity:1}
+  .ex-nav:hover .ex-nav-links a,.ex-nav:focus-within .ex-nav-links a,.ex-nav.is-open .ex-nav-links a{font-size:11px}
+
+  .ex-hero{min-height:660px;display:grid;grid-template-columns:minmax(0,1.18fr) minmax(300px,.82fr);gap:58px;align-items:center;padding:68px 0}
+  .ex-eyebrow{display:flex;align-items:center;gap:12px;color:var(--ex-deep);font-size:10px;font-weight:750;letter-spacing:.2em;text-transform:uppercase}
+  .ex-eyebrow::before{content:"";width:36px;height:1px;background:var(--ex-accent)}
+  .ex-hero h1{margin:24px 0 18px;font:550 clamp(40px,4.4vw,56px)/1.06 var(--sans);letter-spacing:-.042em;max-width:690px;text-wrap:balance}
+  .ex-hero h1 em{font-style:normal;font-weight:400;color:var(--ex-deep)}
+  .ex-lead{font-size:clamp(17px,1.55vw,20px);line-height:1.55;color:var(--ex-soft);max-width:660px;text-wrap:pretty}
+  .ex-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}
+  .ex-button{display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:14px 19px;border:1px solid var(--ex-deep);border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ex-deep);transition:transform .2s,background .2s,color .2s}
+  .ex-button:hover{transform:translateY(-2px);background:var(--ex-deep);color:#fff}
+  .ex-button.primary{background:var(--ex-deep);color:#fff}.ex-button.primary:hover{background:#235448}
+  .ex-availability{display:flex;align-items:center;gap:9px;margin-top:25px;color:var(--ex-soft);font-size:12px}
+  .ex-availability i{width:8px;height:8px;border-radius:50%;background:#3c8a68;box-shadow:0 0 0 5px rgba(60,138,104,.11)}
+
+  .ex-profile-card{align-self:stretch;display:flex;flex-direction:column;justify-content:space-between;padding:32px;border:1px solid var(--ex-line);background:rgba(250,249,246,.7);position:relative;overflow:hidden}
+  .ex-profile-card::before{content:"";position:absolute;right:-46px;top:-46px;width:120px;height:120px;border:1px solid rgba(185,135,70,.2);border-radius:50%}
+  .ex-card-label{font-size:9px;font-weight:750;letter-spacing:.2em;text-transform:uppercase;color:var(--ex-soft)}
+  .ex-card-title{margin:56px 0 24px;font:500 23px/1.3 var(--sans);letter-spacing:-.025em;max-width:340px}
+  .ex-card-list{list-style:none;display:grid;gap:0}
+  .ex-card-list li{display:grid;grid-template-columns:24px 1fr;gap:10px;padding:13px 0;border-top:1px solid var(--ex-line);font-size:13px;line-height:1.45;color:var(--ex-soft)}
+  .ex-card-list b{color:var(--ex-deep);font-weight:700}
+  .ex-card-proof{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ex-line);margin-top:30px;padding-top:22px;gap:14px}
+  .ex-card-proof strong{display:block;font:600 24px/1 var(--sans);letter-spacing:-.03em;color:var(--ex-deep)}
+  .ex-card-proof span{display:block;margin-top:7px;font-size:9px;line-height:1.35;letter-spacing:.11em;text-transform:uppercase;color:var(--ex-soft)}
+
+  .ex-trust{border-top:1px solid var(--ex-line);border-bottom:1px solid var(--ex-line);background:var(--ex-paper)}
+  .ex-trust-grid{display:grid;grid-template-columns:1.2fr repeat(4,1fr)}
+  .ex-trust-grid > *{min-height:115px;padding:25px;border-right:1px solid var(--ex-line);display:flex;flex-direction:column;justify-content:center}
+  .ex-trust-grid > *:last-child{border-right:0}
+  .ex-trust-label{font-size:10px;font-weight:750;letter-spacing:.16em;text-transform:uppercase;color:var(--ex-soft)}
+  .ex-trust-item strong{font:600 14px/1.35 var(--sans);letter-spacing:-.01em}.ex-trust-item span{margin-top:7px;font-size:11px;color:var(--ex-soft)}
+
+  .ex-section{padding:88px 0;border-bottom:1px solid var(--ex-line)}
+  .ex-section-head{display:grid;grid-template-columns:190px 1fr;gap:42px;margin-bottom:56px}
+  .ex-section-no{font-size:10px;font-weight:750;letter-spacing:.19em;text-transform:uppercase;color:var(--ex-deep)}
+  .ex-section-head h2{font:500 clamp(34px,4vw,48px)/1.08 var(--sans);letter-spacing:-.04em;max-width:760px}
+  .ex-section-head p{margin-top:18px;max-width:670px;color:var(--ex-soft);font-size:16px;line-height:1.65}
+  .ex-capability-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ex-line);border-left:1px solid var(--ex-line)}
+  .ex-capability{min-height:225px;padding:29px;border-right:1px solid var(--ex-line);border-bottom:1px solid var(--ex-line);background:rgba(250,249,246,.45)}
+  .ex-capability .n{font:600 12px/1 var(--sans);letter-spacing:.08em;color:var(--ex-accent)}
+  .ex-capability h3{margin:38px 0 13px;font:600 18px/1.3 var(--sans);letter-spacing:-.02em}.ex-capability p{font-size:13px;line-height:1.65;color:var(--ex-soft)}
+
+  .ex-work-list{border-top:1px solid var(--ex-line)}
+  .ex-work{display:grid;grid-template-columns:170px 1fr auto;gap:34px;align-items:center;padding:35px 0;border-bottom:1px solid var(--ex-line);transition:padding .2s,background .2s}
+  .ex-work:hover{padding-left:14px;padding-right:14px;background:rgba(250,249,246,.7)}
+  .ex-work-meta{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ex-soft)}
+  .ex-work h3{font:600 21px/1.25 var(--sans);letter-spacing:-.025em}.ex-work p{margin-top:7px;max-width:690px;color:var(--ex-soft);font-size:13px;line-height:1.55}.ex-work-arrow{font:300 25px/1 var(--sans);color:var(--ex-deep)}
+  .ex-more{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-top:28px}.ex-more p{font-size:13px;color:var(--ex-soft)}
+
+  .ex-evidence{display:grid;grid-template-columns:1fr 1fr;gap:70px}.ex-evidence h3{font:600 21px/1.3 var(--sans);letter-spacing:-.025em;margin-bottom:24px}
+  .ex-timeline{border-top:1px solid var(--ex-line)}
+  .ex-timeline-item{display:grid;grid-template-columns:95px 1fr;gap:24px;padding:23px 0;border-bottom:1px solid var(--ex-line)}
+  .ex-timeline-item time{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ex-deep)}
+  .ex-timeline-item strong{font:600 14px/1.45 var(--sans);letter-spacing:-.01em}.ex-timeline-item p{margin-top:5px;font-size:12px;line-height:1.55;color:var(--ex-soft)}
+  .ex-identity{padding:34px;border:1px solid var(--ex-line);background:var(--ex-paper)}.ex-identity p{font-size:16px;line-height:1.7;color:var(--ex-soft)}
+  .ex-id-links{display:grid;grid-template-columns:1fr 1fr;margin-top:30px;border-top:1px solid var(--ex-line);border-left:1px solid var(--ex-line)}
+  .ex-id-links a{padding:17px;border-right:1px solid var(--ex-line);border-bottom:1px solid var(--ex-line);font-size:10px;font-weight:750;letter-spacing:.1em;text-transform:uppercase;color:var(--ex-deep)}
+  .ex-id-links a:hover{background:var(--ex-deep);color:#fff}
+
+  .ex-contact{padding:94px 0;background:var(--ex-deep);color:#fff}.ex-contact-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:74px;align-items:start}
+  .ex-contact h2{font:500 clamp(38px,4.5vw,56px)/1.08 var(--sans);letter-spacing:-.045em;max-width:760px}.ex-contact h2 em{color:#d6c39f;font-style:normal;font-weight:400}
+  .ex-contact p{margin-top:25px;color:#c4d0cc;font-size:16px;line-height:1.65;max-width:620px}
+  .ex-contact-links{display:grid;margin-top:34px;border-top:1px solid rgba(255,255,255,.23)}
+  .ex-contact-links a{display:flex;justify-content:space-between;padding:17px 0;border-bottom:1px solid rgba(255,255,255,.23);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+  .ex-contact-links a:hover{color:#d6c39f}
+  .ex-form{padding:28px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.035)}
+  .ex-form-title{margin-bottom:22px;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#d6c39f}
+  .ex-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .ex-form-field{margin-bottom:16px}.ex-form-field.full{grid-column:1/-1}
+  .ex-form label{display:block;margin-bottom:7px;font-size:9px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#aebfba}
+  .ex-form input,.ex-form textarea{width:100%;border:1px solid rgba(255,255,255,.24);border-radius:0;background:rgba(0,0,0,.12);padding:11px 12px;color:#fff;font:13px/1.5 var(--sans)}
+  .ex-form input:focus,.ex-form textarea:focus{outline:2px solid #d6c39f;outline-offset:1px;border-color:transparent}.ex-form textarea{min-height:126px;resize:vertical}
+  .ex-form button{width:100%;border:1px solid #fff;background:#fff;color:var(--ex-deep);padding:13px;font:700 10px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
+  .ex-form button:hover{background:#d6c39f;border-color:#d6c39f}.ex-form button:disabled{opacity:.65;cursor:wait}
+  .ex-form-note{margin-top:12px!important;font-size:11px!important;line-height:1.5!important;color:#aebfba!important}
+  .ex-form-fallback{margin-top:14px;padding:12px;border:1px solid rgba(255,255,255,.2);font-size:11px;color:#d6c39f}.ex-form-fallback a{text-decoration:underline}
+  .ex-footer{padding:24px 0;background:#102c26;color:#9fb2ac;font-size:10px;letter-spacing:.08em;text-transform:uppercase}.ex-footer .ex-shell{display:flex;justify-content:space-between;gap:24px}
+
+  .ex-home-hub{padding:78px 0 86px}
+  .ex-home-hub-head{display:grid;grid-template-columns:190px 1fr;gap:42px;margin-bottom:38px}
+  .ex-home-hub-head h2{font:500 clamp(32px,3.6vw,44px)/1.1 var(--sans);letter-spacing:-.038em}
+  .ex-home-hub-head p{margin-top:14px;max-width:660px;color:var(--ex-soft);font-size:15px;line-height:1.65}
+  .ex-route-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ex-line);border-left:1px solid var(--ex-line)}
+  .ex-route-card{min-height:245px;padding:26px;display:flex;flex-direction:column;border-right:1px solid var(--ex-line);border-bottom:1px solid var(--ex-line);background:rgba(250,249,246,.56);transition:background .2s,transform .2s}
+  .ex-route-card:hover{background:var(--ex-paper);transform:translateY(-3px)}
+  .ex-route-card .n{font-size:10px;font-weight:700;letter-spacing:.12em;color:var(--ex-accent)}
+  .ex-route-card h3{margin-top:48px;font:600 21px/1.25 var(--sans);letter-spacing:-.025em}
+  .ex-route-card p{margin-top:10px;color:var(--ex-soft);font-size:13px;line-height:1.6}
+  .ex-route-card .arrow{margin-top:auto;padding-top:24px;font-size:19px;color:var(--ex-deep)}
+  .ex-home-contact{display:flex;align-items:center;justify-content:space-between;gap:32px;margin-top:34px;padding:27px 0;border-top:1px solid var(--ex-line);border-bottom:1px solid var(--ex-line)}
+  .ex-home-contact strong{display:block;font:600 16px/1.35 var(--sans)}
+  .ex-home-contact span{display:block;margin-top:6px;color:var(--ex-soft);font-size:12px}
+
+  @media(max-width:900px){
+    .executive-site{padding-left:58px}.ex-nav{width:58px}.ex-nav:hover,.ex-nav:focus-within,.ex-nav.is-open{width:220px}
+    .ex-nav-inner{width:220px;padding:20px 12px}.ex-wordmark > span:last-child{font-size:13px}.ex-menu-toggle{position:absolute;top:70px;left:12px;width:34px;height:34px;display:grid;place-items:center;padding:0;font-size:0}
+    .ex-menu-toggle::before{content:"☰";font-size:14px}.ex-nav.is-open .ex-menu-toggle::before{content:"×";font-size:18px}.ex-nav-role{margin-top:70px}.ex-nav-links{margin-top:32px}.ex-nav-links a{padding:12px 0}
+    .ex-hero{grid-template-columns:1fr;gap:40px;min-height:auto;padding:72px 0}.ex-profile-card{min-height:520px}
+    .ex-trust-grid{grid-template-columns:1fr 1fr}.ex-trust-grid > *{border-bottom:1px solid var(--ex-line)}.ex-capability-grid{grid-template-columns:1fr 1fr}
+    .ex-evidence,.ex-contact-grid{grid-template-columns:1fr;gap:48px}.ex-route-grid{grid-template-columns:1fr 1fr}.ex-route-card:last-child{grid-column:1/-1;min-height:190px}
+  }
+  @media(max-width:640px){
+    .ex-shell{width:min(100% - 28px,1180px)}.ex-nav-cta{display:none}
+    .ex-hero{padding:52px 0 58px}.ex-hero h1{font-size:38px;line-height:1.08}.ex-lead{font-size:16px}.ex-actions{display:grid}.ex-button{width:100%}
+    .ex-profile-card{padding:24px;min-height:auto}.ex-card-title{margin-top:52px}.ex-card-proof{grid-template-columns:1fr}.ex-trust-grid{grid-template-columns:1fr 1fr}
+    .ex-trust-grid > *{padding:18px;min-height:100px}.ex-section{padding:68px 0}.ex-section-head{grid-template-columns:1fr;gap:15px;margin-bottom:36px}.ex-section-head h2{font-size:32px}
+    .ex-capability-grid{grid-template-columns:1fr}.ex-capability{min-height:205px}.ex-work{grid-template-columns:1fr auto;gap:15px}.ex-work-meta{grid-column:1/-1}.ex-work h3{font-size:19px}.ex-work p{font-size:12px}
+    .ex-more{align-items:flex-start;flex-direction:column}.ex-timeline-item{grid-template-columns:72px 1fr}.ex-id-links{grid-template-columns:1fr}.ex-contact{padding:68px 0}.ex-contact h2{font-size:36px}.ex-form{padding:20px}.ex-form-grid{grid-template-columns:1fr}.ex-form-field.full{grid-column:auto}.ex-footer .ex-shell{flex-direction:column}
+    .ex-home-hub{padding:58px 0 66px}.ex-home-hub-head{grid-template-columns:1fr;gap:13px}.ex-home-hub-head h2{font-size:31px}.ex-route-grid{grid-template-columns:1fr}.ex-route-card,.ex-route-card:last-child{grid-column:auto;min-height:210px}.ex-home-contact{align-items:flex-start;flex-direction:column}
+    .view-switcher{right:10px;bottom:10px}.view-switcher button{padding:8px 10px;font-size:9px}
+  }
+  @media(prefers-reduced-motion:reduce){.view-loader-infinity .infinity-progress{animation:none;stroke-dasharray:none}}
 </style>
 <!-- Cookieless analytics (GoatCounter): no cookies, no personal data,
      no consent banner required under TTDSG. -->
@@ -757,6 +933,113 @@
         async src="https://gc.zgo.at/count.js"></script>
 </head>
 <body data-screen-label="Direction B — Operator">
+
+<div class="view-loader" id="view-loader" role="status" aria-live="polite">
+  <div class="view-loader-card">
+    <svg class="view-loader-infinity" viewBox="0 0 160 100" aria-hidden="true">
+      <defs><linearGradient id="infinity-gradient" x1="0" y1="0" x2="1" y2="1"><stop class="infinity-stop-a" offset="0"></stop><stop class="infinity-stop-b" offset="1"></stop></linearGradient></defs>
+      <path class="infinity-base" d="M80 50 C66 27 55 22 44 22 C28.5 22 16 34.5 16 50 C16 65.5 28.5 78 44 78 C55 78 66 73 80 50 C94 27 105 22 116 22 C131.5 22 144 34.5 144 50 C144 65.5 131.5 78 116 78 C105 78 94 73 80 50 Z" pathLength="400"></path>
+      <path class="infinity-progress" d="M80 50 C66 27 55 22 44 22 C28.5 22 16 34.5 16 50 C16 65.5 28.5 78 44 78 C55 78 66 73 80 50 C94 27 105 22 116 22 C131.5 22 144 34.5 144 50 C144 65.5 131.5 78 116 78 C105 78 94 73 80 50 Z" pathLength="400"></path>
+    </svg>
+    <div class="view-loader-kicker">minh.systems</div>
+    <div class="view-loader-title" id="view-loader-title">Loading professional profile</div>
+  </div>
+</div>
+
+<div class="view-switcher" role="group" aria-label="Choose portfolio view">
+  <button type="button" data-view-target="executive" aria-pressed="true">Executive</button>
+  <button type="button" data-view-target="operator" aria-pressed="false">Operator</button>
+</div>
+
+<div class="executive-site" id="executive-view">
+  <nav class="ex-nav" aria-label="Executive portfolio navigation">
+    <div class="ex-shell ex-nav-inner">
+      <a class="ex-wordmark" href="#ex-home" aria-label="Michél Nguyen, executive profile home">
+        <span class="ex-monogram" aria-hidden="true">MN</span>
+        <span>Michél Nguyen</span>
+      </a>
+      <button class="ex-menu-toggle" type="button" aria-expanded="false" aria-controls="executive-navigation">Menu</button>
+      <p class="ex-nav-role">Independent researcher<br>and systems engineer</p>
+      <div class="ex-nav-links" id="executive-navigation">
+        <a class="active" href="#ex-home"><span>01</span>Home</a>
+        <a href="executive/profile.html"><span>02</span>Profile</a>
+        <a href="executive/projects.html"><span>03</span>Projects</a>
+        <a href="executive/academic.html"><span>04</span>Academic</a>
+        <a href="executive/publications.html"><span>05</span>Publications</a>
+        <a href="executive/contact.html"><span>06</span>Contact</a>
+      </div>
+      <div class="ex-nav-foot">
+        <a href="https://orcid.org/0000-0001-6834-4422" target="_blank" rel="noopener">ORCID ↗</a>
+        <a href="https://github.com/pinkysworld" target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="https://www.linkedin.com/in/michelnguyengermany/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <p>Thuringia, Germany<br>Remote · CET/CEST</p>
+      </div>
+    </div>
+  </nav>
+
+  <header class="ex-shell ex-hero" id="ex-home">
+    <div>
+      <div class="ex-eyebrow">Systems · security · applied research</div>
+      <h1>Researcher and systems engineer.</h1>
+      <p class="ex-lead">I work on database systems, security infrastructure, distributed storage, and Apple-platform software. My projects combine implementation, technical documentation, and research.</p>
+      <div class="ex-actions">
+        <a class="ex-button primary" href="executive/projects.html">Selected projects <span aria-hidden="true">↗</span></a>
+        <a class="ex-button" href="executive/publications.html">Publications <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="ex-availability"><i aria-hidden="true"></i> Open to systems engineering, technical delivery, and research roles · Q3 2026</div>
+    </div>
+
+    <aside class="ex-profile-card" aria-label="Professional profile at a glance">
+      <div>
+        <div class="ex-card-label">Current work · August 2026</div>
+        <div class="ex-card-title">Systems work carried from design and implementation through documentation and release.</div>
+        <ul class="ex-card-list">
+          <li><b>01</b><span>SkeinDB database engine and compatibility work</span></li>
+          <li><b>02</b><span>Wardex private-cloud XDR and SIEM platform</span></li>
+          <li><b>03</b><span>Cybersecurity research and formal proof work</span></li>
+        </ul>
+      </div>
+      <div class="ex-card-proof" aria-label="Portfolio summary">
+        <div><strong data-paper-total>13</strong><span>research papers</span></div>
+        <div><strong>18</strong><span>public projects</span></div>
+        <div><strong>3</strong><span>flagship systems</span></div>
+      </div>
+    </aside>
+  </header>
+
+  <section class="ex-trust" aria-label="Professional identifiers and current work">
+    <div class="ex-shell ex-trust-grid">
+      <div class="ex-trust-label">Selected credentials &amp; current focus</div>
+      <a class="ex-trust-item" href="https://orcid.org/0000-0001-6834-4422" target="_blank" rel="noopener"><strong>ORCID</strong><span>0000-0001-6834-4422 ↗</span></a>
+      <a class="ex-trust-item" href="https://scholar.google.com/citations?user=6HheUI4AAAAJ" target="_blank" rel="noopener"><strong>Google Scholar</strong><span>Publication record ↗</span></a>
+      <div class="ex-trust-item"><strong>B.Sc. Computer Science</strong><span>University of the People · active</span></div>
+      <div class="ex-trust-item"><strong>Cybersecurity research</strong><span>Pre-doctoral preparation · active</span></div>
+    </div>
+  </section>
+
+  <section class="ex-shell ex-home-hub" aria-labelledby="ex-sections-title">
+    <div class="ex-home-hub-head">
+      <div class="ex-section-no">Portfolio</div>
+      <div>
+        <h2 id="ex-sections-title">Choose a section</h2>
+        <p>Professional profile, project work, and academic record are separated into focused pages for faster review.</p>
+      </div>
+    </div>
+    <div class="ex-route-grid">
+      <a class="ex-route-card" href="executive/profile.html"><span class="n">01</span><h3>Professional profile</h3><p>Working focus, core strengths, current role direction, and delivery approach.</p><span class="arrow" aria-hidden="true">→</span></a>
+      <a class="ex-route-card" href="executive/projects.html"><span class="n">02</span><h3>Projects</h3><p>Six systems and research projects, each with a dedicated technical profile.</p><span class="arrow" aria-hidden="true">→</span></a>
+      <a class="ex-route-card" href="executive/academic.html"><span class="n">03</span><h3>Academic record</h3><p>Education, research preparation, academic service, publications, and identifiers.</p><span class="arrow" aria-hidden="true">→</span></a>
+    </div>
+    <div class="ex-home-contact">
+      <div><strong>Recruiting, research, or technical collaboration</strong><span>Email is the most direct route. Typical response time is within 72 hours.</span></div>
+      <a class="ex-button" href="executive/contact.html">Contact <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+  <footer class="ex-footer">
+    <div class="ex-shell"><span>© 2026 Michél Nguyen · Germany</span><span>Executive view · Switch to Operator for the full technical record</span></div>
+  </footer>
+</div>
 
 <!-- TOP STATUS BAR -->
 <div class="topbar">
@@ -1069,21 +1352,21 @@
       <span class="arr">→</span>
     </a>
 
-    <a class="ptr" data-kind="ios" href="https://minh.systems/Rootling/" target="_blank" rel="noopener">
+      <a class="ptr" data-kind="ios" href="https://minh.systems/Rootling/" target="_blank" rel="noopener">
       <span class="i">10</span>
       <div class="name"><strong>rootling</strong><span>swift · cloudkit</span></div>
       <div class="desc">Plant propagation tracker. Visual journals, weather context, reminders, export.</div>
       <span class="kind ios">iOS</span>
-      <span class="status">live · v1.1</span>
+        <span class="status">live · v1.1</span>
       <span class="arr">→</span>
     </a>
 
-    <a class="ptr" data-kind="ios" href="https://mushbloom.minh.systems/" target="_blank" rel="noopener">
+      <a class="ptr" data-kind="ios" href="https://mushbloom.minh.systems/" target="_blank" rel="noopener">
       <span class="i">11</span>
       <div class="name"><strong>mushbloom</strong><span>swift · coreml · icloud</span></div>
       <div class="desc">Mushroom cultivation companion. Strain guides, grow journals, AI contam scans, PDF export.</div>
       <span class="kind ios">iOS</span>
-      <span class="status">live · v1.1</span>
+        <span class="status">app store · v1.1</span>
       <span class="arr">→</span>
     </a>
 
@@ -1469,6 +1752,123 @@
 </div>
 
 <script>
+  // Two complete portfolio views: Executive is the first-visit default, while
+  // an explicit choice is remembered on this device.
+  const viewLoader = document.getElementById('view-loader');
+  const viewLoaderTitle = document.getElementById('view-loader-title');
+  const executiveView = document.getElementById('executive-view');
+  const operatorRoots = [...document.querySelectorAll('body > .topbar, body > .nav, body > main#home, body > footer')];
+  const themeColor = document.querySelector('meta[name="theme-color"]');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function applyPortfolioView(view, persist = true){
+    const next = view === 'operator' ? 'operator' : 'executive';
+    document.documentElement.dataset.view = next;
+    document.body.dataset.screenLabel = next === 'executive' ? 'Executive profile' : 'Direction B — Operator';
+    document.querySelectorAll('[data-view-target]').forEach(button=>{
+      button.setAttribute('aria-pressed', String(button.dataset.viewTarget === next));
+    });
+    executiveView.setAttribute('aria-hidden', String(next !== 'executive'));
+    executiveView.inert = next !== 'executive';
+    operatorRoots.forEach(root=>{ root.inert = next !== 'operator'; });
+    if(themeColor) themeColor.setAttribute('content', next === 'executive' ? '#f4f2ed' : '#0b0d0e');
+    if(persist){
+      try { localStorage.setItem('minh.systems:view', next); } catch(_err) {}
+    }
+  }
+
+  function finishViewLoader(delay = 0){
+    window.setTimeout(()=>{
+      viewLoader.classList.add('is-done');
+      document.body.style.overflow = '';
+    }, delay);
+  }
+
+  const initialPortfolioView = document.documentElement.dataset.view === 'operator' ? 'operator' : 'executive';
+  viewLoaderTitle.textContent = initialPortfolioView === 'operator' ? 'Loading operator view' : 'Loading professional profile';
+  applyPortfolioView(initialPortfolioView, false);
+  document.body.style.overflow = 'hidden';
+  finishViewLoader(reduceMotion ? 80 : 1150);
+
+  document.querySelectorAll('[data-view-target]').forEach(button=>{
+    button.addEventListener('click',()=>{
+      const target = button.dataset.viewTarget;
+      if(target === document.documentElement.dataset.view) return;
+      viewLoaderTitle.textContent = target === 'executive' ? 'Loading professional profile' : 'Loading operator view';
+      viewLoader.classList.remove('is-done');
+      document.body.style.overflow = 'hidden';
+      window.setTimeout(()=>{
+        applyPortfolioView(target);
+        window.scrollTo({top:0,behavior:'instant'});
+        finishViewLoader(reduceMotion ? 80 : 620);
+      }, reduceMotion ? 20 : 260);
+    });
+  });
+
+  const executiveNav = document.querySelector('.ex-nav');
+  const executiveMenuButton = document.querySelector('.ex-menu-toggle');
+  if(executiveNav && executiveMenuButton){
+    executiveMenuButton.addEventListener('click',()=>{
+      const open = executiveNav.classList.toggle('is-open');
+      executiveMenuButton.setAttribute('aria-expanded',String(open));
+    });
+    executiveNav.querySelectorAll('.ex-nav-links a').forEach(link=>link.addEventListener('click',()=>{
+      executiveNav.classList.remove('is-open');
+      executiveMenuButton.setAttribute('aria-expanded','false');
+    }));
+  }
+
+  const executiveNavLinks = [...document.querySelectorAll('.ex-nav-links a[href^="#"]')];
+  function syncExecutiveNav(){
+    if(document.documentElement.dataset.view !== 'executive') return;
+    const y = window.scrollY + 180;
+    let activeId = 'ex-home';
+    executiveNavLinks.forEach(link=>{
+      const section = document.querySelector(link.getAttribute('href'));
+      if(section && section.offsetTop <= y) activeId = section.id;
+    });
+    executiveNavLinks.forEach(link=>link.classList.toggle('active', link.getAttribute('href') === '#'+activeId));
+  }
+  window.addEventListener('scroll',syncExecutiveNav,{passive:true});
+  syncExecutiveNav();
+
+  const executiveContactForm = document.getElementById('ex-contact-form');
+  if(executiveContactForm){
+    const executiveContactButton = executiveContactForm.querySelector('button[type="submit"]');
+    const executiveContactNote = document.getElementById('ex-form-note');
+    const executiveContactFallback = document.getElementById('ex-form-fallback');
+    executiveContactForm.addEventListener('submit',(event)=>{
+      event.preventDefault();
+      const trap = document.getElementById('ex-cf-company');
+      if(trap && trap.value){ executiveContactForm.reset(); return; }
+      const payload = {
+        name:document.getElementById('ex-cf-name').value.trim(),
+        email:document.getElementById('ex-cf-email').value.trim(),
+        subject:document.getElementById('ex-cf-subject').value.trim() || 'professional enquiry from minh.systems',
+        message:document.getElementById('ex-cf-message').value.trim(),
+        _gotcha:''
+      };
+      executiveContactButton.disabled = true;
+      executiveContactButton.textContent = 'Sending…';
+      executiveContactFallback.hidden = true;
+      fetch('https://formspree.io/f/xpqvglgq',{
+        method:'POST',headers:{'Accept':'application/json','Content-Type':'application/json'},body:JSON.stringify(payload)
+      }).then(response=>{
+        if(!response.ok) throw new Error('contact request failed');
+        executiveContactForm.reset();
+        executiveContactButton.textContent = 'Message sent';
+        executiveContactNote.textContent = 'Thank you. The message was accepted for delivery.';
+      }).catch(()=>{
+        executiveContactButton.textContent = 'Try again';
+        executiveContactFallback.hidden = false;
+        executiveContactNote.textContent = 'Your message is still in the form.';
+      }).finally(()=>{
+        executiveContactButton.disabled = false;
+        window.setTimeout(()=>{ if(executiveContactButton.textContent === 'Message sent') executiveContactButton.textContent = 'Send message'; },5000);
+      });
+    });
+  }
+
   // clock
   function tickClock(){
     const d = new Date();
