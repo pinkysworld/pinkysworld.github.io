@@ -810,8 +810,8 @@
   .ex-nav-links a[aria-current="page"]{color:var(--ex-deep);font-weight:750}
   .ex-nav-links a[aria-current="page"]::before{content:"";position:absolute;left:-26px;top:0;bottom:0;width:3px;background:var(--ex-accent)}
   .ex-nav-links a[aria-current="page"] .n{color:var(--ex-accent)}
-  .ex-nav-cta{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:22px;padding:12px;border:1px solid var(--ex-deep);background:var(--ex-deep);color:#fff;font:750 10px/1 var(--sans);letter-spacing:.09em;text-transform:uppercase;transition:background .2s ease}
-  .ex-nav-cta:hover{background:#235448}
+  .ex-nav-cta{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:20px;padding:11px;border:1px solid var(--ex-deep);border-radius:999px;background:transparent;color:var(--ex-deep);font:750 10px/1 var(--sans);letter-spacing:.09em;text-transform:uppercase;transition:background .2s ease,color .2s ease}
+  .ex-nav-cta:hover{background:var(--ex-deep);color:#fff}
   .ex-menu-toggle{display:inline-flex;align-items:center;gap:9px;appearance:none;border:1px solid var(--ex-deep);border-radius:999px;background:transparent;padding:9px 14px;color:var(--ex-deep);font:750 10px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
   .ex-menu-toggle:hover{background:var(--ex-deep);color:#fff}
   .ex-menu-bars{position:relative;width:13px;height:9px;flex:0 0 13px}
@@ -824,6 +824,11 @@
   .ex-nav-foot a{font-size:10px;font-weight:650;letter-spacing:.06em;text-transform:uppercase;color:var(--ex-soft)}
   .ex-nav-foot a:hover{color:var(--ex-deep)}
   .ex-nav-foot p{margin-top:8px;font-size:10px;line-height:1.5;color:var(--ex-faint)}
+  .ex-lang{display:inline-flex;align-self:flex-start;margin-bottom:14px;border:1px solid var(--ex-line);border-radius:999px;background:var(--ex-paper);padding:2px;gap:2px}
+  .ex-lang button{appearance:none;border:0;border-radius:999px;background:transparent;padding:6px 11px;color:var(--ex-soft);font:750 10px/1 var(--sans);letter-spacing:.08em;cursor:pointer;transition:background .18s ease,color .18s ease}
+  .ex-lang button:hover{color:var(--ex-deep)}
+  .ex-lang button[aria-pressed="true"]{background:var(--ex-deep);color:#fff}
+  .ex-topbar .ex-lang{margin-bottom:0;margin-left:auto}
   .ex-scrim{position:fixed;inset:0;z-index:110;background:rgba(17,31,28,.42);backdrop-filter:blur(2px);opacity:0;pointer-events:none;transition:opacity .26s ease}
   body.ex-nav-open .ex-scrim{opacity:1;pointer-events:auto}
 
@@ -909,8 +914,15 @@
   .ex-form button:hover{background:#d6c39f;border-color:#d6c39f}.ex-form button:disabled{opacity:.65;cursor:wait}
   .ex-form-note{margin-top:12px!important;font-size:11px!important;line-height:1.5!important;color:#aebfba!important}
   .ex-form-fallback{margin-top:14px;padding:12px;border:1px solid rgba(255,255,255,.2);font-size:11px;color:#d6c39f}.ex-form-fallback a{text-decoration:underline}
-  .ex-footer{padding:24px 0;background:#102c26;color:#9fb2ac;font-size:10px;letter-spacing:.08em;text-transform:uppercase}.ex-footer .ex-shell{display:flex;justify-content:space-between;gap:24px}
+  .executive-site{padding-bottom:0}
+  .ex-footer{padding:24px 0 76px;background:#102c26;color:#9fb2ac;font-size:10px;letter-spacing:.08em;text-transform:uppercase}.ex-footer .ex-shell{display:flex;justify-content:space-between;gap:24px}
 
+  .ex-route-card .arrow{transition:transform .2s ease}
+  .ex-route-card:hover .arrow{transform:translateX(4px)}
+  .ex-trust-item{transition:background .2s ease}
+  a.ex-trust-item:hover{background:rgba(250,249,246,.75)}
+  .ex-metric{transition:background .2s ease}
+  .ex-metric:hover{background:rgba(250,249,246,.6)}
   .ex-home-hub{padding:78px 0 86px}
   .ex-home-hub-head{display:grid;grid-template-columns:190px 1fr;gap:42px;margin-bottom:38px}
   .ex-home-hub-head h2{font:500 clamp(32px,3.6vw,44px)/1.1 var(--sans);letter-spacing:-.038em}
@@ -956,7 +968,7 @@
      no consent banner required under TTDSG. -->
 <script data-goatcounter="https://minhsystems.goatcounter.com/count"
         async src="https://gc.zgo.at/count.js"></script>
-<script defer src="executive/i18n.js"></script>
+<script defer src="executive/i18n.js?v=4edc3224"></script>
 </head>
 <body data-screen-label="Direction B — Operator">
 
@@ -993,7 +1005,6 @@
         <span>Michél Nguyen</span>
       </a>
       <p class="ex-nav-role">Service delivery &amp; project management<br>Applied computer-science research</p>
-      <div class="ex-lang" role="group" aria-label="Language / Sprache" data-i18n-skip><button type="button" data-lang="en" aria-pressed="true">EN</button><button type="button" data-lang="de" aria-pressed="false">DE</button></div>
       <nav class="ex-nav-links" aria-label="Executive portfolio pages">
         <a href="#ex-home" aria-current="page"><span class="n">01</span><span>Home</span></a>
         <a href="executive/profile.html"><span class="n">02</span><span>Profile</span></a>
@@ -1003,8 +1014,9 @@
         <a href="executive/publications.html"><span class="n">06</span><span>Publications</span></a>
         <a href="executive/contact.html"><span class="n">07</span><span>Contact</span></a>
       </nav>
-      <a class="ex-nav-cta" href="executive/contact.html">Start a conversation</a>
+      <a class="ex-nav-cta" href="executive/contact.html">Get in touch</a>
       <div class="ex-nav-foot">
+        <div class="ex-lang" role="group" aria-label="Language / Sprache" data-i18n-skip><button type="button" data-lang="en" aria-pressed="true">EN</button><button type="button" data-lang="de" aria-pressed="false">DE</button></div>
         <div class="lbl">Public record</div>
         <a href="https://orcid.org/0000-0001-6834-4422" target="_blank" rel="noopener">ORCID ↗</a>
         <a href="https://scholar.google.com/citations?user=6HheUI4AAAAJ" target="_blank" rel="noopener">Scholar ↗</a>

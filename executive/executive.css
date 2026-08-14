@@ -51,11 +51,11 @@ img,svg{max-width:100%}
 @keyframes ex-loader-dismiss{to{opacity:0;visibility:hidden;pointer-events:none}}
 
 /* ---------- Language switcher ---------- */
-.ex-lang{display:inline-flex;align-self:flex-start;margin-top:16px;border:1px solid var(--line);border-radius:999px;background:var(--paper);padding:2px;gap:2px}
+.ex-lang{display:inline-flex;align-self:flex-start;margin-bottom:16px;border:1px solid var(--line);border-radius:999px;background:var(--paper);padding:2px;gap:2px}
 .ex-lang button{appearance:none;border:0;border-radius:999px;background:transparent;padding:6px 11px;color:var(--soft);font-size:10px;font-weight:750;letter-spacing:.08em;cursor:pointer;transition:background .18s ease,color .18s ease}
 .ex-lang button:hover{color:var(--deep)}
 .ex-lang button[aria-pressed="true"]{background:var(--deep);color:#fff}
-.ex-topbar .ex-lang{margin-top:0;margin-left:auto}
+.ex-topbar .ex-lang{margin-bottom:0;margin-left:auto}
 
 /* ---------- Mobile top bar ---------- */
 .ex-topbar{display:none;position:fixed;top:0;left:0;right:0;z-index:120;align-items:center;justify-content:space-between;gap:14px;height:var(--topbar-h);padding:0 14px;border-bottom:1px solid var(--line);background:rgba(250,249,246,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
@@ -82,8 +82,10 @@ img,svg{max-width:100%}
 .ex-nav-links a[aria-current="page"]{color:var(--deep);font-weight:750}
 .ex-nav-links a[aria-current="page"]::before{content:"";position:absolute;left:-26px;top:0;bottom:0;width:3px;background:var(--accent)}
 .ex-nav-links a[aria-current="page"] .n{color:var(--accent)}
-.ex-nav-cta{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:22px;padding:12px;border:1px solid var(--deep);background:var(--deep);color:#fff;font-size:10px;font-weight:750;letter-spacing:.09em;text-transform:uppercase;transition:background .2s ease}
-.ex-nav-cta:hover{background:var(--deep-hi)}
+/* Outline rather than a solid block: the sidebar CTA sat heavier than the
+   navigation it belongs to, which pulled the eye away from the page links. */
+.ex-nav-cta{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:20px;padding:11px;border:1px solid var(--deep);border-radius:999px;background:transparent;color:var(--deep);font-size:10px;font-weight:750;letter-spacing:.09em;text-transform:uppercase;transition:background .2s ease,color .2s ease}
+.ex-nav-cta:hover{background:var(--deep);color:#fff}
 .ex-nav-foot{margin-top:auto;padding-top:24px;display:grid;gap:9px}
 .ex-nav-foot .lbl{padding-bottom:4px;border-bottom:1px solid var(--line);font-size:9px;font-weight:750;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
 .ex-nav-foot a{font-size:10px;font-weight:650;letter-spacing:.06em;text-transform:uppercase;color:var(--soft)}
@@ -380,6 +382,29 @@ body.nav-open .ex-scrim{opacity:1;pointer-events:auto}
   .ex-page-loader{animation-delay:0s!important}
   .ex-page-loader .infinity-progress{animation:none!important;stroke-dasharray:none}
 }
+
+/* ---------- Design polish ----------
+   Cards previously each had their own hover behaviour. One shared treatment:
+   the surface lifts to paper, the hairline warms, the arrow steps right. */
+.ex-project-card,.ex-area,.ex-cert,.ex-honor{transition:background .2s ease,border-color .2s ease,transform .2s ease}
+.ex-project-card .arrow{transition:transform .2s ease}
+.ex-project-card:hover .arrow{transform:translateX(4px)}
+.ex-area:hover,.ex-cert:hover{background:var(--paper)}
+.ex-timeline-item,.ex-career-item{transition:background .18s ease}
+.ex-timeline-item:hover,.ex-career-item:hover{background:rgba(250,249,246,.55)}
+
+/* Section headings read as a unit: hairline, number, then the title block. */
+.ex-section-head{position:relative;padding-top:20px}
+.ex-section-head::before{content:"";position:absolute;top:0;left:0;width:100%;height:1px;background:var(--line)}
+.ex-section-no{position:relative;padding-top:1px}
+.ex-section-no::before{content:"";position:absolute;top:-21px;left:0;width:34px;height:2px;background:var(--accent)}
+
+/* Facts and metrics: give the value room to breathe over its label. */
+.ex-fact strong,.ex-metric b{letter-spacing:-.02em}
+.ex-metric:hover{background:rgba(250,249,246,.6)}
+
+/* Anchors should never land under the mobile top bar. */
+:target{scroll-margin-top:calc(var(--topbar-h) + 16px)}
 
 /* ---------- Print (recruiters save profiles as PDF) ---------- */
 @media print{
