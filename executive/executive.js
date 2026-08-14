@@ -293,6 +293,22 @@
     document.querySelectorAll('[data-publication-open]').forEach(button => {
       button.addEventListener('click', () => openPublicationAbstract(button.dataset.publicationOpen, button));
     });
+
+    /* The whole entry opens the abstract, not just the title: the summary is
+       what most people reach for. Real links and buttons keep their own
+       behaviour, and an in-progress text selection is left alone so the row
+       stays readable and copyable. Keyboard access is unchanged - the title
+       and the Abstract control are still the focusable triggers. */
+    const publicationList = document.querySelector('.ex-publication-list');
+    if (publicationList) {
+      publicationList.addEventListener('click', event => {
+        if (event.target.closest('a, button')) return;
+        if (String(window.getSelection() || '').length) return;
+        const row = event.target.closest('.ex-publication');
+        const trigger = row && row.querySelector('[data-publication-open]');
+        if (trigger) openPublicationAbstract(trigger.dataset.publicationOpen, trigger);
+      });
+    }
     abstractClose.addEventListener('click', () => abstractDialog.close());
     abstractDialog.addEventListener('click', event => {
       if (event.target === abstractDialog) abstractDialog.close();
