@@ -171,7 +171,7 @@
     'Professional profile': 'Berufsprofil',
     'Enterprise IT delivery and applied research.': 'Enterprise-IT-Delivery und angewandte Forschung.',
     'I have spent fifteen years in enterprise IT: presales architecture and delivery ownership for managed-service accounts across Germany, Austria and Switzerland. Alongside that I publish computer-science research and build the systems it comes out of.':
-      'Seit fünfzehn Jahren arbeite ich in der Enterprise-IT: Presales-Architektur und Delivery-Verantwortung für Managed-Service-Kunden in Deutschland, Österreich und der Schweiz. Parallel dazu forsche ich in der Informatik und baue die Systeme, aus denen diese Forschung hervorgeht.',
+      'Seit fünfzehn Jahren arbeite ich in der Enterprise-IT: Ich entwerfe Lösungen im Presales und verantworte sie bis zur Übergabe in den Betrieb — bei Managed-Service-Kunden in Deutschland, Österreich und der Schweiz. Daneben forsche ich in der Informatik und baue die Systeme, aus denen diese Forschung entsteht.',
     'Open to service delivery, technical project management, and systems/security engineering roles':
       'Offen für Rollen in Service Delivery, technischem Projektmanagement sowie Systems- und Security-Engineering',
     'Two kinds of work': 'Zwei Standbeine',
