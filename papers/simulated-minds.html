@@ -2,12 +2,17 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<!-- GitHub Pages cannot send response headers, so the policy rides in the
+     document. Directives that only work as a real header (frame-ancestors,
+     HSTS) are not available this way — see tools/README.md. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://gc.zgo.at; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://minhsystems.goatcounter.com; font-src 'self'; connect-src 'self' https://formspree.io https://minhsystems.goatcounter.com; form-action 'self' https://formspree.io; base-uri 'self'; object-src 'none'; frame-src 'none'; upgrade-insecure-requests">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Whether a simulated mind counts as conscious is theory-relative · minh.systems</title>
 <meta name="description" content="Examines the simulation hypothesis and claims about artificial consciousness through one observation: any verdict about whether a simulated mind is…">
 <meta name="author" content="Michél Nguyen">
 <meta name="theme-color" content="#0b0d0e">
 <link rel="canonical" href="https://minh.systems/papers/simulated-minds.html">
+<link rel="alternate" type="application/atom+xml" title="minh.systems — research" href="/feed.xml">
 <meta name="citation_title" content="Simulated Minds, Artificial Consciousness, and the Theory-Relative Simulation Hypothesis">
 <meta name="citation_author" content="Nguyen, Michél">
 <meta name="citation_publication_date" content="2025">
@@ -24,10 +29,9 @@
 <meta name="twitter:description" content="Examines the simulation hypothesis and claims about artificial consciousness through one observation: any verdict about whether a simulated mind is…">
 <meta name="twitter:image" content="https://minh.systems/assets/og-card.png">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500&display=swap"></noscript>
+<link rel="preload" href="/assets/fonts/jetbrains-mono-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/fonts.css">
 <!-- Cookieless analytics (GoatCounter): no cookies, no personal data,
      no consent banner required under TTDSG. -->
 <script data-goatcounter="https://minhsystems.goatcounter.com/count"
@@ -143,7 +147,7 @@ footer a:hover{color:var(--green)}
   </main>
 
   <footer>
-    Michél Nguyen · <a href="/">minh.systems</a> · <a href="https://orcid.org/0000-0001-6834-4422" target="_blank" rel="noopener">ORCID 0000-0001-6834-4422</a>
+    Michél Nguyen · <a href="/">minh.systems</a> · <a href="https://orcid.org/0000-0001-6834-4422" target="_blank" rel="noopener">ORCID 0000-0001-6834-4422</a> · <a href="/privacy.html">Privacy</a>
   </footer>
 </div>
 <script>

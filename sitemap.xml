@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://minh.systems/</loc>
     <lastmod>2026-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://minh.systems/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://minh.systems/de/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://minh.systems/"/>
   </url>
   <url>
     <loc>https://minh.systems/research.html</loc>
@@ -12,12 +16,60 @@
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
-  <url><loc>https://minh.systems/executive/profile.html</loc><lastmod>2026-08-13</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://minh.systems/executive/experience.html</loc><lastmod>2026-08-13</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://minh.systems/executive/projects.html</loc><lastmod>2026-08-13</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://minh.systems/executive/academic.html</loc><lastmod>2026-08-13</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://minh.systems/executive/publications.html</loc><lastmod>2026-08-13</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://minh.systems/executive/contact.html</loc><lastmod>2026-08-13</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url>
+    <loc>https://minh.systems/executive/profile.html</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://minh.systems/executive/profile.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://minh.systems/de/executive/profile.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://minh.systems/executive/profile.html"/>
+  </url>
+  <url>
+    <loc>https://minh.systems/executive/experience.html</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://minh.systems/executive/experience.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://minh.systems/de/executive/experience.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://minh.systems/executive/experience.html"/>
+  </url>
+  <url>
+    <loc>https://minh.systems/executive/projects.html</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://minh.systems/executive/projects.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://minh.systems/de/executive/projects.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://minh.systems/executive/projects.html"/>
+  </url>
+  <url>
+    <loc>https://minh.systems/executive/academic.html</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://minh.systems/executive/academic.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://minh.systems/de/executive/academic.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://minh.systems/executive/academic.html"/>
+  </url>
+  <url>
+    <loc>https://minh.systems/executive/publications.html</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://minh.systems/executive/publications.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://minh.systems/de/executive/publications.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://minh.systems/executive/publications.html"/>
+  </url>
+  <url>
+    <loc>https://minh.systems/executive/contact.html</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://minh.systems/executive/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://minh.systems/de/executive/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://minh.systems/executive/contact.html"/>
+  </url>
   <url>
     <loc>https://minh.systems/papers/mortality-reference-class.html</loc>
     <lastmod>2026-08-01</lastmod>
@@ -125,4 +177,71 @@
   <url><loc>https://minh.systems/LancetLinen/</loc><lastmod>2026-07-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://minh.systems/Violinen-Stimmer/</loc><lastmod>2026-08-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://pinkysworld.github.io/Patch/</loc><lastmod>2026-08-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <!-- German pages, generated by tools/build-de.mjs -->
+  <url>
+    <loc>https://minh.systems/de/</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://minh.systems/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://minh.systems/de/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://minh.systems/"/>
+  </url>
+  <url>
+    <loc>https://minh.systems/de/executive/profile.html</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://minh.systems/executive/profile.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://minh.systems/de/executive/profile.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://minh.systems/executive/profile.html"/>
+  </url>
+  <url>
+    <loc>https://minh.systems/de/executive/experience.html</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://minh.systems/executive/experience.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://minh.systems/de/executive/experience.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://minh.systems/executive/experience.html"/>
+  </url>
+  <url>
+    <loc>https://minh.systems/de/executive/projects.html</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://minh.systems/executive/projects.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://minh.systems/de/executive/projects.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://minh.systems/executive/projects.html"/>
+  </url>
+  <url>
+    <loc>https://minh.systems/de/executive/academic.html</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://minh.systems/executive/academic.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://minh.systems/de/executive/academic.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://minh.systems/executive/academic.html"/>
+  </url>
+  <url>
+    <loc>https://minh.systems/de/executive/publications.html</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://minh.systems/executive/publications.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://minh.systems/de/executive/publications.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://minh.systems/executive/publications.html"/>
+  </url>
+  <url>
+    <loc>https://minh.systems/de/executive/contact.html</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://minh.systems/executive/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://minh.systems/de/executive/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://minh.systems/executive/contact.html"/>
+  </url>
+
+  <url><loc>https://minh.systems/privacy.html</loc><lastmod>2026-08-15</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
 </urlset>

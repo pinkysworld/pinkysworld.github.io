@@ -1,12 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="UTF-8">
+<!-- GitHub Pages cannot send response headers, so the policy rides in the
+     document. Directives that only work as a real header (frame-ancestors,
+     HSTS) are not available this way — see tools/README.md. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://gc.zgo.at; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://minhsystems.goatcounter.com; font-src 'self'; connect-src 'self' https://formspree.io https://minhsystems.goatcounter.com; form-action 'self' https://formspree.io; base-uri 'self'; object-src 'none'; frame-src 'none'; upgrade-insecure-requests"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>SkeinDB — research project · Michél Nguyen</title>
 <meta name="description" content="Professional research profile for SkeinDB, a single-binary Rust database with cell-interned MVCC and 20 research tracks.">
-<link rel="canonical" href="https://minh.systems/showcase/research/skeindb.html"><link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap"><link rel="stylesheet" href="research.css">
+<link rel="canonical" href="https://minh.systems/showcase/research/skeindb.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://minh.systems/showcase/research/skeindb.html">
+<meta property="og:site_name" content="minh.systems">
+<meta property="og:title" content="SkeinDB — research project · Michél Nguyen">
+<meta property="og:description" content="Professional research profile for SkeinDB, a single-binary Rust database with cell-interned MVCC and 20 research tracks.">
+<meta property="og:image" content="https://minh.systems/assets/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SkeinDB — research project · Michél Nguyen">
+<meta name="twitter:description" content="Professional research profile for SkeinDB, a single-binary Rust database with cell-interned MVCC and 20 research tracks.">
+<meta name="twitter:image" content="https://minh.systems/assets/og-card.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://minh.systems/showcase/research/skeindb.html#software",
+      "name": "SkeinDB",
+      "description": "Professional research profile for SkeinDB, a single-binary Rust database with cell-interned MVCC and 20 research tracks.",
+      "url": "https://minh.systems/showcase/research/skeindb.html",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Linux, macOS",
+      "author": {
+        "@id": "https://minh.systems/#person"
+      },
+      "isAccessibleForFree": true,
+      "downloadUrl": "https://minh.systems/SkeinDB/site/",
+      "sameAs": [
+        "https://github.com/pinkysworld/SkeinDB"
+      ],
+      "screenshot": "https://minh.systems/assets/screenshots/skeindb-hero.webp"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://minh.systems/#person",
+      "name": "Michél Nguyen",
+      "url": "https://minh.systems/",
+      "jobTitle": "Independent Researcher & Engineer",
+      "sameAs": [
+        "https://github.com/pinkysworld",
+        "https://orcid.org/0000-0001-6834-4422",
+        "https://scholar.google.com/citations?user=6HheUI4AAAAJ",
+        "https://www.linkedin.com/in/michelnguyengermany/"
+      ]
+    }
+  ]
+}
+</script><link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/fonts.css">
+<link rel="stylesheet" href="research.css">
 </head>
 <body>
 <aside class="rp-nav"><a class="rp-brand" href="../../index.html"><span class="rp-mark">MN</span><span>Michél Nguyen</span></a><a class="rp-back" href="../../executive/projects.html">← Research projects</a>
@@ -18,5 +73,5 @@
 <section class="rp-wrap rp-section"><div class="rp-section-head"><div class="rp-section-no">01 · Overview</div><h2>One runtime for implementation and evaluation</h2></div><div class="rp-copy"><div><p>The project keeps storage, wire protocols, typed RPC methods, research features, and administration in one process. This makes system behaviour easier to inspect than an equivalent stack distributed across services and sidecars.</p><p>The storage design interns identical cell values across rows and versions. The engine exposes MySQL compatibility, an early PostgreSQL v3 baseline, HTTP RPC, and QUIC transport.</p></div><ul class="rp-point-list"><li><b>01</b><span>Cell-interned MVCC and segment-backed row storage</span></li><li><b>02</b><span>MySQL corpus-backed compatibility and partial PostgreSQL support</span></li><li><b>03</b><span>20 opt-in research tracks with dedicated administration surfaces</span></li><li><b>04</b><span>Single executable with no required service cluster</span></li></ul></div></section>
 <section class="rp-wrap rp-section"><div class="rp-section-head"><div class="rp-section-no">02 · Research</div><h2>Research questions embedded in a working engine</h2></div><div class="rp-copy"><div><p>The research agenda covers learned indexes, differential privacy, forensic audit, CRDT merge functions, incremental views, QUIC-native protocols, vector retrieval, performance replay, Wasm query operators, and energy-aware compaction.</p><p>A systems paper describes the architecture, cluster control plane, research tracks, and web-native administration stack.</p></div><div class="rp-status"><h3>Evidence boundary</h3><p>SkeinDB is an active pre-1.0 system. Implemented and tested features are distinguished from prototype tracks; compatibility is described as partial where full parity has not been established.</p><div class="rp-status-note">Current public classification: 18 hardened tracks and 2 prototype tracks.</div></div></div></section>
 <section class="rp-wrap rp-section"><div class="rp-section-head"><div class="rp-section-no">03 · Related</div><h2>Continue through the research portfolio</h2></div><div class="rp-related"><a href="wardex.html"><small>Security systems</small><strong>Wardex →</strong></a><a href="nexusfs.html"><small>Distributed storage</small><strong>NexusFS →</strong></a><a href="../../executive/publications.html"><small>Academic record</small><strong>Publications →</strong></a></div></section>
-<footer class="rp-footer"><div class="rp-wrap"><span>© 2026 Michél Nguyen</span><span>Research project profile · SkeinDB</span></div></footer></main>
+<footer class="rp-footer"><div class="rp-wrap"><span>© 2026 Michél Nguyen</span><span><a href="/privacy.html">Privacy</a></span><span>Research project profile · SkeinDB</span></div></footer></main>
 </body></html>

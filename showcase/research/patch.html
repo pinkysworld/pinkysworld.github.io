@@ -1,7 +1,62 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Patch — research project · Michél Nguyen</title><meta name="description" content="Professional research profile for Patch, a change-oriented programming language and browser IDE with Lean-checked evidence."><link rel="canonical" href="https://minh.systems/showcase/research/patch.html"><link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap"><link rel="stylesheet" href="research.css"></head>
+<html lang="en"><head><meta charset="UTF-8">
+<!-- GitHub Pages cannot send response headers, so the policy rides in the
+     document. Directives that only work as a real header (frame-ancestors,
+     HSTS) are not available this way — see tools/README.md. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://gc.zgo.at; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://minhsystems.goatcounter.com; font-src 'self'; connect-src 'self' https://formspree.io https://minhsystems.goatcounter.com; form-action 'self' https://formspree.io; base-uri 'self'; object-src 'none'; frame-src 'none'; upgrade-insecure-requests"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Patch — research project · Michél Nguyen</title><meta name="description" content="Professional research profile for Patch, a change-oriented programming language and browser IDE with Lean-checked evidence."><link rel="canonical" href="https://minh.systems/showcase/research/patch.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://minh.systems/showcase/research/patch.html">
+<meta property="og:site_name" content="minh.systems">
+<meta property="og:title" content="Patch — research project · Michél Nguyen">
+<meta property="og:description" content="Professional research profile for Patch, a change-oriented programming language and browser IDE with Lean-checked evidence.">
+<meta property="og:image" content="https://minh.systems/assets/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Patch — research project · Michél Nguyen">
+<meta name="twitter:description" content="Professional research profile for Patch, a change-oriented programming language and browser IDE with Lean-checked evidence.">
+<meta name="twitter:image" content="https://minh.systems/assets/og-card.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://minh.systems/showcase/research/patch.html#software",
+      "name": "Patch",
+      "description": "Professional research profile for Patch, a change-oriented programming language and browser IDE with Lean-checked evidence.",
+      "url": "https://minh.systems/showcase/research/patch.html",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Linux, macOS",
+      "author": {
+        "@id": "https://minh.systems/#person"
+      },
+      "isAccessibleForFree": true,
+      "downloadUrl": "https://pinkysworld.github.io/Patch/",
+      "sameAs": [
+        "https://github.com/pinkysworld/Patch"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://minh.systems/#person",
+      "name": "Michél Nguyen",
+      "url": "https://minh.systems/",
+      "jobTitle": "Independent Researcher & Engineer",
+      "sameAs": [
+        "https://github.com/pinkysworld",
+        "https://orcid.org/0000-0001-6834-4422",
+        "https://scholar.google.com/citations?user=6HheUI4AAAAJ",
+        "https://www.linkedin.com/in/michelnguyengermany/"
+      ]
+    }
+  ]
+}
+</script><link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml"><link rel="preload" href="/assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/fonts.css">
+<link rel="stylesheet" href="research.css"></head>
 <body><aside class="rp-nav"><a class="rp-brand" href="../../index.html"><span class="rp-mark">MN</span><span>Michél Nguyen</span></a><a class="rp-back" href="../../executive/projects.html">← Research projects</a><nav class="rp-list" aria-label="Research projects"><a href="skeindb.html"><span>01</span>SkeinDB</a><a href="wardex.html"><span>02</span>Wardex</a><a href="nexusfs.html"><span>03</span>NexusFS</a><a href="verilog.html"><span>04</span>VeriLog</a><a href="safedrop.html"><span>05</span>SafeDrop</a><a class="active" href="patch.html"><span>06</span>Patch</a></nav><div class="rp-nav-foot"><a href="../../executive/publications.html">Publications ↗</a><a href="https://pinkysworld.github.io/Patch/" target="_blank" rel="noopener">Open browser IDE ↗</a></div></aside>
 <main class="rp-main"><header class="rp-wrap rp-hero"><div class="rp-kicker">Academic project · 06 / 06 · programming languages</div><h1>Patch</h1><p class="rp-summary">A change-oriented programming language and browser IDE. Patch represents semantic state changes explicitly, infers contracts, records provenance, and connects selected evidence to Lean 4 checks.</p><div class="rp-actions"><a class="rp-button primary" href="https://pinkysworld.github.io/Patch/" target="_blank" rel="noopener">Open browser IDE ↗</a><a class="rp-button" href="https://github.com/pinkysworld/Patch" target="_blank" rel="noopener">GitHub ↗</a></div><div class="rp-facts"><div class="rp-fact"><span>Status</span><strong>Public beta</strong></div><div class="rp-fact"><span>Version</span><strong>0.2.0-beta.7</strong></div><div class="rp-fact"><span>Stack</span><strong>JavaScript · Lean 4 · PWA</strong></div><div class="rp-fact"><span>License</span><strong>MIT</strong></div></div></header>
 <section class="rp-wrap rp-section"><div class="rp-section-head"><div class="rp-section-no">01 · Overview</div><h2>Programs described through state changes</h2></div><div class="rp-copy"><div><p>Patch makes changes to semantic state the central programming construct. The browser IDE exposes the language, inferred contracts, provenance, and evidence without requiring a local toolchain for the first evaluation.</p><p>The project studies whether change-oriented representation can make effects, assumptions, and verification obligations easier to inspect than conventional source alone.</p></div><ul class="rp-point-list"><li><b>01</b><span>Explicit semantic state changes</span></li><li><b>02</b><span>Inferred contracts and visible obligations</span></li><li><b>03</b><span>Provenance attached to program changes</span></li><li><b>04</b><span>Lean 4 checks for selected formal evidence</span></li></ul></div></section>
 <section class="rp-wrap rp-section"><div class="rp-section-head"><div class="rp-section-no">02 · Research</div><h2>Making change and evidence inspectable</h2></div><div class="rp-copy"><div><p>The research direction combines programming-language design, provenance, contract inference, and formal verification. The web environment supports small, reproducible examples that can be inspected without installing the compiler stack.</p><p>Patch also separates executable behaviour from evidence about that behaviour, so an interface can show which properties are inferred, asserted, or formally checked.</p></div><div class="rp-status"><h3>Evidence boundary</h3><p>Patch is a beta language and IDE. Lean-checked evidence applies only to the properties and generated obligations actually represented in the verification path; it is not a blanket proof of arbitrary programs.</p><div class="rp-status-note">Current public release: 0.2.0-beta.7 under the MIT License.</div></div></div></section>
-<section class="rp-wrap rp-section"><div class="rp-section-head"><div class="rp-section-no">03 · Related</div><h2>Continue through the research portfolio</h2></div><div class="rp-related"><a href="skeindb.html"><small>Database research</small><strong>SkeinDB →</strong></a><a href="safedrop.html"><small>Evidence systems</small><strong>SafeDrop →</strong></a><a href="../../executive/publications.html"><small>Academic record</small><strong>Publications →</strong></a></div></section><footer class="rp-footer"><div class="rp-wrap"><span>© 2026 Michél Nguyen</span><span>Research project profile · Patch</span></div></footer></main></body></html>
+<section class="rp-wrap rp-section"><div class="rp-section-head"><div class="rp-section-no">03 · Related</div><h2>Continue through the research portfolio</h2></div><div class="rp-related"><a href="skeindb.html"><small>Database research</small><strong>SkeinDB →</strong></a><a href="safedrop.html"><small>Evidence systems</small><strong>SafeDrop →</strong></a><a href="../../executive/publications.html"><small>Academic record</small><strong>Publications →</strong></a></div></section><footer class="rp-footer"><div class="rp-wrap"><span>© 2026 Michél Nguyen</span><span><a href="/privacy.html">Privacy</a></span><span>Research project profile · Patch</span></div></footer></main></body></html>

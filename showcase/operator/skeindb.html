@@ -2,12 +2,55 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<!-- GitHub Pages cannot send response headers, so the policy rides in the
+     document. Directives that only work as a real header (frame-ancestors,
+     HSTS) are not available this way — see tools/README.md. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://gc.zgo.at; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://minhsystems.goatcounter.com; font-src 'self'; connect-src 'self' https://formspree.io https://minhsystems.goatcounter.com; form-action 'self' https://formspree.io; base-uri 'self'; object-src 'none'; frame-src 'none'; upgrade-insecure-requests">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>skeindb — deep dive · minh@systems</title>
+<link rel="preload" href="/assets/fonts/jetbrains-mono-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/fonts.css">
 <meta name="description" content="A single-binary database engine speaking MySQL and PostgreSQL on the wire, with a built-in admin panel and fourteen hardened research tracks.">
 <meta name="author" content="Michél Nguyen">
 <meta name="theme-color" content="#0b0d0e">
 <link rel="canonical" href="https://minh.systems/showcase/operator/skeindb.html">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "headline": "skeindb — deep dive",
+      "description": "A single-binary database engine speaking MySQL and PostgreSQL on the wire, with a built-in admin panel and fourteen hardened research tracks.",
+      "url": "https://minh.systems/showcase/operator/skeindb.html",
+      "author": {
+        "@id": "https://minh.systems/#person"
+      },
+      "publisher": {
+        "@id": "https://minh.systems/#person"
+      },
+      "inLanguage": "en",
+      "about": {
+        "@id": "https://minh.systems/showcase/research/skeindb.html#software"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://minh.systems/#person",
+      "name": "Michél Nguyen",
+      "url": "https://minh.systems/",
+      "jobTitle": "Independent Researcher & Engineer",
+      "sameAs": [
+        "https://github.com/pinkysworld",
+        "https://orcid.org/0000-0001-6834-4422",
+        "https://scholar.google.com/citations?user=6HheUI4AAAAJ",
+        "https://www.linkedin.com/in/michelnguyengermany/"
+      ]
+    }
+  ]
+}
+</script>
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://minh.systems/showcase/operator/skeindb.html">
 <meta property="og:site_name" content="minh.systems">
@@ -18,9 +61,6 @@
 <meta name="twitter:title" content="SkeinDB — deep dive">
 <meta name="twitter:description" content="A single-binary database engine speaking MySQL and PostgreSQL on the wire, with a built-in admin panel and fourteen hardened research tracks.">
 <meta name="twitter:image" content="https://minh.systems/assets/og-card.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="showcase.css">
 <style>:root{--accent:#7fd49f}</style>
 <!-- Cookieless analytics (GoatCounter): no cookies, no personal data,
@@ -288,10 +328,10 @@
         <div class="r"><div class="k">admin</div><div class="v">:9001 · same binary</div></div>
       </div>
     </div>
-    <pre class="code-block"><div class="code-head">
+    <div class="code-block"><div class="code-head">
       <div class="code-dots"><span></span><span></span><span></span></div>
       <div class="code-title">src/main.rs · embed SkeinDB</div>
-    </div><div class="code-body"><span class="ln"> 1</span><span class="kw">use</span> skeindb::{Server, Config, Wire};
+    </div><pre class="code-body"><span class="ln"> 1</span><span class="kw">use</span> skeindb::{Server, Config, Wire};
 <span class="ln"> 2</span>
 <span class="ln"> 3</span><span class="cmt">// one binary. two protocols. no sidecars.</span>
 <span class="ln"> 4</span>#[tokio::main]
@@ -315,7 +355,7 @@
 <span class="ln">22</span><span class="cmt">// ◆ admin: http://127.0.0.1:9001</span>
 <span class="ln">23</span><span class="cmt">// ◆ track: mvcc.reclaim_v2 [active]</span>
 <span class="ln">24</span><span class="cmt">// ◆ ready in 88ms</span>
-</div></pre>
+</pre></div>
   </div>
 </section>
 
@@ -426,19 +466,19 @@
   <div class="rel-grid">
     <a class="rel-card" href="wardex.html">
       <span class="k">sibling · research</span>
-      <h4>wardex</h4>
+      <h3>wardex</h3>
       <p>The security counterpart: unified XDR with cross-layer detection and federated learning. Same "one binary, no sidecars" philosophy.</p>
       <span class="link">open deep dive →</span>
     </a>
     <a class="rel-card" href="nexusfs.html">
       <span class="k">sibling · research</span>
-      <h4>nexusfs</h4>
+      <h3>nexusfs</h3>
       <p>Verifiable offline-first filesystem. Signed ops + deterministic replication — the techniques being explored for SkeinDB's track 13.</p>
       <span class="link">open deep dive →</span>
     </a>
     <a class="rel-card" href="https://www.ijrcom.org/index.php/ijrc/article/view/192" target="_blank" rel="noopener">
       <span class="k">companion · IJRC 2026</span>
-      <h4>computational knightian uncertainty</h4>
+      <h3>computational knightian uncertainty</h3>
       <p>The theoretical argument: why a single-author, single-binary engine is the right vehicle for studying cyber risk under undecidability.</p>
       <span class="link">read paper ↗</span>
     </a>
@@ -453,7 +493,7 @@
       <div class="ft-brand">minh@systems / skeindb</div>
       <p class="ft-tag">A teaching engine that also runs production. Built and maintained by Michél Nguyen in Germany.</p>
     </div>
-    <div class="ft-col"><h5>showcase</h5><ul>
+    <div class="ft-col"><div class="ft-h">showcase</div><ul>
       <li><a href="#abstract">abstract</a></li>
       <li><a href="#architecture">architecture</a></li>
       <li><a href="#features">features</a></li>
@@ -461,12 +501,12 @@
       <li><a href="#roadmap">roadmap</a></li>
       <li><a href="#paper">paper</a></li>
     </ul></div>
-    <div class="ft-col"><h5>external</h5><ul>
+    <div class="ft-col"><div class="ft-h">external</div><ul>
       <li><a href="https://minh.systems/SkeinDB/site/" target="_blank" rel="noopener">live site ↗</a></li>
       <li><a href="https://www.ijrcom.org/index.php/ijrc/article/view/192" target="_blank" rel="noopener">IJRC 2026 ↗</a></li>
       <li><a href="https://github.com/pinkysworld/SkeinDB" target="_blank" rel="noopener">github ↗</a></li>
     </ul></div>
-    <div class="ft-col"><h5>back to</h5><ul>
+    <div class="ft-col"><div class="ft-h">back to</div><ul>
       <li><a href="../../index.html">minh@systems</a></li>
       <li><a href="wardex.html">wardex deep dive</a></li>
       <li><a href="nexusfs.html">nexusfs deep dive</a></li>
@@ -474,6 +514,7 @@
   </div>
   <div class="ft-base">
     <span>&copy; 2026 michél nguyen</span>
+    <span><a href="/privacy.html">privacy</a></span>
     <span>v0.3.25 · plate i · pre-1.0</span>
     <span>jetbrains mono · inter · berlin</span>
   </div>

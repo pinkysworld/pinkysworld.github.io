@@ -2,6 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+<!-- GitHub Pages cannot send response headers, so the policy rides in the
+     document. Directives that only work as a real header (frame-ancestors,
+     HSTS) are not available this way — see tools/README.md. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://gc.zgo.at; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://minhsystems.goatcounter.com; font-src 'self'; connect-src 'self' https://formspree.io https://minhsystems.goatcounter.com; form-action 'self' https://formspree.io; base-uri 'self'; object-src 'none'; frame-src 'none'; upgrade-insecure-requests">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Lancet & Linen is a medieval life and business simulation set in 1382. Build a barber-surgeon's working life across Franconia.">
   <title>Lancet &amp; Linen — minh.systems</title>
@@ -41,6 +45,6 @@
       <div><h2>Systems at a glance</h2><ul><li>Patient encounters, techniques, mentors, and next-day regimens</li><li>Markets, crafting, a Badestube, and multi-city property</li><li>Staff loyalty, training, wages, gifts, courtship, and family</li><li>Travel, seasonal events, civic offices, prestige, and endings</li><li>English and German; touch, keyboard, save/export/import support</li></ul><div class="actions"><a class="button" href="https://github.com/pinkysworld/lancetlinen/blob/main/docs/MANUAL.md" target="_blank" rel="noopener">Read the manual ↗</a></div></div>
     </section>
   </main>
-  <footer class="wrap foot">Lancet &amp; Linen is an original project by Michel Picker. Historical framing and limits are documented in the repository.</footer>
+  <footer class="wrap foot">Lancet &amp; Linen is an original project by Michel Picker. Historical framing and limits are documented in the repository. · <a href="/privacy.html">Privacy</a></footer>
 </body>
 </html>

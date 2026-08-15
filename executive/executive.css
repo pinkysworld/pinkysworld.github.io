@@ -52,9 +52,9 @@ img,svg{max-width:100%}
 
 /* ---------- Language switcher ---------- */
 .ex-lang{display:inline-flex;align-self:flex-start;margin-bottom:16px;border:1px solid var(--line);border-radius:999px;background:var(--paper);padding:2px;gap:2px}
-.ex-lang button{appearance:none;border:0;border-radius:999px;background:transparent;padding:6px 11px;color:var(--soft);font-size:10px;font-weight:750;letter-spacing:.08em;cursor:pointer;transition:background .18s ease,color .18s ease}
-.ex-lang button:hover{color:var(--deep)}
-.ex-lang button[aria-pressed="true"]{background:var(--deep);color:#fff}
+.ex-lang a{display:inline-flex;align-items:center;border-radius:999px;background:transparent;padding:6px 11px;color:var(--soft);font-size:10px;font-weight:750;letter-spacing:.08em;text-decoration:none;transition:background .18s ease,color .18s ease}
+.ex-lang a:hover{color:var(--deep)}
+.ex-lang a[aria-current="page"]{background:var(--deep);color:#fff;cursor:default}
 .ex-topbar .ex-lang{margin-bottom:0;margin-left:auto}
 
 /* ---------- Mobile top bar ---------- */
@@ -76,7 +76,7 @@ img,svg{max-width:100%}
 .ex-nav-role{margin-top:18px;font-size:11px;line-height:1.55;color:var(--soft)}
 .ex-nav-links{display:grid;margin-top:30px;border-top:1px solid var(--line)}
 .ex-nav-links a{position:relative;display:grid;grid-template-columns:26px 1fr;align-items:baseline;gap:10px;padding:12px 10px 12px 0;border-bottom:1px solid var(--line-soft);font-size:12.5px;font-weight:600;letter-spacing:.005em;color:var(--soft);transition:color .18s ease,padding-left .18s ease,background .18s ease}
-.ex-nav-links a .n{font-size:9px;font-weight:700;letter-spacing:.1em;color:#a4aaa7;transition:color .18s ease}
+.ex-nav-links a .n{font-size:9px;font-weight:700;letter-spacing:.1em;color:#6c7470;transition:color .18s ease}
 .ex-nav-links a:hover{padding-left:8px;background:rgba(25,63,55,.045);color:var(--deep)}
 .ex-nav-links a:hover .n{color:var(--accent)}
 .ex-nav-links a[aria-current="page"]{color:var(--deep);font-weight:750}
@@ -232,6 +232,12 @@ body.nav-open .ex-scrim{opacity:1;pointer-events:auto}
 .ex-project-card{min-height:262px;padding:24px;display:flex;flex-direction:column;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(250,249,246,.55);transition:background .2s,transform .2s}
 .ex-project-card:hover{background:var(--paper);transform:translateY(-2px)}
 .ex-project-card[hidden]{display:none}
+/* Preview band: a crop of each project's own site, bled to the card edges.
+   Decorative — the card already names and describes the project in text. */
+.ex-project-shot{margin:-24px -24px 22px;height:150px;overflow:hidden;border-bottom:1px solid var(--line);background:var(--bg)}
+.ex-project-shot img{display:block;width:100%;height:100%;object-fit:cover;object-position:top center}
+.ex-project-card:hover .ex-project-shot img{transform:scale(1.015)}
+.ex-project-shot img{transition:transform .3s ease}
 .ex-project-meta{display:flex;align-items:center;justify-content:space-between;gap:16px;font-size:9px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--soft)}
 .ex-project-meta span:last-child{color:var(--accent)}
 .ex-project-card h3{margin-top:38px;font-size:23px;font-weight:600;line-height:1.2;letter-spacing:-.03em}
@@ -345,7 +351,7 @@ body.nav-open .ex-scrim{opacity:1;pointer-events:auto}
   .ex-page-actions{display:grid}
   /* 44px minimum touch target on every control */
   .ex-button,.ex-menu-toggle,.ex-nav-cta,.ex-filters button,.ex-publication-filters button,.ex-form button{min-height:44px}
-  .ex-lang button{min-height:40px;padding:10px 15px}
+  .ex-lang a{min-height:40px;padding:10px 15px}
   .ex-publication-actions{gap:14px}
   .ex-publication-actions a,.ex-publication-actions button{display:inline-flex;align-items:center;min-height:40px;padding:0 0 2px}
   .ex-nav-links a{padding-top:15px;padding-bottom:15px}
@@ -432,7 +438,7 @@ body.nav-open .ex-scrim{opacity:1;pointer-events:auto}
 @media print{
   :root{--nav-w:0px}
   body{background:#fff;font-size:10.5pt}
-  .ex-topbar,.ex-nav,.ex-scrim,.ex-operator-link,.ex-skip,.ex-page-actions,.ex-filters,.ex-publication-actions,.ex-form,.ex-note-links{display:none!important}
+  .ex-topbar,.ex-nav,.ex-scrim,.ex-operator-link,.ex-skip,.ex-page-actions,.ex-filters,.ex-publication-actions,.ex-form,.ex-note-links,.ex-project-shot{display:none!important}
   .ex-subpage{margin:0;padding:0}
   .ex-shell{width:100%}
   .ex-page-hero,.ex-page-section{padding:12pt 0;break-inside:avoid}

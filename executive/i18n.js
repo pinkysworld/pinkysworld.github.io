@@ -6,6 +6,10 @@
  *
  * Publication titles, venues and abstracts are intentionally NOT translated:
  * they are citations. Those subtrees carry data-i18n-skip and are never touched.
+ *
+ * This dictionary is consumed at BUILD time by tools/build-de.mjs, which writes
+ * the German pages under /de/. Change a string here, then re-run that script and
+ * commit the regenerated /de/ — CI fails if the two drift apart.
  */
 (() => {
   'use strict';
@@ -17,7 +21,7 @@
     'Portfolio ': 'Portfolio ',
     'Executive view · Switch to Operator for the full technical record': 'Executive-Ansicht · Der technische Teil steht in der Operator-Ansicht',
     '© 2026 Michél Nguyen · Germany': '© 2026 Michél Nguyen · Deutschland',
-    'Email is the most direct route. Typical response time is within 72 hours.': 'E-Mail ist der direkteste Weg. Antwort meist innerhalb von 72 Stunden.',
+    'The contact form is the most direct route. Typical response time is within 72 hours.': 'Das Kontaktformular ist der direkteste Weg. Antwort meist innerhalb von 72 Stunden.',
     'Recruiting, research, or technical collaboration': 'Recruiting, Forschung oder technische Zusammenarbeit',
     'Direct channels for roles, collaboration, and research enquiries.': 'Direkte Wege für Rollen, Zusammenarbeit und Forschungsanfragen.',
     'Twelve public records with abstracts, venues, and direct DOI links.': 'Zwölf öffentliche Einträge mit Abstracts, Publikationsorten und direkten DOI-Links.',
@@ -561,12 +565,12 @@
 
     /* ---- contact page ---- */
     'Recruiting · collaboration · research': 'Recruiting · Zusammenarbeit · Forschung',
-    'For service delivery and project roles, systems or security engineering, research questions, or project collaboration, email is the most direct route. Typical response time is within 72 hours.':
-      'Für Rollen in Service Delivery und Projektmanagement, Systems- oder Security-Engineering, für Forschungsfragen oder Projektzusammenarbeit ist E-Mail der direkteste Weg. Ich antworte in der Regel innerhalb von 72 Stunden.',
+    'For service delivery and project roles, systems or security engineering, research questions, or project collaboration, the form below is the most direct route. Typical response time is within 72 hours.':
+      'Für Rollen in Service Delivery und Projektmanagement, Systems- oder Security-Engineering, für Forschungsfragen oder Projektzusammenarbeit ist das Formular unten der direkteste Weg. Ich antworte in der Regel innerhalb von 72 Stunden.',
     'Direct channels': 'Direkte Wege',
     'Choose the route that fits.': 'Wählen Sie den passenden Weg.',
-    'Email works best for role details, a project brief, or a specific technical question. LinkedIn is useful for an initial professional introduction.':
-      'E-Mail eignet sich am besten für Rollendetails, ein Projektbriefing oder eine konkrete technische Frage. LinkedIn passt für eine erste berufliche Kontaktaufnahme.',
+    'The form works best for role details, a project brief, or a specific technical question. LinkedIn is useful for an initial professional introduction.':
+      'Das Formular eignet sich am besten für Rollendetails, ein Projektbriefing oder eine konkrete technische Frage. LinkedIn passt für eine erste berufliche Kontaktaufnahme.',
     'For a role, it helps if the first message names the position and the working model. A full CV is available on request.': 'Bei einer Stellenanfrage hilft es, wenn schon die erste Nachricht Position und Arbeitsmodell nennt. Einen vollständigen Lebenslauf schicke ich auf Anfrage zu.',
     'Inspect work ↗': 'Arbeit ansehen ↗',
     'Connect ↗': 'Vernetzen ↗',
@@ -578,9 +582,14 @@
     'Message': 'Nachricht',
     'Role, research, or project question': 'Rolle, Forschung oder Projektfrage',
     'Leave empty': 'Leer lassen',
-    'If delivery fails, your message remains in the form so you can try again or email directly.':
-      'Falls der Versand fehlschlägt, bleibt Ihre Nachricht im Formular stehen. Sie können es erneut versuchen oder direkt eine E-Mail schreiben.',
-    'Message delivery failed. Please email': 'Zustellung fehlgeschlagen. Bitte direkt an',
+    'Your message goes straight to my inbox. If delivery fails it stays in the form so nothing is lost. See the':
+      'Ihre Nachricht geht direkt in mein Postfach. Falls der Versand fehlschlägt, bleibt sie im Formular stehen, damit nichts verloren geht. Siehe die',
+    'Message delivery failed. Your text is still in the form — please try again in a moment, or reach me on':
+      'Zustellung fehlgeschlagen. Ihr Text steht noch im Formular — bitte versuchen Sie es gleich noch einmal oder erreichen Sie mich über',
+    'privacy notice': 'Datenschutzhinweis',
+    'Privacy': 'Datenschutz',
+    'Message': 'Nachricht',
+    'Use the form ↗': 'Formular nutzen ↗',
     'directly.': 'schreiben.',
     'Professional enquiries': 'Berufliche Anfragen',
     'One-pager (PDF)': 'One-Pager (PDF)',
@@ -627,93 +636,17 @@
     }
   };
 
-  const STORAGE_KEY = 'minh.systems:lang';
-  const ATTRS = ['placeholder', 'aria-label', 'title', 'alt'];
+  /* The German pages are prerendered by tools/build-de.mjs, so nothing is
+     translated in the browser any more: the language lives in the URL and the
+     EN/DE control is a pair of links. What stays is the dictionary itself,
+     which executive.js consults for the handful of strings it generates at
+     runtime (filter counts and the like).
 
-  const isSkipped = node => {
-    for (let el = node.parentElement; el; el = el.parentElement) {
-      if (el.hasAttribute && el.hasAttribute('data-i18n-skip')) return true;
-      const tag = el.tagName;
-      if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'SVG' || tag === 'svg') return true;
-    }
-    return false;
+     DE and PAGE_META are the build's only inputs — edit German copy in this
+     file and re-run: node tools/build-de.mjs */
+  window.EX_I18N = {
+    dict: DE,
+    meta: PAGE_META,
+    current: () => document.documentElement.lang,
   };
-
-  const collectTextNodes = () => {
-    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
-    const nodes = [];
-    while (walker.nextNode()) {
-      const node = walker.currentNode;
-      if (node.nodeValue.trim() && !isSkipped(node)) nodes.push(node);
-    }
-    return nodes;
-  };
-
-  const apply = lang => {
-    const german = lang === 'de';
-
-    collectTextNodes().forEach(node => {
-      if (node.__en === undefined) node.__en = node.nodeValue;
-      const source = node.__en;
-      const key = source.trim();
-      if (!german) { node.nodeValue = source; return; }
-      const hit = DE[key];
-      if (hit) node.nodeValue = source.replace(key, hit);
-    });
-
-    document.querySelectorAll('[placeholder],[aria-label],[title],[alt]').forEach(el => {
-      if (el.hasAttribute('data-i18n-skip')) return;
-      ATTRS.forEach(attr => {
-        if (!el.hasAttribute(attr)) return;
-        const store = '__en_' + attr;
-        if (el[store] === undefined) el[store] = el.getAttribute(attr);
-        const source = el[store];
-        if (!german) { el.setAttribute(attr, source); return; }
-        const hit = DE[source.trim()];
-        if (hit) el.setAttribute(attr, hit);
-      });
-    });
-
-    const page = (location.pathname.split('/').pop() || 'index.html');
-    const meta = PAGE_META[page];
-    if (meta) {
-      if (document.__enTitle === undefined) document.__enTitle = document.title;
-      const desc = document.querySelector('meta[name="description"]');
-      if (desc && desc.__en === undefined) desc.__en = desc.getAttribute('content');
-      document.title = german ? meta.title : document.__enTitle;
-      if (desc) desc.setAttribute('content', german ? meta.description : desc.__en);
-    }
-
-    document.documentElement.lang = german ? 'de' : 'en';
-    document.querySelectorAll('.ex-lang button').forEach(button => {
-      button.setAttribute('aria-pressed', String(button.dataset.lang === lang));
-    });
-    // Let other scripts re-render language-dependent strings they own.
-    document.dispatchEvent(new CustomEvent('ex:languagechange', { detail: { lang, dict: DE } }));
-  };
-
-  let initial = 'en';
-  try {
-    const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved === 'de' || saved === 'en') initial = saved;
-    else if ((navigator.language || '').toLowerCase().startsWith('de')) initial = 'de';
-  } catch (_error) {
-    if ((navigator.language || '').toLowerCase().startsWith('de')) initial = 'de';
-  }
-
-  const start = () => {
-    apply(initial);
-    document.querySelectorAll('.ex-lang button').forEach(button => {
-      button.addEventListener('click', () => {
-        const lang = button.dataset.lang === 'de' ? 'de' : 'en';
-        apply(lang);
-        try { localStorage.setItem(STORAGE_KEY, lang); } catch (_error) {}
-      });
-    });
-  };
-
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
-  else start();
-
-  window.EX_I18N = { apply, dict: DE, current: () => document.documentElement.lang };
 })();
