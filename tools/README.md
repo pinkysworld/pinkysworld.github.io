@@ -8,7 +8,7 @@ would otherwise be copied by hand, and CI fails if their output is stale.
 | Script | What it does | When to run |
 | --- | --- | --- |
 | `build-de.mjs` | Writes the German pages under `de/` by applying the dictionary in `executive/i18n.js` to the English sources. | After editing any English page listed in its `PAGES`, or any German string. |
-| `build-feed.mjs` | Writes `feed.xml` (Atom) from the `citation_*` metadata in `papers/*.html`. | After adding or editing a paper page. |
+| `build-feed.mjs` | Writes `feed.xml` (Atom) from the `citation_*` metadata in `papers/*.html`, dated from the `<lastmod>` in `sitemap.xml`. | After adding a paper page or bumping its `lastmod`. |
 | `build-fonts.sh` | Downloads JetBrains Mono and Inter from their upstream releases and subsets them into `assets/fonts/`. | Only when the character set or font version changes. |
 | `check-links.mjs` | Verifies every internal `href`/`src` resolves to a real file. | Any time; CI runs it on every push. |
 | `list-glyphs.py` | Lists non-ASCII characters used on the site, for the subset list in `build-fonts.sh`. | Before regenerating fonts. |

@@ -5,7 +5,7 @@
   <link href="https://minh.systems/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://minh.systems/research.html" rel="alternate" type="text/html"/>
   <id>https://minh.systems/</id>
-  <updated>2026-08-13T10:54:19.000Z</updated>
+  <updated>2026-08-01T00:00:00Z</updated>
   <author>
     <name>Michél Nguyen</name>
     <uri>https://minh.systems/</uri>
@@ -15,7 +15,7 @@
     <title>Beyond No: A Low-Interruption, Autonomy-Supportive Framework for Early Childhood Self-Directed Learning in Prepared Environments</title>
     <link href="https://minh.systems/papers/beyond-no.html" rel="alternate" type="text/html"/>
     <id>https://minh.systems/papers/beyond-no.html</id>
-    <updated>2026-08-03T05:25:55.000Z</updated>
+    <updated>2026-08-01T00:00:00Z</updated>
     <summary>Proposes a low-interruption, autonomy-supportive framework for adults accompanying self-directed learning in early childhood. Instead of steering children…</summary>
     <category term="ResearchGate"/>
     <category term="2026"/>
@@ -24,7 +24,7 @@
     <title>Computational Knightian Uncertainty: Undecidability and the Limits of Cyber Risk Quantification in Software-Intensive Firms</title>
     <link href="https://minh.systems/papers/cku.html" rel="alternate" type="text/html"/>
     <id>https://minh.systems/papers/cku.html</id>
-    <updated>2026-08-03T05:25:55.000Z</updated>
+    <updated>2026-08-01T00:00:00Z</updated>
     <summary>The paper argues that software creates a residual class of uncertainty that does not collapse neatly into ordinary probabilistic risk. Because many…</summary>
     <category term="International Journal of Research in Computing"/>
     <category term="2026"/>
@@ -34,7 +34,7 @@
     <title>Reference-Class Failure in Mortality Prediction: A Synthetic Study of Irreducible Uncertainty in End-of-Life Prognostic Models</title>
     <link href="https://minh.systems/papers/mortality-reference-class.html" rel="alternate" type="text/html"/>
     <id>https://minh.systems/papers/mortality-reference-class.html</id>
-    <updated>2026-08-03T05:25:55.000Z</updated>
+    <updated>2026-08-01T00:00:00Z</updated>
     <summary>Defines reference-class failure in mortality prediction: an end-of-life case can sit outside the development population’s transportable conditional…</summary>
     <category term="Research Square"/>
     <category term="2026"/>
@@ -44,7 +44,7 @@
     <title>ShieldLink: Retry-Aware Authenticated Encryption for Secure and Reliable Chiplet Interconnects</title>
     <link href="https://minh.systems/papers/shieldlink.html" rel="alternate" type="text/html"/>
     <id>https://minh.systems/papers/shieldlink.html</id>
-    <updated>2026-08-03T05:25:55.000Z</updated>
+    <updated>2026-08-01T00:00:00Z</updated>
     <summary>Chiplet die-to-die links such as UCIe/CXL handle reliability with link-layer retries while confidentiality lives in higher-layer authenticated encryption.…</summary>
     <category term="International Journal of Research in Computing"/>
     <category term="2026"/>
@@ -54,7 +54,7 @@
     <title>A Quantum Walk-Inspired Algorithm for Dynamic Resource Allocation in Cloud Computing: Implications for Sustainable Business Practices</title>
     <link href="https://minh.systems/papers/quantum-walk.html" rel="alternate" type="text/html"/>
     <id>https://minh.systems/papers/quantum-walk.html</id>
-    <updated>2026-08-13T10:54:19.000Z</updated>
+    <updated>2026-08-01T00:00:00Z</updated>
     <summary>Develops a quantum walk-inspired heuristic for dynamic resource allocation in cloud computing. The spreading behavior of quantum walks is used as a template…</summary>
     <category term="TechRxiv"/>
     <category term="2025"/>
@@ -64,7 +64,7 @@
     <title>Computational Complexity of Organizational Decision Hierarchies</title>
     <link href="https://minh.systems/papers/org-circuits.html" rel="alternate" type="text/html"/>
     <id>https://minh.systems/papers/org-circuits.html</id>
-    <updated>2026-08-03T05:25:55.000Z</updated>
+    <updated>2026-08-01T00:00:00Z</updated>
     <summary>Models organizational decision hierarchies as bounded-span monotone threshold circuits, making the tradeoffs between decision latency, accuracy, and…</summary>
     <category term="Research Square"/>
     <category term="2025"/>
@@ -74,7 +74,7 @@
     <title>Dual-Polarity Preons II: Parameter-Space Constraints and Viable Regimes for an Emergent Acoustic Metric</title>
     <link href="https://minh.systems/papers/preons-2.html" rel="alternate" type="text/html"/>
     <id>https://minh.systems/papers/preons-2.html</id>
-    <updated>2026-08-03T05:25:55.000Z</updated>
+    <updated>2026-08-01T00:00:00Z</updated>
     <summary>The follow-up to the dual-polarity preon toy model asks the harder question: in which regions of parameter space can the framework live at all? The paper…</summary>
     <category term="TechRxiv"/>
     <category term="2025"/>
@@ -84,7 +84,7 @@
     <title>Dual-Polarity Preons: A Toy Model for Composite Neutral Pairs and Emergent Gravity</title>
     <link href="https://minh.systems/papers/preons-1.html" rel="alternate" type="text/html"/>
     <id>https://minh.systems/papers/preons-1.html</id>
-    <updated>2026-08-03T05:25:55.000Z</updated>
+    <updated>2026-08-01T00:00:00Z</updated>
     <summary>Proposes a toy model in which opposite-charge “dyads” bind into neutral pairs acting as composite bosonic excitations: a hidden U(1) interaction mediates…</summary>
     <category term="Cognizance"/>
     <category term="2025"/>
@@ -94,7 +94,7 @@
     <title>Federated Learning-Based Intrusion Detection System for IoT Networks in Resource-Constrained Environments</title>
     <link href="https://minh.systems/papers/fl-ids.html" rel="alternate" type="text/html"/>
     <id>https://minh.systems/papers/fl-ids.html</id>
-    <updated>2026-08-03T05:25:55.000Z</updated>
+    <updated>2026-08-01T00:00:00Z</updated>
     <summary>A lightweight federated-learning intrusion detection system for resource-constrained IoT deployments. Training stays decentralized, which removes the…</summary>
     <category term="TechRxiv"/>
     <category term="2025"/>
@@ -104,7 +104,7 @@
     <title>Quadralzahlen: A Rotation-Invariant Numeral System That Reduces Upside-Down Misreads in Real-World Displays</title>
     <link href="https://minh.systems/papers/quadralzahlen.html" rel="alternate" type="text/html"/>
     <id>https://minh.systems/papers/quadralzahlen.html</id>
-    <updated>2026-08-03T05:25:55.000Z</updated>
+    <updated>2026-08-01T00:00:00Z</updated>
     <summary>Introduces Quadralzahlen (QZ), a rotation-invariant numeral system for identifiers and state codes built to eliminate 180° misreads in rotation-rich…</summary>
     <category term="Cognizance"/>
     <category term="2025"/>
@@ -114,7 +114,7 @@
     <title>Simulated Minds, Artificial Consciousness, and the Theory-Relative Simulation Hypothesis</title>
     <link href="https://minh.systems/papers/simulated-minds.html" rel="alternate" type="text/html"/>
     <id>https://minh.systems/papers/simulated-minds.html</id>
-    <updated>2026-08-03T05:25:55.000Z</updated>
+    <updated>2026-08-01T00:00:00Z</updated>
     <summary>Examines the simulation hypothesis and claims about artificial consciousness through one observation: any verdict about whether a simulated mind is…</summary>
     <category term="TechRxiv"/>
     <category term="2025"/>

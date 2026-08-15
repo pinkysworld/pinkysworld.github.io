@@ -9,7 +9,6 @@
  */
 
 import { readFileSync, writeFileSync, readdirSync, existsSync } from 'node:fs';
-import { execFileSync } from 'node:child_process';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -30,32 +29,42 @@ const pick = (src, re) => {
   return m ? decode(m[1]) : null;
 };
 
-/* When the page last changed — a real date, unlike the year-only citation
-   metadata, and the honest answer to "what is new in this feed". */
-function lastModified(relPath) {
-  try {
-    const out = execFileSync('git', ['log', '-1', '--format=%cI', '--', relPath],
-      { cwd: ROOT, encoding: 'utf8' }).trim();
-    if (out) return new Date(out).toISOString();
-  } catch { /* not a git checkout — fall through */ }
-  return new Date(0).toISOString();
+/* Entry dates come from the <lastmod> the sitemap already declares for each
+   paper. Deriving them from `git log` instead looked appealing but is unstable:
+   committing a paper page changes its commit date, so the feed went stale the
+   moment it was committed — and any unrelated edit, like adding a footer link,
+   would have republished every entry. The sitemap is committed data, so the
+   same input always produces the same feed. */
+function lastModifiedFromSitemap() {
+  const xml = readFileSync(join(ROOT, 'sitemap.xml'), 'utf8');
+  const dates = new Map();
+  for (const [, loc, lastmod] of xml.matchAll(
+    /<loc>([^<]*\/papers\/[^<]*)<\/loc>\s*<lastmod>([^<]*)<\/lastmod>/g)) {
+    dates.set(loc.split('/').pop(), `${lastmod}T00:00:00Z`);
+  }
+  return dates;
 }
+
+const modified = lastModifiedFromSitemap();
 
 const entries = readdirSync(join(ROOT, 'papers'))
   .filter(f => f.endsWith('.html'))
+  .sort()
   .map(file => {
     const rel = `papers/${file}`;
     const src = readFileSync(join(ROOT, rel), 'utf8');
     const title = pick(src, /<meta name="citation_title" content="([^"]*)"/);
     if (!title) return null;
+    const year = pick(src, /<meta name="citation_publication_date" content="([^"]*)"/) || '';
     return {
       url: `${SITE}/${rel}`,
       title,
-      year: pick(src, /<meta name="citation_publication_date" content="([^"]*)"/) || '',
+      year,
       venue: pick(src, /<meta name="citation_journal_title" content="([^"]*)"/) || '',
       doi: pick(src, /<meta name="citation_doi" content="([^"]*)"/) || '',
       summary: pick(src, /<meta name="description" content="([^"]*)"/) || '',
-      updated: lastModified(rel),
+      // Falls back to the publication year when the sitemap has no entry yet.
+      updated: modified.get(file) || `${year || '1970'}-01-01T00:00:00Z`,
     };
   })
   .filter(Boolean)
