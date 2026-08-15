@@ -1,0 +1,45 @@
+/* Self-hosted webfonts. No third-party requests, no visitor IP leaves this origin.
+ *
+ * JetBrains Mono — SIL Open Font License 1.1 — assets/fonts/JetBrainsMono-OFL.txt
+ * Inter          — SIL Open Font License 1.1 — assets/fonts/Inter-LICENSE.txt
+ *
+ * Both are variable fonts covering their full weight axis, so the intermediate
+ * weights the design uses (550, 650, 750) render as written instead of snapping
+ * to the nearest static cut. Subset to latin + latin-ext plus the symbols the
+ * site actually uses; regenerate with tools/build-fonts.sh after changing that set.
+ *
+ * The italic faces are declared but only downloaded by pages that actually
+ * render italic text — currently just the operator showcase pages.
+ */
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 100 800;
+  font-display: swap;
+  src: url('/assets/fonts/jetbrains-mono-var.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: italic;
+  font-weight: 100 800;
+  font-display: swap;
+  src: url('/assets/fonts/jetbrains-mono-var-italic.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/assets/fonts/inter-var.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/assets/fonts/inter-var-italic.woff2') format('woff2');
+}
