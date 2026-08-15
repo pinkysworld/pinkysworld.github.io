@@ -1,0 +1,11 @@
+# Security contact for minh.systems and its project subpaths.
+# https://www.rfc-editor.org/rfc/rfc9116
+
+Contact: https://minh.systems/executive/contact.html
+Expires: 2027-08-15T00:00:00.000Z
+Preferred-Languages: de, en
+Canonical: https://minh.systems/.well-known/security.txt
+
+# Please include steps to reproduce. Reports are answered within 72 hours.
+# Findings in the research prototypes (SkeinDB, Wardex, NexusFS, VeriLog,
+# SafeDrop) are welcome; those are pre-1.0 systems and are documented as such.
