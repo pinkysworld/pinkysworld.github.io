@@ -11,24 +11,74 @@ permissions:
   contents: read
 
 jobs:
+  generated:
+    name: Generated files are current
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0        # build-feed reads commit dates
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # The German pages and the feed are build output. If someone edits an
+      # English page or the dictionary without re-running the generators, the
+      # two drift apart silently — so fail here instead.
+      - name: German pages match their sources
+        run: node tools/build-de.mjs --check
+
+      - name: Atom feed matches papers/
+        run: node tools/build-feed.mjs --check
+
+      - name: No third-party font or ad references
+        run: |
+          if grep -rn "fonts.googleapis\|fonts.gstatic\|adsbygoogle\|pagead2" \
+               --include="*.html" --include="*.css" --include="*.js" .; then
+            echo "::error::third-party font or ad reference reintroduced"
+            exit 1
+          fi
+          echo "clean"
+
   lint:
     name: HTML / link lint
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - name: Validate HTML
-        uses: Cyb3r-Jak3/html5validator-action@v7.2.0
+      - uses: actions/setup-python@v5
         with:
-          root: .
-          match: '*.html'
-          blacklist: 'output node_modules .git'
-        continue-on-error: true
+          python-version: '3.12'
+
+      # vnu's CSS checker predates inset, backdrop-filter, subgrid, text-wrap
+      # and variable font weights, all of which this site uses correctly — so
+      # CSS messages are ignored and the HTML structure is what gates.
+      - name: Validate HTML
+        run: |
+          pip install --quiet html5validator
+          html5validator --root . --match '*.html' \
+            --blacklist output node_modules .git .claude \
+            --ignore-re 'CSS:'
+
+      # A portfolio this dense with DOIs and project links rots quietly.
+      # Internal links must always resolve; external ones are reported but
+      # tolerated, since journals and preprint servers rate-limit CI runners.
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
 
       - name: Check internal links
+        run: node tools/check-links.mjs
+
+      - name: Check external links
         uses: lycheeverse/lychee-action@v1
         with:
-          args: --verbose --no-progress --max-concurrency 4 --exclude-mail './*.html'
+          args: >-
+            --no-progress --max-concurrency 4 --exclude-mail
+            --scheme https --scheme http
+            --accept 200,206,403,429
+            './**/*.html'
           fail: false
 
   lighthouse:
@@ -37,40 +87,23 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: '20'
 
       - name: Serve site
         run: |
           npx --yes http-server . -p 8080 --silent &
-          sleep 3
+          npx --yes wait-on http://localhost:8080 -t 30000
 
       - name: Run Lighthouse CI
         uses: treosh/lighthouse-ci-action@v11
         with:
           urls: |
             http://localhost:8080/
+            http://localhost:8080/executive/projects.html
+            http://localhost:8080/de/
+            http://localhost:8080/papers/cku.html
           uploadArtifacts: true
           temporaryPublicStorage: true
           configPath: ./.github/lighthouserc.json
-        continue-on-error: true
-
-  playwright:
-    name: Playwright visual regression
-    runs-on: ubuntu-latest
-    if: false # enable after committing playwright config + tests
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with: { node-version: '20' }
-      - run: npm ci || npm install
-      - run: npx playwright install --with-deps
-      - run: npx playwright test
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: playwright-report
-          path: playwright-report/
-          retention-days: 14
