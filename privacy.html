@@ -11,7 +11,15 @@
 <link rel="canonical" href="https://minh.systems/privacy.html"><link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="/assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/fonts.css">
-<link rel="stylesheet" href="/executive/executive.css?v=66ab20da">
+<link rel="stylesheet" href="/executive/executive.css?v=8245556f">
+<script>
+  /* Same view preference the rest of the site stores, read before first paint
+     so an operator-view visitor never sees the cream skin flash first. */
+  try {
+    const saved = localStorage.getItem('minh.systems:view');
+    if (saved === 'operator') document.documentElement.dataset.view = 'operator';
+  } catch (_err) {}
+</script>
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://minh.systems/privacy.html">
 <meta property="og:site_name" content="minh.systems">
@@ -34,6 +42,42 @@
   .pv-block a{color:var(--ink);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
   .pv-note{margin-top:22px;padding:18px 20px;border-left:2px solid var(--accent);background:var(--accent-wash);font-size:14.5px;line-height:1.66;color:var(--soft);max-width:70ch}
   .pv-updated{margin-top:34px;font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--deep)}
+
+  /* View switch, so the page can be read in the skin the visitor arrived in. */
+  .pv-view{display:inline-flex;margin-top:22px;border:1px solid var(--line);border-radius:999px;background:var(--paper);padding:2px;gap:2px}
+  .pv-view button{appearance:none;border:0;border-radius:999px;background:transparent;padding:7px 14px;color:var(--soft);font:750 10px/1 var(--sans);letter-spacing:.09em;text-transform:uppercase;cursor:pointer;transition:background .18s ease,color .18s ease}
+  .pv-view button:hover{color:var(--deep)}
+  .pv-view button[aria-pressed="true"]{background:var(--deep);color:var(--paper);cursor:default}
+
+  /* ===== Operator skin =====
+     The layout is unchanged; only the palette and the typeface are swapped, so
+     the legal text stays one document at one URL in both views. Every value
+     below clears WCAG AA against the dark background. */
+  :root[data-view="operator"]{
+    --ink:#dde3e1;
+    --deep:#7fd49f;
+    --deep-hi:#9ce0b6;
+    --soft:#a3aeaa;
+    --faint:#8b9793;
+    --line:#1f2528;
+    --line-soft:#171b1d;
+    --paper:#111416;
+    --bg:#0b0d0e;
+    --accent:#e8b86b;
+    --accent-ink:#e8b86b;
+    --accent-wash:rgba(232,184,107,.10);
+    --sans:'JetBrains Mono', ui-monospace, 'SF Mono', monospace;
+  }
+  /* Spots where the light theme hardcodes white against --deep. */
+  [data-view="operator"] .ex-monogram,
+  [data-view="operator"] .ex-skip,
+  [data-view="operator"] .ex-nav-cta:hover,
+  [data-view="operator"] .pv-view button[aria-pressed="true"]{color:var(--bg)}
+  [data-view="operator"] ::selection{background:var(--deep);color:var(--bg)}
+  [data-view="operator"] .ex-topbar{background:rgba(11,13,14,.94)}
+  [data-view="operator"] .ex-nav-links a:hover{background:rgba(127,212,159,.07)}
+  [data-view="operator"] .pv-block h2,
+  [data-view="operator"] .ex-page-hero h1{letter-spacing:-.02em}
 </style>
 </head>
 <body>
@@ -83,6 +127,10 @@
       <a href="#lokal">Lokale Speicherung</a>
       <a href="#rechte">Ihre Rechte</a>
       <a href="#english">English version</a>
+    </div>
+    <div class="pv-view" role="group" aria-label="Ansicht / View" data-i18n-skip>
+      <button type="button" data-set-view="executive" aria-pressed="true">Executive</button>
+      <button type="button" data-set-view="operator" aria-pressed="false">Operator</button>
     </div>
   </header>
 
@@ -188,5 +236,23 @@
   <footer class="ex-page-footer"><div class="ex-shell"><span>© 2026 Michél Nguyen</span><span><a href="/index.html">minh.systems</a></span></div></footer>
 </main>
 <script defer src="/executive/executive.js?v=0c0a7ccf"></script>
+<script>
+  (() => {
+    const root = document.documentElement;
+    const buttons = [...document.querySelectorAll('[data-set-view]')];
+    const sync = () => {
+      const current = root.dataset.view === 'operator' ? 'operator' : 'executive';
+      buttons.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.setView === current)));
+    };
+    buttons.forEach(button => button.addEventListener('click', () => {
+      const view = button.dataset.setView;
+      if (view === 'operator') root.dataset.view = 'operator';
+      else delete root.dataset.view;
+      try { localStorage.setItem('minh.systems:view', view); } catch (_err) {}
+      sync();
+    }));
+    sync();
+  })();
+</script>
 </body>
 </html>
