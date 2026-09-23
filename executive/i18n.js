@@ -18,6 +18,7 @@
     '15+ years': '15+ Jahre',
     'Time in IT': 'Berufserfahrung',
     '3.96': '3,96',
+    '3.91': '3,91',
     'Portfolio ': 'Portfolio ',
     'Executive view · Switch to Operator for the full technical record': 'Executive-Ansicht · Der technische Teil steht in der Operator-Ansicht',
     '© 2026 Michél Nguyen · Germany': '© 2026 Michél Nguyen · Deutschland',
@@ -31,13 +32,13 @@
     'Positioning, core strengths, measured outcomes, and current role direction.': 'Positionierung, Stärken, belegte Ergebnisse und die aktuelle Rollenausrichtung.',
     'Profile, career record, project work, and the academic record are separated into focused pages for faster review.': 'Profil, Werdegang, Projekte und der akademische Teil liegen auf eigenen Seiten, damit man schneller findet, was man sucht.',
     'Choose a section': 'Bereich wählen',
-    'GPA 3.96 · 6× President’s List': 'GPA 3,96 · 6× President’s List',
+    'Summa cum laude · GPA 3.91 · 6× President’s List': 'Summa cum laude · GPA 3,91 · 6× President’s List',
     '14 certifications held': '14 Zertifizierungen',
     'Selected credentials & current focus': 'Ausgewählte Nachweise & aktuelle Schwerpunkte',
     'years in IT': 'Jahre in der IT',
     'public projects': 'öffentliche Projekte',
     'research papers': 'Forschungsarbeiten',
-    'Cybersecurity research on an MPhil track, alongside the B.Sc.': 'Cybersecurity-Forschung Richtung MPhil, parallel zum B.Sc.',
+    'Cybersecurity research on an MPhil track, building on the completed B.Sc.': 'Cybersecurity-Forschung Richtung MPhil, aufbauend auf dem abgeschlossenen B.Sc.',
     'SkeinDB database engine and Wardex XDR platform': 'Datenbank-Engine SkeinDB und XDR-Plattform Wardex',
     '3rd-level application support and release operations, nursIT Institute': '3rd-Level-Application-Support und Release-Betrieb, nursIT Institute',
     'Delivery ownership and systems work, from design through to release.': 'Delivery-Verantwortung und Systemarbeit, vom Entwurf bis zum Release.',
@@ -66,6 +67,7 @@
     'Jan 2026 — now': 'Jan. 2026 — heute',
     'Apr 2025 — now': 'Apr. 2025 — heute',
     'Nov 2025 — now': 'Nov. 2025 — heute',
+    'Nov 2025 — Oct 2026': 'Nov. 2025 — Okt. 2026',
     'Q3 2025 — now': 'Q3 2025 — heute',
     'Oct 2024 — Mar 2025': 'Okt. 2024 — März 2025',
     'May 2024 — Sep 2024': 'Mai 2024 — Sep. 2024',
@@ -157,7 +159,7 @@
     'Germany, Austria, Switzerland': 'Deutschland, Österreich, Schweiz',
     'Publications ': 'Publikationen ',
     '4 journal articles · 8 preprints': '4 Fachartikel · 8 Preprints',
-    'B.Sc. Computer Science, in progress': 'B.Sc. Informatik, laufend',
+    'B.Sc. Computer Science, summa cum laude': 'B.Sc. Informatik, summa cum laude',
     'University of the People': 'University of the People',
     'Certifications': 'Zertifizierungen',
     'Delivery, agile, security': 'Delivery, Agile, Security',
@@ -268,8 +270,8 @@
     'Independent, Sri Lanka': 'Eigenständig, Sri Lanka',
     'Focused academic phase Apr 2025 – Jan 2026; continued alongside employment since.':
       'Akademische Schwerpunktphase Apr 2025 – Jan 2026; seitdem berufsbegleitend fortgeführt.',
-    'MPhil preparation in cybersecurity and malware classification, in parallel with the B.Sc. Computer Science (GPA 3.96).':
-      'MPhil-Vorbereitung in Cybersecurity und Malware-Klassifikation, parallel zum B.Sc. Informatik (GPA 3,96).',
+    'MPhil preparation in cybersecurity and malware classification, alongside the B.Sc. Computer Science (completed October 2026, GPA 3.91, summa cum laude).':
+      'MPhil-Vorbereitung in Cybersecurity und Malware-Klassifikation, neben dem B.Sc. Informatik (abgeschlossen im Oktober 2026, GPA 3,91, summa cum laude).',
     'Two peer-reviewed IJRC articles, further preprints, and peer-review service for the Faculty of Computing.':
       'Zwei peer-reviewte IJRC-Artikel, weitere Preprints und Peer-Review-Tätigkeit für die Faculty of Computing.',
     'public records': 'öffentliche Nachweise',
@@ -378,11 +380,12 @@
     /* ---- academic page ---- */
     'Academic record & certifications': 'Studium & Zertifizierungen',
     'Degrees, research and certifications.': 'Abschlüsse, Forschung und Zertifizierungen.',
-    'A computer-science degree in progress at a 3.96 GPA, with six President’s List awards and an earlier First Class business degree. Alongside it: cybersecurity research on an MPhil track, peer-review work, and fourteen professional certifications.': 'Ein laufendes Informatikstudium mit einem GPA von 3,96, sechs President’s-List-Auszeichnungen und ein früherer Wirtschaftsabschluss mit First Class. Dazu Cybersecurity-Forschung Richtung MPhil, Peer-Review-Arbeit und vierzehn berufliche Zertifizierungen.',
-    'Current degree': 'Aktueller Abschluss',
+    'A computer-science degree completed summa cum laude at a 3.91 GPA, with six President’s List awards, and an earlier First Class business degree. Alongside it: cybersecurity research on an MPhil track, peer-review work, and fourteen professional certifications.': 'Ein mit summa cum laude abgeschlossenes Informatikstudium mit einem GPA von 3,91 und sechs President’s-List-Auszeichnungen, dazu ein früherer Wirtschaftsabschluss mit First Class. Dazu Cybersecurity-Forschung Richtung MPhil, Peer-Review-Arbeit und vierzehn berufliche Zertifizierungen.',
+    'Latest degree': 'Letzter Abschluss',
     'B.Sc. Computer Science': 'B.Sc. Informatik',
     'Standing': 'Leistungsstand',
-    'GPA 3.96 / 4.0': 'GPA 3,96 / 4,0',
+    'GPA 3.91 / 4.0': 'GPA 3,91 / 4,0',
+    'Summa cum laude · GPA 3.91 / 4.0': 'Summa cum laude · GPA 3,91 / 4,0',
     'Research track': 'Forschungsschwerpunkt',
     'Cybersecurity, MPhil prep': 'Cybersecurity, MPhil-Vorbereitung',
     '14 held': '14 vorhanden',
@@ -408,8 +411,8 @@
     'Awards recorded by the awarding institution.': 'Von der vergebenden Institution dokumentierte Auszeichnungen.',
     'University of the People. Awarded in November 2024, January 2025, September 2025, November 2025, January 2026 and March 2026.': 'University of the People. Verliehen im November 2024, Januar 2025, September 2025, November 2025, Januar 2026 und März 2026.',
     'Grade point average': 'Notendurchschnitt',
-    'Out of 4.0 in the ongoing B.Sc. Computer Science programme; the preceding A.S. was completed with High Honors.':
-      'Von 4,0 im laufenden B.Sc.-Informatikstudium; der vorangegangene A.S. wurde mit High Honors abgeschlossen.',
+    'B.Sc. Computer Science at University of the People, completed in October 2026 with a GPA of 3.91 out of 4.0. The preceding A.S. was completed with High Honors.':
+      'B.Sc. Informatik an der University of the People, abgeschlossen im Oktober 2026 mit einem GPA von 3,91 von 4,0. Der vorangegangene A.S. wurde mit High Honors abgeschlossen.',
     'Class honours': 'Class-Auszeichnung',
     'B.A. Business Administration at the University of Hertfordshire. First Class is the highest UK undergraduate classification.': 'B.A. Betriebswirtschaft an der University of Hertfordshire. First Class ist die höchste britische Bachelor-Einstufung.',
     'Article of the issue': 'Artikel der Ausgabe',
@@ -627,7 +630,7 @@
     },
     'academic.html': {
       title: 'Studium & Zertifizierungen — Michél Nguyen',
-      description: 'Akademischer Nachweis von Michél Nguyen: B.Sc. Informatik mit GPA 3,96, sechs President’s-List-Auszeichnungen, B.A. First Class, Cybersecurity-Forschungsvorbereitung und 14 Zertifizierungen.'
+      description: 'Akademischer Nachweis von Michél Nguyen: B.Sc. Informatik summa cum laude (GPA 3,91), sechs President’s-List-Auszeichnungen, B.A. First Class, Cybersecurity-Forschungsvorbereitung und 14 Zertifizierungen.'
     },
     'publications.html': {
       title: 'Publikationen — Michél Nguyen',
