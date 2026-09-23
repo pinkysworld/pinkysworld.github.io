@@ -26,7 +26,7 @@
     'Direct channels for roles, collaboration, and research enquiries.': 'Direkte Wege für Rollen, Zusammenarbeit und Forschungsanfragen.',
     'Twelve public records with abstracts, venues, and direct DOI links.': 'Zwölf öffentliche Einträge mit Abstracts, Publikationsorten und direkten DOI-Links.',
     'Degrees, GPA and honours, research preparation, peer review, and 14 certifications.': 'Abschlüsse, GPA und Auszeichnungen, Forschungsvorbereitung, Peer Review und 14 Zertifizierungen.',
-    'Eighteen public projects across research systems, Apple platforms, tools, and games.': 'Achtzehn öffentliche Projekte: Forschungssysteme, Apple-Plattformen, Tools und Spiele.',
+    'Twenty public projects across research systems, Apple platforms, tools, and games.': 'Zwanzig öffentliche Projekte: Forschungssysteme, Apple-Plattformen, Tools und Spiele.',
     'Fifteen years of delivery, presales architecture, team leadership, and infrastructure work.': 'Fünfzehn Jahre Delivery, Presales-Architektur, Teamführung und Infrastrukturarbeit.',
     'Positioning, core strengths, measured outcomes, and current role direction.': 'Positionierung, Stärken, belegte Ergebnisse und die aktuelle Rollenausrichtung.',
     'Profile, career record, project work, and the academic record are separated into focused pages for faster review.': 'Profil, Werdegang, Projekte und der akademische Teil liegen auf eigenen Seiten, damit man schneller findet, was man sucht.',
@@ -463,11 +463,11 @@
 
     /* ---- projects page ---- */
     'Project portfolio': 'Projektportfolio',
-    'Eighteen projects, all public.': 'Achtzehn Projekte, alle öffentlich.',
-    'Six research systems written in Rust: a database engine, an XDR platform, distributed storage, an evidence engine, secure file delivery and a programming language. Then seven Apple-platform apps, two developer tools and three games. All of them are public and versioned, and the code or the release is there to look at.': 'Sechs Forschungssysteme in Rust: eine Datenbank-Engine, eine XDR-Plattform, verteilter Speicher, eine Evidence-Engine, sichere Dateizustellung und eine Programmiersprache. Dazu sieben Apple-Anwendungen, zwei Entwickler-Tools und drei Spiele. Alle sind öffentlich und versioniert; Code beziehungsweise Release sind einsehbar.',
+    'Twenty projects, all public.': 'Zwanzig Projekte, alle öffentlich.',
+    'Seven research systems: a database engine, an XDR platform, distributed storage, an evidence engine, secure file delivery and a programming language, plus a Python workbench for connectome pharmacology. Then seven Apple-platform apps, two developer tools and four games. All of them are public and versioned, and the code or the release is there to look at.': 'Sieben Forschungssysteme: eine Datenbank-Engine, eine XDR-Plattform, verteilter Speicher, eine Evidence-Engine, sichere Dateizustellung und eine Programmiersprache, dazu eine Python-Workbench für Konnektom-Pharmakologie. Außerdem sieben Apple-Anwendungen, zwei Entwickler-Tools und vier Spiele. Alle sind öffentlich und versioniert; Code beziehungsweise Release sind einsehbar.',
     'Publications behind the work': 'Publikationen dahinter',
     'Discuss a project': 'Projekt besprechen',
-    '18 public': '18 öffentlich',
+    '20 public': '20 öffentlich',
     'Primary stack': 'Haupt-Stack',
     'Backed by papers': 'Durch Paper belegt',
     '4 systems': '4 Systeme',
@@ -475,12 +475,12 @@
     'Code · papers · tests': 'Code · Paper · Tests',
     'Selected project work': 'Ausgewählte Projektarbeit',
     'Filter by category. The research systems link to a profile with scope, architecture and what the work does and does not show. The products link to their release page.': 'Nach Kategorie filtern. Hinter den Forschungssystemen liegt jeweils ein Profil zu Umfang, Architektur und Aussagekraft der Arbeit. Die Produkte verlinken auf ihre Release-Seite.',
-    'All · 18': 'Alle · 18',
-    'Research systems · 6': 'Forschungssysteme · 6',
+    'All · 20': 'Alle · 20',
+    'Research systems · 7': 'Forschungssysteme · 7',
     'iOS & macOS · 7': 'iOS & macOS · 7',
     'Tools · 2': 'Tools · 2',
-    'Games · 3': 'Spiele · 3',
-    '18 projects': '18 Projekte',
+    'Games · 4': 'Spiele · 4',
+    '20 projects': '20 Projekte',
     'Filter projects by category': 'Projekte nach Kategorie filtern',
     'Database systems': 'Datenbanksysteme',
     'A single-binary database engine with cell-interned MVCC, MySQL compatibility, partial PostgreSQL support, and twenty research tracks.':
@@ -506,8 +506,8 @@
       'Private Foto-Bereinigung für das iPhone. Duplikate, Screenshots und Serienbilder werden vollständig auf dem Gerät erkannt.',
     'Mushroom cultivation companion with strain guides, grow journals, AI contamination scans and PDF export.':
       'Begleit-App für die Pilzzucht mit Strain-Guides, Grow-Journalen, KI-Kontaminationsscans und PDF-Export.',
-    'Plant propagation tracker with visual journals, weather context, reminders and exportable records.':
-      'Tracker für Pflanzenvermehrung mit visuellen Journalen, Wetterbezug, Erinnerungen und exportierbaren Aufzeichnungen.',
+    'Plant propagation tracker with rooting forecasts, visual journals, weather context, reminders and exportable records.':
+      'Tracker für Pflanzenvermehrung mit Bewurzelungsprognosen, visuellen Journalen, Wetterbezug, Erinnerungen und exportierbaren Aufzeichnungen.',
     'Pomodoro and deep-work timer with streak systems, widgets and lightweight productivity insights.':
       'Pomodoro- und Deep-Work-Timer mit Streak-System, Widgets und schlanken Produktivitätsauswertungen.',
     'Universal macOS updater that unifies Sparkle, GitHub Releases and Mac App Store sources into one flow.':
@@ -526,10 +526,16 @@
     'Game · Web': 'Spiel · Web',
     'Post-apocalyptic survival strategy with progression systems, dynamic events and escalating pressure.':
       'Postapokalyptische Survival-Strategie mit Progressionssystemen, dynamischen Ereignissen und steigendem Druck.',
-    'Food truck management sim with rush gameplay, district strategy, and truck and staff upgrade systems.':
-      'Food-Truck-Management-Simulation mit Rush-Gameplay, Bezirksstrategie sowie Truck- und Personal-Upgrades.',
+    'Food truck management sim with rush gameplay, rival trucks, loyalty rewards and truck financing across two cities.':
+      'Food-Truck-Management-Simulation mit Rush-Gameplay, Konkurrenztrucks, Treueprämien und Truck-Finanzierung in zwei Städten.',
     'Medieval barber-surgeon life sim: care, trade, travel, household, staff and civic ambition in 1382.':
       'Mittelalterliche Bader-Chirurg-Lebenssimulation: Heilkunst, Handel, Reisen, Haushalt, Personal und städtischer Aufstieg im Jahr 1382.',
+    'Computational neuroscience': 'Computational Neuroscience',
+    'A provenance-first pharmacology workbench on the Drosophila MaleCNS connectome that tests whether each prediction actually depends on the wiring.':
+      'Eine provenienzorientierte Pharmakologie-Workbench auf dem MaleCNS-Konnektom von Drosophila, die prüft, ob eine Vorhersage tatsächlich von der Verschaltung abhängt.',
+    'Coming soon': 'Demnächst',
+    'A quiet puzzle about tree rings: place climate cards on a timeline, cut the trunk and match the target cross-section. 78 levels and a daily puzzle.':
+      'Ein ruhiges Puzzle über Jahresringe: Klimakarten auf eine Zeitleiste legen, den Stamm sägen und den Zielquerschnitt treffen. 78 Level und ein tägliches Rätsel.',
     'Two levels of detail': 'Zwei Detailtiefen',
     'These profiles stay short. Three of the systems also have a longer technical write-up.': 'Diese Profile bleiben kurz. Drei der Systeme haben zusätzlich eine ausführlichere technische Beschreibung.',
     'Need implementation detail?': 'Mehr Implementierungsdetails nötig?',
@@ -617,7 +623,7 @@
     },
     'projects.html': {
       title: 'Projekte — Michél Nguyen',
-      description: 'Achtzehn ausgelieferte Projekte von Michél Nguyen: Forschungssysteme in Rust, iOS- und macOS-Anwendungen, Entwickler-Tools und Spiele.'
+      description: 'Zwanzig öffentliche Projekte von Michél Nguyen: Forschungssysteme in Rust und Python, iOS- und macOS-Anwendungen, Entwickler-Tools und Spiele.'
     },
     'academic.html': {
       title: 'Studium & Zertifizierungen — Michél Nguyen',
@@ -633,7 +639,7 @@
     },
     'index.html': {
       title: 'Michél Nguyen — Enterprise-Delivery und angewandte Forschung',
-      description: 'Michél Nguyen: 15 Jahre Enterprise-IT-Service-Delivery und Projektmanagement, kombiniert mit peer-reviewter Informatikforschung und 18 öffentlichen Projekten.'
+      description: 'Michél Nguyen: 15 Jahre Enterprise-IT-Service-Delivery und Projektmanagement, kombiniert mit peer-reviewter Informatikforschung und 20 öffentlichen Projekten.'
     }
   };
 

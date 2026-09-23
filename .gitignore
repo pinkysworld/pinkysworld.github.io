@@ -8,3 +8,7 @@
 .playwright-mcp/
 output/
 .claude/
+
+# private working files (not part of the public site)
+tmp/
+scripts/
