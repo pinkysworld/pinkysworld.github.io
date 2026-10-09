@@ -111,6 +111,8 @@
     'Service delivery & project management': 'Service Delivery & Projektmanagement',
     'Applied computer-science research': 'Angewandte Informatikforschung',
     'Thuringia, Germany': 'Thüringen, Deutschland',
+    'Michél Nguyen · Thuringia, Germany': 'Michél Nguyen · Thüringen, Deutschland',
+    'Portrait of Michél Nguyen': 'Porträt von Michél Nguyen',
     'Remote · CET/CEST · DE / EN': 'Remote · MEZ/MESZ · DE / EN',
     'Remote · CET/CEST': 'Remote · MEZ/MESZ',
     'Operator view →': 'Operator-Ansicht →',

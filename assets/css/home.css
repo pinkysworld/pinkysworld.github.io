@@ -930,3 +930,12 @@ a.ex-trust-item:hover{background:rgba(250,249,246,.75)}
   .view-switcher{right:10px;bottom:10px}.view-switcher button{padding:8px 10px;font-size:9px}
 }
 @media(prefers-reduced-motion:reduce){.view-loader-infinity .infinity-progress{animation:none;stroke-dasharray:none}}
+
+/* Portrait in the executive profile card: sharp photo on a blurred copy of itself. */
+.ex-profile-card .ex-photo{position:relative;isolation:isolate;margin:-32px -32px 28px;padding:16px 16px 16px;overflow:hidden;border-bottom:1px solid var(--ex-line)}
+.ex-photo-blur{position:absolute;inset:0;z-index:-1;width:100%;height:100%;object-fit:cover;transform:scale(1.25);opacity:.95;filter:saturate(1.25) brightness(1.06)}
+.ex-profile-card .ex-photo::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(160deg,rgba(255,255,255,.34),rgba(255,255,255,.08) 55%,rgba(250,249,246,.28));box-shadow:inset 0 0 0 1px rgba(255,255,255,.45)}
+.ex-photo-main{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;object-position:50% 30%;border-radius:2px;outline:1px solid rgba(255,255,255,.55);outline-offset:-1px;box-shadow:0 14px 34px rgba(23,33,31,.22)}
+.ex-profile-card:has(.ex-photo)::before{display:none}
+.ex-profile-card:has(.ex-photo) .ex-card-title{margin-top:12px}
+@media(max-width:760px){.ex-profile-card .ex-photo{margin:-24px -24px 22px;padding:12px}}
