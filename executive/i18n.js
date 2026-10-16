@@ -32,7 +32,7 @@
     'Positioning, core strengths, measured outcomes, and current role direction.': 'Positionierung, Stärken, belegte Ergebnisse und die aktuelle Rollenausrichtung.',
     'Profile, career record, project work, and the academic record are separated into focused pages for faster review.': 'Profil, Werdegang, Projekte und der akademische Teil liegen auf eigenen Seiten, damit man schneller findet, was man sucht.',
     'Choose a section': 'Bereich wählen',
-    'Summa cum laude · GPA 3.91 · 6× President’s List': 'Summa cum laude · GPA 3,91 · 6× President’s List',
+    'Summa cum laude · GPA 3.91 · 7× President’s List': 'Summa cum laude · GPA 3,91 · 7× President’s List',
     '14 certifications held': '14 Zertifizierungen',
     'Selected credentials & current focus': 'Ausgewählte Nachweise & aktuelle Schwerpunkte',
     'years in IT': 'Jahre in der IT',
@@ -73,7 +73,7 @@
     'May 2024 — Sep 2024': 'Mai 2024 — Sep. 2024',
     '2022 — May 2024': '2022 — Mai 2024',
     'Nov 2024 — Nov 2025': 'Nov. 2024 — Nov. 2025',
-    'Nov 2024 – Mar 2026': 'Nov. 2024 – März 2026',
+    'Nov 2024 – Aug 2026': 'Nov. 2024 – Aug. 2026',
 
     /* ---- short chips & numeric labels ---- */
     'GPA / 4.0': 'GPA / 4,0',
@@ -272,8 +272,8 @@
     'Independent, Sri Lanka': 'Eigenständig, Sri Lanka',
     'Focused academic phase Apr 2025 – Jan 2026; continued alongside employment since.':
       'Akademische Schwerpunktphase Apr 2025 – Jan 2026; seitdem berufsbegleitend fortgeführt.',
-    'MPhil preparation in cybersecurity and malware classification, alongside the B.Sc. Computer Science (completed October 2026, GPA 3.91, summa cum laude).':
-      'MPhil-Vorbereitung in Cybersecurity und Malware-Klassifikation, neben dem B.Sc. Informatik (abgeschlossen im Oktober 2026, GPA 3,91, summa cum laude).',
+    'MPhil preparation in cybersecurity and malware classification, alongside the B.Sc. Computer Science (completed August 2026, GPA 3.91, summa cum laude).':
+      'MPhil-Vorbereitung in Cybersecurity und Malware-Klassifikation, neben dem B.Sc. Informatik (abgeschlossen im August 2026, GPA 3,91, summa cum laude).',
     'Two peer-reviewed IJRC articles, further preprints, and peer-review service for the Faculty of Computing.':
       'Zwei peer-reviewte IJRC-Artikel, weitere Preprints und Peer-Review-Tätigkeit für die Faculty of Computing.',
     'public records': 'öffentliche Nachweise',
@@ -382,7 +382,7 @@
     /* ---- academic page ---- */
     'Academic record & certifications': 'Studium & Zertifizierungen',
     'Degrees, research and certifications.': 'Abschlüsse, Forschung und Zertifizierungen.',
-    'A computer-science degree completed summa cum laude at a 3.91 GPA, with six President’s List awards, and an earlier First Class business degree. Alongside it: cybersecurity research on an MPhil track, peer-review work, and fourteen professional certifications.': 'Ein mit summa cum laude abgeschlossenes Informatikstudium mit einem GPA von 3,91 und sechs President’s-List-Auszeichnungen, dazu ein früherer Wirtschaftsabschluss mit First Class. Dazu Cybersecurity-Forschung Richtung MPhil, Peer-Review-Arbeit und vierzehn berufliche Zertifizierungen.',
+    'A computer-science degree completed summa cum laude at a 3.91 GPA, with seven President’s List awards, and an earlier First Class business degree. Alongside it: cybersecurity research on an MPhil track, peer-review work, and fourteen professional certifications.': 'Ein mit summa cum laude abgeschlossenes Informatikstudium mit einem GPA von 3,91 und sieben President’s-List-Auszeichnungen, dazu ein früherer Wirtschaftsabschluss mit First Class. Dazu Cybersecurity-Forschung Richtung MPhil, Peer-Review-Arbeit und vierzehn berufliche Zertifizierungen.',
     'Latest degree': 'Letzter Abschluss',
     'B.Sc. Computer Science': 'B.Sc. Informatik',
     'Standing': 'Leistungsstand',
@@ -411,10 +411,10 @@
       'IHK (Industrie- und Handelskammer) · duale Ausbildung.',
     'Academic distinctions': 'Akademische Auszeichnungen',
     'Awards recorded by the awarding institution.': 'Von der vergebenden Institution dokumentierte Auszeichnungen.',
-    'University of the People. Awarded in November 2024, January 2025, September 2025, November 2025, January 2026 and March 2026.': 'University of the People. Verliehen im November 2024, Januar 2025, September 2025, November 2025, Januar 2026 und März 2026.',
+    'University of the People. Awarded in November 2024, January 2025, September 2025, November 2025, January 2026, March 2026 and August 2026.': 'University of the People. Verliehen im November 2024, Januar 2025, September 2025, November 2025, Januar 2026, März 2026 und August 2026.',
     'Grade point average': 'Notendurchschnitt',
-    'B.Sc. Computer Science at University of the People, completed in October 2026 with a GPA of 3.91 out of 4.0. The preceding A.S. was completed with High Honors.':
-      'B.Sc. Informatik an der University of the People, abgeschlossen im Oktober 2026 mit einem GPA von 3,91 von 4,0. Der vorangegangene A.S. wurde mit High Honors abgeschlossen.',
+    'B.Sc. Computer Science at University of the People, completed in August 2026 with a GPA of 3.91 out of 4.0. The preceding A.S. was completed with High Honors.':
+      'B.Sc. Informatik an der University of the People, abgeschlossen im August 2026 mit einem GPA von 3,91 von 4,0. Der vorangegangene A.S. wurde mit High Honors abgeschlossen.',
     'Class honours': 'Class-Auszeichnung',
     'B.A. Business Administration at the University of Hertfordshire. First Class is the highest UK undergraduate classification.': 'B.A. Betriebswirtschaft an der University of Hertfordshire. First Class ist die höchste britische Bachelor-Einstufung.',
     'Article of the issue': 'Artikel der Ausgabe',
@@ -468,8 +468,8 @@
 
     /* ---- projects page ---- */
     'Project portfolio': 'Projektportfolio',
-    'Twenty projects, all public.': 'Zwanzig Projekte, alle öffentlich.',
-    'Seven research systems: a database engine, an XDR platform, distributed storage, an evidence engine, secure file delivery and a programming language, plus a Python workbench for connectome pharmacology. Then seven Apple-platform apps, two developer tools and four games. All of them are public and versioned, and the code or the release is there to look at.': 'Sieben Forschungssysteme: eine Datenbank-Engine, eine XDR-Plattform, verteilter Speicher, eine Evidence-Engine, sichere Dateizustellung und eine Programmiersprache, dazu eine Python-Workbench für Konnektom-Pharmakologie. Außerdem sieben Apple-Anwendungen, zwei Entwickler-Tools und vier Spiele. Alle sind öffentlich und versioniert; Code beziehungsweise Release sind einsehbar.',
+    'Twenty-two projects, twenty of them public.': 'Zweiundzwanzig Projekte, zwanzig davon öffentlich.',
+    'Seven research systems: a database engine, an XDR platform, distributed storage, an evidence engine, secure file delivery and a programming language, plus a Python workbench for connectome pharmacology. Then seven Apple-platform apps, two developer tools and six games, two of which are still in development. The released ones are public and versioned, and the code or the release is there to look at.': 'Sieben Forschungssysteme: eine Datenbank-Engine, eine XDR-Plattform, verteilter Speicher, eine Evidence-Engine, sichere Dateizustellung und eine Programmiersprache, dazu eine Python-Workbench für Konnektom-Pharmakologie. Außerdem sieben Apple-Anwendungen, zwei Entwickler-Tools und sechs Spiele, zwei davon noch in Entwicklung. Die veröffentlichten sind öffentlich und versioniert; Code beziehungsweise Release sind einsehbar.',
     'Publications behind the work': 'Publikationen dahinter',
     'Discuss a project': 'Projekt besprechen',
     '20 public': '20 öffentlich',
@@ -480,12 +480,12 @@
     'Code · papers · tests': 'Code · Paper · Tests',
     'Selected project work': 'Ausgewählte Projektarbeit',
     'Filter by category. The research systems link to a profile with scope, architecture and what the work does and does not show. The products link to their release page.': 'Nach Kategorie filtern. Hinter den Forschungssystemen liegt jeweils ein Profil zu Umfang, Architektur und Aussagekraft der Arbeit. Die Produkte verlinken auf ihre Release-Seite.',
-    'All · 20': 'Alle · 20',
+    'All · 22': 'Alle · 22',
     'Research systems · 7': 'Forschungssysteme · 7',
     'iOS & macOS · 7': 'iOS & macOS · 7',
     'Tools · 2': 'Tools · 2',
-    'Games · 4': 'Spiele · 4',
-    '20 projects': '20 Projekte',
+    'Games · 6': 'Spiele · 6',
+    '22 projects': '22 Projekte',
     'Filter projects by category': 'Projekte nach Kategorie filtern',
     'Database systems': 'Datenbanksysteme',
     'A single-binary database engine with cell-interned MVCC, MySQL compatibility, partial PostgreSQL support, and twenty research tracks.':
@@ -539,6 +539,12 @@
     'A provenance-first pharmacology workbench on the Drosophila MaleCNS connectome that tests whether each prediction actually depends on the wiring.':
       'Eine provenienzorientierte Pharmakologie-Workbench auf dem MaleCNS-Konnektom von Drosophila, die prüft, ob eine Vorhersage tatsächlich von der Verschaltung abhängt.',
     'Coming soon': 'Demnächst',
+    'Game · Steam': 'Spiel · Steam',
+    'In development': 'In Entwicklung',
+    'A hospital management sim set in Hamburg, 1875–1892. Build wards, hire staff and push germ theory past a profession that still believes in miasma, up to the cholera of 1892.':
+      'Eine Krankenhaus-Aufbausimulation in Hamburg, 1875–1892. Stationen bauen, Personal einstellen und die Keimtheorie gegen eine Ärzteschaft durchsetzen, die noch an Miasmen glaubt, bis zur Cholera von 1892.',
+    'A strategy game about the invention of insurance, Hamburg 1590–1850. Price risk from letters, rumours and ship lists, and build the statistics yourself.':
+      'Ein Strategiespiel über die Erfindung der Versicherung, Hamburg 1590–1850. Risiko aus Briefen, Gerüchten und Schiffslisten bepreisen und die Statistik selbst aufbauen.',
     'A quiet puzzle about tree rings: place climate cards on a timeline, cut the trunk and match the target cross-section. 78 levels and a daily puzzle.':
       'Ein ruhiges Puzzle über Jahresringe: Klimakarten auf eine Zeitleiste legen, den Stamm sägen und den Zielquerschnitt treffen. 78 Level und ein tägliches Rätsel.',
     'Two levels of detail': 'Zwei Detailtiefen',
@@ -632,7 +638,7 @@
     },
     'academic.html': {
       title: 'Studium & Zertifizierungen — Michél Nguyen',
-      description: 'Akademischer Nachweis von Michél Nguyen: B.Sc. Informatik summa cum laude (GPA 3,91), sechs President’s-List-Auszeichnungen, B.A. First Class, Cybersecurity-Forschungsvorbereitung und 14 Zertifizierungen.'
+      description: 'Akademischer Nachweis von Michél Nguyen: B.Sc. Informatik summa cum laude (GPA 3,91), sieben President’s-List-Auszeichnungen, B.A. First Class, Cybersecurity-Forschungsvorbereitung und 14 Zertifizierungen.'
     },
     'publications.html': {
       title: 'Publikationen — Michél Nguyen',
