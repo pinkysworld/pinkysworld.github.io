@@ -793,7 +793,7 @@ html[data-view="operator"] .view-loader-kicker{color:var(--mute);font-family:var
 body.ex-nav-open .ex-scrim{opacity:1;pointer-events:auto}
 
 .ex-metrics{border-top:1px solid var(--ex-line);border-bottom:1px solid var(--ex-line);background:var(--ex-paper)}
-.ex-metrics-inner{display:grid;grid-template-columns:repeat(6,1fr);border-left:1px solid var(--ex-line)}
+.ex-metrics-inner{display:grid;grid-template-columns:repeat(4,1fr);border-left:1px solid var(--ex-line)}
 .ex-metric{min-height:126px;padding:20px 16px;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start;border-right:1px solid var(--ex-line)}
 @supports (grid-template-rows: subgrid){
   .ex-metrics-inner{grid-template-rows:auto auto 1fr}
@@ -911,7 +911,7 @@ a.ex-trust-item:hover{background:rgba(250,249,246,.75)}
   .ex-nav{width:min(310px,86vw);transform:translateX(-100%);visibility:hidden;box-shadow:22px 0 60px rgba(17,31,28,0);transition:transform .28s ease,box-shadow .28s ease,visibility .28s}
   .ex-nav.is-open{transform:none;visibility:visible;box-shadow:22px 0 60px rgba(17,31,28,.16)}
   body.ex-nav-open{overflow:hidden}
-  .ex-metrics-inner{grid-template-columns:repeat(3,1fr)}
+  .ex-metrics-inner{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:900px){
   .ex-hero{grid-template-columns:1fr;gap:40px;min-height:auto;padding:72px 0}.ex-profile-card{min-height:520px}
@@ -939,3 +939,8 @@ a.ex-trust-item:hover{background:rgba(250,249,246,.75)}
 .ex-profile-card:has(.ex-photo)::before{display:none}
 .ex-profile-card:has(.ex-photo) .ex-card-title{margin-top:12px}
 @media(max-width:760px){.ex-profile-card .ex-photo{margin:-24px -24px 22px;padding:12px}}
+
+/* Operator view is English only; say so on the German page. */
+.op-lang-note{display:none;margin:16px 0 0;padding:10px 14px;border:1px solid var(--line);color:var(--fg);font-family:var(--sans);font-size:13px}
+html[lang="de"] .op-lang-note{display:block}
+.op-lang-note a{color:var(--cyan)}

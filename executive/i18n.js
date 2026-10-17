@@ -15,6 +15,9 @@
   'use strict';
 
   const DE = {
+    'Start with these three': 'Drei Projekte für den Einstieg',
+    'SkeinDB, a pre-1.0 database engine with a peer-reviewed paper and CI-measured replication results. Wardex, a released, self-hosted XDR platform (v1.1.0). MushBloom, an iOS app published on the App Store.': 'SkeinDB, eine Datenbank-Engine vor Version 1.0 mit begutachtetem Paper und in CI gemessenen Replikationsergebnissen. Wardex, eine veröffentlichte, selbst gehostete XDR-Plattform (v1.1.0). MushBloom, eine iOS-App im App Store.',
+    'The operator pages cover architecture and operating surfaces for SkeinDB, Wardex and NexusFS, with benchmark numbers only where they have been measured and published. The full operator view has the rest of the technical portfolio.': 'Die Operator-Seiten beschreiben Architektur und Betrieb von SkeinDB, Wardex und NexusFS, mit Messwerten nur dort, wo sie gemessen und veröffentlicht sind. Die vollständige Operator-Ansicht (auf Englisch) enthält den Rest des technischen Portfolios.',
     'Reliable IT services and applied research.': 'IT-Services verantworten. Forschung voranbringen.',
     'For a job opportunity, please include the role, the working arrangement and a short description of the work. LinkedIn works well for a first introduction.': 'Bei Stellenangeboten helfen Angaben zu Position, Aufgaben, Arbeitsmodell und Ansprechpartner. Für einen ersten Kontakt eignet sich auch LinkedIn.',
     'Interested in discussing a role, a technical project or a research collaboration? Send a message with the form below or connect on LinkedIn. I usually reply within 72 hours.': 'Sie möchten über eine Stelle, ein IT-Projekt oder eine Forschungsfrage sprechen? Schreiben Sie mir über das Formular oder auf LinkedIn. Ich antworte normalerweise innerhalb von 72 Stunden.',
@@ -65,7 +68,7 @@
     '3.96': '3,96',
     '3.91': '3,91',
     'Portfolio ': 'Portfolio ',
-    'Executive view · Switch to Operator for the full technical record': 'Executive-Ansicht · Der technische Teil steht in der Operator-Ansicht',
+    'Executive view · Switch to Operator for the full technical record': 'Executive-Ansicht · Der technische Teil steht in der Operator-Ansicht (auf Englisch)',
     '© 2026 Michél Nguyen · Germany': '© 2026 Michél Nguyen · Deutschland',
     'The contact form is the most direct route. Typical response time is within 72 hours.': 'Das Kontaktformular ist der direkteste Weg. Antwort meist innerhalb von 72 Stunden.',
     'Recruiting, research, or technical collaboration': 'Recruiting, Forschung oder technische Zusammenarbeit',
@@ -557,7 +560,6 @@
     'Two levels of detail': 'Zwei Detailtiefen',
     'These profiles stay short. Three of the systems also have a longer technical write-up.': 'Diese Profile bleiben kurz. Drei der Systeme haben zusätzlich eine ausführlichere technische Beschreibung.',
     'Need implementation detail?': 'Mehr Implementierungsdetails nötig?',
-    'The operator pages cover architecture, operating surfaces and benchmark numbers for SkeinDB, Wardex and NexusFS. The full operator view has the rest of the technical portfolio.': 'Die Operator-Seiten behandeln Architektur, Betriebsoberflächen und Benchmark-Zahlen für SkeinDB, Wardex und NexusFS. Die vollständige Operator-Ansicht enthält das übrige technische Portfolio.',
     'Portfolio': 'Portfolio',
     'Context': 'Kontext',
     'Pre-launch': 'Vor dem Launch',
@@ -610,7 +612,7 @@
     'Use the form ↗': 'Formular nutzen ↗',
     'directly.': 'schreiben.',
     'Professional enquiries': 'Berufliche Anfragen',
-    'One-pager (PDF)': 'One-Pager (PDF)',
+    'One-pager (PDF, German)': 'One-Pager (PDF)',
     'Overview ↗': 'Übersicht ↗',
 
     /* ---- runtime strings from executive.js ---- */
@@ -626,15 +628,15 @@
   const PAGE_META = {
     'profile.html': {
       title: 'Berufsprofil — Michél Nguyen',
-      description: 'Berufsprofil von Michél Nguyen: 15 Jahre Enterprise-IT-Service-Delivery, Projektmanagement und Presales-Architektur, kombiniert mit peer-reviewter Informatikforschung.'
+      description: 'Berufsprofil von Michél Nguyen: mehr als 15 Jahre IT-Service-Management, Projektmanagement und Presales, dazu begutachtete Informatikforschung.'
     },
     'experience.html': {
       title: 'Werdegang — Michél Nguyen',
-      description: 'Werdegang von Michél Nguyen: Service Delivery und Account Management, Presales-Solution-Architektur, D-A-CH-Teamführung, Projektmanagement und 3rd-Level-Infrastrukturarbeit über 15 Jahre.'
+      description: 'Werdegang von Michél Nguyen: Service Delivery und Account Management, Lösungsdesign im Presales, Teamführung in der DACH-Region, Projektmanagement und 3rd-Level-Infrastrukturarbeit über mehr als 15 Jahre.'
     },
     'projects.html': {
       title: 'Projekte — Michél Nguyen',
-      description: 'Zwanzig öffentliche Projekte von Michél Nguyen: Forschungssysteme in Rust und Python, iOS- und macOS-Anwendungen, Entwickler-Tools und Spiele.'
+      description: '20 öffentliche Projekte von Michél Nguyen, dazu zwei Spiele in Entwicklung: Forschungssysteme in Rust und Python, iOS- und macOS-Anwendungen, Entwickler-Tools und Spiele.'
     },
     'academic.html': {
       title: 'Studium & Zertifizierungen — Michél Nguyen',
@@ -646,11 +648,11 @@
     },
     'contact.html': {
       title: 'Kontakt — Michél Nguyen',
-      description: 'Kontakt zu Michél Nguyen für Rollen in Service Delivery und Projektmanagement, Systems- und Security-Engineering, Forschung oder Projektzusammenarbeit.'
+      description: 'Kontakt zu Michél Nguyen für Stellenangebote in Service Delivery und Projektmanagement, Systems- und Security-Engineering, für Forschungsfragen oder Projektarbeit.'
     },
     'index.html': {
-      title: 'Michél Nguyen — Enterprise-Delivery und angewandte Forschung',
-      description: 'Michél Nguyen: 15 Jahre Enterprise-IT-Service-Delivery und Projektmanagement, kombiniert mit peer-reviewter Informatikforschung und 20 öffentlichen Projekten.'
+      title: 'Michél Nguyen — IT-Service-Management und angewandte Forschung',
+      description: 'Michél Nguyen: mehr als 15 Jahre IT-Service-Management und Projektmanagement, dazu begutachtete Informatikforschung und 20 öffentliche Projekte.'
     }
   };
 
