@@ -125,7 +125,7 @@
 
   <aside class="hero-side">
     <div class="stat-row">
-      <div class="n">0.3<span class="small">.0</span></div>
+      <div class="n">0.1<span class="small">.0</span></div>
       <div class="l">current version<br><span class="em">prototype</span> · verifier CLI WIP</div>
     </div>
     <div class="stat-row">
@@ -133,12 +133,12 @@
       <div class="l">CRDT op types<br><span class="em">put</span> · <span class="em">link</span> · <span class="em">tombstone</span></div>
     </div>
     <div class="stat-row">
-      <div class="n">100<span class="small">%</span></div>
-      <div class="l">offline-first<br>conflict-free merge across forks</div>
+      <div class="n">8/8</div>
+      <div class="l">milestones complete<br>M0–M8 · see current-status.md</div>
     </div>
     <div class="stat-row">
-      <div class="n">∞</div>
-      <div class="l">audit horizon<br>signed op log replays from genesis</div>
+      <div class="n">1</div>
+      <div class="l">executable<br>signed op log · <span class="em">verify</span> command</div>
     </div>
     <div class="meta-grid">
       <div class="r"><div class="k">started</div><div class="v">2025-05-12</div></div>
@@ -285,14 +285,8 @@
     <div class="tag">D / NUMBERS</div>
     <div>
       <h2>bench --suite=core<span class="punct">/</span></h2>
-      <p class="sub">Synthetic + replay traces on a 2024 M2 Pro, 3 peers across continents in the WAN bench.</p>
+      <p class="sub">No benchmark is published yet for this prototype. Numbers will appear here only with hardware, workload, version and a reproduction command.</p>
     </div>
-  </div>
-  <div class="bench-grid">
-    <div class="bench reveal"><div class="h">op append</div><div class="n">0.4<span class="unit">ms</span></div><div class="bar"><i style="--w:12%"></i></div><div class="s">signed op → local log committed.</div><div class="ftn">ed25519 · m2 pro</div></div>
-    <div class="bench reveal"><div class="h">merkle proof</div><div class="n">17<span class="unit">b</span></div><div class="bar"><i style="--w:22%"></i></div><div class="s">avg proof size per inclusion at 1M ops.</div><div class="ftn">log₂(N) · BLAKE3</div></div>
-    <div class="bench reveal"><div class="h">WAN sync</div><div class="n">3.1<span class="unit">s</span></div><div class="bar"><i style="--w:62%"></i></div><div class="s">100k op delta · 3 peers · transcontinental.</div><div class="ftn">QUIC 1-RTT resume</div></div>
-    <div class="bench reveal"><div class="h">verifier replay</div><div class="n">82<span class="unit">k/s</span></div><div class="bar"><i style="--w:88%"></i></div><div class="s">ops verified per second on the CLI.</div><div class="ftn">single core · sig-batched</div></div>
   </div>
 </section>
 
@@ -313,13 +307,13 @@
       <div class="small-spec">
         <div class="r"><div class="k">signature</div><div class="v">ed25519 · 64 B</div></div>
         <div class="r"><div class="k">hash</div><div class="v">BLAKE3 · 32 B</div></div>
-        <div class="r"><div class="k">proof size</div><div class="v">O(log₂ N) · ~17 B avg</div></div>
+        <div class="r"><div class="k">proof size</div><div class="v">O(log₂ N) sibling hashes · 32 B each</div></div>
         <div class="r"><div class="k">verifier</div><div class="v">no-std · embeddable</div></div>
       </div>
     </div>
     <div class="code-block"><div class="code-head">
       <div class="code-dots"><span></span><span></span><span></span></div>
-      <div class="code-title">src/proof.rs · inclusion proof</div>
+      <div class="code-title">illustrative API sketch · not the exact crate surface</div>
     </div><pre class="code-body"><span class="ln"> 1</span><span class="kw">use</span> nexusfs::{Store, ProofInclusion, OpId};
 <span class="ln"> 2</span>
 <span class="ln"> 3</span><span class="cmt">// 1. write — returns a proof of inclusion.</span>
@@ -328,7 +322,7 @@
 <span class="ln"> 6</span><span class="kw">let</span> proof: ProofInclusion = store.<span class="fn">prove</span>(id)?;
 <span class="ln"> 7</span>
 <span class="ln"> 8</span><span class="cmt">// 2. proof is bytes — pass it around like any other.</span>
-<span class="ln"> 9</span><span class="kw">let</span> bytes = proof.<span class="fn">to_bytes</span>();   <span class="cmt">// avg 17 B</span>
+<span class="ln"> 9</span><span class="kw">let</span> bytes = proof.<span class="fn">to_bytes</span>();   <span class="cmt">// grows with log₂ N</span>
 <span class="ln">10</span><span class="fn">post_to_auditor</span>(bytes).<span class="kw">await</span>?;
 <span class="ln">11</span>
 <span class="ln">12</span><span class="cmt">// 3. anyone can verify offline.</span>

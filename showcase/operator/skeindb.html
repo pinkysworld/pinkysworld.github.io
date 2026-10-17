@@ -11,7 +11,7 @@
 <link rel="preload" href="/assets/fonts/jetbrains-mono-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/fonts.css">
-<meta name="description" content="A single-binary database engine speaking MySQL and PostgreSQL on the wire, with a built-in admin panel and fourteen hardened research tracks.">
+<meta name="description" content="A single-binary database engine speaking MySQL and PostgreSQL on the wire, with a built-in admin panel and twenty research tracks, nineteen of them backed by evidence tests.">
 <meta name="author" content="Michél Nguyen">
 <meta name="theme-color" content="#0b0d0e">
 <link rel="canonical" href="https://minh.systems/showcase/operator/skeindb.html">
@@ -22,7 +22,7 @@
     {
       "@type": "TechArticle",
       "headline": "skeindb — deep dive",
-      "description": "A single-binary database engine speaking MySQL and PostgreSQL on the wire, with a built-in admin panel and fourteen hardened research tracks.",
+      "description": "A single-binary database engine speaking MySQL and PostgreSQL on the wire, with a built-in admin panel and twenty research tracks, nineteen of them backed by evidence tests.",
       "url": "https://minh.systems/showcase/operator/skeindb.html",
       "author": {
         "@id": "https://minh.systems/#person"
@@ -55,11 +55,11 @@
 <meta property="og:url" content="https://minh.systems/showcase/operator/skeindb.html">
 <meta property="og:site_name" content="minh.systems">
 <meta property="og:title" content="SkeinDB — deep dive">
-<meta property="og:description" content="A single-binary database engine speaking MySQL and PostgreSQL on the wire, with a built-in admin panel and fourteen hardened research tracks.">
+<meta property="og:description" content="A single-binary database engine speaking MySQL and PostgreSQL on the wire, with a built-in admin panel and twenty research tracks, nineteen of them backed by evidence tests.">
 <meta property="og:image" content="https://minh.systems/assets/og-card.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="SkeinDB — deep dive">
-<meta name="twitter:description" content="A single-binary database engine speaking MySQL and PostgreSQL on the wire, with a built-in admin panel and fourteen hardened research tracks.">
+<meta name="twitter:description" content="A single-binary database engine speaking MySQL and PostgreSQL on the wire, with a built-in admin panel and twenty research tracks, nineteen of them backed by evidence tests.">
 <meta name="twitter:image" content="https://minh.systems/assets/og-card.png">
 <link rel="stylesheet" href="showcase.css">
 <style>:root{--accent:#7fd49f}</style>
@@ -78,7 +78,7 @@
     <span class="crumb">~/showcase/<span class="now">skeindb</span></span>
     <span class="pipe hide-sm">|</span>
     <span class="dot hide-sm" aria-hidden="true"></span>
-    <span class="hide-sm">active · v0.3.39</span>
+    <span class="hide-sm">active · v0.3.40</span>
   </div>
   <div class="right">
     <span class="hide-sm">read · 12 min</span>
@@ -113,12 +113,12 @@
   <div class="hero-left">
     <div class="hero-eyebrow">
       <span class="pill">research</span>
-      <span class="pill ver">v0.3.39</span>
-      <span><span class="live">●</span> active · shipping weekly</span>
+      <span class="pill ver">v0.3.40</span>
+      <span><span class="live">●</span> active development</span>
     </div>
     <h1 class="hero-title">skein<span class="c1">db</span><span class="punct">.</span></h1>
-    <p class="hero-subtitle">a single binary, two wire protocols, fourteen research tracks, one author.</p>
-    <p class="hero-body"><span class="hl">SkeinDB</span> is a teaching database engine that also runs production. It speaks <span class="hl">MySQL</span> and <span class="hl">PostgreSQL</span> on the wire, ships with its own admin panel built in, and exposes fourteen hardened research surfaces — from MVCC reclamation to sandboxed Wasm extensions — so you can study real systems without losing the thread.</p>
+    <p class="hero-subtitle">a single binary, two wire protocols, twenty research tracks, one author.</p>
+    <p class="hero-body"><span class="hl">SkeinDB</span> is a pre-1.0 database engine I use to study real systems design. It speaks <span class="hl">MySQL</span> broadly and <span class="hl">PostgreSQL</span> partially on the wire, ships with its own admin panel built in, and carries twenty research tracks — from MVCC reclamation to sandboxed Wasm extensions — so you can study real systems without losing the thread.</p>
     <div class="hero-actions">
       <a class="btn primary" href="https://minh.systems/SkeinDB/site/" target="_blank" rel="noopener">▸ open live site</a>
       <a class="btn" href="https://www.ijrcom.org/index.php/ijrc/article/view/192" target="_blank" rel="noopener">¶ read paper</a>
@@ -128,12 +128,12 @@
 
   <aside class="hero-side">
     <div class="stat-row">
-      <div class="n">0.3<span class="small">.25</span></div>
+      <div class="n">0.3<span class="small">.40</span></div>
       <div class="l">current version<br><span class="em">active</span> development · pre-1.0</div>
     </div>
     <div class="stat-row">
-      <div class="n">14</div>
-      <div class="l">research tracks<br><span class="em">hardened</span> · benchmarked · documented</div>
+      <div class="n">20</div>
+      <div class="l">research tracks<br><span class="em">19 hardened</span> · 1 prototype</div>
     </div>
     <div class="stat-row">
       <div class="n">2</div>
@@ -167,7 +167,7 @@
     <div class="lbl">Abstract · 2026</div>
     <div>
       <p>Most production database engines hide their interesting choices behind layers of operations sprawl: separate sidecars for the admin panel, separate processes for replication, separate teams for everything else. SkeinDB compresses that down to one binary, two wire protocols, and a control surface you can read in an afternoon.</p>
-      <p>It exists so I — and anyone reading the source — can study real database behavior without a docker-compose file. The fourteen research tracks aren't marketing checkboxes; they're each instrumented, benchmarked, and discussed in companion notes. Wasm extensions let third parties experiment without rebuilding the engine.</p>
+      <p>It exists so I — and anyone reading the source — can study real database behavior without a docker-compose file. The twenty research tracks aren't marketing checkboxes; they're each instrumented, benchmarked, and discussed in companion notes. Wasm extensions let third parties experiment without rebuilding the engine.</p>
       <div class="kwds">
         <span class="kw">database engine</span><span class="kw">rust</span><span class="kw">MVCC</span><span class="kw">wire compat</span><span class="kw">wasm ext</span><span class="kw">teaching system</span><span class="kw">single binary</span>
       </div>
@@ -187,7 +187,7 @@
   <figure class="arch-wrap">
     <div class="arch">
       <div class="corner tl">fig.01 · architecture</div>
-      <div class="corner tr">skeindb v0.3.39 · one binary</div>
+      <div class="corner tr">skeindb v0.3.40 · one binary</div>
       <div class="corner bl">data ↘ storage</div>
       <div class="corner br">control ↗ admin</div>
 
@@ -225,7 +225,7 @@
         <div class="k">extensions</div><div class="v">Wasm sandbox</div><div class="vsub">user fns · isolated</div>
       </div>
       <div class="box" style="left:820px;top:110px;width:180px">
-        <div class="k">control</div><div class="v">SkeinAdmin</div><div class="vsub">14 research tracks</div>
+        <div class="k">control</div><div class="v">SkeinAdmin</div><div class="vsub">20 research tracks</div>
       </div>
       <div class="box" style="left:920px;top:260px;width:180px">
         <div class="k">engine</div><div class="v">planner / executor</div><div class="vsub">MVCC · vectorized</div>
@@ -265,9 +265,9 @@
     </article>
     <article class="feat reveal">
       <span class="num">03 / 06</span><div class="glyph">§</div>
-      <h3>fourteen <span class="hl">research tracks</span></h3>
-      <p>Each is a hardened path: optimistic vs pessimistic MVCC, vectorized vs row-at-a-time, LSM vs page-heap. Pick one, bench it, read the notes.</p>
-      <div class="tags">MVCC · vectorization · storage · planning</div>
+      <h3>twenty <span class="hl">research tracks</span></h3>
+      <p>R01–R20 cover learned indexes, adaptive execution, privacy, replay, schema evolution and energy-aware maintenance. Nineteen have evidence-backed tests; Wasm query operators are still a prototype.</p>
+      <div class="tags">indexes · execution · privacy · replay</div>
     </article>
     <article class="feat reveal">
       <span class="num">04 / 06</span><div class="glyph">⌗</div>
@@ -295,15 +295,15 @@
   <div class="section-mark">
     <div class="tag">D / NUMBERS</div>
     <div>
-      <h2>bench --release<span class="punct">/</span></h2>
-      <p class="sub">2024 M2 Pro, 16GB. Reproducible — scripts in /bench. No tuning beyond defaults.</p>
+      <h2>bench --replication<span class="punct">/</span></h2>
+      <p class="sub">Measured in CI on two live SkeinDB processes, September 2026 (v0.3.40). Raw reports: <a href="https://github.com/pinkysworld/SkeinDB/tree/main/eval/reports" target="_blank" rel="noopener">eval/reports</a>. Throughput and latency benchmarks are not yet published.</p>
     </div>
   </div>
   <div class="bench-grid">
-    <div class="bench reveal"><div class="h">cold start</div><div class="n">88<span class="unit">ms</span></div><div class="bar"><i style="--w:18%"></i></div><div class="s">from <code>./skeindb</code> to first query accepted.</div><div class="ftn">Δ vs mysqld: −94%</div></div>
-    <div class="bench reveal"><div class="h">binary size</div><div class="n">27<span class="unit">mb</span></div><div class="bar"><i style="--w:24%"></i></div><div class="s">engine + admin + 2 wires + wasm.</div><div class="ftn">stripped · release · LTO</div></div>
-    <div class="bench reveal"><div class="h">TPC-C / min</div><div class="n">42<span class="unit">k</span></div><div class="bar"><i style="--w:68%"></i></div><div class="s">tpmC at scale 10 · MVCC track.</div><div class="ftn">m2 pro · single socket</div></div>
-    <div class="bench reveal"><div class="h">p99 latency</div><div class="n">2.4<span class="unit">ms</span></div><div class="bar"><i style="--w:84%"></i></div><div class="s">key lookups, hot dataset, full WAL durability.</div><div class="ftn">99th pct · 10M req</div></div>
+    <div class="bench reveal"><div class="h">compact fetch</div><div class="n">−60<span class="unit">%</span></div><div class="bar"><i style="--w:60%"></i></div><div class="s">HTTP-over-TCP bytes for a zero-overlap pull, 143,359 → 56,564 B.</div><div class="ftn">CR05 · vs pre-CR05 path</div></div>
+    <div class="bench reveal"><div class="h">binary fetch</div><div class="n">−39<span class="unit">%</span></div><div class="bar"><i style="--w:39%"></i></div><div class="s">further wire bytes at batch 32, 56,564 → 34,361 B.</div><div class="ftn">CR09 · SKOF v1 body</div></div>
+    <div class="bench reveal"><div class="h">CAS savings</div><div class="n">86.7<span class="unit">%</span></div><div class="bar"><i style="--w:87%"></i></div><div class="s">ValueStore object bytes saved, high-redundancy 300-row scenario.</div><div class="ftn">two-node · 0 verify failures</div></div>
+    <div class="bench reveal"><div class="h">second pull</div><div class="n">0<span class="unit">B</span></div><div class="bar"><i style="--w:2%"></i></div><div class="s">bytes transferred when the destination is already in sync.</div><div class="ftn">idempotent · 0 connections</div></div>
   </div>
 </section>
 
@@ -353,8 +353,8 @@
 <span class="ln">20</span><span class="cmt">// $ ./skeindb</span>
 <span class="ln">21</span><span class="cmt">// ◆ wire: mysql:3306, postgres:5432</span>
 <span class="ln">22</span><span class="cmt">// ◆ admin: http://127.0.0.1:9001</span>
-<span class="ln">23</span><span class="cmt">// ◆ track: mvcc.reclaim_v2 [active]</span>
-<span class="ln">24</span><span class="cmt">// ◆ ready in 88ms</span>
+<span class="ln">23</span><span class="cmt">// ◆ illustrative output</span>
+<span class="ln">24</span><span class="cmt">// ◆ ready</span>
 </pre></div>
   </div>
 </section>
@@ -365,37 +365,30 @@
     <div class="tag">F / TRACKS</div>
     <div>
       <h2>ls research/<span class="punct">/</span></h2>
-      <p class="sub">Fourteen real paths through the engine. Each has notes. Each has a bench.</p>
+      <p class="sub">Twenty research tracks, R01–R20. Status as recorded in the repository&rsquo;s <a href="https://github.com/pinkysworld/SkeinDB/blob/main/docs/TRUE_STATUS_MATRIX.md" target="_blank" rel="noopener">TRUE_STATUS_MATRIX</a>: hardened means covered by evidence-backed tests, not production-complete.</p>
     </div>
   </div>
   <div class="tracks-head"><span>#</span><span>name</span><span class="col-desc">summary</span><span>status</span><span></span></div>
-  <div class="track"><span class="n">01</span><div class="name"><strong>mvcc.opt_pess</strong><span>visibility regimes</span></div><div class="desc">Optimistic and pessimistic MVCC sharing a planner; switchable per connection.</div><span class="st">stable</span><span class="arr">→</span></div>
-  <div class="track"><span class="n">02</span><div class="name"><strong>mvcc.reclaim_v2</strong><span>generation tombstones</span></div><div class="desc">Bounded wall-clock recovery; reclamation pass is the active work item.</div><span class="st beta">beta</span><span class="arr">→</span></div>
-  <div class="track"><span class="n">03</span><div class="name"><strong>exec.vectorized</strong><span>morsel-driven</span></div><div class="desc">SIMD-friendly columnar interior; same plan tree as the row executor.</div><span class="st">stable</span><span class="arr">→</span></div>
-  <div class="track"><span class="n">04</span><div class="name"><strong>exec.row_at_a_time</strong><span>teaching mode</span></div><div class="desc">Legacy walker for the same plan tree. Used when explaining join algorithms.</div><span class="st">stable</span><span class="arr">→</span></div>
-  <div class="track"><span class="n">05</span><div class="name"><strong>storage.page_heap</strong><span>B+tree COW</span></div><div class="desc">Copy-on-write pages with group commit. Default storage.</div><span class="st">stable</span><span class="arr">→</span></div>
-  <div class="track"><span class="n">06</span><div class="name"><strong>storage.lsm</strong><span>tiered compaction</span></div><div class="desc">Bloom-tuned for write-heavy workloads. Alternate storage.</div><span class="st beta">beta</span><span class="arr">→</span></div>
-  <div class="track"><span class="n">07</span><div class="name"><strong>plan.cache</strong><span>hash-stable</span></div><div class="desc">Parameterized plan reuse with hash-stable identity across sessions.</div><span class="st">stable</span><span class="arr">→</span></div>
-  <div class="track"><span class="n">08</span><div class="name"><strong>plan.cost_based</strong><span>statistics</span></div><div class="desc">Cost-based optimizer with explainable cost dumps; in revision.</div><span class="st beta">beta</span><span class="arr">→</span></div>
-  <div class="track"><span class="n">09</span><div class="name"><strong>wire.mysql</strong><span>protocol shim</span></div><div class="desc">Compatible with mysql, mariadb, planetscale clients.</div><span class="st">stable</span><span class="arr">→</span></div>
-  <div class="track"><span class="n">10</span><div class="name"><strong>wire.postgres</strong><span>libpq compatible</span></div><div class="desc">SCRAM, prepared statements, copy-from.</div><span class="st">stable</span><span class="arr">→</span></div>
-  <div class="track"><span class="n">11</span><div class="name"><strong>ext.wasm</strong><span>capability-restricted</span></div><div class="desc">UDFs with typed row bindings. No FS, no net by default.</div><span class="st beta">beta</span><span class="arr">→</span></div>
-  <div class="track"><span class="n">12</span><div class="name"><strong>telemetry.otlp</strong><span>native exporter</span></div><div class="desc">Spans, metrics, logs from one /telemetry endpoint.</div><span class="st">stable</span><span class="arr">→</span></div>
-  <div class="track"><span class="n">13</span><div class="name"><strong>replication.det_log</strong><span>hash-chained WAL</span></div><div class="desc">Deterministic log stream for verifiable followers.</div><span class="st draft">draft</span><span class="arr">→</span></div>
-  <div class="track"><span class="n">14</span><div class="name"><strong>recovery.verify</strong><span>startup proof</span></div><div class="desc">Verification pass that proves recovery converged; runs on every boot.</div><span class="st">stable</span><span class="arr">→</span></div>
-</section>
-
-<!-- ====== ROADMAP ====== -->
-<section class="section" id="roadmap">
-  <div class="section-mark">
-    <div class="tag">G / ROADMAP</div>
-    <div>
-      <h2>git log --quarters<span class="punct">/</span></h2>
-      <p class="sub">Six quarters. Honest about what's shipped vs shipping.</p>
-    </div>
-  </div>
-  <div class="road">
-    <div class="road-col"><div class="q">Q4 · 2024</div><div class="item done">first binary; mysql wire</div><div class="item done">page-heap storage</div><div class="item done">manual recovery</div></div>
+  <div class="track"><span class="n">01</span><div class="name"><strong>R01</strong><span>ValueID lookup</span></div><div class="desc">Learned indexes.</div><span class="st">hardened</span><span class="arr">→</span></div>
+  <div class="track"><span class="n">02</span><div class="name"><strong>R02</strong><span>execution</span></div><div class="desc">Adaptive row/column.</div><span class="st">hardened</span><span class="arr">→</span></div>
+  <div class="track"><span class="n">03</span><div class="name"><strong>R03</strong><span>optimisation</span></div><div class="desc">Delta topology.</div><span class="st">hardened</span><span class="arr">→</span></div>
+  <div class="track"><span class="n">04</span><div class="name"><strong>R04</strong><span>aggregates</span></div><div class="desc">Differential privacy.</div><span class="st">hardened</span><span class="arr">→</span></div>
+  <div class="track"><span class="n">05</span><div class="name"><strong>R05</strong><span>execution</span></div><div class="desc">Oblivious queries.</div><span class="st">hardened</span><span class="arr">→</span></div>
+  <div class="track"><span class="n">06</span><div class="name"><strong>R06</strong><span>audit</span></div><div class="desc">Forensic query language.</div><span class="st">hardened</span><span class="arr">→</span></div>
+  <div class="track"><span class="n">07</span><div class="name"><strong>R07</strong><span>optimistic concurrency</span></div><div class="desc">Merge functions.</div><span class="st">hardened</span><span class="arr">→</span></div>
+  <div class="track"><span class="n">08</span><div class="name"><strong>R08</strong><span>maintenance</span></div><div class="desc">Incremental views.</div><span class="st">hardened</span><span class="arr">→</span></div>
+  <div class="track"><span class="n">09</span><div class="name"><strong>R09</strong><span>native protocol</span></div><div class="desc">HTTP/3 · QUIC.</div><span class="st">hardened</span><span class="arr">→</span></div>
+  <div class="track"><span class="n">10</span><div class="name"><strong>R10</strong><span>first-class ValueIDs</span></div><div class="desc">Vector embeddings.</div><span class="st">hardened</span><span class="arr">→</span></div>
+  <div class="track"><span class="n">11</span><div class="name"><strong>R11</strong><span>LLM-assisted</span></div><div class="desc">Semantic autoparameterisation.</div><span class="st">hardened</span><span class="arr">→</span></div>
+  <div class="track"><span class="n">12</span><div class="name"><strong>R12</strong><span>with verification</span></div><div class="desc">NL → SkeinQL.</div><span class="st">hardened</span><span class="arr">→</span></div>
+  <div class="track"><span class="n">13</span><div class="name"><strong>R13</strong><span>caching</span></div><div class="desc">Causal ETag chains.</div><span class="st">hardened</span><span class="arr">→</span></div>
+  <div class="track"><span class="n">14</span><div class="name"><strong>R14</strong><span>replay</span></div><div class="desc">Edge replay bundles.</div><span class="st">hardened</span><span class="arr">→</span></div>
+  <div class="track"><span class="n">15</span><div class="name"><strong>R15</strong><span>conflict-free</span></div><div class="desc">Schema evolution.</div><span class="st">hardened</span><span class="arr">→</span></div>
+  <div class="track"><span class="n">16</span><div class="name"><strong>R16</strong><span>dependency analysis</span></div><div class="desc">Index synthesis.</div><span class="st">hardened</span><span class="arr">→</span></div>
+  <div class="track"><span class="n">17</span><div class="name"><strong>R17</strong><span>inference</span></div><div class="desc">Migration intent.</div><span class="st">hardened</span><span class="arr">→</span></div>
+  <div class="track"><span class="n">18</span><div class="name"><strong>R18</strong><span>cross-revision CI</span></div><div class="desc">Performance replay.</div><span class="st">hardened</span><span class="arr">→</span></div>
+  <div class="track"><span class="n">19</span><div class="name"><strong>R19</strong><span>generated operators</span></div><div class="desc">Wasm query operators.</div><span class="st beta">prototype</span><span class="arr">→</span></div>
+  <div class="track"><span class="n">20</span><div class="name"><strong>R20</strong><span>maintenance</span></div><div class="desc">Energy-aware compaction.</div><span class="st">hardened</span><span class="arr">→</span></div>
     <div class="road-col"><div class="q">Q1 · 2025</div><div class="item done">postgres wire shim</div><div class="item done">SkeinAdmin v1</div><div class="item done">OTLP telemetry</div></div>
     <div class="road-col"><div class="q">Q2 · 2025</div><div class="item done">MVCC v1</div><div class="item done">vectorized executor</div><div class="item done">first 7 tracks docd</div></div>
     <div class="road-col"><div class="q">Q3 · 2025</div><div class="item done">plan cache</div><div class="item done">LSM storage beta</div><div class="item done">wasm ext v0</div></div>
@@ -491,7 +484,7 @@
   <div class="ft">
     <div>
       <div class="ft-brand">minh@systems / skeindb</div>
-      <p class="ft-tag">A teaching engine that also runs production. Built and maintained by Michél Nguyen in Germany.</p>
+      <p class="ft-tag">A pre-1.0 research database engine. Built and maintained by Michél Nguyen in Germany.</p>
     </div>
     <div class="ft-col"><div class="ft-h">showcase</div><ul>
       <li><a href="#abstract">abstract</a></li>
@@ -515,7 +508,7 @@
   <div class="ft-base">
     <span>&copy; 2026 michél nguyen</span>
     <span><a href="/privacy.html">privacy</a></span>
-    <span>v0.3.39 · plate i · pre-1.0</span>
+    <span>v0.3.40 · plate i · pre-1.0</span>
     <span>jetbrains mono · inter · berlin</span>
   </div>
 </footer>

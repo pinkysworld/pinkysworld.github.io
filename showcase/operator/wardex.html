@@ -77,7 +77,7 @@
     <span class="crumb">~/showcase/<span class="now">wardex</span></span>
     <span class="pipe hide-sm">|</span>
     <span class="dot hide-sm" aria-hidden="true"></span>
-    <span class="hide-sm">release · v1.0.30</span>
+    <span class="hide-sm">release · v1.1.0</span>
   </div>
   <div class="right">
     <span class="hide-sm">read · 11 min</span>
@@ -111,7 +111,7 @@
   <div class="hero-left">
     <div class="hero-eyebrow">
       <span class="pill">research</span>
-      <span class="pill ver">v1.0.30</span>
+      <span class="pill ver">v1.1.0</span>
       <span><span class="live">●</span> release · cross-layer detection live</span>
     </div>
     <h1 class="hero-title">war<span class="c1">dex</span><span class="punct">.</span></h1>
@@ -126,8 +126,8 @@
 
   <aside class="hero-side">
     <div class="stat-row">
-      <div class="n">1.0<span class="small">.30</span></div>
-      <div class="l">current version<br><span class="em">release</span> · active deployments</div>
+      <div class="n">1.1<span class="small">.0</span></div>
+      <div class="l">current version<br><span class="em">release</span> · self-hosted</div>
     </div>
     <div class="stat-row">
       <div class="n">3</div>
@@ -138,12 +138,12 @@
       <div class="l">detector modules<br><span class="em">federated</span> · drift-aware</div>
     </div>
     <div class="stat-row">
-      <div class="n">0</div>
-      <div class="l">raw telemetry leaves the host<br><span class="em">DP-SGD</span> · gradient clipping</div>
+      <div class="n">23</div>
+      <div class="l">kernel event kinds<br><span class="em">ETW</span> · <span class="em">EndpointSecurity</span> · netlink</div>
     </div>
     <div class="meta-grid">
       <div class="r"><div class="k">started</div><div class="v">2025-02-10</div></div>
-      <div class="r"><div class="k">stack</div><div class="v">rust · ebpf · onnx · DP-SGD</div></div>
+      <div class="r"><div class="k">stack</div><div class="v">rust · etw · endpoint security · DP-SGD</div></div>
       <div class="r"><div class="k">license</div><div class="v">apache-2 · open core</div></div>
       <div class="r"><div class="k">status</div><div class="v"><span class="pill">release</span><span class="pill warn">active</span></div></div>
       <div class="r"><div class="k">paper</div><div class="v"><a href="https://doi.org/10.36227/techrxiv.176403418.87468767/v1" target="_blank" rel="noopener">TechRxiv 2025 ↗</a></div></div>
@@ -165,9 +165,9 @@
     <div class="lbl">Abstract · 2026</div>
     <div>
       <p>Most XDR platforms started as endpoint products and bolted on network and cloud telemetry. The seams show up where it hurts most: in detection lag, in over-fitted rules, and in privacy posture. Wardex was built the other direction — a federated detection substrate first, with endpoint, network, and cloud collectors plugged into the same correlation graph.</p>
-      <p>The architectural commitment is that <em>raw telemetry never leaves the host</em>. Models update via federated gradients with differential privacy; correlations are computed on encrypted feature digests. Response orchestration uses the same execution surface as detection, so playbooks ship with provenance.</p>
+      <p>The design goal is that <em>raw telemetry stays on the host by default</em>: models update via federated gradients with differential privacy, and anything exported is an explicit operator choice. Response orchestration uses the same execution surface as detection, so playbooks ship with provenance.</p>
       <div class="kwds">
-        <span class="kw">XDR</span><span class="kw">federated learning</span><span class="kw">DP-SGD</span><span class="kw">eBPF</span><span class="kw">ONNX runtime</span><span class="kw">cross-layer correlation</span><span class="kw">response orchestration</span>
+        <span class="kw">XDR</span><span class="kw">federated learning</span><span class="kw">DP-SGD</span><span class="kw">ETW</span><span class="kw">ONNX runtime</span><span class="kw">cross-layer correlation</span><span class="kw">response orchestration</span>
       </div>
     </div>
   </div>
@@ -208,7 +208,7 @@
 
       <!-- collectors -->
       <div class="box" style="left:30px;top:80px;width:170px">
-        <div class="k">collector</div><div class="v">endpoint · eBPF</div><div class="vsub">syscalls · proc · file</div>
+        <div class="k">collector</div><div class="v">endpoint · kernel events</div><div class="vsub">proc · file · network</div>
       </div>
       <div class="box" style="left:30px;top:230px;width:170px">
         <div class="k">collector</div><div class="v">network · flows</div><div class="vsub">nflog · pcap · dns</div>
@@ -279,9 +279,9 @@
     </article>
     <article class="feat reveal">
       <span class="num">05 / 06</span><div class="glyph">⚙</div>
-      <h3>eBPF <span class="hl">first</span> on linux</h3>
-      <p>No kernel modules. Endpoint coverage rides on eBPF probes with CO-RE for portability. macOS uses EndpointSecurity; Windows via ETW.</p>
-      <div class="tags">eBPF · CO-RE · EndpointSecurity · ETW</div>
+      <h3>kernel events <span class="hl">first</span>, polling as fallback</h3>
+      <p>No kernel modules. Linux uses the CN_PROC netlink connector and fanotify, Windows a real ETW consumer, macOS EndpointSecurity behind an opt-in feature. Each falls back to polling, and says why, when the privilege is missing. eBPF is not implemented.</p>
+      <div class="tags">netlink · fanotify · ETW · EndpointSecurity</div>
     </article>
     <article class="feat reveal">
       <span class="num">06 / 06</span><div class="glyph">◇</div>
@@ -298,14 +298,8 @@
     <div class="tag">D / NUMBERS</div>
     <div>
       <h2>bench --suite=detect<span class="punct">/</span></h2>
-      <p class="sub">Measured on the CIC-IDS2018 + internal pilot blend. Reproducible fixtures in /bench.</p>
+      <p class="sub">No detection benchmark is published yet. Numbers will appear here only with dataset, hardware, version and a reproduction script; the method is set out in <a href="https://github.com/pinkysworld/Wardex/blob/main/docs/REPRODUCIBILITY.md" target="_blank" rel="noopener">REPRODUCIBILITY.md</a>.</p>
     </div>
-  </div>
-  <div class="bench-grid">
-    <div class="bench reveal"><div class="h">detection p50</div><div class="n">68<span class="unit">ms</span></div><div class="bar"><i style="--w:74%"></i></div><div class="s">event → enriched alert, end-to-end.</div><div class="ftn">vs splunk: −82%</div></div>
-    <div class="bench reveal"><div class="h">F1 · drift fold</div><div class="n">0.94</div><div class="bar"><i style="--w:94%"></i></div><div class="s">macro-F1 across 12 attack families, day-7 drift fold.</div><div class="ftn">held-out · drift-aware</div></div>
-    <div class="bench reveal"><div class="h">privacy budget</div><div class="n">ε=2<span class="unit">.0</span></div><div class="bar"><i style="--w:60%"></i></div><div class="s">per-round DP budget for federated rounds.</div><div class="ftn">RDP accounting · δ=1e-5</div></div>
-    <div class="bench reveal"><div class="h">collector overhead</div><div class="n">1.8<span class="unit">%</span></div><div class="bar"><i style="--w:18%"></i></div><div class="s">avg CPU on a busy app server (eBPF mode).</div><div class="ftn">m1 · m2 · xeon · same band</div></div>
   </div>
 </section>
 
@@ -371,7 +365,7 @@
     <div class="tag">F / MODULES</div>
     <div>
       <h2>ls modules/<span class="punct">/</span></h2>
-      <p class="sub">Nine detector modules in flight. Each is a manifest. Each is benched against held-out attack families.</p>
+      <p class="sub">Nine detector areas. The status chips are my own maturity rating; the repository&rsquo;s <a href="https://github.com/pinkysworld/Wardex/blob/main/docs/STATUS.md" target="_blank" rel="noopener">STATUS.md</a> is the authoritative list of what ships.</p>
     </div>
   </div>
   <div class="tracks-head"><span>#</span><span>name</span><span class="col-desc">summary</span><span>status</span><span></span></div>
@@ -392,11 +386,11 @@
     <div class="tag">G / ROADMAP</div>
     <div>
       <h2>git log --quarters<span class="punct">/</span></h2>
-      <p class="sub">From eBPF prototype to a pilot-grade XDR.</p>
+      <p class="sub">From a collector prototype to a self-hosted XDR release.</p>
     </div>
   </div>
   <div class="road">
-    <div class="road-col"><div class="q">Q1 · 2025</div><div class="item done">eBPF collector prototype</div><div class="item done">correlation graph v0</div><div class="item done">first rule detectors</div></div>
+    <div class="road-col"><div class="q">Q1 · 2025</div><div class="item done">collector prototype</div><div class="item done">correlation graph v0</div><div class="item done">first rule detectors</div></div>
     <div class="road-col"><div class="q">Q2 · 2025</div><div class="item done">cloud + network collectors</div><div class="item done">onnx detector runtime</div><div class="item done">TechRxiv submission</div></div>
     <div class="road-col"><div class="q">Q3 · 2025</div><div class="item done">federated rounds v1</div><div class="item done">DP-SGD accounting</div><div class="item done">drift monitors</div></div>
     <div class="road-col"><div class="q">Q4 · 2025</div><div class="item done">orchestrator + policy gate</div><div class="item done">signed action receipts</div><div class="item done">first external pilot</div></div>
@@ -466,7 +460,7 @@
     <a class="rel-card" href="skeindb.html">
       <span class="k">sibling · research</span>
       <h3>skeindb</h3>
-      <p>Single-binary database engine with two wire protocols and 14 research tracks. Same "one binary, no sidecars" philosophy.</p>
+      <p>Single-binary database engine with two wire protocols and 20 research tracks. Same "one binary, no sidecars" philosophy.</p>
       <span class="link">open deep dive →</span>
     </a>
     <a class="rel-card" href="nexusfs.html">
@@ -514,7 +508,7 @@
   <div class="ft-base">
     <span>&copy; 2026 michél nguyen</span>
     <span><a href="/privacy.html">privacy</a></span>
-    <span>v1.0.30 · plate ii · release</span>
+    <span>v1.1.0 · plate ii · release</span>
     <span>jetbrains mono · inter · berlin</span>
   </div>
 </footer>
