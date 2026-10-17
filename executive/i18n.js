@@ -15,6 +15,51 @@
   'use strict';
 
   const DE = {
+    'Reliable IT services and applied research.': 'IT-Services verantworten. Forschung voranbringen.',
+    'For a job opportunity, please include the role, the working arrangement and a short description of the work. LinkedIn works well for a first introduction.': 'Bei Stellenangeboten helfen Angaben zu Position, Aufgaben, Arbeitsmodell und Ansprechpartner. Für einen ersten Kontakt eignet sich auch LinkedIn.',
+    'Interested in discussing a role, a technical project or a research collaboration? Send a message with the form below or connect on LinkedIn. I usually reply within 72 hours.': 'Sie möchten über eine Stelle, ein IT-Projekt oder eine Forschungsfrage sprechen? Schreiben Sie mir über das Formular oder auf LinkedIn. Ich antworte normalerweise innerhalb von 72 Stunden.',
+    'Publications and projects': 'Veröffentlichungen und Projekte',
+    'My journal articles and preprints, with publication status and a link to the public record for each. The list matches my ORCID profile.': 'Meine Zeitschriftenartikel und Preprints, jeweils mit Veröffentlichungsstatus und Link zum öffentlichen Nachweis. Die Liste entspricht meinem ORCID-Profil.',
+    'Peer review and research': 'Gutachtertätigkeit und Forschung',
+    'How I use this training in projects.': 'So setze ich diese Kenntnisse in Projekten ein.',
+    'Thirteen certifications in service management, project and agile methods, and security, plus one cloud course completion.': 'Dreizehn Zertifizierungen in Service-Management, Projekt- und agilen Methoden sowie IT-Sicherheit, dazu ein Kursabschluss im Cloud-Bereich.',
+    'I completed a B.Sc. in Computer Science at the University of the People summa cum laude, with a GPA of 3.91 and seven President’s List awards. Before that I earned a First Class B.A. in Business Administration. I hold 13 professional certifications and am preparing a cybersecurity research proposal for an MPhil.': 'Meinen B.Sc. in Informatik an der University of the People habe ich summa cum laude abgeschlossen, mit einem GPA von 3,91 und sieben Einträgen auf der President’s List. Davor habe ich einen B.A. in Betriebswirtschaft mit First Class erworben. Ich habe 13 berufliche Zertifizierungen und bereite ein MPhil-Forschungsvorhaben in Cybersicherheit vor.',
+    'Education, certifications and research.': 'Ausbildung, Weiterbildung und wissenschaftliche Arbeit.',
+    'Architecture and implementation notes': 'Architektur und Implementierung',
+    'For technical readers': 'Für technisch Interessierte',
+    '20 public projects, plus two games in development.': '20 öffentliche Projekte, dazu zwei Spiele in Entwicklung.',
+    'Independent research preparation — MPhil in cybersecurity': 'Unabhängige Forschungsvorbereitung — MPhil in Cybersicherheit',
+    'Third-line application support, troubleshooting, release coordination and work with the development team.': '3rd-Level-Anwendungssupport, Fehleranalyse, Release-Koordination und Zusammenarbeit mit der Entwicklung.',
+    'I work in healthcare software operations and continue my research alongside the job.': 'Ich arbeite im Betrieb und Support von Gesundheitssoftware. Meine Forschung führe ich daneben weiter.',
+    'Service delivery and account management, presales solution design, team leadership across Germany, Austria and Switzerland, project management and hands-on third-line infrastructure work. My work has covered banking, telecommunications, manufacturing, insurance and healthcare software.': 'Service Delivery und Account Management, Lösungsdesign im Presales, Teamführung in Deutschland, Österreich und der Schweiz, Projektmanagement und praktische Infrastrukturarbeit im 3rd-Level-Support. Meine Kunden kamen unter anderem aus dem Banken- und Versicherungswesen, der Telekommunikation, der Industrie und der Gesundheits-IT.',
+    'More than 15 years in IT service delivery and technical projects.': 'Mehr als 15 Jahre Verantwortung für IT-Services und technische Projekte.',
+    'Roles I am looking for': 'Aufgaben, die mich interessieren',
+    'Each figure comes from the employer’s own reporting for the role named.': 'Jede Zahl stammt aus dem Reporting des Arbeitgebers für die genannte Rolle.',
+    'Selected professional results': 'Ausgewählte berufliche Ergebnisse',
+    'Bid architecture, cost and governance models, client presentations, and turning requirements into a clear, commercially viable proposal.': 'Angebotsarchitektur, Kosten- und Governance-Modelle, Kundenpräsentationen und aus Anforderungen ein klares, wirtschaftlich tragfähiges Angebot machen.',
+    'Rust, C/C++, databases, storage and protocols, third-line support, and release and deployment work with development teams.': 'Rust, C/C++, Datenbanken, Speicher und Protokolle, 3rd-Level-Support sowie Release- und Deployment-Arbeit mit Entwicklungsteams.',
+    'Each area is backed by a role on the experience page or a project in the portfolio.': 'Zu jedem Bereich gibt es eine Station im Werdegang oder ein Projekt im Portfolio.',
+    'In research I have to say clearly what my data shows and what it does not. I apply the same standard to technical projects.': 'In der Forschung muss ich klar sagen, was meine Daten zeigen und was nicht. Denselben Maßstab lege ich an technische Projekte an.',
+    'Whether a solution works shows in day-to-day operation: reliable services, satisfied clients, sound margins and a clean handover. That is where I learned to explain technical decisions so that commercial decision-makers can follow them.': 'Ob eine Lösung trägt, zeigt sich im Alltag: verlässliche Services, zufriedene Kunden, wirtschaftliche Ergebnisse und eine saubere Übergabe. Dabei habe ich gelernt, technische Entscheidungen so zu erklären, dass auch kaufmännische Entscheider sie nachvollziehen können.',
+    'How my service and project work connects to the research.': 'Wie meine Arbeit in Service und Projekten mit der Forschung zusammenhängt.',
+    'Where operations and research meet': 'Wo Betrieb und Forschung zusammenkommen',
+    'For job offers, project work and research questions.': 'Für Stellenangebote, Projektanfragen und Forschungsfragen.',
+    '20 public projects across research systems, Apple apps, tools and games, plus two games in development.': '20 öffentliche Projekte aus Forschungssystemen, Apple-Apps, Tools und Spielen, dazu zwei Spiele in Entwicklung.',
+    'More than 15 years of service delivery, presales, team leadership and infrastructure work.': 'Mehr als 15 Jahre Service Delivery, Presales, Teamführung und Infrastrukturarbeit.',
+    'What I have been responsible for, what came of it, and the work I am looking for now.': 'Wofür ich verantwortlich war, was dabei herauskam und welche Aufgaben mich heute interessieren.',
+    'Experience, projects, qualifications and publications, each on its own page.': 'Werdegang, Projekte, Qualifikationen und Veröffentlichungen, jeweils auf einer eigenen Seite.',
+    'Degrees and honours, research preparation, peer review, 13 certifications and one course completion.': 'Abschlüsse und Auszeichnungen, Forschungsvorbereitung, Gutachtertätigkeit, 13 Zertifizierungen und ein Kursabschluss.',
+    '13 certifications · 1 course completion': '13 Zertifizierungen · 1 Kursabschluss',
+    'Portfolio profitability': 'Profitabilität im Portfolio',
+    'Contract value won': 'Gewonnenes Auftragsvolumen',
+    'Preparing a cybersecurity research proposal for an MPhil, after the completed B.Sc.': 'Vorbereitung eines MPhil-Forschungsvorhabens in Cybersicherheit, nach dem abgeschlossenen B.Sc.',
+    'Third-line application support and release coordination at nursIT Institute': '3rd-Level-Anwendungssupport und Release-Koordination bei der nursIT Institute GmbH',
+    'At work: application support, troubleshooting and releases. On my own: databases and security tools.': 'Im Beruf: Anwendungssupport, Fehleranalyse und Releases. Daneben: eigene Datenbank- und Sicherheitssoftware.',
+    'Open to roles in service delivery, technical project management and systems or security engineering': 'Interessiert an Aufgaben im IT-Service-Management, im technischen Projektmanagement und im Systems- oder Security-Engineering',
+    'I have worked in enterprise IT for more than 15 years. I have led service delivery for managed-service clients in Germany, Austria and Switzerland, designed solutions in presales, and taken projects through to stable operation. Alongside my job I build software and publish research on security and database systems.': 'Seit mehr als 15 Jahren arbeite ich in der Unternehmens-IT. Ich habe Managed Services für Kunden in Deutschland, Österreich und der Schweiz verantwortet, im Presales technische Lösungen konzipiert und Projekte bis in den stabilen Betrieb begleitet. Neben dem Beruf entwickle ich eigene Software und veröffentliche Forschung zu IT-Sicherheit und Datenbanksystemen.',
+    'and applied research.': 'Forschung voranbringen.',
+    'Reliable IT services': 'IT-Services verantworten,',
+    'IT service delivery · technical projects · applied research': 'IT-Service-Management · Technische Projekte · Angewandte Forschung',
     '15+ years': '15+ Jahre',
     'Time in IT': 'Berufserfahrung',
     '3.96': '3,96',
@@ -24,28 +69,16 @@
     '© 2026 Michél Nguyen · Germany': '© 2026 Michél Nguyen · Deutschland',
     'The contact form is the most direct route. Typical response time is within 72 hours.': 'Das Kontaktformular ist der direkteste Weg. Antwort meist innerhalb von 72 Stunden.',
     'Recruiting, research, or technical collaboration': 'Recruiting, Forschung oder technische Zusammenarbeit',
-    'Direct channels for roles, collaboration, and research enquiries.': 'Direkte Wege für Rollen, Zusammenarbeit und Forschungsanfragen.',
     'Twelve public records with abstracts, venues, and direct DOI links.': 'Zwölf öffentliche Einträge mit Abstracts, Publikationsorten und direkten DOI-Links.',
-    'Degrees, GPA and honours, research preparation, peer review, and 14 certifications.': 'Abschlüsse, GPA und Auszeichnungen, Forschungsvorbereitung, Peer Review und 14 Zertifizierungen.',
-    'Twenty public projects across research systems, Apple platforms, tools, and games.': 'Zwanzig öffentliche Projekte: Forschungssysteme, Apple-Plattformen, Tools und Spiele.',
-    'Fifteen years of delivery, presales architecture, team leadership, and infrastructure work.': 'Fünfzehn Jahre Delivery, Presales-Architektur, Teamführung und Infrastrukturarbeit.',
-    'Positioning, core strengths, measured outcomes, and current role direction.': 'Positionierung, Stärken, belegte Ergebnisse und die aktuelle Rollenausrichtung.',
-    'Profile, career record, project work, and the academic record are separated into focused pages for faster review.': 'Profil, Werdegang, Projekte und der akademische Teil liegen auf eigenen Seiten, damit man schneller findet, was man sucht.',
     'Choose a section': 'Bereich wählen',
     'Summa cum laude · GPA 3.91 · 7× President’s List': 'Summa cum laude · GPA 3,91 · 7× President’s List',
-    '14 certifications held': '14 Zertifizierungen',
     'Selected credentials & current focus': 'Ausgewählte Nachweise & aktuelle Schwerpunkte',
     'years in IT': 'Jahre in der IT',
     'public projects': 'öffentliche Projekte',
     'research papers': 'Forschungsarbeiten',
-    'Cybersecurity research on an MPhil track, building on the completed B.Sc.': 'Cybersecurity-Forschung Richtung MPhil, aufbauend auf dem abgeschlossenen B.Sc.',
     'SkeinDB database engine and Wardex XDR platform': 'Datenbank-Engine SkeinDB und XDR-Plattform Wardex',
-    '3rd-level application support and release operations, nursIT Institute': '3rd-Level-Application-Support und Release-Betrieb, nursIT Institute',
-    'Delivery ownership and systems work, from design through to release.': 'Delivery-Verantwortung und Systemarbeit, vom Entwurf bis zum Release.',
     'Current work · 2026': 'Aktuell · 2026',
-    'and applied research.': 'und angewandte Forschung.',
     'Enterprise IT delivery': 'Enterprise-IT-Delivery',
-    'Service delivery · project management · applied research': 'Service Delivery · Projektmanagement · angewandte Forschung',
     /* ---- section numbering ---- */
     '01 · Positioning': '01 · Positionierung',
     '02 · Core areas': '02 · Kernbereiche',
@@ -146,7 +179,6 @@
     'Continue through the Executive portfolio': 'Weiter im Executive-Portfolio',
 
     /* ---- metrics ---- */
-    'Deal volume won': 'Gewonnenes Auftragsvolumen',
     'Enterprise solutions as Lead Deal Architect': 'Enterprise-Lösungen als Lead Deal Architect',
     'Enterprise solution bids': 'Enterprise-Angebotsprojekte',
     'Profit increase': 'Profitsteigerung',
@@ -174,18 +206,11 @@
     /* ---- profile page ---- */
     'Professional profile': 'Berufsprofil',
     'Enterprise IT delivery and applied research.': 'Enterprise-IT-Delivery und angewandte Forschung.',
-    'I have spent fifteen years in enterprise IT: presales architecture and delivery ownership for managed-service accounts across Germany, Austria and Switzerland. Alongside that I publish computer-science research and build the systems it comes out of.':
-      'Seit fünfzehn Jahren arbeite ich in der Enterprise-IT: Ich entwerfe Lösungen im Presales und verantworte sie bis zur Übergabe in den Betrieb — bei Managed-Service-Kunden in Deutschland, Österreich und der Schweiz. Daneben forsche ich in der Informatik und baue die Systeme, aus denen diese Forschung entsteht.',
-    'Open to service delivery, technical project management, and systems/security engineering roles':
-      'Offen für Rollen in Service Delivery, technischem Projektmanagement sowie Systems- und Security-Engineering',
     'Two kinds of work': 'Zwei Standbeine',
-    'How the delivery work and the research fit together.': 'Warum sich Delivery und Forschung gegenseitig tragen.',
     'Delivery and account ownership': 'Delivery- und Kundenverantwortung',
     'I have run enterprise services end to end. That meant SLAs and escalations for a global investment bank, two international telecoms carriers and a large IT services provider. On the presales side I built solution designs and bids for a global car maker, a multinational chemicals group, a German insurer and a European bank, plus infrastructure projects for a European retail group and a global insurance broker.': 'Enterprise-Services habe ich durchgängig verantwortet: SLAs und Eskalationen für eine global tätige Investmentbank, zwei internationale Telekommunikationsanbieter und einen großen IT-Dienstleister. Im Presales kamen Solution Designs und Angebote für einen globalen Automobilhersteller, einen multinationalen Chemiekonzern, einen deutschen Versicherer und eine europäische Bank dazu, außerdem Infrastrukturprojekte für eine europäische Handelsgruppe und einen global tätigen Versicherungsmakler.',
-    'That kind of work gets judged on profitability, billing volume, escalation rates and transition quality, not on how interesting the architecture is. It is where I learned to explain a technical position to the people who sign the contract.': 'Gemessen wird diese Arbeit an Profitabilität, Abrechnungsvolumen, Eskalationsquoten und Übergabequalität, nicht an der Eleganz der Architektur. Dort habe ich gelernt, einen technischen Standpunkt so zu vertreten, dass ihn auch derjenige nachvollzieht, der am Ende unterschreibt.',
     'Research and engineering': 'Forschung und Engineering',
     'I also publish peer-reviewed work on cyber risk, systems security and database systems, and I build the systems behind it: a database engine, an XDR platform, an evidence engine for edge telemetry, and a set of shipped iOS and macOS apps.': 'Daneben veröffentliche ich peer-reviewte Arbeiten zu Cyber-Risiko, Systemsicherheit und Datenbanksystemen und entwickle die zugehörigen Systeme: eine Datenbank-Engine, eine XDR-Plattform, eine Evidence-Engine für Edge-Telemetrie sowie mehrere veröffentlichte iOS- und macOS-Apps.',
-    'Writing papers has made me stricter about saying what a result actually shows and what it does not.': 'Wissenschaftliches Arbeiten verlangt, genau zu benennen, wie weit ein Ergebnis trägt und wo es aufhört. Diese Genauigkeit nehme ich in Projekte mit.',
     'Understand the problem first': 'Erst das Problem klären',
     'Work out which parts are requirements and which are assumptions, before quoting a solution or a price.': 'Bevor ich eine Lösung oder einen Preis zusage, trenne ich sauber zwischen dem, was gefordert ist, und dem, was wir bislang nur annehmen.',
     'Design for how it will be run': 'Für den Betrieb bauen',
@@ -197,7 +222,6 @@
     'Say what is not proven': 'Offenlegen, was offen ist',
     'A prototype, a tested result and a proposal are three different things, and I say which one it is.': 'Zwischen Prototyp, belastbarem Ergebnis und bloßem Vorschlag liegen Welten. Ich schreibe jeweils dazu, worum es sich handelt.',
     'What I work on': 'Woran ich arbeite',
-    'The areas where the delivery roles, the engineering and the research actually overlap.': 'Hier überschneiden sich Delivery, Engineering und Forschung am stärksten.',
     'Delivery': 'Delivery',
     'Service delivery & ITSM': 'Service Delivery & ITSM',
     'ITIL-based service ownership, SLAs and KPIs, service reviews, escalation management, and transition into steady-state operations.':
@@ -207,21 +231,16 @@
       'PRINCE2 und agile Delivery, Budget- und Risikosteuerung, Stakeholder-Kommunikation sowie Koordination über Dienstleister und interne Teams hinweg.',
     'Systems': 'Systeme',
     'Infrastructure & platforms': 'Infrastruktur & Plattformen',
-    'Rust, C/C++, databases, storage, protocols, 3rd-level support, DevOps-adjacent release and deployment work.':
-      'Rust, C/C++, Datenbanken, Storage, Protokolle, 3rd-Level-Support sowie DevOps-nahe Release- und Deployment-Arbeit.',
     'Security': 'Security',
     'Security & assurance': 'Security & Assurance',
     'Threat detection, network defence, IAM, digital forensics basics, risk analysis, and reproducible technical evidence.':
       'Threat Detection, Network Defence, IAM, Grundlagen der digitalen Forensik, Risikoanalyse und nachvollziehbare technische Nachweise.',
     'Commercial': 'Kommerziell',
     'Presales & solution design': 'Presales & Solution Design',
-    'Bid architecture, cost and governance models, customer presentations, and translating requirements into a defensible offer.':
-      'Angebotsarchitektur, Kosten- und Governance-Modelle, Kundenpräsentationen und die Überführung von Anforderungen in ein belastbares Angebot.',
     'Research engineering': 'Research Engineering',
     'Literature synthesis, experimental design, academic writing, peer review, and explicit limits on what a prototype proves.':
       'Literaturarbeit, Versuchsdesign, wissenschaftliches Schreiben, Peer Review und die klare Grenze dessen, was ein Prototyp belegt.',
     'Numbers from the job': 'Belegte Zahlen',
-    'Each of these was tracked by the business, not compiled for this page.': 'Diese Zahlen wurden im Unternehmen erfasst, nicht für diese Seite zusammengestellt.',
     'Won enterprise solution deals': 'Gewonnene Enterprise-Abschlüsse',
     'Lead Deal Architect and presales project manager at Getronics Germany. I wrote the architecture, cost, risk and governance concepts for DAX-listed and international corporate accounts.': 'Lead Deal Architect und Presales-Projektmanager bei Getronics Germany. Ich habe die Architektur-, Kosten-, Risiko- und Governance-Konzepte für DAX-notierte und internationale Konzernkunden erstellt.',
     'Profit on a service portfolio': 'Profit auf einem Serviceportfolio',
@@ -249,7 +268,6 @@
 
     /* ---- experience page ---- */
     'Fifteen years of services that had to run.': 'Fünfzehn Jahre Services, die laufen mussten.',
-    'Service delivery and account ownership, presales solution architecture, team leadership in D-A-CH, project management and hands-on 3rd-level infrastructure work. The clients came from banking, telecoms, manufacturing, insurance and healthcare software.': 'Service Delivery und Kundenverantwortung, Presales-Solution-Architektur, Teamleitung in D-A-CH, Projektmanagement und praktische 3rd-Level-Infrastrukturarbeit. Die Kunden kamen aus Banking, Telekommunikation, Industrie, Versicherung und Healthcare-Software.',
     'Largest account base': 'Größter Kundenstamm',
     '£3M monthly revenue': '3 Mio. £ Monatsumsatz',
     'Team leadership': 'Teamführung',
@@ -257,18 +275,14 @@
     'Current role': 'Aktuelle Rolle',
     'IT Administrator, nursIT': 'IT-Administrator, nursIT',
     'Current work': 'Aktuelle Tätigkeit',
-    'Healthcare software operations, with the research running alongside.': 'Healthcare-Softwarebetrieb, die Forschung läuft parallel dazu.',
     'IT Administrator': 'IT-Administrator',
     'Healthcare software, Germany': 'Healthcare-Software, Deutschland',
-    '3rd-level application support and DevOps-adjacent release and operations topics.':
-      '3rd-Level-Application-Support sowie DevOps-nahe Release- und Betriebsthemen.',
     'Fault analysis, reproduction, log and data inspection, and coordination with development.':
       'Fehleranalyse, Reproduktion, Log- und Datenprüfung sowie Abstimmung mit der Entwicklung.',
     'FHIR R4, SQL and REST integration logic, plus test, release and customer coordination.':
       'FHIR R4, SQL und REST-Integrationslogik sowie Test-, Release- und Kundenkoordination.',
     'healthcare interop': 'Healthcare-Interoperabilität',
     'application support': 'Application Support',
-    'Research & academic development — MPhil track': 'Forschung & akademische Weiterbildung (MPhil)',
     'Independent, Sri Lanka': 'Eigenständig, Sri Lanka',
     'Focused academic phase Apr 2025 – Jan 2026; continued alongside employment since.':
       'Akademische Schwerpunktphase Apr 2025 – Jan 2026; seitdem berufsbegleitend fortgeführt.',
@@ -382,7 +396,6 @@
     /* ---- academic page ---- */
     'Academic record & certifications': 'Studium & Zertifizierungen',
     'Degrees, research and certifications.': 'Abschlüsse, Forschung und Zertifizierungen.',
-    'A computer-science degree completed summa cum laude at a 3.91 GPA, with seven President’s List awards, and an earlier First Class business degree. Alongside it: cybersecurity research on an MPhil track, peer-review work, and fourteen professional certifications.': 'Ein mit summa cum laude abgeschlossenes Informatikstudium mit einem GPA von 3,91 und sieben President’s-List-Auszeichnungen, dazu ein früherer Wirtschaftsabschluss mit First Class. Dazu Cybersecurity-Forschung Richtung MPhil, Peer-Review-Arbeit und vierzehn berufliche Zertifizierungen.',
     'Latest degree': 'Letzter Abschluss',
     'B.Sc. Computer Science': 'B.Sc. Informatik',
     'Standing': 'Leistungsstand',
@@ -393,8 +406,6 @@
     '14 held': '14 vorhanden',
     'Degrees and research preparation': 'Abschlüsse und Forschungsvorbereitung',
     'Current and completed academic work, most recent first.': 'Laufende und abgeschlossene akademische Arbeit, neueste zuerst.',
-    'University of the People, Pasadena, California · currently enrolled.':
-      'University of the People, Pasadena, Kalifornien · aktuell eingeschrieben.',
     'University of the People, Pasadena, California · completed.':
       'University of the People, Pasadena, Kalifornien · abgeschlossen.',
     'Pre-doctoral research preparation — Cybersecurity (MPhil track)':
@@ -421,11 +432,8 @@
     'ShieldLink opened issue 5(2) of the International Journal of Research in Computing as the lead article.':
       'ShieldLink eröffnete Ausgabe 5(2) des International Journal of Research in Computing als Leitartikel.',
     'Professional certifications': 'Berufliche Zertifizierungen',
-    'Fourteen certifications spanning service delivery, project and agile methods, security, and cloud.':
-      'Vierzehn Zertifizierungen aus Service Delivery, Projekt- und agilen Methoden, Security und Cloud.',
     'AWS Solutions Architect — course completion': 'AWS Solutions Architect — Kursabschluss',
     'Applied competencies': 'Angewandte Kompetenzen',
-    'Where the training actually gets used.': 'Wo die Ausbildung tatsächlich zum Einsatz kommt.',
     'Project & product methods': 'Projekt- & Produktmethoden',
     'Systems & operations': 'Systeme & Betrieb',
     'SLA / KPI management': 'SLA-/KPI-Management',
@@ -446,7 +454,6 @@
     'Risk analysis': 'Risikoanalyse',
     'Security documentation': 'Security-Dokumentation',
     'Academic service': 'Akademischer Dienst',
-    'Review and research practice': 'Review- und Forschungspraxis',
     'Academic activity beyond degree work.': 'Akademische Tätigkeit über das Studium hinaus.',
     'Peer review': 'Peer Review',
     'Reviewer for the 6th Student Symposium of the Faculty of Computing at General Sir John Kotelawala Defence University in 2025.':
@@ -469,7 +476,7 @@
     /* ---- projects page ---- */
     'Project portfolio': 'Projektportfolio',
     'Twenty-two projects, twenty of them public.': 'Zweiundzwanzig Projekte, zwanzig davon öffentlich.',
-    'Seven research systems: a database engine, an XDR platform, distributed storage, an evidence engine, secure file delivery and a programming language, plus a Python workbench for connectome pharmacology. Then seven Apple-platform apps, two developer tools and six games, two of which are still in development. The released ones are public and versioned, and the code or the release is there to look at.': 'Sieben Forschungssysteme: eine Datenbank-Engine, eine XDR-Plattform, verteilter Speicher, eine Evidence-Engine, sichere Dateizustellung und eine Programmiersprache, dazu eine Python-Workbench für Konnektom-Pharmakologie. Außerdem sieben Apple-Anwendungen, zwei Entwickler-Tools und sechs Spiele, zwei davon noch in Entwicklung. Die veröffentlichten sind öffentlich und versioniert; Code beziehungsweise Release sind einsehbar.',
+    'Seven research systems: a database engine, an XDR platform, distributed storage, an evidence engine, secure file delivery and a programming language, plus a Python workbench for connectome pharmacology. Then seven Apple-platform apps, two developer tools and six games, two of which are still in development. Each released project links to its source code, a demo or its release page.': 'Sieben Forschungssysteme: eine Datenbank-Engine, eine XDR-Plattform, verteilter Speicher, eine Evidence-Engine, sichere Dateizustellung und eine Programmiersprache, dazu eine Python-Umgebung für Konnektom-Pharmakologie. Außerdem sieben Apple-Apps, zwei Entwickler-Tools und sechs Spiele, zwei davon noch in Entwicklung. Für veröffentlichte Projekte verlinke ich den Quellcode, eine Demo oder die Release-Seite.',
     'Publications behind the work': 'Publikationen dahinter',
     'Discuss a project': 'Projekt besprechen',
     '20 public': '20 öffentlich',
@@ -561,8 +568,6 @@
     /* ---- publications page ---- */
     'Publications and public research.': 'Publikationen und öffentliche Forschung.',
     'Publications and public research': 'Publikationen und öffentliche Forschung',
-    'A concise academic record of journal articles and public preprints, reconciled against the public ORCID Works profile. Each entry is classified by its current publication status and links directly to its DOI, public record, or project context.':
-      'Ein kompakter akademischer Nachweis aus Fachartikeln und öffentlichen Preprints, abgeglichen mit dem öffentlichen ORCID-Works-Profil. Jeder Eintrag ist nach aktuellem Publikationsstatus klassifiziert und verlinkt direkt auf DOI, öffentlichen Nachweis oder Projektkontext.',
     'Public records': 'Öffentliche Nachweise',
     'Record source': 'Quelle des Nachweises',
     'Full publication list': 'Vollständige Publikationsliste',
@@ -574,7 +579,6 @@
     'All · 12': 'Alle · 12',
     'Journal · 4': 'Fachartikel · 4',
     'Preprint · 8': 'Preprint · 8',
-    'Research alongside systems work': 'Forschung neben der Systemarbeit',
     'The publication record is complementary to the implementation portfolio: project pages show system scope and evidence boundaries, while this page keeps the academic record in one recruiter-friendly view.':
       'Publikationen und Projekte ergänzen sich: Die Projektseiten zeigen Umfang und Aussagekraft der Systeme, diese Seite bündelt den akademischen Teil an einer Stelle.',
     'Explore the systems and research projects or review the academic background behind the record.':
@@ -583,12 +587,8 @@
 
     /* ---- contact page ---- */
     'Recruiting · collaboration · research': 'Recruiting · Zusammenarbeit · Forschung',
-    'For service delivery and project roles, systems or security engineering, research questions, or project collaboration, the form below is the most direct route. Typical response time is within 72 hours.':
-      'Für Rollen in Service Delivery und Projektmanagement, Systems- oder Security-Engineering, für Forschungsfragen oder Projektzusammenarbeit ist das Formular unten der direkteste Weg. Ich antworte in der Regel innerhalb von 72 Stunden.',
     'Direct channels': 'Direkte Wege',
     'Choose the route that fits.': 'Wählen Sie den passenden Weg.',
-    'The form works best for role details, a project brief, or a specific technical question. LinkedIn is useful for an initial professional introduction.':
-      'Das Formular eignet sich am besten für Rollendetails, ein Projektbriefing oder eine konkrete technische Frage. LinkedIn passt für eine erste berufliche Kontaktaufnahme.',
     'For a role, it helps if the first message names the position and the working model. A full CV is available on request.': 'Bei einer Stellenanfrage hilft es, wenn schon die erste Nachricht Position und Arbeitsmodell nennt. Einen vollständigen Lebenslauf schicke ich auf Anfrage zu.',
     'Inspect work ↗': 'Arbeit ansehen ↗',
     'Connect ↗': 'Vernetzen ↗',
@@ -638,7 +638,7 @@
     },
     'academic.html': {
       title: 'Studium & Zertifizierungen — Michél Nguyen',
-      description: 'Akademischer Nachweis von Michél Nguyen: B.Sc. Informatik summa cum laude (GPA 3,91), sieben President’s-List-Auszeichnungen, B.A. First Class, Cybersecurity-Forschungsvorbereitung und 14 Zertifizierungen.'
+      description: 'Akademischer Nachweis von Michél Nguyen: B.Sc. Informatik summa cum laude (GPA 3,91), sieben President’s-List-Auszeichnungen, B.A. First Class, Forschungsvorbereitung in Cybersicherheit und 13 Zertifizierungen.'
     },
     'publications.html': {
       title: 'Publikationen — Michél Nguyen',
