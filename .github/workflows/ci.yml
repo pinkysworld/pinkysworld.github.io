@@ -32,7 +32,7 @@ jobs:
       - name: Atom feed matches papers/
         run: node tools/build-feed.mjs --check
 
-      - name: Recurring facts are consistent (CONTENT_FACTS.md)
+      - name: Recurring facts are consistent (docs/editorial/CONTENT_FACTS.md)
         run: node tools/check-facts.mjs
 
       - name: No third-party font or ad references

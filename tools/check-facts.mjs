@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Guards the recurring facts listed in CONTENT_FACTS.md. Each rule either
+// Guards the recurring facts listed in docs/editorial/CONTENT_FACTS.md. Each rule either
 // forbids a stale value or pins every occurrence of a fact to one value, so
 // a page edited by hand cannot drift from the rest of the site.
 //
@@ -71,7 +71,7 @@ for (const f of files) {
 
 if (problems.length) {
   console.error(problems.join('\n'));
-  console.error(`\n${problems.length} fact check(s) failed. See CONTENT_FACTS.md.`);
+  console.error(`\n${problems.length} fact check(s) failed. See docs/editorial/CONTENT_FACTS.md.`);
   process.exit(1);
 }
 console.log(`facts consistent across ${files.length} files`);

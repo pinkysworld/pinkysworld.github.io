@@ -4,7 +4,7 @@ The recurring numbers and status lines on minh.systems, with where each one come
 `node tools/check-facts.mjs` (also run in CI) fails if a page drifts from these values.
 
 Status: **verified** = checked against a primary source on the date given ·
-**owner** = stated by Michél, no document in the repo · **open** = see `UNVERIFIED_CLAIMS.md`.
+**owner** = stated by Michél, no document in the repo · **open** = see `UNVERIFIED_CLAIMS.md` in this folder.
 
 ## Academic
 
