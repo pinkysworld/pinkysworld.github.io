@@ -4,7 +4,7 @@
 html{background:var(--paper)}
 body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 Inter,system-ui,-apple-system,"Segoe UI",sans-serif}
 .lg{max-width:760px;margin:0 auto;padding:40px 16px 72px}
-.lg-logo img{display:block;width:240px;height:auto;margin:0 0 24px -12px}
+.lg-logo img{display:block;width:320px;max-width:85vw;height:auto;margin:0 0 28px -12px}
 .lg section{padding:24px 0;border-top:1px solid var(--line)}
 .lg h1{font-size:30px;font-weight:600;letter-spacing:-.02em;margin:8px 0 12px}
 .lg h2{font-size:17px;font-weight:600;margin:26px 0 6px}
