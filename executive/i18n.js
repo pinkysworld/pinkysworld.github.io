@@ -143,6 +143,8 @@
     'Publications': 'Publikationen',
     'Contact': 'Kontakt',
     'Get in touch': 'Kontakt aufnehmen',
+    'Looking for my game studio?': 'Ihr sucht mein Spielestudio?',
+    'Visit Minh Nguyen Studios ↗': 'Zu Minh Nguyen Studios ↗',
     'Public record': 'Öffentliche Profile',
     'Service delivery & project management': 'Service Delivery & Projektmanagement',
     'Applied computer-science research': 'Angewandte Informatikforschung',
