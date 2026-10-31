@@ -8,3 +8,4 @@ User-agent: SemrushBot
 Disallow: /
 
 Sitemap: https://minh.systems/sitemap.xml
+Sitemap: https://minh.systems/Monatsklar/sitemap.xml
