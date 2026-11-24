@@ -71,15 +71,20 @@
   </div>
 </main>
 <script>
-  // Project sites are case-sensitive on GitHub Pages: send any casing to the real path.
+  // Project sites are case-sensitive on GitHub Pages, and some apps were renamed:
+  // map the first path segment (any casing) to the live path.
   (function(){
-    var sites=['MinhNguyenStudios','Kontor'], p=location.pathname, seg=p.split('/')[1]||'';
-    for(var i=0;i<sites.length;i++){
-      if(seg.toLowerCase()===sites[i].toLowerCase() && seg!==sites[i]){
-        location.replace('/'+sites[i]+p.slice(seg.length+1)+location.search+location.hash);
-        return;
-      }
-    }
+    var map={
+      'minhnguyenstudios':'/MinhNguyenStudios/','kontor':'/Kontor/',
+      'stillsort':'/LittleKeepings/','kindlykept':'/LittleKeepings/','littlekeepings':'/LittleKeepings/',
+      'violinenstimmer':'/Violinen-Stimmer/','violinstimmer':'/Violinen-Stimmer/','violinen-stimmer':'/Violinen-Stimmer/',
+      'apps':'/MinhNguyenStudios/apps/','lancetlinen':'/lancetlinengame/'
+    };
+    var p=location.pathname, seg=p.split('/')[1]||'', t=map[seg.toLowerCase()];
+    if(!t) return;
+    var rest=p.slice(seg.length+2), base=t.replace(/\/$/,'');
+    if(('/'+seg)===base) return; // already the real path
+    location.replace(t+rest+location.search+location.hash);
   })();
 </script>
 <script>
