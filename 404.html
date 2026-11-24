@@ -71,6 +71,18 @@
   </div>
 </main>
 <script>
+  // Project sites are case-sensitive on GitHub Pages: send any casing to the real path.
+  (function(){
+    var sites=['MinhNguyenStudios','Kontor'], p=location.pathname, seg=p.split('/')[1]||'';
+    for(var i=0;i<sites.length;i++){
+      if(seg.toLowerCase()===sites[i].toLowerCase() && seg!==sites[i]){
+        location.replace('/'+sites[i]+p.slice(seg.length+1)+location.search+location.hash);
+        return;
+      }
+    }
+  })();
+</script>
+<script>
   // Echo the path the visitor actually requested. textContent, never innerHTML.
   document.getElementById('path').textContent = location.pathname + location.search;
 </script>
